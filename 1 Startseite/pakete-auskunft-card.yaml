@@ -1,0 +1,28 @@
+type: markdown
+content: |
+  {% if state_attr('sensor.17track_unterwegs', 'packages') | length > 0 %}
+    **Paketauskunft:**  
+    {% for package in state_attr('sensor.17track_unterwegs', 'packages') %}
+      >> Paket: {{ package['friendly_name'] if package['friendly_name'] else ' ' }}
+        - Status: {{ package['status'] if package['status'] else 'Keine Angabe' }} - {{ package['timestamp'] if package['timestamp'] else 'Unbekannt' }}   
+        - Ort: {{ package['location'] if package['location'] else 'Unbekannt' }}  
+        - Info: {{ package['info_text'] if package['info_text'] else 'Keine Information' }}  
+        - Tracking Nr.: {{ package['tracking_number'] }}  
+    {% endfor %}
+  {% else %}
+    **Es sind keine Pakete unterwegs.**
+  {% endif %}
+style: |
+  ha-card {
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;
+  }
+  code, pre {
+    background-color: transparent !important; /* Verhindert den Hintergrund für Codeblöcke */
+    border-radius: 3px; /* Optional: abgerundete Ecken */
+  }
+visibility:
+  - condition: numeric_state
+    entity: sensor.17track_unterwegs
+    above: 0
