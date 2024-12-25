@@ -28,13 +28,16 @@ Um das Topmenü auszublenden nutze ich den Kiosk Mode von HACS.
 Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
 Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbeitungsmodus für das Dashboard ist.
 
-kiosk_mode:
-  mobile_settings:
-    hide_header: true
-    ignore_entity_settings: true
-    custom_width: 1280
+```bash
+  kiosk_mode:
+    mobile_settings:
+      hide_header: true
+      ignore_entity_settings: true
+      custom_width: 1280
+```
 
-## Sourcecode Yaml
+
+## 👩‍💻 Sourcecode Yaml
 
 <div align="left">
   <img width="12" />
