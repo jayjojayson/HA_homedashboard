@@ -1,0 +1,164 @@
+type: custom:stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      padding: 10px;
+    }
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: binary_sensor.fenster_terasse_nord_offnung
+        vertical: true
+        hide_state: true
+        name: Terasse Nord
+        icon: mdi:window-open-variant
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+            }
+      - type: tile
+        entity: binary_sensor.fenster_terasse_sud_offnung
+        vertical: true
+        hide_state: true
+        name: Terasse Süd
+        icon: mdi:window-open-variant
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+            }
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: binary_sensor.fenster_schlafzimmer_offnung
+        vertical: true
+        hide_state: true
+        name: Schlafzimmer
+        icon: mdi:window-maximize
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+            }
+      - type: tile
+        entity: binary_sensor.fenster_bad_offnung
+        vertical: true
+        hide_state: true
+        name: Badezimmer
+        icon: mdi:window-open-variant
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+            }
+  - type: custom:mod-card
+    card:
+      type: custom:mushroom-template-card
+      card_mod:
+        style: |
+          ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: binary_sensor.fenster_terrasse_offnung_2
+        vertical: true
+        hide_state: true
+        name: Terrasse Mutti
+        icon: mdi:window-open-variant
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+            }
+      - type: tile
+        entity: binary_sensor.fenster_terrasse_offnung_2
+        vertical: true
+        hide_state: true
+        name: Wohnzimmer
+        icon: mdi:window-maximize
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+            }
+      - type: tile
+        entity: binary_sensor.fenster_terrasse_offnung_2
+        vertical: true
+        hide_state: true
+        name: Schlafzimmer
+        icon: mdi:window-maximize
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+            }
+  - type: custom:mod-card
+    card:
+      type: custom:mushroom-template-card
+      card_mod:
+        style: |
+          ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+  - type: horizontal-stack
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Fensterstatus
+          card_mod:
+            style: |
+              ha-card {
+                background: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+              }
+        filter:
+          include:
+            - entity_id: binary_sensor.fenster_*
+          exclude:
+            - state: "off"
+        sort:
+          method: name

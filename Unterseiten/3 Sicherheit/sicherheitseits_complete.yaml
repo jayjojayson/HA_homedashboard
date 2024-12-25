@@ -1,0 +1,524 @@
+title: Sicherheit
+path: sicherheit
+type: sections
+max_columns: 3
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Bewegungsmelder
+        heading_style: title
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              padding: 10px;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: lock.hauseingang
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                    }
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.hofkamera_bewegung
+                vertical: true
+                hide_state: true
+                name: Hofkamera
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.bewegungsmelder_garage_bewegung
+                vertical: true
+                hide_state: true
+                name: Garage
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.bewegungmelde_terasse_sud_bewegung_2
+                vertical: true
+                hide_state: true
+                name: Terrasse Süd
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.poolkamera_bewegung
+                vertical: true
+                hide_state: true
+                name: Poolkamera
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              padding: 10px;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.bewegungsmelder_flur_mutti_bewegung
+                name: Flur Mutti
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                    }
+              - type: tile
+                entity: binary_sensor.bewegungsmelder_flur_mutti_bewegung
+                name: Treppe Mutti
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                    }
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.bewegungsmelder_bad_bewegung
+                name: Bad
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                    }
+              - type: tile
+                entity: binary_sensor.bewegungsmelder_flur_bewegung
+                name: Flur
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                    }
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }            
+          - type: horizontal-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  title: Bewegungsstatus
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-radius: 0px !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        text-align: center !important;
+                      }
+                filter:
+                  include:
+                    - entity_id: binary_sensor.bewegung*
+                  exclude:
+                    - state: "off"
+                sort:
+                  method: name
+    column_span: 1
+  - type: grid
+    cards:
+      - type: heading
+        heading: Sicherheit
+        heading_style: title
+      - type: custom:stack-in-card
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:digital-clock
+                dateFormat:
+                  weekday: long
+                  day: 2-digit
+                  month: short
+                  year: numeric
+                timeFormat:
+                  hour: 2-digit
+                  minute: 2-digit
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      padding-top: 15px !important;
+                    }
+              - type: custom:mod-card
+                card:
+                  type: custom:mushroom-template-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      }
+              - type: alarm-panel
+                states:
+                  - arm_home
+                  - arm_away
+                entity: alarm_control_panel.alarmanlage_buro
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+              - type: custom:mod-card
+                card:
+                  type: custom:mushroom-template-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      }
+          - type: custom:stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 10px;
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 5px !important;
+                }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: picture-entity
+                    show_state: false
+                    show_name: false
+                    camera_view: auto
+                    entity: camera.hofkamera_fliessend
+                    image: https://demo.home-assistant.io/stub_config/bedroom.png
+                    camera_image: camera.hofkamera_fliessend
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 5px !important;
+                        }
+                  - type: picture-entity
+                    show_state: false
+                    show_name: false
+                    camera_view: auto
+                    entity: camera.lenovo_tab_m10_3rd_gen
+                    image: https://demo.home-assistant.io/stub_config/bedroom.png
+                    camera_image: camera.lenovo_tab_m10_3rd_gen
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 5px !important;
+                        }
+                  - type: picture-entity
+                    show_state: false
+                    show_name: false
+                    camera_view: auto
+                    entity: camera.poolkamera_fliessend
+                    image: https://demo.home-assistant.io/stub_config/bedroom.png
+                    camera_image: camera.poolkamera_fliessend
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 5px 5px 30px 5px !important; /* Nur unten rechts */
+                        }
+      - type: picture
+        image: /local/doorbell/latest.jpg?rand={{ (range(10000)|random) }}
+    column_span: 1
+  - type: grid
+    cards:
+      - type: heading
+        heading: Fenster
+        heading_style: title
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              padding: 10px;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.fenster_terasse_nord_offnung
+                vertical: true
+                hide_state: true
+                name: Terasse Nord
+                icon: mdi:window-open-variant
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.fenster_terasse_sud_offnung
+                vertical: true
+                hide_state: true
+                name: Terasse Süd
+                icon: mdi:window-open-variant
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.fenster_schlafzimmer_offnung
+                vertical: true
+                hide_state: true
+                name: Schlafzimmer
+                icon: mdi:window-maximize
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.fenster_bad_offnung
+                vertical: true
+                hide_state: true
+                name: Badezimmer
+                icon: mdi:window-open-variant
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
+          - type: horizontal-stack
+            cards:
+              - type: tile
+                entity: binary_sensor.fenster_terrasse_offnung_2
+                vertical: true
+                hide_state: true
+                name: Terrasse Mutti
+                icon: mdi:window-open-variant
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.fenster_terrasse_offnung_2
+                vertical: true
+                hide_state: true
+                name: Wohnzimmer
+                icon: mdi:window-maximize
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                    }
+              - type: tile
+                entity: binary_sensor.fenster_terrasse_offnung_2
+                vertical: true
+                hide_state: true
+                name: Schlafzimmer
+                icon: mdi:window-maximize
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
+          - type: horizontal-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  title: Fensterstatus
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-radius: 0px !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        text-align: center !important;
+                      }
+                filter:
+                  include:
+                    - entity_id: binary_sensor.fenster_*
+                  exclude:
+                    - state: "off"
+                sort:
+                  method: name
+background:
+  image: /api/image/serve/b04abd948e4be1170909a7094f679a99/original
+cards: []
+icon: mdi:cctv
+subview: true
