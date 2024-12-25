@@ -1,0 +1,250 @@
+type: custom:stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      padding: 5px;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:mod-card
+        card:
+          type: horizontal-stack
+          cards:
+            - type: tile
+              entity: switch.licht_garage_wohnzimmer_licht_garage_ch2
+              tap_action:
+                action: toggle
+              name: Garagenlicht
+              icon: mdi:coach-lamp
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }        
+            - type: tile
+              entity: switch.aussenlicht
+              tap_action:
+                action: toggle
+              icon: mdi:led-strip-variant
+              name: Außenlicht
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  } 
+            - type: tile
+              entity: switch.weihnachtslicht_steckdose_1
+              name: Christmaslicht
+              icon: mdi:string-lights
+              tap_action:
+                action: toggle
+              hide_state: true
+              vertical: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }        
+            - type: tile
+              entity: switch.poollicht_steckdose_1
+              icon: mdi:light-flood-down
+              tap_action:
+                action: toggle
+              name: Poollicht
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 0px !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }     
+    card_mod:
+      style: |
+        ha-card {
+          border: none;
+          border-top-right-radius: 0px !important;          
+          border-top-left-radius: 0px !important;
+        }
+  - type: custom:mod-card
+    card:
+      type: custom:mushroom-template-card
+      card_mod:
+        style: |
+          ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey;
+            margin-left: 20px;
+            margin-right: 20px;
+          }  
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:mod-card
+        card:
+          type: horizontal-stack
+          cards:
+            - type: tile
+              entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
+              name: Terr. Nord
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }        
+            - type: tile
+              entity: light.terrasse_sud_rgb_ww_cw
+              name: Terr. Süd
+              tap_action:
+                action: toggle
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  } 
+            - type: tile
+              entity: light.terrasse_sud_rgb_ww_cw_2
+              name: Terr. Süd
+              tap_action:
+                action: toggle
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }       
+            - type: tile
+              entity: light.terrasse_mutti_leuchte
+              tap_action:
+                action: toggle
+              name: Terr. Mutti
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 0px !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }     
+    card_mod:
+      style: |
+        ha-card {
+          border: none;
+          border-top-right-radius: 0px !important;          
+          border-top-left-radius: 0px !important;
+        }

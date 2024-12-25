@@ -1,0 +1,74 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: custom:mini-graph-card
+    entities:
+      - sensor.starkvind_luftreiniger_pm2_5
+    name: Luftqualität
+    hours_to_show: 10
+    points_per_hour: 0.25
+    refresh_interval: 5
+    height: 80
+    show:
+      labels: true
+      name: false
+      state: false
+      icon: false
+    line_color: var(--line-color)
+    card_mod:
+      style: |
+        ha-card {
+          background-color: rgba(22,22,22, 0);
+          --line-color: {{ states('sensor.luftquality_line_color') }};
+        }
+  - type: custom:button-card
+    tap_action:
+      action: call-service
+      service: fan.toggle
+      service_data:
+        entity_id: fan.starkvind_luftreiniger_ventilator
+    styles:
+      card:
+        - background-color: rgba(22,22,22, 0.1)
+        - text-align: center
+        - border: none
+        - border-radius: 0px
+        - padding: 10px
+        - "--primary-text-color": |
+            [[[
+              if (states['sensor.luftquality_color'].state === 'green') return 'green';
+              if (states['sensor.luftquality_color'].state === 'yellow') return 'yellow';
+              if (states['sensor.luftquality_color'].state === 'orange') return 'orange';
+              return 'red';
+            ]]]
+    name: |
+      [[[
+        const quality = states['sensor.starkvind_luftreiniger_pm2_5'].state;
+        const fanState = states['fan.starkvind_luftreiniger_ventilator'].state === 'on' 
+          ? '<ha-icon icon="mdi:fan-auto" style="width: 20px; height: 20px; margin-left: 5px; vertical-align: top; color: var(--primary-color);"></ha-icon>' 
+          : '';
+        return `Luftqualität - ${quality} µg/m³ ${fanState}`;
+      ]]]
+  - type: entities
+    entities:
+      - entity: sensor.wandthermostat_jan_temperatur
+        name: Wandthermostat Jan
+        tap_action:
+          action: navigate
+          navigation_path: "#heizung"
+      - entity: sensor.wandthermostat_jan_luftfeuchtigkeit
+        name: Wandthermostat Jan Luftfeuchte
+      - entity: sensor.werkstatt_thermostat_temperatur
+        name: Werkstatt Temperatur
+      - entity: sensor.wandthermostat_mutti_temperatur
+        name: Wandthermostat Mutti
+        tap_action:
+          action: navigate
+          navigation_path: "#heizungmutti"
+      - entity: sensor.wandthermostat_mutti_luftfeuchtigkeit
+        name: Wandthermostat Mutti Luftfeuchte
+    theme: grey-icon
+    card_mod:
+      style: |
+        ha-card {
+          background-color: rgba(22,22,22, 0);
+        }

@@ -1,0 +1,237 @@
+title: Garten
+path: garten
+icon: mdi:pool
+type: sections
+background:
+  image: /api/image/serve/ebe98ffd5a0a6e0bbd3d22360b6aeb6d/original
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Mähroboter Landroid
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/robter-steuerung
+      - type: entities
+        entities:
+          - entity: lawn_mower.worxm700
+            name: Aktuell
+          - entity: sensor.worxm700_next_scheduled_start
+            name: Nächster Start
+          - entity: sensor.worxm700_battery
+            name: Akku
+          - entity: sensor.worxm700_battery_temperature
+            name: Akku Temperatur
+          - entity: button.worxm700_start_cutting_edge
+            name: Ecken schneiden
+        theme: grey-icon
+        state_color: true
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(22, 22, 22, 0.3);
+            }
+  - type: grid
+    cards:
+      - type: heading
+        heading: Growstation
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/growstation
+      - type: entities
+        entities:
+          - entity: switch.growlampe_steckdose_1
+            name: Growlampe
+            secondary_info: last-updated
+            icon: mdi:dome-light
+          - entity: switch.lufter
+            name: Zu-/Abluft über 58%
+            icon: mdi:fan
+            secondary_info: last-updated
+          - entity: switch.innenlufter_shellyplug_switch_0
+            name: Innenlüfter
+            secondary_info: last-updated
+            icon: mdi:fan-clock
+          - entity: sensor.growstation_temperature
+            name: Temperatur
+            secondary_info: last-changed
+          - entity: sensor.growstation_humidity
+            name: Luftfeuchtigkeit
+            secondary_info: last-updated
+        state_color: true
+        theme: grey-icon
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(22, 22, 22, 0.3);
+            }
+  - type: grid
+    cards:
+      - type: heading
+        heading: Pool Extras
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/solar
+      - type: entities
+        entities:
+          - entity: switch.hauptpumpe_shelly_plug_switch_0
+            name: Hauptpumpe
+            icon: mdi:waves-arrow-left
+            secondary_info: last-changed
+          - entity: switch.skimmerpumpe_shelly_plug_switch_0
+            name: Skimmer
+            secondary_info: last-changed
+            icon: mdi:waves-arrow-right
+          - entity: switch.stromungspumpen_steckdose_1
+            name: "Strömungspumpen "
+            icon: mdi:air-filter
+            secondary_info: last-changed
+          - entity: switch.wasserlauf_steckdose_1
+            name: Wasserlauf
+            icon: mdi:chart-waterfall
+            secondary_info: last-changed
+          - entity: switch.poollicht_steckdose_1
+            icon: mdi:light-flood-down
+            secondary_info: last-changed
+            name: Poollicht
+        theme: grey-icon
+        state_color: true
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(22, 22, 22, 0.3);
+            }
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Poolkamera
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/sicherheit
+      - camera_view: auto
+        type: picture-glance
+        title: Pool
+        image: https://demo.home-assistant.io/stub_config/kitchen.png
+        entities:
+          - entity: select.poolkamera_ptz_voreinstellung
+            icon: mdi:pool
+            tap_action:
+              action: call-service
+              service: select.select_option
+              service_data:
+                entity_id: select.poolkamera_ptz_voreinstellung
+                option: Poolansicht
+            icon_tap_action:
+              action: call-service
+              service: select.select_option
+              service_data:
+                entity_id: select.poolkamera_ptz_voreinstellung
+                option: Poolansicht
+          - entity: select.poolkamera_ptz_voreinstellung
+            icon: mdi:store-search
+            tap_action:
+              action: call-service
+              service: select.select_option
+              service_data:
+                entity_id: select.poolkamera_ptz_voreinstellung
+                option: Terrasse
+            icon_tap_action:
+              action: call-service
+              service: select.select_option
+              service_data:
+                entity_id: select.poolkamera_ptz_voreinstellung
+                option: Terrasse
+        camera_image: camera.poolkamera_fliessend
+  - type: grid
+    cards:
+      - type: heading
+        heading: Pooltemperatur
+        heading_style: title
+      - type: entity
+        entity: sensor.pooltemperatur_temperatur
+        state_color: false
+        name: " "
+        theme: Temps
+        card_mod:
+          style: |
+            ha-card {
+              text-align: center;
+              --primary-text-color:
+                  {% if is_state('sensor.pooltemperature_color', 'steelblue') %}
+                    steelblue
+                  {% elif is_state('sensor.pooltemperature_color', 'green') %}
+                    green
+                  {% elif is_state('sensor.pooltemperature_color', 'orange') %}
+                    orange
+                  {% else %}
+                    red
+                  {% endif %};
+            }
+            .value {
+            font-size: 45px !important; /* Ändere die Schriftgröße */
+            }
+            .info {
+            line-height: 45px !important;
+            }
+        grid_options:
+          columns: full
+          rows: 2.1
+      - type: heading
+        heading: Verlauf
+        heading_style: title
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.pooltemperatur_temperatur
+            name: Pooltemperatur
+        hours_to_show: 96
+        refresh_interval: 10
+        points_per_hour: 0.25
+        height: 120
+        show:
+          labels: true
+          name: true
+          state: false
+          icon: false
+        layout_options:
+          grid_columns: full
+          grid_rows: auto
+    column_span: 1
+  - type: grid
+    cards:
+      - type: heading
+        heading: Temperaturen
+        heading_style: title
+      - type: entities
+        entities:
+          - entity: sensor.aussentemperatur_temperatur
+          - entity: sensor.aussentemperatur_luftfeuchtigkeit
+        show_header_toggle: true
+        state_color: true
+        theme: grey-icon
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(22, 22, 22, 0.3);
+            }
+      - type: heading
+        heading: Gartenbewässerung
+        heading_style: title
+      - type: entities
+        entities:
+          - entity: switch.bewasserung
+            secondary_info: last-updated
+            name: Bewässerung starten
+            icon: mdi:sprinkler-variant
+        state_color: true
+        theme: grey-icon
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(22, 22, 22, 0.3);
+            }
+cards: []
+max_columns: 3

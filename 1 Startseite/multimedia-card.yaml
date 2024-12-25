@@ -1,0 +1,95 @@
+type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;  
+      border: none;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: none !important; 
+              padding: 15px;   
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: tile
+              entity: input_button.button_fernseher
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: TV on
+              tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: input_button.button_fernseher_off
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: TV off
+              tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: switch.fernseher_plug_schalter
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: TV Plug
+              tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }     

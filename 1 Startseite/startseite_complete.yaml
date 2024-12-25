@@ -1,0 +1,2554 @@
+title: Home
+path: home
+icon: mdi:home-assistant
+type: sections
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Wetter
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/wetter
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            grid_options:
+              columns: 6
+            cards:
+              - type: custom:digital-clock
+                dateFormat:
+                  weekday: long
+                  day: 2-digit
+                  month: short
+                  year: numeric
+                timeFormat:
+                  hour: 2-digit
+                  minute: 2-digit
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-top: 15px;
+                      min-width: 290px !important;
+                      margin-left: 20px !important; /* Platz oberhalb der Icons */
+                      margin-right: 20px !important; /* Platz oberhalb der Icons */
+                      background-color: transparent !important;
+                      color: var(--primary-color) !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      color: var(--primary-color) !important;
+                    }
+              - event_grouping: true
+                drop_todayevents_from: "08:00:00"
+                next_days: 2
+                pattern:
+                  - icon: mdi:flower
+                    color: green
+                    type: organic
+                    pattern: Biotonne
+                    image: /local/bilder/gruen.jpg
+                  - icon: mdi:newspaper
+                    color: blue
+                    type: paper
+                    pattern: Papiertonne
+                    image: /local/bilder/blau.png
+                  - icon: mdi:recycle-variant
+                    color: amber
+                    type: recycle
+                    pattern: Gelber Sack
+                    image: /local/bilder/gelb.png
+                  - icon: mdi:trash-can-outline
+                    color: grey
+                    type: waste
+                    pattern: Restabfall
+                    image: /local/bilder/schwarz.png
+                  - icon: mdi:dump-truck
+                    color: purple
+                    type: others
+                day_style: counter
+                alignment_style: center
+                color_mode: icon
+                items_per_row: 1
+                refresh_rate: 600
+                with_label: false
+                layout: vertical
+                type: custom:trash-card
+                entities:
+                  - calendar.abfall
+                filter_events: false
+                use_summary: false
+                hide_time_range: false
+                full_size: false
+                visibility:
+                  - condition: state
+                    entity: sensor.abfall_voraus_morgen
+                    state: "on"
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      color: var(--primary-color) !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      position: relative;
+                      width: 100px !important;
+                      margin-top: 3px !important; /* Platz oberhalb der Icons */
+                      margin-left: 80px !important; /* Platz oberhalb der Icons */
+                      padding-bottom: 0px !important; /* Platz unterhalb der Icons */       
+                      
+                    }
+                    .card-container {
+                        display: block !important;
+                    }
+                    /* Skaliert die Icons */
+                    .icon-container {
+                      transform: scale(1.5); /* Vergrößert nur die Icons */
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      margin-top: 10px;
+                    }
+                    /* Begrenzt den Einfluss des Scales auf den Rest */
+                    .icon-container ha-tile-image {
+                      margin: 0 !important;
+                    }
+                    /* Text kleiner machen */
+                    .content {
+                      font-size: 12px !important; /* Anpassung der Textgröße */
+                      text-align: center;
+                    }      
+          - type: custom:mushroom-chips-card
+            card_mod:
+              style: |
+                ha-card {
+                  margin: 8px !important; 
+                }
+            alignment: center
+            chips:
+              - type: entity
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      color: var(--primary-color) !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+                entity: sensor.steps_kilometer_taglich
+                icon: mdi:walk
+                content_info: state
+                name: " "
+              - type: entity
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      color: var(--blue-color) !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+                entity: person.jayjojayson
+                icon: m3of:person-4
+                content_info: name
+                name: Jan
+                visibility:
+                  - condition: state
+                    entity: person.jayjojayson
+                    state: home
+              - type: entity
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      color: var(--blue-color) !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+                entity: person.mutti
+                icon: m3of:person-2
+                content_info: name
+                name: Mutti
+                visibility:
+                  - condition: state
+                    entity: person.mutti
+                    state: home
+              - type: entity
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      color: var(--primary-color) !important;
+                      border: none !important;
+                    }
+                entity: sensor.23124ra7eo_steps_sensor
+                icon: mdi:walk
+                content_info: state
+                name: " "
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: none !important;
+            }
+        cards:
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: entity
+                    entity: sensor.aussentemperatur_temperatur
+                    name: " "
+                    state_color: false
+                    icon: none
+                    theme: Temps
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent !important;
+                          text-align: center;
+                          font-weight: bold !important; 
+                          border: none !important;
+                          border-radius: 0px !important;     
+                          padding-right: 20px !important;         
+                          padding-left: 10px !important;
+                          height: 75px !important;
+                          --primary-text-color:
+                              {% if is_state('sensor.temperature_color', 'steelblue') %}
+                                steelblue
+                              {% elif is_state('sensor.temperature_color', 'green') %}
+                                green
+                              {% elif is_state('sensor.temperature_color', 'orange') %}
+                                orange
+                              {% else %}
+                                red
+                              {% endif %};
+                              .value {
+                              font-size: 30px !important; /* Ändere die Schriftgröße */
+                              }
+                        }
+                  - type: custom:mushroom-entity-card
+                    entity: sensor.aussentemperatur_luftfeuchtigkeit
+                    tap_action:
+                      action: navigate
+                      navigation_path: "#wetter"
+                    name: " "
+                    primary_info: state
+                    secondary_info: none
+                    icon_type: none
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent !important;
+                          text-align: center;
+                          border: none !important;
+                          border-radius: 0px !important;     
+                          padding-right: 10px !important;         
+                          padding-left: 50px !important;        
+                          padding-top: 40px !important;
+                          height: 75px !important;
+                        }
+                        :host {
+                          --mush-card-primary-font-size: 25px !important;
+                          --mush-card-primary-color: steelblue !important;
+                        }
+              - type: custom:weather-chart-card
+                entity: weather.fuerstenwalde_spree
+                show_main: true
+                show_temperature: false
+                show_current_condition: false
+                show_attributes: false
+                show_time: false
+                show_time_seconds: false
+                show_day: false
+                show_date: false
+                show_humidity: false
+                show_pressure: false
+                show_wind_direction: false
+                show_wind_speed: false
+                show_sun: true
+                show_feels_like: false
+                show_dew_point: false
+                show_wind_gust_speed: false
+                show_visibility: false
+                show_last_changed: false
+                use_12hour_format: false
+                icons_size: "45"
+                animated_icons: true
+                icon_style: style1
+                autoscroll: false
+                forecast:
+                  precipitation_type: rainfall
+                  show_probability: false
+                  labels_font_size: "13"
+                  precip_bar_size: "0"
+                  style: style2
+                  show_wind_forecast: false
+                  condition_icons: true
+                  round_temp: false
+                  type: daily
+                  number_of_forecasts: "7"
+                  disable_animation: false
+                  chart_height: "160"
+                units:
+                  speed: ""
+                temp: sensor.aussentemperatur_temperatur
+                humid: sensor.aussentemperatur_humidity
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                    }
+                    .card{
+                      padding-top: 0px !important;
+                    }        
+                    .main {
+                      margin-bottom: 0px !important;
+                    }
+                    .main img {
+                      margin: 0 auto !important;
+                      margin-top: -65px !important;
+                    }
+      - type: heading
+        icon: ""
+        heading: Multimedia
+        heading_style: title
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;  
+              border: none;
+            }
+        cards:
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: none !important; 
+                      padding: 15px;   
+                    }
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV on
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher_off
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV off
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: switch.fernseher_plug_schalter
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV Plug
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }     
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  border-top-right-radius: 0px !important;          
+                  border-top-left-radius: 0px !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.wohnzimmer
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                use_media_info: true
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+              - type: custom:mushroom-chips-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-bottom: 8px !important; 
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+                alignment: center
+                chips:
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: BB Radio
+                  - type: entity
+                    entity: script.radio_fritz_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Fritz
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Radio 1
+                  - type: entity
+                    entity: >-
+                      script.radio_berliner_rundfunk_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: 91,4
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+            } ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.wohnzimmer', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.5s ease;
+            }
+        visibility:
+          - condition: state
+            entity: media_player.wohnzimmer
+            state: playing
+      - type: heading
+        icon: ""
+        heading: Müllabfuhr
+        heading_style: title
+        visibility:
+          - condition: state
+            entity: sensor.abfall_voraus_morgen
+            state: "on"
+      - event_grouping: true
+        drop_todayevents_from: "08:00:00"
+        next_days: 2
+        pattern:
+          - icon: mdi:flower
+            color: green
+            type: organic
+            pattern: Biotonne
+            image: /local/bilder/gruen.jpg
+          - icon: mdi:newspaper
+            color: blue
+            type: paper
+            pattern: Papiertonne
+            image: /local/bilder/blau.png
+          - icon: mdi:recycle-variant
+            color: amber
+            type: recycle
+            pattern: Gelber Sack
+            image: /local/bilder/gelb.png
+          - icon: mdi:trash-can-outline
+            color: grey
+            type: waste
+            pattern: Restabfall
+            image: /local/bilder/schwarz.png
+          - icon: mdi:dump-truck
+            color: purple
+            type: others
+        day_style: counter
+        alignment_style: center
+        color_mode: icon
+        items_per_row: 4
+        refresh_rate: 600
+        with_label: false
+        layout: vertical
+        type: custom:trash-card
+        entities:
+          - calendar.abfall
+        filter_events: false
+        use_summary: false
+        hide_time_range: false
+        full_size: false
+        visibility:
+          - condition: state
+            entity: sensor.abfall_voraus_morgen
+            state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              padding-top: 5px !important; /* Platz oberhalb der Icons */
+              padding-bottom: 0px !important; /* Platz unterhalb der Icons */
+            }
+            /* Skaliert die Icons */
+            .icon-container {
+              transform: scale(1.5); /* Vergrößert nur die Icons */
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 20px;
+            }
+            /* Begrenzt den Einfluss des Scales auf den Rest */
+            .icon-container ha-tile-image {
+              margin: 0 !important;
+            }
+            /* Text kleiner machen */
+            .content {
+              font-size: 12px !important; /* Anpassung der Textgröße */
+              text-align: center;
+            }
+  - type: grid
+    cards:
+      - type: heading
+        heading: Eingangsbereich
+        heading_style: title
+        badges:
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: binary_sensor.bewegungsmelder_garage_bewegung
+            visibility:
+              - condition: numeric_state
+                entity: automation.bewegung_garage
+                above: 0
+          - type: entity
+            show_state: true
+            show_icon: true
+            entity: sensor.bewegungsmelder_garage_helligkeit
+            name: Lux
+            state_content:
+              - name
+              - state
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;  
+              border: none;
+            }
+        cards:
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: none !important;       
+                      padding: 5px;   
+                    }
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - type: custom:mushroom-entity-card
+                      name: Haustür
+                      entity: lock.hauseingang
+                      vertical: false
+                      hide_state: true
+                      icon_tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                          ha-state-icon {
+                            color: {% if states('lock.hauseingang') == 'locked' %} green {% else %} red {% endif %};
+                          } 
+                          mushroom-shape-icon {
+                            --shape-color: {% if states('lock.hauseingang') == 'locked' %} rgba(0, 128, 0, 0.4) {% else %} rgba(255, 0, 0, 0.2) {% endif %} !important;
+                          }
+                    - type: custom:mushroom-entity-card
+                      entity: input_button.button_hoftor_automatik_auf_zu
+                      name: Hoftor
+                      primary_info: name
+                      fill_container: false
+                      secondary_info: none
+                      icon_color: grey
+                      icon_tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: custom:mushroom-entity-card
+                      entity: switch.licht_garage_wohnzimmer_licht_garage_ch2
+                      fill_container: false
+                      icon_color: amber
+                      icon: mdi:coach-lamp
+                      name: Garage
+                      secondary_info: none
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }     
+      - type: vertical-stack
+        cards:
+          - type: picture-glance
+            title: Hofkamera
+            image: https://demo.home-assistant.io/stub_config/kitchen.png
+            card_mod:
+              style: |
+                ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border-radius: 12px;
+                }
+            entities:
+              - entity: select.hofkamera_ptz_voreinstellung
+                tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.hofkamera_ptz_voreinstellung
+                    option: Straßenansicht
+                icon_tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.hofkamera_ptz_voreinstellung
+                    option: Straßenansicht
+              - entity: select.hofkamera_ptz_voreinstellung
+                icon: mdi:car
+                tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.hofkamera_ptz_voreinstellung
+                    option: Pool
+                icon_tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.hofkamera_ptz_voreinstellung
+                    option: Pool
+              - entity: select.hofkamera_ptz_voreinstellung
+                icon: mdi:pool
+                tap_action:
+                  action: navigate
+                  navigation_path: "#poolkamera"
+                icon_tap_action:
+                  action: navigate
+                  navigation_path: "#poolkamera"
+            camera_image: camera.hofkamera_fliessend
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: person.jayjojayson
+                fill_container: false
+                primary_info: none
+                secondary_info: none
+                icon: mdi:cog
+                icon_type: entity-picture
+                icon_color: primary
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/einstellungen
+                hold_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/einstellungen
+                card_mod:
+                  style: |
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: transparent !important;
+                      --icon-color-disabled: var(--primary-color) !important;
+                      --icon-size: 45px !important;
+                      background: none !important;
+                      box-shadow: none !important;
+                    }
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: person.jayjojayson
+                fill_container: false
+                primary_info: none
+                secondary_info: none
+                icon: mdi:robot-mower
+                icon_type: entity-picture
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/robter-steuerung
+                hold_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/robter-steuerung
+                icon_color: primary
+                card_mod:
+                  style: |
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: transparent !important;
+                      --icon-color-disabled: var(--primary-color) !important;
+                      --icon-size: 45px !important;
+                      background: none !important;
+                      box-shadow: none !important;
+                    }
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: person.jayjojayson
+                fill_container: false
+                primary_info: none
+                secondary_info: none
+                icon: mdi:cctv
+                icon_type: entity-picture
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/sicherheit
+                hold_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/sicherheit
+                icon_color: primary
+                card_mod:
+                  style: |
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: transparent !important;
+                      --icon-color-disabled: var(--primary-color) !important;
+                      --icon-size: 45px !important;
+                      background: none !important;
+                      box-shadow: none !important;
+                    }
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-right: 1px solid grey !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: person.jayjojayson
+                fill_container: false
+                primary_info: none
+                secondary_info: none
+                icon: mdi:cast-audio
+                icon_type: entity-picture
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/multimedia
+                hold_action:
+                  action: navigate
+                  navigation_path: /dashboard-test/multimedia
+                icon_color: primary
+                card_mod:
+                  style: |
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: transparent !important;
+                      --icon-color-disabled: var(--primary-color) !important;
+                      --icon-size: 45px !important;
+                      background: none !important;
+                      box-shadow: none !important;
+                    }
+                    ha-card {
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      padding-right: 10px;
+                    }      
+      - type: heading
+        icon: ""
+        heading: Licht
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/licht
+        visibility:
+          - condition: state
+            entity: switch.pc_led_pv_led
+            state: "on"
+      - type: custom:mushroom-template-card
+        primary: PC-Led
+        entity: switch.pc_led_pv_led
+        icon: mdi:led-strip
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.pc_led_pv_led', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.pc_led_pv_led
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Wandlicht
+        secondary: |-
+          {% if is_state('light.wandlicht', 'on') %}
+            {{ (state_attr('light.wandlicht', 'brightness') | int / 255 * 100) | round(0) }}%
+          {% else %}
+            Aus
+          {% endif %}
+        entity: light.wandlicht
+        icon: mdi:led-strip-variant
+        name: Wandlicht
+        icon_color: |-
+          {% if is_state('light.wandlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: light.wandlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Küche
+        entity: switch.kuchenlicht_2
+        icon: mdi:led-strip
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.kuchenlicht_2', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.kuchenlicht_2
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Küche RGB
+        secondary: |-
+          {% if is_state('light.kuchenlicht', 'on') %}
+            {{ (state_attr('light.kuchenlicht', 'brightness') | int / 255 * 100) | round(0) }}%
+          {% else %}
+            Aus
+          {% endif %}
+        entity: light.kuchenlicht
+        icon: mdi:led-strip-variant
+        name: Wandlicht
+        icon_color: |-
+          {% if is_state('light.kuchenlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: light.kuchenlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Couchlicht
+        secondary: |-
+          {% if is_state('light.couchlicht', 'on') %}
+            {{ (state_attr('light.couchlicht', 'brightness') | int / 255 * 100) | round(0) }}%
+          {% else %}
+            Aus
+          {% endif %}
+        entity: light.couchlicht
+        icon: mdi:led-strip-variant
+        name: Wandlicht
+        icon_color: |-
+          {% if is_state('light.couchlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: light.couchlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Lavalampe
+        entity: switch.lavalampe_steckdose_1
+        icon: mdi:led-strip
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.lavalampe_steckdose_1', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.lavalampe_steckdose_1
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Lavalampe
+        entity: switch.lavalampe_steckdose_1
+        icon: mdi:led-strip
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.lavalampe_steckdose_1', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.lavalampe_steckdose_1
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Wohnzimmer
+        entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
+        icon: mdi:ceiling-light
+        name: PC-Led
+        icon_color: >-
+          {% if
+          is_state('switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1',
+          'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Esstisch
+        entity: switch.esszimmerlicht
+        icon: mdi:ceiling-light
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.esszimmerlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.esszimmerlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Sockelleisten
+        entity: switch.sockelleisten_steckdose_1
+        icon: mdi:led-strip-variant
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.sockelleisten_steckdose_1', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.sockelleisten_steckdose_1
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Flurlicht
+        entity: switch.flurlicht
+        icon: mdi:ceiling-light
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.flurlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.flurlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Außenlicht
+        entity: switch.aussenlicht
+        icon: mdi:led-strip-variant
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.aussenlicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.aussenlicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Bad Spiegel
+        entity: switch.bad_spiegellicht
+        icon: mdi:led-strip-variant
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.bad_spiegellicht', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.bad_spiegellicht
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Poollicht
+        entity: switch.poollicht_steckdose_1
+        icon: mdi:light-flood-down
+        name: PC-Led
+        icon_color: |-
+          {% if is_state('switch.poollicht_steckdose_1', 'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.poollicht_steckdose_1
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: custom:mushroom-template-card
+        primary: Terasse
+        entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
+        icon: mdi:ceiling-light-multiple
+        name: PC-Led
+        icon_color: >-
+          {% if
+          is_state('switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2',
+          'on') %}
+            #ffc107
+          {% else %}
+            grey
+          {% endif %}
+        visibility:
+          - condition: state
+            entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
+            state: "on"
+        grid_options:
+          columns: 4
+          rows: 1
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+      - type: heading
+        icon: ""
+        heading_style: subtitle
+        heading: Es werden nur Lichter angezeigt die eingeschaltet sind
+        visibility:
+          - condition: state
+            entity: switch.pc_led_pv_led
+            state: "on"
+      - type: heading
+        icon: ""
+        heading: Fensterstatus
+        heading_style: title
+        visibility:
+          - condition: state
+            entity: sensor.fenster_geoffnet
+            state: "on"
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: " "
+          card_mod:
+            style: |
+              ha-card {
+                background: none !important;
+                box-shadow: none !important;
+                border: none !important;
+              }
+        filter:
+          include:
+            - entity_id: binary_sensor.fenster_*
+          exclude:
+            - state: "off"
+        sort:
+          method: name
+        visibility:
+          - condition: state
+            entity: sensor.fenster_geoffnet
+            state: "on"
+      - type: markdown
+        content: >
+          {% if state_attr('sensor.17track_unterwegs', 'packages') | length > 0
+          %}
+            **Paketauskunft:**  
+            {% for package in state_attr('sensor.17track_unterwegs', 'packages') %}
+              >> Paket: {{ package['friendly_name'] if package['friendly_name'] else ' ' }}
+                - Status: {{ package['status'] if package['status'] else 'Keine Angabe' }} - {{ package['timestamp'] if package['timestamp'] else 'Unbekannt' }}   
+                - Ort: {{ package['location'] if package['location'] else 'Unbekannt' }}  
+                - Info: {{ package['info_text'] if package['info_text'] else 'Keine Information' }}  
+                - Tracking Nr.: {{ package['tracking_number'] }}  
+            {% endfor %}
+          {% else %}
+            **Es sind keine Pakete unterwegs.**
+          {% endif %}
+        style: |
+          ha-card {
+            white-space: normal;
+            overflow: visible;
+            word-wrap: break-word;
+          }
+          code, pre {
+            background-color: transparent !important; /* Verhindert den Hintergrund für Codeblöcke */
+            border-radius: 3px; /* Optional: abgerundete Ecken */
+          }
+        visibility:
+          - condition: numeric_state
+            entity: sensor.17track_unterwegs
+            above: 0
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#poolkamera"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  border-top-right-radius: 0px !important;          
+                  border-top-left-radius: 0px !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+          - type: picture-glance
+            camera_view: auto
+            title: Pool
+            image: https://demo.home-assistant.io/stub_config/kitchen.png
+            entities:
+              - entity: select.poolkamera_ptz_voreinstellung
+                icon: mdi:pool
+                tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.poolkamera_ptz_voreinstellung
+                    option: Poolansicht
+                icon_tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.poolkamera_ptz_voreinstellung
+                    option: Poolansicht
+              - entity: select.poolkamera_ptz_voreinstellung
+                icon: mdi:store-search
+                tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.poolkamera_ptz_voreinstellung
+                    option: Terrasse
+                icon_tap_action:
+                  action: call-service
+                  service: select.select_option
+                  service_data:
+                    entity_id: select.poolkamera_ptz_voreinstellung
+                    option: Terrasse
+            camera_image: camera.poolkamera_fliessend
+          - type: tile
+            entity: input_button.button_fernseher
+            icon: mdi:grass
+            hide_state: true
+            show_entity_picture: false
+            vertical: false
+            name: Gartenansicht
+            tap_action:
+              action: navigate
+              navigation_path: /dashboard-test/garten
+            card_mod:
+              style: |
+                ha-card {
+                  background: none !important;
+                  border-radius: 0px !important;
+                  border-right: none !important; 
+                  border-left: none !important; 
+                  border-top: none !important; 
+                  border-bottom: none !important;
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: center !important;
+                  height: 100% !important;
+                  text-align: center !important;
+                }
+                .card-content {
+                  margin: auto !important;
+                }
+    column_span: 1
+  - type: grid
+    cards:
+      - type: heading
+        icon: ""
+        heading: Heizung
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/heizung
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.starkvind_luftreiniger_pm2_5
+            name: Luftqualität
+            hours_to_show: 10
+            points_per_hour: 0.25
+            refresh_interval: 5
+            height: 80
+            show:
+              labels: true
+              name: false
+              state: false
+              icon: false
+            line_color: var(--line-color)
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: rgba(22,22,22, 0);
+                  --line-color: {{ states('sensor.luftquality_line_color') }};
+                }
+          - type: custom:button-card
+            tap_action:
+              action: call-service
+              service: fan.toggle
+              service_data:
+                entity_id: fan.starkvind_luftreiniger_ventilator
+            styles:
+              card:
+                - background-color: rgba(22,22,22, 0.1)
+                - text-align: center
+                - border: none
+                - border-radius: 0px
+                - padding: 10px
+                - "--primary-text-color": |
+                    [[[
+                      if (states['sensor.luftquality_color'].state === 'green') return 'green';
+                      if (states['sensor.luftquality_color'].state === 'yellow') return 'yellow';
+                      if (states['sensor.luftquality_color'].state === 'orange') return 'orange';
+                      return 'red';
+                    ]]]
+            name: |
+              [[[
+                const quality = states['sensor.starkvind_luftreiniger_pm2_5'].state;
+                const fanState = states['fan.starkvind_luftreiniger_ventilator'].state === 'on' 
+                  ? '<ha-icon icon="mdi:fan-auto" style="width: 20px; height: 20px; margin-left: 5px; vertical-align: top; color: var(--primary-color);"></ha-icon>' 
+                  : '';
+                return `Luftqualität - ${quality} µg/m³ ${fanState}`;
+              ]]]
+          - type: entities
+            entities:
+              - entity: sensor.wandthermostat_jan_temperatur
+                name: Wandthermostat Jan
+                tap_action:
+                  action: navigate
+                  navigation_path: "#heizung"
+              - entity: sensor.wandthermostat_jan_luftfeuchtigkeit
+                name: Wandthermostat Jan Luftfeuchte
+              - entity: sensor.werkstatt_thermostat_temperatur
+                name: Werkstatt Temperatur
+              - entity: sensor.wandthermostat_mutti_temperatur
+                name: Wandthermostat Mutti
+                tap_action:
+                  action: navigate
+                  navigation_path: "#heizungmutti"
+              - entity: sensor.wandthermostat_mutti_luftfeuchtigkeit
+                name: Wandthermostat Mutti Luftfeuchte
+            theme: grey-icon
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: rgba(22,22,22, 0);
+                }
+      - type: heading
+        heading: Solar
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/solar
+        visibility:
+          - condition: numeric_state
+            entity: sensor.homestation_solar_total_ausgangsleistung
+            above: 20
+        badges:
+          - type: entity
+            show_state: false
+            show_icon: true
+            entity: sensor.time
+            icon: m3o:energy-program-time-used
+            name: Watt Aktuell
+            tap_action:
+              action: navigate
+              navigation_path: "#strom"
+      - type: custom:power-flow-card-plus
+        entities:
+          battery:
+            entity: ""
+            state_of_charge: sensor.sm_s921b_battery_level
+          solar:
+            entity: sensor.homestation_solar_total_ausgangsleistung
+            display_zero_state: true
+            secondary_info: {}
+            color_value: true
+            color_icon: false
+            invert_state: false
+            use_metadata: false
+            color:
+              - 11
+              - 157
+              - 67
+          individual:
+            - entity: sensor.poolverbrauch_summe_watt
+              secondary_info: {}
+              icon: mdi:pool
+              name: Pool Summe
+              color:
+                - 42
+                - 101
+                - 156
+            - entity: sensor.growlampe_leistung
+              secondary_info: {}
+              name: GrowLed
+              calculate_flow_rate: false
+              color_value: false
+              color_icon: false
+              icon: mdi:ceiling-light
+              unit_white_space: true
+              inverted_animation: false
+              show_direction: false
+              use_metadata: false
+            - entity: sensor.innenlufter_shellyplug_switch_0_power
+              secondary_info: {}
+              name: Lüfter
+              icon: mdi:fan
+              color:
+                - 115
+                - 156
+                - 217
+            - entity: sensor.werkstattheizung_leistung
+              secondary_info: {}
+              color:
+                - 98
+                - 9
+                - 9
+              display_zero: false
+              name: Werkstatt Hzg.
+              display_zero_state: false
+              color_value: false
+              color_icon: false
+              icon: mdi:heating-coil
+              use_metadata: false
+              show_direction: false
+          home:
+            secondary_info: {}
+            circle_animation: true
+            override_state: true
+            subtract_individual: true
+            color_icon: true
+            color_value: true
+          grid:
+            secondary_info: {}
+            icon: ""
+            color:
+              consumption:
+                - 211
+                - 102
+                - 13
+              production:
+                - 182
+                - 12
+                - 12
+            color_value: true
+            invert_state: false
+            entity:
+              consumption: sensor.total_power_nur_verbrauch
+              production: sensor.solar_einspeisung_normiert_positiver_wert
+            color_circle: true
+            color_icon: true
+        clickable_entities: true
+        display_zero_lines:
+          mode: transparency
+          transparency: 50
+          grey_color:
+            - 189
+            - 189
+            - 189
+        use_new_flow_rate_model: true
+        w_decimals: 0
+        kw_decimals: 1
+        min_flow_rate: 0.75
+        max_flow_rate: 6
+        max_expected_power: 3000
+        min_expected_power: 0.01
+        watt_threshold: 1000
+        transparency_zero_lines: 0
+        visibility:
+          - condition: numeric_state
+            entity: sensor.homestation_solar_total_ausgangsleistung
+            above: 20
+      - type: heading
+        heading_style: title
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/solar
+        heading: Strombedarf
+        visibility:
+          - condition: numeric_state
+            entity: sensor.homestation_solar_total_ausgangsleistung
+            below: 20
+        badges:
+          - type: entity
+            show_state: false
+            show_icon: true
+            entity: sensor.time
+            icon: m3o:energy-program-time-used
+            name: Watt Aktuell
+            tap_action:
+              action: navigate
+              navigation_path: "#strom"
+      - type: custom:energy-overview-card
+        entities:
+          - power: sensor.total_power_nur_verbrauch
+            color: orange
+            icon_trailing: ""
+            animation:
+              inverted: false
+          - power: sensor.stromverbrauch_taglich
+            color: red
+            animation:
+              min_duration: 7
+              max_duration: 5
+          - power: sensor.solar_netzeinspeisung_kwh_taglich
+            color: red
+            icon_trailing: mdi:solar-power-variant
+            animation:
+              inverted: true
+              min_duration: 10
+              max_duration: 15
+          - power: sensor.homestation_solar_total_energie_heute
+            icon_leading: mdi:home-lightning-bolt
+            color: green
+            animation:
+              inverted: true
+              power: 3000
+              min_duration: 10
+              max_duration: 2
+            icon_trailing: mdi:solar-power-variant
+        animation:
+          inverted: false
+          max_duration: 10
+          min_duration: 4
+        visibility:
+          - condition: numeric_state
+            entity: sensor.homestation_solar_total_ausgangsleistung
+            below: 20
+        card_mod:
+          style: |
+            ha-card {
+              padding-bottom: 10px;
+              text-align: center;      
+              font-size: 20px !important; /* Ändere die Schriftgröße */        
+            }
+            .entity {
+              padding: 8px 10px 0 10px;
+            }
+            .entity-3 {
+              padding-bottom: 10px !important;
+            }
+  - type: grid
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#heizung"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.wandthermostat_jan_temperatur
+                name: Temperatur
+                fill_container: false
+                layout: vertical
+                icon_color: red
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;     
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    } 
+              - type: custom:mushroom-entity-card
+                entity: sensor.wandthermostat_jan_luftfeuchtigkeit
+                name: Luftfeuchte
+                layout: vertical
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: sensor.thermostat_wohnzimmer_ventil_offnungsgrad
+                name: Ventil
+                fill_container: false
+                icon_color: primary
+                layout: vertical
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    }
+          - type: thermostat
+            entity: climate.wandthermostat_jan_2
+            show_current_as_primary: false
+            features:
+              - style: icons
+                type: climate-hvac-modes
+            name: " "
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent;
+                  border: none !important;
+                  border-radius: 0px !important;          
+                  padding-left: 20px !important;          
+                  padding-right: 20px !important;
+                }
+                /* Direktes Ansprechen des Shadow-DOMs */
+                :host ::part(secondary) {
+                  display: none !important;
+                }
+                hui-thermostat-card .label.secondary {
+                  display: none !important;
+                }
+          - type: vertical-stack
+            cards:
+              - type: custom:mod-card
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Diagramm
+                  icon: mdi:chart-line
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_next
+                    service_data:
+                      entity_id: input_select.diagramm_heizung_anzeige
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-top: 0px;
+                        border-left: 0px;
+                        border-right: 0px;
+                        border-bottom: 1px;
+                        border-radius: 0px !important;
+                        background-color: transparent;
+                        margin-left: 30px;
+                        margin-right: 30px;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                      }
+              - type: conditional
+                conditions:
+                  - entity: input_select.diagramm_heizung_anzeige
+                    state: Diagramm
+                card:
+                  type: custom:tabbed-card
+                  styles:
+                    "--mdc-theme-primary": var(--primary-color)
+                    "--mdc-tab-text-label-color-default": grey
+                    "--mdc-typography-button-font-size": 12px
+                    "--mdc-typography-button-text-transform": capitalize
+                  tabs:
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_wohnzimmer_2
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Wohnzi.
+                        icon: mdi:history
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_bad
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Bad
+                        icon: mdi:history
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_schlafzimmer
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Schlafzi.
+                        icon: mdi:history
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                  } 
+          - type: custom:mushroom-climate-card
+            entity: climate.thermostat_bad
+            name: Bad
+            hvac_modes:
+              - auto
+              - "off"
+            show_temperature_control: true
+            fill_container: false
+            collapsible_controls: true
+            layout: horizontal
+            tap_action:
+              action: more-info
+            icon: mdi:heat-wave
+            card_mod:
+              style: |
+                ha-card {
+                  height: 70px !important;
+                  padding-left: 10px;
+                  padding-top: 8px;
+                  padding-bottom: 0px;
+                  padding-right: 10px;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  background-color: transparent !important;
+                } 
+                mushroom-card::after {
+                  content: "Ventil: {{ states('sensor.thermostat_bad_ventil_offnungsgrad') }}%";
+                  position: absolute;
+                  top: 5px;
+                  right: 80px;
+                  font-size: var(--card-secondary-font-size);
+                  color: var(--secondary-text-color);
+                }
+                ha-state-icon { 
+                  color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                } 
+                mushroom-shape-icon {
+                  --shape-color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+          - type: custom:mushroom-climate-card
+            entity: climate.thermostat_schlafzimmer
+            name: Schlafzimmer
+            hvac_modes:
+              - auto
+              - "off"
+            show_temperature_control: true
+            fill_container: false
+            collapsible_controls: true
+            layout: horizontal
+            tap_action:
+              action: more-info
+            icon: mdi:heat-wave
+            card_mod:
+              style: |
+                ha-card {
+                  height: 70px !important;
+                  padding-left: 10px;
+                  padding-top: 0px;
+                  padding-bottom: 0px;
+                  padding-right: 10px;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  background-color: transparent !important;
+                }
+                mushroom-card::after {
+                  content: "Ventil: {{ states('sensor.thermostat_schlafzimmer_ventil_offnungsgrad') }}%";
+                  position: absolute;
+                  top: 0px;
+                  right: 80px;
+                  font-size: var(--card-secondary-font-size);
+                  color: var(--secondary-text-color);
+                }
+                ha-state-icon { 
+                  color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                } 
+                mushroom-shape-icon {
+                  --shape-color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#heizungmutti"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.wandthermostat_mutti_temperatur
+                name: Temperatur
+                fill_container: false
+                icon_color: red
+                layout: vertical
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: sensor.wandthermostat_mutti_luftfeuchtigkeit
+                name: Luftfeuchte
+                layout: vertical
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    }
+              - type: custom:mushroom-entity-card
+                entity: sensor.thermostat_wohnschlafbereich_ventil_offnungsgrad
+                name: Ventil
+                fill_container: false
+                icon_color: primary
+                layout: vertical
+                primary_info: state
+                secondary_info: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      padding-top: 10px;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      background-color: transparent !important;
+                    }
+                    :host {
+                      --mush-card-primary-font-size: 20px !important;
+                    }
+          - type: thermostat
+            entity: climate.wandthermostat_mutti_2
+            show_current_as_primary: false
+            features:
+              - type: climate-hvac-modes
+            name: " "
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  padding-left: 20px !important;          
+                  padding-right: 20px !important;
+                }
+          - type: vertical-stack
+            cards:
+              - type: custom:mod-card
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Diagramm
+                  icon: mdi:chart-line
+                  tap_action:
+                    action: call-service
+                    service: input_select.select_next
+                    service_data:
+                      entity_id: input_select.diagramm_heizung_anzeige
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border-top: 0px;
+                        border-left: 0px;
+                        border-right: 0px;
+                        border-bottom: 1px;
+                        border-radius: 0px !important;
+                        background-color: transparent;
+                        margin-left: 30px;
+                        margin-right: 30px;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                      }
+              - type: conditional
+                conditions:
+                  - entity: input_select.diagramm_heizung_anzeige
+                    state: Diagramm
+                card:
+                  type: custom:tabbed-card
+                  styles:
+                    "--mdc-theme-primary": var(--primary-color)
+                    "--mdc-tab-text-label-color-default": grey
+                    "--mdc-typography-button-font-size": 12px
+                    "--mdc-typography-button-text-transform": capitalize
+                  tabs:
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_wohnschlafbereich_2
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Wohnzi.
+                        icon: mdi:history
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_bad_mutti
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Bad
+                        icon: mdi:history
+                    - card:
+                        type: horizontal-stack
+                        cards:
+                          - type: history-graph
+                            show_names: false
+                            entities:
+                              - entity: climate.thermostat_esszimmer_mutti
+                            hours_to_show: 24
+                            refresh_interval: 10
+                            logarithmic_scale: false
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background-color: transparent;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  margin-left: 30px;
+                                  margin-right: 30px;
+                                  transition: opacity 0.5s ease, transform 0.5s ease;
+                                  opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                                  transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                                }
+                                .content {
+                                  padding: 0px !important;
+                                  padding-bottom: 10px !important;
+                                }
+                      attributes:
+                        label: Esszi.
+                        icon: mdi:history
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                  } 
+          - type: custom:mushroom-climate-card
+            entity: climate.thermostat_bad_mutti
+            name: Bad
+            hvac_modes:
+              - auto
+              - "off"
+            show_temperature_control: true
+            fill_container: false
+            collapsible_controls: true
+            layout: horizontal
+            tap_action:
+              action: more-info
+            icon: mdi:heat-wave
+            card_mod:
+              style: |
+                ha-card {
+                  height: 70px !important;
+                  padding-left: 10px;
+                  padding-top: 8px;
+                  padding-bottom: 0px;
+                  padding-right: 10px;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  background-color: transparent !important;
+                } 
+                mushroom-card::after {
+                  content: "Ventil: {{ states('sensor.thermostat_bad_mutti_ventil_offnungsgrad') }}%";
+                  position: absolute;
+                  top: 5px;
+                  right: 80px;
+                  font-size: var(--card-secondary-font-size);
+                  color: var(--secondary-text-color);
+                }
+                ha-state-icon { 
+                  color: {% if state_attr('climate.thermostat_bad_mutti', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                } 
+                mushroom-shape-icon {
+                  --shape-color: {% if state_attr('climate.thermostat_bad_mutti', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+          - type: custom:mushroom-climate-card
+            entity: climate.thermostat_esszimmer_mutti
+            name: Esszimmer
+            hvac_modes:
+              - auto
+              - "off"
+            show_temperature_control: true
+            fill_container: false
+            collapsible_controls: true
+            layout: horizontal
+            tap_action:
+              action: more-info
+            icon: mdi:heat-wave
+            card_mod:
+              style: |
+                ha-card {
+                  height: 70px !important;
+                  padding-left: 10px;
+                  padding-top: 0px;
+                  padding-bottom: 0px;
+                  padding-right: 10px;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  background-color: transparent !important;
+                }
+                mushroom-card::after {
+                  content: "Ventil: {{ states('sensor.thermostat_esszimmer_mutti_ventil_offnungsgrad') }}%";
+                  position: absolute;
+                  top: 0px;
+                  right: 80px;
+                  font-size: var(--card-secondary-font-size);
+                  color: var(--secondary-text-color);
+                }
+                ha-state-icon { 
+                  color: {% if state_attr('climate.thermostat_esszimmer_mutti', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                } 
+                mushroom-shape-icon {
+                  --shape-color: {% if state_attr('climate.thermostat_esszimmer_mutti', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  --line-color: {{ states('sensor.solar_line_color') }};
+                }
+                .bubble-pop-up-container {
+                  padding: 0px 0px calc(140px + var(--custom-height-offset-desktop)) 0px !important;
+                }
+            card_type: pop-up
+            hash: "#strom"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.homestation_solar_total_energie_heute
+                name: Ertrag Heute
+                hours_to_show: 72
+                points_per_hour: 0.25
+                height: 80
+                show:
+                  labels: true
+                  name: false
+                  state: false
+                  icon: false
+                color_thresholds:
+                  - value: 1
+                    color: grey
+                  - value: 2
+                    color: orange
+                  - value: 3
+                    color: yellow
+                  - value: 5
+                    color: blue
+                  - value: 10
+                    color: green
+                line_color: var(--line-color)
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                      --line-color: {{ states('sensor.solar_line_color') }};
+                    }
+              - type: custom:button-card
+                tap_action:
+                  action: none
+                styles:
+                  card:
+                    - background-color: rgba(22,22,22, 0.1)
+                    - text-align: center
+                    - border: none
+                    - border-radius: 0px
+                    - padding: 10px
+                    - "--primary-text-color": |
+                        [[[
+                          if (states['sensor.solar_color'].state === 'grey') return 'grey';
+                          if (states['sensor.solar_color'].state === 'darkyellow') return 'darkyellow';
+                          if (states['sensor.solar_color'].state === 'yellow') return 'yellow';
+                          if (states['sensor.solar_color'].state === 'darkgreen') return 'darkgreen';
+                          return 'green';
+                        ]]]
+                name: |
+                  [[[
+                    const solarTotal = states['sensor.homestation_solar_total_energie_heute'].state;
+                    return `Solarertrag heute: ${solarTotal} kWh`;
+                  ]]]
+              - type: entities
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+                entities:
+                  - entity: sensor.homestation_solar_total_gesamtbetrag_heute
+                    name: Ertrag Heute €
+                    unit_of_measurement: €
+                  - entity: sensor.solar_netzeinspeisung_kwh_taglich
+                    name: Netzeinspeisung Heute
+                  - entity: sensor.stromverbrauch_gesamt_kwh
+                    name: Stromverbrauch Gesamt
+                theme: grey-icon
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  --line-color: {{ states('sensor.solar_line_color') }};
+                }
+          - type: vertical-stack
+            cards:
+              - type: custom:bar-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+                name: Aktueller Strombedarf
+                positions:
+                  name: inside
+                  value: inside
+                  indicator: "off"
+                  icon: "off"
+                unit_of_measurement: W
+                max: 2500
+                height: 30px
+                severity:
+                  - color: "#7bc13c"
+                    from: 0
+                    to: 50
+                  - color: "#c1bb3c"
+                    from: 50
+                    to: 340
+                  - color: orange
+                    from: 340
+                    to: 500
+                  - color: darkorange
+                    from: 500
+                    to: 1000
+                  - color: "#ff0000"
+                    from: 1000
+                    to: 50000
+                entities:
+                  - entity: sensor.total_power_nur_verbrauch
+              - type: custom:auto-entities
+                card:
+                  type: custom:bar-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: transparent !important;
+                        border: none !important;
+                        border-radius: 0px !important;
+                      }
+                  positions:
+                    name: inside
+                    value: inside
+                    indicator: "off"
+                    icon: "off"
+                  unit_of_measurement: W
+                  max: 1000
+                  severity:
+                    - color: "#7bc13c"
+                      from: 0
+                      to: 50
+                    - color: "#c1bb3c"
+                      from: 50
+                      to: 200
+                    - color: orange
+                      from: 200
+                      to: 500
+                    - color: darkorange
+                      from: 500
+                      to: 1000
+                    - color: "#ff0000"
+                      from: 1000
+                      to: 50000
+                  height: 30px
+                  decimals: 2
+                  style: |
+                    #states { padding: 0 } 
+                    bar-card-name, bar-card-value {
+                      color: #ffffff;
+                    }
+                    bar-card-value {
+                      font-weight: bold;
+                    }
+                    bar-card-indicator {
+                      transform: scaleY(-1);
+                    }
+                  stack: vertical
+                  direction: right
+                filter:
+                  include:
+                    - entity_id: sensor.innenlufter_shellyplug_switch_0_power
+                    - entity_id: sensor.growlampe_leistung
+                    - entity_id: sensor.wasserlauf_leistung
+                    - entity_id: sensor.stromungspumpen_leistung
+                    - entity_id: sensor.hauptpumpe_shelly_plug_switch_0_power
+                    - entity_id: sensor.skimmerpumpe_shelly_plug_switch_0_power
+                    - entity_id: sensor.poollicht_leistung
+                    - entity_id: sensor.werkstattheizung_leistung
+                    - entity_id: sensor.waschmaschine_leistung_2
+                    - entity_id: sensor.trockner_leistung_3
+                    - entity_id: sensor.3d_drucker_leistung
+                    - entity_id: sensor.herdlicht_rechts_leistung
+                    - entity_id: sensor.herdlicht_links_leistung
+                    - entity_id: sensor.sockelleisten_leistung
+                    - entity_id: sensor.weihnachtslicht_leistung
+                    - entity_id: sensor.lavalampe_leistung
+                    - entity_id: sensor.computer_leistung
+                    - entity_id: sensor.fernseher_plug_leistung
+                    - entity_id: sensor.fernseher_mutti_leistung_3
+                    - entity_id: sensor.fernseher_plug_mutti_schlafzimmer_leistung
+                    - entity_id: sensor.tablet_plug_leistung
+                  exclude:
+                    - state: < 2
+                sort:
+                  method: state
+                  numeric: true
+                  reverse: true
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#wetter"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: iframe
+            url: >-
+              https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
+            aspect_ratio: 100%
+    column_span: 3
+background:
+  image: /api/image/serve/2ac92547a867465b67f64b5eb72e63e0/original
+cards: []
+max_columns: 3
+badges: []

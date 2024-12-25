@@ -1,0 +1,7 @@
+type: iframe
+url: >-
+  https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
+aspect_ratio: 100%
+layout_options:
+  grid_columns: 4
+  grid_rows: 7

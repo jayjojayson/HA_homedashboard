@@ -1,0 +1,7 @@
+type: horizontal-stack
+cards:
+  - type: picture
+    image: https://www.dwd.de/DWD/wetter/radar/radfilm_brd_akt.gif
+  - type: picture
+    image: >-
+      https://www.dwd.de/DE/wetter/wetterundklima_vorort/berlin-brandenburg/_functions/bildgalerie/wetter_aktuell.jpg;jsessionid=99C15221AF8EC82583F21E7DC775388A.live31081?view=nasImage&nn=561856

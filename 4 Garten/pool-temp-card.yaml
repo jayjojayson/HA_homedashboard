@@ -1,0 +1,29 @@
+type: entity
+entity: sensor.pooltemperatur_temperatur
+state_color: false
+name: " "
+theme: Temps
+card_mod:
+  style: |
+    ha-card {
+      text-align: center;
+      --primary-text-color:
+          {% if is_state('sensor.pooltemperature_color', 'steelblue') %}
+            steelblue
+          {% elif is_state('sensor.pooltemperature_color', 'green') %}
+            green
+          {% elif is_state('sensor.pooltemperature_color', 'orange') %}
+            orange
+          {% else %}
+            red
+          {% endif %};
+    }
+    .value {
+    font-size: 45px !important; /* Ändere die Schriftgröße */
+    }
+    .info {
+    line-height: 45px !important;
+    }
+grid_options:
+  columns: full
+  rows: 2.1

@@ -1,0 +1,16 @@
+type: custom:mini-graph-card
+entities:
+  - entity: sensor.pooltemperatur_temperatur
+    name: Pooltemperatur
+hours_to_show: 96
+refresh_interval: 10
+points_per_hour: 0.25
+height: 120
+show:
+  labels: true
+  name: true
+  state: false
+  icon: false
+layout_options:
+  grid_columns: full
+  grid_rows: auto

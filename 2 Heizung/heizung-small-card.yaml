@@ -1,0 +1,72 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-climate-card
+        entity: climate.thermostat_buro_thermostat_buro
+        collapsible_controls: true
+        show_temperature_control: true
+        hvac_modes:
+          - auto
+          - "off"
+        tap_action:
+          action: more-info
+        name: Büro
+        secondary_info: state
+        icon: mdi:heat-wave
+        card_mod:
+          style: |
+            mushroom-card::after {
+              content: "Ventil: {{ states('sensor.thermostat_buro_thermostat_buro_ventil_offnungsgrad') }}%";
+              position: absolute;
+              right: 10px;
+              font-size: var(--card-secondary-font-size);
+              color: var(--secondary-text-color);
+            }
+            ha-card {
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+              background-color: transparent !important;
+            }
+            ha-state-icon { 
+              color: {% if state_attr('climate.thermostat_buro_thermostat_buro', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+            } 
+            mushroom-shape-icon {
+              --shape-color: {% if state_attr('climate.thermostat_buro_thermostat_buro', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+      - type: custom:mushroom-climate-card
+        entity: climate.thermostat_kleines_buro_thermostat_buro_klein
+        collapsible_controls: true
+        show_temperature_control: true
+        hvac_modes:
+          - auto
+          - "off"
+        tap_action:
+          action: more-info
+        name: Kl. Büro
+        secondary_info: state
+        icon: mdi:heat-wave
+        card_mod:
+          style: |
+            mushroom-card::after {
+              content: "Ventil: {{ states('sensor.thermostat_kleines_buro_thermostat_buro_klein_ventil_offnungsgrad') }}%";
+              position: absolute;
+              right: 0px;
+              font-size: var(--card-secondary-font-size);
+              color: var(--secondary-text-color);
+            }
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background-color: transparent !important;
+            }
+            ha-state-icon { 
+              color: {% if state_attr('climate.thermostat_kleines_buro_thermostat_buro_klein', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+            } 
+            mushroom-shape-icon {
+              --shape-color: {% if state_attr('climate.thermostat_kleines_buro_thermostat_buro_klein', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+card_mod:
+  style: |
+    ha-card {
+      padding: 10px; !important;
+    }

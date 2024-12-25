@@ -1,0 +1,34 @@
+camera_view: auto
+type: picture-glance
+title: Pool
+image: https://demo.home-assistant.io/stub_config/kitchen.png
+entities:
+  - entity: select.poolkamera_ptz_voreinstellung
+    icon: mdi:pool
+    tap_action:
+      action: call-service
+      service: select.select_option
+      service_data:
+        entity_id: select.poolkamera_ptz_voreinstellung
+        option: Poolansicht
+    icon_tap_action:
+      action: call-service
+      service: select.select_option
+      service_data:
+        entity_id: select.poolkamera_ptz_voreinstellung
+        option: Poolansicht
+  - entity: select.poolkamera_ptz_voreinstellung
+    icon: mdi:store-search
+    tap_action:
+      action: call-service
+      service: select.select_option
+      service_data:
+        entity_id: select.poolkamera_ptz_voreinstellung
+        option: Terrasse
+    icon_tap_action:
+      action: call-service
+      service: select.select_option
+      service_data:
+        entity_id: select.poolkamera_ptz_voreinstellung
+        option: Terrasse
+camera_image: camera.poolkamera_fliessend

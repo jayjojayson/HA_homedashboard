@@ -1,0 +1,124 @@
+type: custom:stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      background-color: none !important;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            entity: sensor.aussentemperatur_temperatur
+            name: " "
+            state_color: false
+            icon: none
+            theme: Temps
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  text-align: center;
+                  font-weight: bold !important; 
+                  border: none !important;
+                  border-radius: 0px !important;     
+                  padding-right: 20px !important;         
+                  padding-left: 10px !important;
+                  height: 75px !important;
+                  --primary-text-color:
+                      {% if is_state('sensor.temperature_color', 'steelblue') %}
+                        steelblue
+                      {% elif is_state('sensor.temperature_color', 'green') %}
+                        green
+                      {% elif is_state('sensor.temperature_color', 'orange') %}
+                        orange
+                      {% else %}
+                        red
+                      {% endif %};
+                      .value {
+                      font-size: 30px !important; /* Ändere die Schriftgröße */
+                      }
+                }
+          - type: custom:mushroom-entity-card
+            entity: sensor.aussentemperatur_luftfeuchtigkeit
+            tap_action:
+              action: navigate
+              navigation_path: "#wetter"
+            name: " "
+            primary_info: state
+            secondary_info: none
+            icon_type: none
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  text-align: center;
+                  border: none !important;
+                  border-radius: 0px !important;     
+                  padding-right: 10px !important;         
+                  padding-left: 50px !important;        
+                  padding-top: 40px !important;
+                  height: 75px !important;
+                }
+                :host {
+                  --mush-card-primary-font-size: 25px !important;
+                  --mush-card-primary-color: steelblue !important;
+                }
+      - type: custom:weather-chart-card
+        entity: weather.fuerstenwalde_spree
+        show_main: true
+        show_temperature: false
+        show_current_condition: false
+        show_attributes: false
+        show_time: false
+        show_time_seconds: false
+        show_day: false
+        show_date: false
+        show_humidity: false
+        show_pressure: false
+        show_wind_direction: false
+        show_wind_speed: false
+        show_sun: true
+        show_feels_like: false
+        show_dew_point: false
+        show_wind_gust_speed: false
+        show_visibility: false
+        show_last_changed: false
+        use_12hour_format: false
+        icons_size: "45"
+        animated_icons: true
+        icon_style: style1
+        autoscroll: false
+        forecast:
+          precipitation_type: rainfall
+          show_probability: false
+          labels_font_size: "13"
+          precip_bar_size: "0"
+          style: style2
+          show_wind_forecast: false
+          condition_icons: true
+          round_temp: false
+          type: daily
+          number_of_forecasts: "7"
+          disable_animation: false
+          chart_height: "160"
+        units:
+          speed: ""
+        temp: sensor.aussentemperatur_temperatur
+        humid: sensor.aussentemperatur_humidity
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;
+            }
+            .card{
+              padding-top: 0px !important;
+            }        
+            .main {
+              margin-bottom: 0px !important;
+            }
+            .main img {
+              margin: 0 auto !important;
+              margin-top: -65px !important;
+            }

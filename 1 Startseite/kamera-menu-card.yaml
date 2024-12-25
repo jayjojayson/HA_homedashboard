@@ -1,0 +1,178 @@
+type: vertical-stack
+cards:
+  - type: picture-glance
+    title: Hofkamera
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    card_mod:
+      style: |
+        ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border-radius: 12px;
+        }
+    entities:
+      - entity: select.hofkamera_ptz_voreinstellung
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Straßenansicht
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Straßenansicht
+      - entity: select.hofkamera_ptz_voreinstellung
+        icon: mdi:car
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Pool
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Pool
+      - entity: select.hofkamera_ptz_voreinstellung
+        icon: mdi:pool
+        tap_action:
+          action: navigate
+          navigation_path: "#poolkamera"
+        icon_tap_action:
+          action: navigate
+          navigation_path: "#poolkamera"
+    camera_image: camera.hofkamera_fliessend
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:cog
+        icon_type: entity-picture
+        icon_color: primary
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/einstellungen
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-test/einstellungen
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--primary-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+              padding-right: 10px;
+            }
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:robot-mower
+        icon_type: entity-picture
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/robter-steuerung
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-test/robter-steuerung
+        icon_color: primary
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--primary-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+              padding-right: 10px;
+            }
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:cctv
+        icon_type: entity-picture
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/sicherheit
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-test/sicherheit
+        icon_color: primary
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--primary-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+              padding-right: 10px;
+            }
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:cast-audio
+        icon_type: entity-picture
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/multimedia
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-test/multimedia
+        icon_color: primary
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--primary-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+              padding-right: 10px;
+            }      

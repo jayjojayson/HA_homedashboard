@@ -1,0 +1,593 @@
+type: custom:tabbed-card
+styles:
+  "--mdc-theme-primary": var(--primary-color)
+  "--mdc-tab-text-label-color-default": grey
+  "--mdc-typography-button-font-size": 14px
+  "--mdc-typography-button-text-transform": capitalize
+tabs:
+  - card:
+      type: custom:sankey-chart
+      min_state: 0
+      show_names: true
+      show_icons: false
+      wide: true
+      time_period_from: now/d
+      time_period_to: now
+      layout: horizontal
+      height: 250
+      unit_prefix: k
+      round: 1
+      convert_units_to: ""
+      co2_intensity_entity: sensor.co2_signal_co2_intensity
+      gas_co2_intensity: 2351.6459999999997
+      min_box_size: 13
+      min_box_distance: 18
+      show_states: true
+      show_units: true
+      sections:
+        - entities:
+            - type: entity
+              children:
+                - entity_id: sensor.solar_netzeinspeisung_kwh
+                  color: orange
+                - entity_id: total
+                  color: orange
+              entity_id: sensor.acj0b1802l_energie_heute
+              name: Solar
+              color: green
+            - type: entity
+              children:
+                - entity_id: sensor.solar_netzeinspeisung_kwh
+                  color: blue
+                - entity_id: total
+                  color: red
+              entity_id: sensor.stromverbrauch_gesamt_kwh
+              name: Netzbezug
+              color: orange
+              subtract_entities:
+                - sensor.solar_netzeinspeisung_kwh
+        - entities:
+            - type: entity
+              children: []
+              entity_id: sensor.solar_netzeinspeisung_kwh
+              color: yellow
+              subtract_entities:
+                - sensor.stromverbrauch_gesamt_kwh
+            - type: remaining_parent_state
+              children:
+                - entity_id: werkstatt
+                  color: cyan
+                - entity_id: garten
+                  color: lime
+                - entity_id: wohnzimmer
+                  color: pink
+                - entity_id: flur
+                  color: magenta
+                - entity_id: unknown
+                  color: gray
+              entity_id: total
+              name: Stromverbrauch
+              color: darkorange
+        - entities:
+            - type: remaining_child_state
+              children:
+                - entity_id: sensor.growlampe_umrechnung_kwh
+                  color: brown
+                - entity_id: sensor.werkstattheizung_energiezahler
+                  color: brown
+              entity_id: werkstatt
+              name: Werkstatt
+              color: red
+            - type: remaining_child_state
+              children:
+                - entity_id: sensor.skimmerpumpe_shelly_plug_switch_0_energy
+                  color: lightblue
+                - entity_id: sensor.hauptpumpe_shelly_plug_switch_0_energy
+                  color: lightblue
+                - entity_id: sensor.stromungspumpen_umrechnung_kwh
+                  color: lightblue
+                - entity_id: sensor.wasserlauf_umrechnung_kwh
+                  color: lightblue
+              entity_id: garten
+              name: Garten
+              color: steelblue
+            - type: remaining_child_state
+              children:
+                - entity_id: sensor.3d_drucker_summe_verbraucht
+                  color: lightcoral
+                - entity_id: sensor.computer_summe_verbraucht
+                  color: lightcoral
+                - entity_id: sensor.fernseher_plug_summe_verbraucht
+                  color: lightcoral
+              entity_id: wohnzimmer
+              name: Wohnzimmer
+              color: lightcoral
+            - type: remaining_child_state
+              children:
+                - entity_id: sensor.trockner_summe_verbraucht_3
+                  color: magenta
+                - entity_id: sensor.waschmaschine_summe_verbraucht_2
+                  color: magenta
+              entity_id: flur
+              name: HWA
+              color: "#6d006b"
+            - type: remaining_parent_state
+              children: []
+              entity_id: unknown
+              name: Unbekannt
+              color: silver
+        - entities:
+            - type: entity
+              children: []
+              entity_id: sensor.growlampe_umrechnung_kwh
+              name: Growlampe kWh
+              color: brown
+            - type: entity
+              children: []
+              entity_id: sensor.werkstattheizung_energiezahler
+              name: Werkstatt Heizung
+              color: brown
+            - type: entity
+              children: []
+              entity_id: sensor.skimmerpumpe_shelly_plug_switch_0_energy
+              name: Skimmerpumpe
+              color: lightblue
+            - type: entity
+              children: []
+              entity_id: sensor.hauptpumpe_shelly_plug_switch_0_energy
+              name: Hauptpumpe
+              color: lightblue
+            - type: entity
+              children: []
+              entity_id: sensor.stromungspumpen_umrechnung_kwh
+              name: Strömungspumpen
+              color: lightblue
+            - type: entity
+              children: []
+              entity_id: sensor.wasserlauf_umrechnung_kwh
+              name: Wasserlauf
+              color: lightblue
+            - type: entity
+              children: []
+              entity_id: sensor.3d_drucker_summe_verbraucht
+              name: 3D-Drucker
+              color: lightcoral
+            - type: entity
+              children: []
+              entity_id: sensor.computer_summe_verbraucht
+              name: Computer
+              color: lightcoral
+            - type: entity
+              children: []
+              entity_id: sensor.fernseher_plug_summe_verbraucht
+              name: Fernseher
+              color: lightcoral
+            - type: entity
+              children: []
+              entity_id: sensor.trockner_summe_verbraucht_3
+              name: Trockner
+              color: magenta
+            - type: entity
+              children: []
+              entity_id: sensor.waschmaschine_summe_verbraucht_2
+              name: Waschmaschine
+              color: magenta
+          sort_by: state
+          sort_group_by_parent: true
+    attributes:
+      label: Verbrauch Heute
+      icon: mdi:home-lightning-bolt-outline
+  - card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: 65% 35%
+        grid-template-rows: auto
+        mediaquery:
+          "(max-width: 1000px)":
+            grid-template-columns: 100%
+            grid-template-rows: auto
+      cards:
+        - type: custom:plotly-graph
+          entities:
+            - entity: sensor.homestation_solar_total_ausgangsleistung
+              name: Solarertrag
+              yaxis: y1
+              fill: tozeroy
+              line:
+                shape: spline
+                color: green
+            - entity: sensor.total_power_nur_verbrauch
+              name: Gesamtverbrauch
+              yaxis: y1
+              fill: tozeroy
+              line:
+                shape: spline
+                color: orange
+            - entity: sensor.solar_einspeisung_normiert_positiver_wert
+              name: Netzeinspeisung
+              yaxis: y1
+              fill: tozeroy
+              line:
+                color: red
+          hours_to_show: 6
+          refresh_interval: 5
+          min_y_axis: 0
+          fit_y_data: true
+          logarithmic_scale: false
+          max_y_axis: 3000
+          layout:
+            height: 300
+        - type: custom:apexcharts-card
+          graph_span: 7d
+          span:
+            end: day
+          header:
+            show: true
+            title: Unterteilung
+            show_states: true
+            colorize_states: true
+          series:
+            - entity: >-
+                sensor.homestation_solar_total_energieleistung_wahrend_der_lebensdauer
+              name: Solarertrag
+              type: column
+              color: green
+              group_by:
+                func: diff
+                duration: 1d
+            - entity: sensor.stromverbrauch_taglich
+              name: Netzbezug
+              type: column
+              color: orange
+              group_by:
+                func: diff
+                duration: 1d
+            - entity: sensor.solar_netzeinspeisung_kwh_taglich
+              name: Netzeinspeisung
+              type: column
+              color: red
+              group_by:
+                func: diff
+                duration: 1d
+          apex_config:
+            xaxis:
+              labels:
+                show: false
+              axisBorder:
+                show: false
+              axisTicks:
+                show: false
+              legend:
+                show: false
+    attributes:
+      label: Aufteilung Heute
+      icon: mdi:solar-power
+  - card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: 55% 45%
+        grid-template-rows: auto
+        mediaquery:
+          "(max-width: 1000px)":
+            grid-template-columns: 100%
+            grid-template-rows: auto
+      cards:
+        - type: custom:power-flow-card-plus
+          entities:
+            solar:
+              entity: sensor.homestation_solar_total_ausgangsleistung
+              display_zero_state: true
+              secondary_info: {}
+              color_value: true
+              color_icon: false
+              invert_state: false
+              use_metadata: false
+              color:
+                - 11
+                - 157
+                - 67
+            individual:
+              - entity: sensor.poolverbrauch_summe_watt
+                secondary_info: {}
+                icon: mdi:pool
+                name: Pool Summe
+                color:
+                  - 42
+                  - 101
+                  - 156
+              - entity: sensor.growlampe_leistung
+                secondary_info: {}
+                name: GrowLed
+                calculate_flow_rate: false
+                color_value: false
+                color_icon: false
+                icon: mdi:ceiling-light
+                unit_white_space: true
+                inverted_animation: false
+                show_direction: false
+                use_metadata: false
+              - entity: sensor.innenlufter_shellyplug_switch_0_power
+                secondary_info: {}
+                name: Lüfter
+                icon: mdi:fan
+                color:
+                  - 115
+                  - 156
+                  - 217
+              - entity: sensor.werkstattheizung_leistung
+                secondary_info: {}
+                color:
+                  - 98
+                  - 9
+                  - 9
+                display_zero: false
+                name: Werkstatt Hzg.
+                display_zero_state: false
+                color_value: false
+                color_icon: false
+                icon: mdi:heating-coil
+                use_metadata: false
+                show_direction: false
+            home:
+              secondary_info: {}
+              circle_animation: true
+              override_state: true
+              subtract_individual: true
+              color_icon: true
+              color_value: true
+            grid:
+              secondary_info: {}
+              icon: ""
+              color:
+                consumption:
+                  - 211
+                  - 102
+                  - 13
+                production:
+                  - 182
+                  - 12
+                  - 12
+              color_value: true
+              invert_state: false
+              entity:
+                consumption: sensor.total_power_nur_verbrauch
+                production: sensor.solar_einspeisung_normiert_positiver_wert
+              color_circle: true
+              color_icon: true
+          clickable_entities: true
+          display_zero_lines:
+            mode: transparency
+            transparency: 50
+            grey_color:
+              - 189
+              - 189
+              - 189
+          use_new_flow_rate_model: true
+          w_decimals: 0
+          kw_decimals: 1
+          min_flow_rate: 0.75
+          max_flow_rate: 6
+          max_expected_power: 3000
+          min_expected_power: 0.01
+          watt_threshold: 1000
+          transparency_zero_lines: 0
+        - type: custom:power-flow-card-plus
+          entities:
+            solar:
+              display_zero_state: true
+              secondary_info: {}
+              color_value: true
+              color_icon: false
+              invert_state: false
+              use_metadata: false
+              color:
+                - 11
+                - 157
+                - 67
+            individual:
+              - entity: sensor.wasserlauf_leistung
+                secondary_info: {}
+                icon: mdi:chart-waterfall
+                name: Wasserlauf
+                color:
+                  - 42
+                  - 101
+                  - 156
+              - entity: sensor.stromungspumpen_leistung
+                secondary_info: {}
+                name: Strömungspumpen
+                calculate_flow_rate: false
+                color_value: false
+                color_icon: true
+                icon: mdi:air-filter
+                unit_white_space: true
+                inverted_animation: false
+                show_direction: false
+                use_metadata: false
+              - entity: sensor.skimmerpumpe_shelly_plug_switch_0_power
+                secondary_info: {}
+                name: Skimmer
+                icon: mdi:waves-arrow-right
+                color:
+                  - 47
+                  - 90
+                  - 156
+              - entity: sensor.poollicht_leistung
+                secondary_info: {}
+                color:
+                  - 239
+                  - 200
+                  - 6
+                display_zero: false
+                name: Poollicht
+                display_zero_state: false
+                color_value: false
+                color_icon: false
+                icon: mdi:light-flood-down
+                use_metadata: false
+                show_direction: false
+            home:
+              secondary_info:
+                icon: ""
+                color_value: false
+              circle_animation: false
+              override_state: true
+              subtract_individual: false
+              color_icon: battery
+              icon: mdi:waves-arrow-left
+              entity: sensor.hauptpumpe_shelly_plug_switch_0_power
+              name: Hauptpumpe
+              use_metadata: false
+            grid:
+              secondary_info: {}
+              icon: ""
+              color:
+                consumption:
+                  - 211
+                  - 102
+                  - 13
+                production:
+                  - 182
+                  - 12
+                  - 12
+              color_value: true
+              invert_state: false
+              entity: sensor.poolverbrauch_summe_watt
+              use_metadata: false
+              display_state: one_way_no_zero
+              color_icon: true
+              color_circle: true
+            clickable_entities: true
+            display_zero_lines:
+              mode: transparency
+              transparency: 50
+              grey_color:
+                - 189
+                - 189
+                - 189
+            use_new_flow_rate_model: true
+            w_decimals: 0
+            kw_decimals: 1
+            min_flow_rate: 0.75
+            max_flow_rate: 6
+            max_expected_power: 3000
+            min_expected_power: 0.01
+            watt_threshold: 1000
+            transparency_zero_lines: 0
+    attributes:
+      label: Leistung Akt.
+      icon: mdi:solar-power-variant
+  - card:
+      type: vertical-stack
+      cards:
+        - type: custom:stack-in-card
+          card_mod:
+            style: |
+              ha-card {
+                padding: 0px;
+              }
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: energy-date-selection
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: 0px;
+                        background: transparent !important;                        
+                      }
+            - type: custom:layout-card
+              layout_type: custom:grid-layout
+              layout:
+                grid-template-columns: 70% 30%
+                grid-template-rows: auto
+                mediaquery:
+                  "(max-width: 1000px)":
+                    grid-template-columns: 100%
+                    grid-template-rows: auto
+              cards:
+                - type: energy-usage-graph
+                  card_mod:
+                    style: |
+                      ha-card {
+                        margin-top: -20px;
+                        background: transparent !important;
+                      }
+                - type: vertical-stack
+                  cards:
+                    - type: energy-grid-neutrality-gauge
+                      card_mod:
+                        style: |
+                          ha-card {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
+                    - type: energy-distribution
+                      card_mod:
+                        style: |
+                          ha-card {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
+    attributes:
+      label: History Strom
+      icon: mdi:history
+  - card:
+      type: vertical-stack
+      cards:
+        - type: custom:stack-in-card
+          card_mod:
+            style: |
+              ha-card {
+                padding: 0px;
+              }
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: energy-date-selection
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: 0px;
+                        background: transparent !important;                        
+                      }
+            - type: custom:layout-card
+              layout_type: custom:grid-layout
+              layout:
+                grid-template-columns: 70% 30%
+                grid-template-rows: auto
+                mediaquery:
+                  "(max-width: 1000px)":
+                    grid-template-columns: 100%
+                    grid-template-rows: auto
+              cards:
+                - type: energy-devices-graph
+                  card_mod:
+                    style: |
+                      ha-card {
+                        margin-top: -20px;
+                        background: transparent !important;
+                      }
+                - type: vertical-stack
+                  cards:
+                    - type: energy-grid-neutrality-gauge
+                      card_mod:
+                        style: |
+                          ha-card {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
+                    - type: energy-distribution
+                      card_mod:
+                        style: |
+                          ha-card {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
+    attributes:
+      label: History Geräte
+      icon: mdi:history
+grid_options:
+  columns: full

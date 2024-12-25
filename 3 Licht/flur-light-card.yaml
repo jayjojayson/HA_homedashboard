@@ -1,0 +1,93 @@
+type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;  
+      border: none;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: none !important; /* Halbtransparenter Grünton */      
+              padding: 5px;   
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: tile
+              entity: switch.flurlicht
+              tap_action:
+                action: toggle
+              icon: mdi:ceiling-light
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: switch.sockelleisten_steckdose_1
+              name: Sockelleisten
+              icon: mdi:led-strip-variant
+              tap_action:
+                action: toggle
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: light.lampe_flur_schrank_leuchte
+              name: Flurschrank
+              tap_action:
+                action: toggle
+              vertical: true
+              hide_state: true
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }     

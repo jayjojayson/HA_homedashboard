@@ -1,0 +1,84 @@
+type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;  
+      border: none;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    card_mod:
+      style: |
+        ha-card {
+          background-color: transparent !important;  
+          border: none;
+        }
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:mod-card
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: none !important; /* Halbtransparenter Grünton */      
+                  padding: 5px;   
+                }
+            card:
+              type: horizontal-stack
+              cards:
+                - type: light
+                  entity: light.kuchenlicht
+                  name: Küche RGB
+                  theme: grey-icon
+                  icon: mdi:led-strip-variant
+                  hold_action:
+                    action: more-info
+                  double_tap_action:
+                    action: more-info
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        border-radius: 0px !important;
+                        border-right: 1px solid grey !important; 
+                        border-left: none !important; 
+                        border-top: none !important; 
+                        border-bottom: none !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        height: 100% !important;
+                        text-align: center !important;
+                      }
+                      #info {
+                        font-size: 110% !important;
+                      }  
+                      .card-content {
+                        margin: auto !important;
+                      }
+                - type: tile
+                  entity: switch.kuchenlicht_2
+                  tap_action:
+                    action: toggle
+                  name: Unterschranklicht
+                  icon: mdi:led-strip
+                  vertical: true
+                  hide_state: true
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        border-radius: 0px !important;
+                        border-right: none !important; 
+                        border-left: none !important; 
+                        border-top: none !important; 
+                        border-bottom: none !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        height: 100% !important;
+                        text-align: center !important;
+                      }
+                      .card-content {
+                        margin: auto !important;
+                      }
