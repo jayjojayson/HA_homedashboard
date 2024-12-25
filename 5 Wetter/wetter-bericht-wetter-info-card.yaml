@@ -23,21 +23,18 @@ tabs:
                     box-shadow: none !important;
                     border: none !important;
                     border-radius: 0px !important;
-                  }   
-              title: Wetterbericht Heute
+                  }
+              title: " "
               content: >
                 {% set text =
                 state_attr('sensor.fuerstenwalde_spree_wetterbericht', 'data')
                 %} {% if text and '**Detaillierter Wetterablauf:**' in text %}
                   {% set start = text.find('**Detaillierter Wetterablauf:**') + 31 %}
-                  {% set end = text.find('\n\n', start) if text.find('\n\n', start) != -1 else None %}
-                  {% set detailed = text[start:end].strip() if end else text[start:].strip() %}
-                  {% set today_start = detailed.find('Heute') %}
-                  {% set today_end = detailed.find('Am Freitag', today_start) if detailed.find('Am Donnerstag', today_start) != -1 else None %}
-                  {{ detailed[today_start:today_end].strip() if today_end else detailed[today_start:].strip() }}
+                  {% set end = text.find('Am Freitag', start) if text.find('Am Freitag', start) != -1 else None %}
+                  {{ text[start:end].strip() if end else text[start:].strip() }}
                 {% else %}
                   Keine Wetterdaten verfügbar.
-                {% endif %}       
+                {% endif %}
     attributes:
       label: Wetterbericht
       icon: mdi:weather-cloudy-clock
