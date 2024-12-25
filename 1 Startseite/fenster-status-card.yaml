@@ -1,0 +1,22 @@
+type: custom:auto-entities
+card:
+  type: entities
+  title: " "
+  card_mod:
+    style: |
+      ha-card {
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+filter:
+  include:
+    - entity_id: binary_sensor.fenster_*
+  exclude:
+    - state: "off"
+sort:
+  method: name
+visibility:
+  - condition: state
+    entity: sensor.fenster_geoffnet
+    state: "on"
