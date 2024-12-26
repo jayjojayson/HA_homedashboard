@@ -31,7 +31,7 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
 Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
 
-für alle Seiten notwendig
+#### für alle Seiten notwendig
 - mushroom
 - card-mod
 - stack in card
@@ -41,24 +41,24 @@ für alle Seiten notwendig
 - layout card
 - auto entities card
 
-für Staubsauger und Müll Card notwendig
+#### für Staubsauger und Müll Card notwendig
 - dreame vacuum map card
 - trash card
 - ics calendar 
 
-für Wetter Card notwendig
+#### für Wetter Card notwendig
 - deutscher wetterdienst
 - NINA Wetterwarnungen
 
-für Stromübersicht Card notwendig
+#### für Stromübersicht Card notwendig
 - power flow card plus
 - sankey chart card
 - energy overview card
 
-für Paketeüberischt Card notwendig
+#### für Paketeüberischt Card notwendig
 - 17track Integration
 
-für Raspi-Status Card notwendig
+#### für Raspi-Status Card notwendig
 - System Monitor Integration
 
 (optional - Topmenu verstecken)
