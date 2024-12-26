@@ -44,15 +44,22 @@ für alle Seiten notwendig
 für Staubsauger und Müll Card notwendig
 - dreame vacuum map card
 - trash card
-- ics calendar
+- ics calendar 
 
 für Wetter Card notwendig
 - deutscher wetterdienst
+- NINA Wetterwarnungen
 
 für Stromübersicht Card notwendig
 - power flow card plus
 - sankey chart card
 - energy overview card
+
+für Paketeüberischt Card notwendig
+- 17track Integration
+
+für Raspi-Status Card notwendig
+- System Monitor Integration
 
 (optional - Topmenu verstecken)
 - kiosk mode
