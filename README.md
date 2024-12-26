@@ -87,6 +87,6 @@ Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbei
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
-<div align="center">
+<div align="right">
   <img src="https://profile-counter.glitch.me/jayjojayson/count.svg?"  />
 </div>
