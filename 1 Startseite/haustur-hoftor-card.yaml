@@ -1,0 +1,102 @@
+type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;  
+      border: none;
+    }
+cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+              background-color: none !important;       
+              padding: 5px;   
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:mushroom-entity-card
+              name: Haustür
+              entity: lock.hauseingang
+              vertical: false
+              hide_state: true
+              icon_tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+                  ha-state-icon {
+                    color: {% if states('lock.hauseingang') == 'locked' %} green {% else %} red {% endif %};
+                  } 
+                  mushroom-shape-icon {
+                    --shape-color: {% if states('lock.hauseingang') == 'locked' %} rgba(0, 128, 0, 0.4) {% else %} rgba(255, 0, 0, 0.2) {% endif %} !important;
+                  }
+            - type: custom:mushroom-entity-card
+              entity: input_button.button_hoftor_automatik_auf_zu
+              name: Hoftor
+              primary_info: name
+              fill_container: false
+              secondary_info: none
+              icon_color: grey
+              icon_tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: custom:mushroom-entity-card
+              entity: switch.licht_garage_wohnzimmer_licht_garage_ch2
+              fill_container: false
+              icon_color: amber
+              icon: mdi:coach-lamp
+              name: Garage
+              secondary_info: none
+              tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }     
