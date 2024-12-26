@@ -39,6 +39,7 @@ für alle Seiten notwendig
 - bubble card
 - mini graph card
 - layout card
+- auto entities card
 
 für Staubsauger und Müll Card notwendig
 - dreame vacuum map card
