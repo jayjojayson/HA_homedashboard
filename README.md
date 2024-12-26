@@ -2,9 +2,10 @@
 Homedashboard Cards and Layout Code for Home Assistant
 
 Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Inzwischen ist die Struktur sehr gewachsen, wechselhalb so eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
-Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Zudem werden die größeren Cards auch dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt.
+Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen.
 
-![Screenshot 2024-12-14 023409](https://github.com/user-attachments/assets/499c5656-9474-4ca0-a2da-a24616f3e1ec)
+![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
+
 
 ## 📂 Ordnerstruktur
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
@@ -12,17 +13,17 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 
 ## 📖 Features
 
-- Topmenü verstecken auf Tablet und Handy (optional)
-- Startseite mit popups für Heizung, Wetter, Kamera und Strom
-- Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete)
-- Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
-- Unterseiten für Einstellungen, Roboter, Sicherheit und Multimedia
-- ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
-- ausführliche Stromübersicht mit aktuellen Verbrauchswerten für Geräte und Gesamt (Watt/kWh) mit History
-- Solarinput ebenfalls mit in Stromübersichtkarte aufgenommen
-- angepasst für Lenovo M10 3.Gen (aber auch andere Tablets mit 10 oder 11")
-- großteils Handy kompatibel (getestet mit s24)
-- viele tabbed und popups cards
+- #### 📣 Topmenü verstecken auf Tablet und Handy (optional)
+- #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
+- #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete)
+- #### ⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
+- #### ⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia
+- #### ☔ ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
+- #### ⚡ ausführliche Stromübersicht mit aktuellen Verbrauchswerten für Geräte und Gesamt (Watt/kWh) mit 📈 History 
+- #### ☀️ Solarinput ebenfalls mit in Stromübersichtkarte & Startseite aufgenommen
+- #### 💻 angepasst für Lenovo M10 3.Gen Tablet (aber auch andere Tablets mit 10 oder 11")
+- #### 📱 großteils Handy kompatibel (getestet mit s24)
+- #### viele tabbed und popups cards
 
 ...coming soon
 
@@ -66,6 +67,10 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 
 (optional - Swipen für vor und zurück auf Tablet oder Handy)
 - home assistant swipe navigation
+
+#### Sensoren
+Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist notwendig, um Temperatur-, Luft-, und Solarwerte nach Zustand einzufärben.
+Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
 ## 📥 Installation
 1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
