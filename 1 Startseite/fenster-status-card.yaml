@@ -5,7 +5,6 @@ card:
   card_mod:
     style: |
       ha-card {
-        background: none !important;
         box-shadow: none !important;
         border: none !important;
       }
