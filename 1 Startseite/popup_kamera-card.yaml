@@ -1,0 +1,78 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#poolkamera"
+    show_header: false
+    bg_color: rgb(43 53 71)
+    shadow_opacity: 0
+    card_mod:
+      style: |
+        ha-card {
+          border: none;
+          border-top-right-radius: 0px !important;          
+          border-top-left-radius: 0px !important;
+          z-index: 1 !important; /* Über dem Hintergrund */
+        }
+  - type: picture-glance
+    camera_view: auto
+    title: Pool
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    entities:
+      - entity: select.poolkamera_ptz_voreinstellung
+        icon: mdi:pool
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.poolkamera_ptz_voreinstellung
+            option: Poolansicht
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.poolkamera_ptz_voreinstellung
+            option: Poolansicht
+      - entity: select.poolkamera_ptz_voreinstellung
+        icon: mdi:store-search
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.poolkamera_ptz_voreinstellung
+            option: Terrasse
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.poolkamera_ptz_voreinstellung
+            option: Terrasse
+    camera_image: camera.poolkamera_fliessend
+  - type: tile
+    entity: input_button.button_fernseher
+    icon: mdi:grass
+    hide_state: true
+    show_entity_picture: false
+    vertical: false
+    name: Gartenansicht
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-test/garten
+    card_mod:
+      style: |
+        ha-card {
+          background: none !important;
+          border-radius: 0px !important;
+          border-right: none !important; 
+          border-left: none !important; 
+          border-top: none !important; 
+          border-bottom: none !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          height: 100% !important;
+          text-align: center !important;
+        }
+        .card-content {
+          margin: auto !important;
+        }

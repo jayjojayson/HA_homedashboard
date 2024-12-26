@@ -894,411 +894,85 @@ sections:
           - condition: state
             entity: switch.pc_led_pv_led
             state: "on"
-      - type: custom:mushroom-template-card
-        primary: PC-Led
-        entity: switch.pc_led_pv_led
-        icon: mdi:led-strip
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.pc_led_pv_led', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.pc_led_pv_led
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
+      - type: custom:stack-in-card
         card_mod:
           style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
+            ha-card {
               background: none !important;
               box-shadow: none !important;
+              border: none !important;
+              padding: 10px 10px 10px 0;
             }
-      - type: custom:mushroom-template-card
-        primary: Wandlicht
-        secondary: |-
-          {% if is_state('light.wandlicht', 'on') %}
-            {{ (state_attr('light.wandlicht', 'brightness') | int / 255 * 100) | round(0) }}%
-          {% else %}
-            Aus
-          {% endif %}
-        entity: light.wandlicht
-        icon: mdi:led-strip-variant
-        name: Wandlicht
-        icon_color: |-
-          {% if is_state('light.wandlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: light.wandlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Küche
-        entity: switch.kuchenlicht_2
-        icon: mdi:led-strip
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.kuchenlicht_2', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.kuchenlicht_2
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Küche RGB
-        secondary: |-
-          {% if is_state('light.kuchenlicht', 'on') %}
-            {{ (state_attr('light.kuchenlicht', 'brightness') | int / 255 * 100) | round(0) }}%
-          {% else %}
-            Aus
-          {% endif %}
-        entity: light.kuchenlicht
-        icon: mdi:led-strip-variant
-        name: Wandlicht
-        icon_color: |-
-          {% if is_state('light.kuchenlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: light.kuchenlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Couchlicht
-        secondary: |-
-          {% if is_state('light.couchlicht', 'on') %}
-            {{ (state_attr('light.couchlicht', 'brightness') | int / 255 * 100) | round(0) }}%
-          {% else %}
-            Aus
-          {% endif %}
-        entity: light.couchlicht
-        icon: mdi:led-strip-variant
-        name: Wandlicht
-        icon_color: |-
-          {% if is_state('light.couchlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: light.couchlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Lavalampe
-        entity: switch.lavalampe_steckdose_1
-        icon: mdi:led-strip
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.lavalampe_steckdose_1', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.lavalampe_steckdose_1
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Lavalampe
-        entity: switch.lavalampe_steckdose_1
-        icon: mdi:led-strip
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.lavalampe_steckdose_1', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.lavalampe_steckdose_1
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Wohnzimmer
-        entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
-        icon: mdi:ceiling-light
-        name: PC-Led
-        icon_color: >-
-          {% if
-          is_state('switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1',
-          'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Esstisch
-        entity: switch.esszimmerlicht
-        icon: mdi:ceiling-light
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.esszimmerlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.esszimmerlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Sockelleisten
-        entity: switch.sockelleisten_steckdose_1
-        icon: mdi:led-strip-variant
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.sockelleisten_steckdose_1', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.sockelleisten_steckdose_1
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Flurlicht
-        entity: switch.flurlicht
-        icon: mdi:ceiling-light
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.flurlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.flurlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Außenlicht
-        entity: switch.aussenlicht
-        icon: mdi:led-strip-variant
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.aussenlicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.aussenlicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Bad Spiegel
-        entity: switch.bad_spiegellicht
-        icon: mdi:led-strip-variant
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.bad_spiegellicht', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.bad_spiegellicht
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Poollicht
-        entity: switch.poollicht_steckdose_1
-        icon: mdi:light-flood-down
-        name: PC-Led
-        icon_color: |-
-          {% if is_state('switch.poollicht_steckdose_1', 'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.poollicht_steckdose_1
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: custom:mushroom-template-card
-        primary: Terasse
-        entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
-        icon: mdi:ceiling-light-multiple
-        name: PC-Led
-        icon_color: >-
-          {% if
-          is_state('switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2',
-          'on') %}
-            #ffc107
-          {% else %}
-            grey
-          {% endif %}
-        visibility:
-          - condition: state
-            entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
-            state: "on"
-        grid_options:
-          columns: 4
-          rows: 1
-        card_mod:
-          style: |
-            mushroom-shape-icon {
-              --icon-size: 45px !important;
-              background: none !important;
-              box-shadow: none !important;
-            }
-      - type: heading
-        icon: ""
-        heading_style: subtitle
-        heading: Es werden nur Lichter angezeigt die eingeschaltet sind
-        visibility:
-          - condition: state
-            entity: switch.pc_led_pv_led
-            state: "on"
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-right: 1px solid grey !important;
+                        border-radius: 0px !important;
+                        font-size: 14px;
+                      }
+                filter:
+                  include:
+                    - entity_id: light.*
+                      area: Wohnzimmer
+                    - entity_id: light.*
+                      area: Schlafzimmer
+                    - entity_id: light.*
+                      area: Flur
+                    - entity_id: light.*
+                      area: Küche
+                    - entity_id: light.*
+                      area: Bad
+                    - entity_id: light.*
+                      area: Werkstatt
+                  exclude:
+                    - state: "off"
+                    - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
+                    - entity_id: light.cyd_display_backlight
+                sort:
+                  method: name
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        border-radius: 0px !important;
+                        border: none !important; 
+                        box-shadow: none !important;
+                        font-size: 14px;
+                      }
+                filter:
+                  include:
+                    - entity_id: light.*
+                      area: Wohnzimmer 2
+                    - entity_id: light.*
+                      area: Schlafzimmer 2
+                    - entity_id: light.*
+                      area: Flur 2
+                    - entity_id: light.*
+                      area: Bad Mutti
+                    - entity_id: light.*
+                      area: Küche 2
+                    - entity_id: light.*
+                      area: Esszimmer
+                    - entity_id: light.*
+                      area: Garten
+                  exclude:
+                    - state: "off"
+                    - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
+                    - entity_id: light.cyd_display_backlight
+                sort:
+                  method: name
       - type: heading
         icon: ""
         heading: Fensterstatus
@@ -2409,6 +2083,8 @@ sections:
                     unit_of_measurement: €
                   - entity: sensor.solar_netzeinspeisung_kwh_taglich
                     name: Netzeinspeisung Heute
+                  - entity: sensor.stromverbrauch_taglich
+                    name: Stromverbrauch Heute
                   - entity: sensor.stromverbrauch_gesamt_kwh
                     name: Stromverbrauch Gesamt
                 theme: grey-icon

@@ -1,0 +1,305 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#heizung"
+    show_header: false
+    bg_color: rgb(43 53 71)
+    shadow_opacity: 0
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: sensor.wandthermostat_jan_temperatur
+        name: Temperatur
+        fill_container: false
+        layout: vertical
+        icon_color: red
+        primary_info: state
+        secondary_info: none
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 10px;
+              border: none !important;
+              border-radius: 0px !important;
+              background-color: transparent !important;     
+            }
+            :host {
+              --mush-card-primary-font-size: 20px !important;
+            } 
+      - type: custom:mushroom-entity-card
+        entity: sensor.wandthermostat_jan_luftfeuchtigkeit
+        name: Luftfeuchte
+        layout: vertical
+        primary_info: state
+        secondary_info: none
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 10px;
+              border: none !important;
+              border-radius: 0px !important;
+              background-color: transparent !important;
+            }
+            :host {
+              --mush-card-primary-font-size: 20px !important;
+            }
+      - type: custom:mushroom-entity-card
+        entity: sensor.thermostat_wohnzimmer_ventil_offnungsgrad
+        name: Ventil
+        fill_container: false
+        icon_color: primary
+        layout: vertical
+        primary_info: state
+        secondary_info: none
+        card_mod:
+          style: |
+            ha-card {
+              padding-top: 10px;
+              border: none !important;
+              border-radius: 0px !important;
+              background-color: transparent !important;
+            }
+            :host {
+              --mush-card-primary-font-size: 20px !important;
+            }
+  - type: thermostat
+    entity: climate.wandthermostat_jan_2
+    show_current_as_primary: false
+    features:
+      - style: icons
+        type: climate-hvac-modes
+    name: " "
+    card_mod:
+      style: |
+        ha-card {
+          background-color: transparent;
+          border: none !important;
+          border-radius: 0px !important;          
+          padding-left: 20px !important;          
+          padding-right: 20px !important;
+        }
+        /* Direktes Ansprechen des Shadow-DOMs */
+        :host ::part(secondary) {
+          display: none !important;
+        }
+        hui-thermostat-card .label.secondary {
+          display: none !important;
+        }
+  - type: vertical-stack
+    cards:
+      - type: custom:mod-card
+        card:
+          type: custom:mushroom-template-card
+          primary: Diagramm
+          icon: mdi:chart-line
+          tap_action:
+            action: call-service
+            service: input_select.select_next
+            service_data:
+              entity_id: input_select.diagramm_heizung_anzeige
+          card_mod:
+            style: |
+              ha-card {
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                border-bottom: 1px;
+                border-radius: 0px !important;
+                background-color: transparent;
+                margin-left: 30px;
+                margin-right: 30px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+              }
+      - type: conditional
+        conditions:
+          - entity: input_select.diagramm_heizung_anzeige
+            state: Diagramm
+        card:
+          type: custom:tabbed-card
+          styles:
+            "--mdc-theme-primary": var(--primary-color)
+            "--mdc-tab-text-label-color-default": grey
+            "--mdc-typography-button-font-size": 12px
+            "--mdc-typography-button-text-transform": capitalize
+          tabs:
+            - card:
+                type: horizontal-stack
+                cards:
+                  - type: history-graph
+                    show_names: false
+                    entities:
+                      - entity: climate.thermostat_wohnzimmer_2
+                    hours_to_show: 24
+                    refresh_interval: 10
+                    logarithmic_scale: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent;
+                          border-radius: 0px !important;
+                          border: none !important;
+                          margin-left: 30px;
+                          margin-right: 30px;
+                          transition: opacity 0.5s ease, transform 0.5s ease;
+                          opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                          transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                        }
+                        .content {
+                          padding: 0px !important;
+                          padding-bottom: 10px !important;
+                        }
+              attributes:
+                label: Wohnzi.
+                icon: mdi:history
+            - card:
+                type: horizontal-stack
+                cards:
+                  - type: history-graph
+                    show_names: false
+                    entities:
+                      - entity: climate.thermostat_bad
+                    hours_to_show: 24
+                    refresh_interval: 10
+                    logarithmic_scale: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent;
+                          border-radius: 0px !important;
+                          border: none !important;
+                          margin-left: 30px;
+                          margin-right: 30px;
+                          transition: opacity 0.5s ease, transform 0.5s ease;
+                          opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                          transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                        }
+                        .content {
+                          padding: 0px !important;
+                          padding-bottom: 10px !important;
+                        }
+              attributes:
+                label: Bad
+                icon: mdi:history
+            - card:
+                type: horizontal-stack
+                cards:
+                  - type: history-graph
+                    show_names: false
+                    entities:
+                      - entity: climate.thermostat_schlafzimmer
+                    hours_to_show: 24
+                    refresh_interval: 10
+                    logarithmic_scale: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent;
+                          border-radius: 0px !important;
+                          border: none !important;
+                          margin-left: 30px;
+                          margin-right: 30px;
+                          transition: opacity 0.5s ease, transform 0.5s ease;
+                          opacity: {{ 1 if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 0 }};
+                          transform: {{ 'scale(1)' if states('input_select.diagramm_heizung_anzeige') == 'Diagramm' else 'scale(0.95)' }};
+                        }
+                        .content {
+                          padding: 0px !important;
+                          padding-bottom: 10px !important;
+                        }
+              attributes:
+                label: Schlafzi.
+                icon: mdi:history
+  - type: custom:mod-card
+    card:
+      type: custom:mushroom-template-card
+      card_mod:
+        style: |
+          ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey;
+            margin-left: 30px;
+            margin-right: 30px;
+          } 
+  - type: custom:mushroom-climate-card
+    entity: climate.thermostat_bad
+    name: Bad
+    hvac_modes:
+      - auto
+      - "off"
+    show_temperature_control: true
+    fill_container: false
+    collapsible_controls: true
+    layout: horizontal
+    tap_action:
+      action: more-info
+    icon: mdi:heat-wave
+    card_mod:
+      style: |
+        ha-card {
+          height: 70px !important;
+          padding-left: 10px;
+          padding-top: 8px;
+          padding-bottom: 0px;
+          padding-right: 10px;
+          border: none !important;
+          border-radius: 0px !important;
+          background-color: transparent !important;
+        } 
+        mushroom-card::after {
+          content: "Ventil: {{ states('sensor.thermostat_bad_ventil_offnungsgrad') }}%";
+          position: absolute;
+          top: 5px;
+          right: 80px;
+          font-size: var(--card-secondary-font-size);
+          color: var(--secondary-text-color);
+        }
+        ha-state-icon { 
+          color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+        } 
+        mushroom-shape-icon {
+          --shape-color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+  - type: custom:mushroom-climate-card
+    entity: climate.thermostat_schlafzimmer
+    name: Schlafzimmer
+    hvac_modes:
+      - auto
+      - "off"
+    show_temperature_control: true
+    fill_container: false
+    collapsible_controls: true
+    layout: horizontal
+    tap_action:
+      action: more-info
+    icon: mdi:heat-wave
+    card_mod:
+      style: |
+        ha-card {
+          height: 70px !important;
+          padding-left: 10px;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          padding-right: 10px;
+          border: none !important;
+          border-radius: 0px !important;
+          background-color: transparent !important;
+        }
+        mushroom-card::after {
+          content: "Ventil: {{ states('sensor.thermostat_schlafzimmer_ventil_offnungsgrad') }}%";
+          position: absolute;
+          top: 0px;
+          right: 80px;
+          font-size: var(--card-secondary-font-size);
+          color: var(--secondary-text-color);
+        }
+        ha-state-icon { 
+          color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+        } 
+        mushroom-shape-icon {
+          --shape-color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
