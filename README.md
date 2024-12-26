@@ -6,10 +6,9 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 
 ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 
-
 ## 📂 Ordnerstruktur
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
-Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden.
+Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
 
 ## 📖 Features
 
@@ -26,6 +25,13 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 - #### viele tabbed und popups cards
 
 ...coming soon
+
+#### Hauptseiten
+![hauptseiten](https://github.com/user-attachments/assets/ad3d7eb4-b574-4f21-8a9d-24eb0fcc9d55)
+
+#### Unterseiten
+![unterseiten](https://github.com/user-attachments/assets/7d6ffdfd-b7af-4478-a4b5-611d8ddefdb2)
+
 
 ## ✔️ Voraussetzungen
 
