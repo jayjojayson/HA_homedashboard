@@ -19,7 +19,7 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 - #### ⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
 - #### ⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia
 - #### ☔ ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
-- #### ⚡ ausführliche Stromübersicht mit aktuellen Verbrauchswerten für Geräte und Gesamt (Watt/kWh) mit 📈 History 
+- #### ⚡ ausführliche Stromübersicht - aktuelle Verbrauchswerte für Geräte und Gesamt (Watt/kWh) 📈 History 
 - #### ☀️ Solarinput ebenfalls mit in Stromübersichtkarte & Startseite aufgenommen
 - #### 💻 angepasst für Lenovo M10 3.Gen Tablet (aber auch andere Tablets mit 10 oder 11")
 - #### 📱 großteils Handy kompatibel (getestet mit s24)
