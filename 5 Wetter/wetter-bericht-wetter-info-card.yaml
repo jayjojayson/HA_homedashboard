@@ -30,7 +30,7 @@ tabs:
                 state_attr('sensor.fuerstenwalde_spree_wetterbericht', 'data')
                 %} {% if text and '**Detaillierter Wetterablauf:**' in text %}
                   {% set start = text.find('**Detaillierter Wetterablauf:**') + 31 %}
-                  {% set end = text.find('Am Freitag', start) if text.find('Am Freitag', start) != -1 else None %}
+                  {% set end = text.find('Am', start) if text.find('Am', start) != -1 else None %}
                   {{ text[start:end].strip() if end else text[start:].strip() }}
                 {% else %}
                   Keine Wetterdaten verfügbar.
