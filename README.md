@@ -7,19 +7,61 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 ![Screenshot 2024-12-14 023409](https://github.com/user-attachments/assets/499c5656-9474-4ca0-a2da-a24616f3e1ec)
 
 ## 📂 Ordnerstruktur
-Übersichtlich strukturiert, so dass du die gewünschten Elemente einfach kopieren kannst. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
-Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnte schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden.
+Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
+Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden.
 
 ## 📖 Features
 
-Topmenü verstecken auf Tablet und Handy
+- Topmenü verstecken auf Tablet und Handy (optional)
+- Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
+- Unterseiten für Einstellungen, Roboter, Sicherheit und Multimedia
+- Startseite mit popups für Heizung, Wetter, Kamera und Strom
+- Startseite mit dynamischen Inhalten anzeigen (Müll, Fenster, Licht, Pakete)
+- ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
+- ausführliche Stromübersicht mit aktuellen Verbrauchswerten (Watt) und History
+- Solarinput ebenfalls mit in Stromübersichtkarte aufgenommen
+- angepasst für Lenovo M10 3.Gen (aber auch andere Tablets mit 10 oder 11")
+- großteils Handy kompatibel (getestet mit s24)
+- viele tabbed und popups cards
 
-....coming soon
+...coming soon
+
+## ✔️ Voraussetzungen
+
+Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
+
+für alle Seiten notwendig
+- mushroom
+- card-mod
+- stack in card
+- tabbed card
+- bubble card
+- mini graph card
+- layout card
+
+für Staubsauger und Müll Card notwendig
+- dreame vacuum map card
+- trash card
+- ics calendar
+
+für Wetter Card notwendig
+- deutscher wetterdienst
+
+für Stromübersicht Card notwendig
+- power flow card plus
+- sankey chart card
+- energy overview card
+
+(optional - Topmenu verstecken)
+- kiosk mode
+
+(optional - Swipen für vor und zurück auf Tablet oder Handy)
+- home assistant swipe navigation
 
 ## 📥 Installation
-1. Wähle die YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
-2. Gehe zu deinem Dashboard und füge den kopierten Inhalt in eine neue Card oder direkt in eine neue Seite ein.
-3. Passe die Entitäten an deine an. Ersetze dazu IDs und Sensoren durch die aus deinem Setup.
+1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
+2. Gehe zu deinem Dashboard und füge den kopierten Code in eine neue Card oder direkt in eine neue Seite ein.
+3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
 4. Schaue das Ergebnis an. 
 
 ## 💬 Topmenü Hack
