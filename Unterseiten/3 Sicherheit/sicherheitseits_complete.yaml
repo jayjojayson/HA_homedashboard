@@ -100,13 +100,18 @@ sections:
                       border: none !important;
                       border-radius: 0px !important;
                     }
-      - type: custom:stack-in-card
-        card_mod:
-          style: |
-            ha-card {
-              padding: 10px;
-            }
-        cards:
+          - type: custom:mod-card
+            card:
+              type: custom:mushroom-template-card
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 1px;
+                    border-bottom: 1px;
+                    background-color: grey;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
           - type: horizontal-stack
             cards:
               - type: tile
@@ -126,7 +131,7 @@ sections:
                       text-align: center !important;
                     }
               - type: tile
-                entity: binary_sensor.bewegungsmelder_flur_mutti_bewegung
+                entity: binary_sensor.bewegungsmelder_treppe_mutti_bewegung
                 name: Treppe Mutti
                 card_mod:
                   style: |
