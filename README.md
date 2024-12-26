@@ -13,12 +13,12 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 ## 📖 Features
 
 - Topmenü verstecken auf Tablet und Handy (optional)
+- Startseite mit popups für Heizung, Wetter, Kamera und Strom
+- Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete)
 - Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
 - Unterseiten für Einstellungen, Roboter, Sicherheit und Multimedia
-- Startseite mit popups für Heizung, Wetter, Kamera und Strom
-- Startseite mit dynamischen Inhalten anzeigen (Müll, Fenster, Licht, Pakete)
 - ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
-- ausführliche Stromübersicht mit aktuellen Verbrauchswerten (Watt) und History
+- ausführliche Stromübersicht mit aktuellen Verbrauchswerten für Geräte und Gesamt (Watt/kWh) mit History
 - Solarinput ebenfalls mit in Stromübersichtkarte aufgenommen
 - angepasst für Lenovo M10 3.Gen (aber auch andere Tablets mit 10 oder 11")
 - großteils Handy kompatibel (getestet mit s24)
@@ -87,6 +87,8 @@ Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbei
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
+#### ` Note: Danke an die Entwickler der Cards aus meinen Voraussetzungen.`
+#### ` Dadurch wird das Dahsboard zu dem, was es ist. 🤗` 
 <div align="right">
   <img src="https://profile-counter.glitch.me/jayjojayson/count.svg?"  />
 </div>
