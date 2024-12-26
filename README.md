@@ -29,6 +29,7 @@ Schaut am besten den jeweiligen Screenshot der Seite an und ihr könnt schnell d
 ## ✔️ Voraussetzungen
 
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
+Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
 
 für alle Seiten notwendig
 - mushroom
