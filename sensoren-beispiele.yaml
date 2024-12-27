@@ -1,0 +1,162 @@
+template:
+#prüft trash kalendar ob übermorgen ein Tonne gezogen wird und zeigt diese am Vortag an
+- sensor:
+      - name: "Abfall voraus Morgen"
+        state: >
+          {% set start_time = state_attr('calendar.abfall', 'start_time') %}
+          {% if start_time %}
+            {% if (start_time | as_datetime).date() == (now() + timedelta(days=1)).date() %}
+              on
+            {% else %}
+              off
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+          
+#zeigt an, welches Fenster genau geöffnet ist, wird für die Sprachausgabe Echo gebraucht
+- sensor:
+      - name: "Geöffnete Fenster"
+        state: >
+          {% set offene_fenster = states.binary_sensor 
+                                  | selectattr('entity_id', 'search', '^binary_sensor\.fenster_') 
+                                  | selectattr('state', 'eq', 'on') 
+                                  | map(attribute='name') 
+                                  | list %}
+          {% if offene_fenster | length > 0 %}
+            {{ offene_fenster | join(', ') }}
+          {% else %}
+            Keine Fenster geöffnet
+          {% endif %}
+
+#virtuelle Sensoren um Temperaturwerte einzufärben
+sensor:
+  - platform: template
+    sensors:
+      temperature_color:
+        friendly_name: "Außentemperatur Farbconfig"
+        value_template: >
+          {% set temp = states('sensor.aussentemperatur_temperatur') | float %}
+          {% if temp < 10 %}
+            steelblue
+          {% elif temp < 15 %}
+            green
+          {% elif temp < 23 %}
+            orange
+          {% else %}
+            red
+          {% endif %}
+          
+
+  - platform: template
+    sensors:
+      pooltemperature_color:
+        friendly_name: "Pooltemperatur Farbconfig"
+        value_template: >
+          {% set temp = states('sensor.pooltemperatur_temperatur') | float %}
+          {% if temp < 10 %}
+            steelblue
+          {% elif temp < 18 %}
+            green
+          {% elif temp < 23 %}
+            orange
+          {% else %}
+            red
+          {% endif %}
+    
+          
+  - platform: template
+    sensors:
+      luftquality_color:
+        friendly_name: "Luftqualität Farbconfig"
+        value_template: >
+          {% set temp = states('sensor.starkvind_luftreiniger_pm2_5') | float %}
+          {% if temp < 50 %}
+            green
+          {% elif temp < 100 %}
+            yellow
+          {% elif temp < 150 %}
+            orange
+          {% else %}
+            red
+          {% endif %}
+          
+  - platform: template
+    sensors:
+      luftquality_line_color:
+        friendly_name: "Luftqualitäts Line Color"
+        value_template: >
+          {% if is_state('sensor.luftquality_color', 'green') %}
+            green
+          {% elif is_state('sensor.luftquality_color', 'yellow') %}
+            yellow
+          {% elif is_state('sensor.luftquality_color', 'orange') %}
+            orange
+          {% else %}
+            red
+          {% endif %}
+
+  - platform: template
+    sensors:
+      solar_color:
+        friendly_name: "Solar Farbconfig"
+        value_template: >
+          {% set temp = states('sensor.homestation_solar_total_energie_heute') | float %}
+          {% if temp < 3 %}
+            grey
+          {% elif temp < 5 %}
+            darkyellow
+          {% elif temp < 10 %}
+            yellow    
+          {% elif temp < 15 %}
+            darkgreen
+          {% else %}
+            green
+          {% endif %}
+          
+  - platform: template
+    sensors:
+      solar_line_color:
+        friendly_name: "Solar Line Color"
+        value_template: >
+          {% if is_state('sensor.solar_color', 'grey') %}
+            grey
+          {% elif is_state('sensor.solar_color', 'darkyellow') %}
+            darkyellow
+          {% elif is_state('sensor.solar_color', 'yellow') %}
+            yellow
+          {% elif is_state('sensor.solar_color', 'darkgreen') %}
+            darkgreen    
+          {% else %}
+            green
+          {% endif %}  
+          
+   # Sensor für aktuelle Uhrzeit 
+  - platform: time_date
+    display_options:
+      - 'time'       
+      
+ #nspanel Setting und Firmware anzeigen
+input_select:
+  panel_view:
+    name: Panel View
+    options:
+      - Firmware
+      - Settings
+    initial: Firmware
+    
+#Diagrammumschaltung raspi
+  diagramm_anzeige:
+    name: Diagramm Anzeige
+    options:
+      - Temperatur
+      - RAM
+    initial: Temperatur
+
+#Diagramm Heizung ein oder ausblenden
+  diagramm_heizung_anzeige:
+    name: Diagramm Heizung Anzeige
+    options:
+      - off
+      - Diagramm
+    initial: off     
