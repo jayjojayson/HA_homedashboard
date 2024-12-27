@@ -41,7 +41,7 @@ cards:
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
             - entity_id: light.cyd_display_backlight
         sort:
-          method: name
+          method: area
       - type: custom:auto-entities
         card:
           type: entities
@@ -75,4 +75,4 @@ cards:
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
             - entity_id: light.cyd_display_backlight
         sort:
-          method: name
+          method: area
