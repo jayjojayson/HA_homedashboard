@@ -86,7 +86,7 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
 ## 💬 Topmenü Hack
 
-Um das Topmenü auszublenden nutze ich den Kiosk Mode von HACS.
+Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
 Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
 Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbeitungsmodus für das Dashboard ist.
 
@@ -97,7 +97,23 @@ Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbei
       ignore_entity_settings: true
       custom_width: 1280
 ```
+Es geht auch noch besser, wenn ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und Namen kioskmode angelegt könnt ihr den 
+nachfolgenden Code wie folgt einfügen. Somit könnt ihr bequem per Schalter das Topmenü ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
 
+```bash
+kiosk_mode:
+  non_admin_settings:
+    hide_header: true
+    hide_menubutton: true
+    ignore_entity_settings: true
+  entity_settings:
+    - entity:
+        input_boolean.kioskmode: 'on'
+      hide_header: true
+    - entity:
+        input_boolean.kioskmode: 'off'
+      hide_header: false
+```
 
 ## 👩‍💻 Sourcecode Yaml
 
