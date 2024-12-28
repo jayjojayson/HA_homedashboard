@@ -1002,6 +1002,33 @@ sections:
                       ha-card {
                         background: none !important;
                         border-radius: 0px !important;
+                        border-right: 1px solid grey !important; 
+                        border-left: none !important; 
+                        border-top: none !important; 
+                        border-bottom: none !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        height: 100% !important;
+                        text-align: center !important;
+                      }
+                      .card-content {
+                        margin: auto !important;
+                      }
+                - type: tile
+                  entity: input_boolean.kioskmode
+                  icon: mdi:menu
+                  hide_state: true
+                  show_entity_picture: false
+                  vertical: false
+                  name: Topmenü
+                  tap_action:
+                    action: toggle
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        border-radius: 0px !important;
                         border: none !important;
                         display: flex !important;
                         align-items: center !important;
@@ -1011,7 +1038,7 @@ sections:
                       }
                       .card-content {
                         margin: auto !important;
-                      }     
+                      } 
         card_mod:
           style: |
             ha-card {
@@ -1082,7 +1109,6 @@ sections:
             border: none !important;
             border-radius: 0px !important;
             background: rgba(0,0,0,0) !important;
-            box-shadow: none !important;
           }
         card_type: horizontal-buttons-stack
         auto_order: false
@@ -1097,8 +1123,8 @@ sections:
             ha-card {
               border: none !important;
               border-radius: 0px !important;
-              background: rgba(0,0,0,0) !important;
-              box-shadow: rgba(0,0,0,0) !important;
+              background: none !important;
+              box-shadow: none !important;
               padding: 0px; 
               z-index: 2;
               position: fixed;
