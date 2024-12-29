@@ -13,6 +13,9 @@ cards:
               border-radius: 0px !important;
               --line-color: {{ states('sensor.solar_line_color') }};
             }
+            ha-svg-icon {
+              visibility: hidden; 
+            }
       - type: energy-solar-consumed-gauge
         card_mod:
           style: |
@@ -23,6 +26,9 @@ cards:
               border: none !important;
               border-radius: 0px !important;
               --line-color: {{ states('sensor.solar_line_color') }};
+            }
+            ha-svg-icon {
+              visibility: hidden; 
             }
   - type: custom:vertical-stack-in-card
     cards:

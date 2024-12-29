@@ -524,6 +524,9 @@ tabs:
                             margin-top: -20px;
                             background: transparent !important;
                           }
+                          ha-svg-icon {
+                            visibility: hidden; 
+                          }
                     - type: energy-distribution
                       card_mod:
                         style: |
@@ -578,6 +581,9 @@ tabs:
                           ha-card {
                             margin-top: -20px;
                             background: transparent !important;
+                          }
+                          ha-svg-icon {
+                            visibility: hidden; 
                           }
                     - type: energy-distribution
                       card_mod:
