@@ -6,6 +6,8 @@ cards:
     show_header: false
     bg_color: rgb(43 53 71)
     shadow_opacity: 0
+    width_desktop: 650px
+    margin_top_desktop: 0vh
   - type: horizontal-stack
     cards:
       - type: custom:mushroom-entity-card

@@ -1,6 +1,13 @@
 type: vertical-stack
 cards:
   - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#strom"
+    show_header: false
+    bg_color: rgb(43 53 71)
+    shadow_opacity: 0
+    width_desktop: 650px
+    margin_top_desktop: 0vh
     card_mod:
       style: |
         ha-card {
@@ -12,11 +19,6 @@ cards:
         .bubble-pop-up-container {
           padding: 0px 0px calc(140px + var(--custom-height-offset-desktop)) 0px !important;
         }
-    card_type: pop-up
-    hash: "#strom"
-    show_header: false
-    bg_color: rgb(43 53 71)
-    shadow_opacity: 0
   - type: custom:vertical-stack-in-card
     cards:
       - type: custom:mini-graph-card

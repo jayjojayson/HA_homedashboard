@@ -6,6 +6,8 @@ cards:
     show_header: false
     bg_color: rgb(43 53 71)
     shadow_opacity: 0
+    width_desktop: 650px
+    margin_top_desktop: 10vh
   - type: iframe
     url: >-
       https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
