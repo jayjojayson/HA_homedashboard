@@ -17,14 +17,20 @@ cards:
             header_icon: false
             entities:
               - entity: sensor.aussentemperatur_temperatur
-                name: Außentemperatur
+                name: Temperatur
                 show_state: true
                 color: var(--orange-color)
               - entity: sensor.aussentemperatur_luftfeuchtigkeit
-                name: Luftfeuchtigkeit
+                name: Luftfeuchte
                 show_state: true
                 color: var(--light-blue-color)
                 y_axis: secondary
+                animate: true
+              - entity: sensor.fuerstenwalde_spree_druck
+                name: Druck
+                show_state: true
+                color: var(--grey-color)
+                y_axis: third
                 animate: true
                 line_width: 3
             card_mod:
@@ -108,5 +114,5 @@ cards:
 card_mod:
   style: |
     ha-card {
-      background-color: transparent !important;
+      background: none !important;
     }
