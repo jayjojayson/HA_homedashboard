@@ -15,6 +15,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 - #### 📣 Topmenü verstecken auf Tablet und Handy (optional)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
 - #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete)
+- #### ⭐ Zurück-Button (zur Statseite) am unteren Rand fest eingebunden 
 - #### ⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
 - #### ⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia
 - #### ☔ ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
