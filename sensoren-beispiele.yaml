@@ -29,6 +29,17 @@ template:
             Keine Fenster geöffnet
           {% endif %}
 
+# Licht eingeschaltet, zeigt an, ob irgendein Licht an ist oder nicht
+- sensor:
+    - name: "Licht eingeschaltet"
+      state: >
+        {% set light_entities = states.light | selectattr('state', 'eq', 'on') | list %}
+        {% if light_entities | length > 0 %}
+          on
+        {% else %}
+          off
+        {% endif %}
+
 #virtuelle Sensoren um Temperaturwerte einzufärben
 sensor:
   - platform: template
