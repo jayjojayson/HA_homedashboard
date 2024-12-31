@@ -196,6 +196,7 @@ sections:
           style: |
             ha-card {
               background-color: none !important;
+              margin-bottom: -10px !important;
             }
         cards:
           - type: custom:vertical-stack-in-card
@@ -706,6 +707,11 @@ sections:
                             margin: auto !important;
                           }     
       - type: vertical-stack
+        card_mod:
+          style: |
+            ha-card {
+              margin-bottom: -50px !important;
+            }
         cards:
           - type: picture-glance
             title: Hofkamera
@@ -894,6 +900,12 @@ sections:
           - condition: state
             entity: sensor.licht_eingeschaltet
             state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              margin-top: -10px;
+              height: 50px !important;
+            }
       - type: custom:stack-in-card
         card_mod:
           style: |
@@ -901,6 +913,8 @@ sections:
               box-shadow: none !important;
               border: none !important;
               padding: 10px 0 10px 0;
+              margin-top: -10px;
+              margin-bottom: -10px !important;  
             }
         cards:
           - type: horizontal-stack
@@ -1127,6 +1141,11 @@ sections:
           action: navigate
           navigation_path: /dashboard-test/heizung
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {         
+              margin-bottom: -10px !important;
+            }
         cards:
           - type: custom:mini-graph-card
             entities:
