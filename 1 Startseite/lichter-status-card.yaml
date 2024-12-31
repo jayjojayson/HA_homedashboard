@@ -4,7 +4,7 @@ card_mod:
     ha-card {
       box-shadow: none !important;
       border: none !important;
-      padding: 10px 10px 10px 0;
+      padding: 10px 0 10px 0;
     }
 cards:
   - type: horizontal-stack
@@ -36,6 +36,8 @@ cards:
               area: Bad
             - entity_id: light.*
               area: Werkstatt
+            - entity_id: light.*
+              area: Garten
           exclude:
             - state: "off"
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
@@ -69,10 +71,14 @@ cards:
             - entity_id: light.*
               area: Esszimmer
             - entity_id: light.*
-              area: Garten
+              area: Garage
           exclude:
             - state: "off"
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
             - entity_id: light.cyd_display_backlight
         sort:
           method: area
+visibility:
+  - condition: state
+    entity: sensor.licht_eingeschaltet
+    state: "on"

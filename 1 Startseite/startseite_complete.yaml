@@ -885,23 +885,22 @@ sections:
                     }      
       - type: heading
         icon: ""
-        heading: Licht
+        heading: Lichtstatus
         heading_style: title
         tap_action:
           action: navigate
           navigation_path: /dashboard-test/licht
         visibility:
           - condition: state
-            entity: switch.pc_led_pv_led
+            entity: sensor.licht_eingeschaltet
             state: "on"
       - type: custom:stack-in-card
         card_mod:
           style: |
             ha-card {
-              background: none !important;
               box-shadow: none !important;
               border: none !important;
-              padding: 10px 10px 10px 0;
+              padding: 10px 0 10px 0;
             }
         cards:
           - type: horizontal-stack
@@ -933,12 +932,14 @@ sections:
                       area: Bad
                     - entity_id: light.*
                       area: Werkstatt
+                    - entity_id: light.*
+                      area: Garten
                   exclude:
                     - state: "off"
                     - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
                     - entity_id: light.cyd_display_backlight
                 sort:
-                  method: name
+                  method: area
               - type: custom:auto-entities
                 card:
                   type: entities
@@ -966,13 +967,17 @@ sections:
                     - entity_id: light.*
                       area: Esszimmer
                     - entity_id: light.*
-                      area: Garten
+                      area: Garage
                   exclude:
                     - state: "off"
                     - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
                     - entity_id: light.cyd_display_backlight
                 sort:
-                  method: name
+                  method: area
+        visibility:
+          - condition: state
+            entity: sensor.licht_eingeschaltet
+            state: "on"
       - type: heading
         icon: ""
         heading: Fensterstatus
@@ -988,7 +993,6 @@ sections:
           card_mod:
             style: |
               ha-card {
-                background: none !important;
                 box-shadow: none !important;
                 border: none !important;
               }
@@ -1040,6 +1044,8 @@ sections:
             show_header: false
             bg_color: rgb(43 53 71)
             shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_desktop: 15vh
             card_mod:
               style: |
                 ha-card {
@@ -1399,6 +1405,9 @@ sections:
             show_header: false
             bg_color: rgb(43 53 71)
             shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_mobile: 0px
+            margin_top_desktop: 0vh
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-entity-card
@@ -1704,6 +1713,8 @@ sections:
             show_header: false
             bg_color: rgb(43 53 71)
             shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_desktop: 0vh
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-entity-card
@@ -1996,6 +2007,13 @@ sections:
       - type: vertical-stack
         cards:
           - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#strom"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_desktop: 0vh
             card_mod:
               style: |
                 ha-card {
@@ -2007,11 +2025,6 @@ sections:
                 .bubble-pop-up-container {
                   padding: 0px 0px calc(140px + var(--custom-height-offset-desktop)) 0px !important;
                 }
-            card_type: pop-up
-            hash: "#strom"
-            show_header: false
-            bg_color: rgb(43 53 71)
-            shadow_opacity: 0
           - type: custom:vertical-stack-in-card
             cards:
               - type: custom:mini-graph-card
@@ -2218,6 +2231,8 @@ sections:
             show_header: false
             bg_color: rgb(43 53 71)
             shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_desktop: 10vh
           - type: iframe
             url: >-
               https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
