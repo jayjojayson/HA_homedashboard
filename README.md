@@ -57,6 +57,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 #### für Wetter Card notwendig
 - deutscher wetterdienst
 - NINA Wetterwarnungen
+- compass card (neu für Windrichtung)
 
 #### für Stromübersicht Card notwendig
 - power flow card plus
