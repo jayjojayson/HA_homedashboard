@@ -101,6 +101,7 @@ sections:
               style: |
                 ha-card {
                   background-color: rgba(22, 22, 22, 0.3);
+                  margin-bottom: -1px;
                 }
           - type: custom:weather-chart-card
             entity: weather.fuerstenwalde_spree
@@ -137,7 +138,7 @@ sections:
               condition_icons: true
               round_temp: false
               type: daily
-              number_of_forecasts: "0"
+              number_of_forecasts: "7"
               disable_animation: false
               chart_height: "200"
             units:
@@ -249,6 +250,7 @@ sections:
                             box-shadow: none !important;
                             border: none !important;
                             border-radius: 0px !important;
+                            width: 315px;
                           }
                       title: " "
                       content: >
@@ -262,6 +264,36 @@ sections:
                         {% else %}
                           Keine Wetterdaten verfügbar.
                         {% endif %}
+                    - type: custom:compass-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            box-shadow: none !important;
+                            border: none !important;
+                            border-radius: 0px !important;
+                            zoom: 75%;
+                            max-width: 160px;
+                            margin-left: 125px;
+                            margin-top: 25px;
+                          }
+                      indicator_sensors:
+                        - sensor: sensor.fuerstenwalde_spree_windrichtung
+                          indicator:
+                            type: arrow_inward
+                      value_sensors:
+                        - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
+                      compass:
+                        east:
+                          show: true
+                        west:
+                          show: true
+                        south:
+                          show: true
+                        north:
+                          show: true
+                          offset: 150
+                      language: de
             attributes:
               label: Wetterbericht
               icon: mdi:weather-cloudy-clock
@@ -367,11 +399,4 @@ sections:
             attributes:
               label: Wetterinfos
               icon: mdi:history
-      - type: heading
-        icon: ""
-        heading: "  "
-        heading_style: subtitle
-      - type: heading
-        icon: ""
-        heading_style: subtitle
 cards: []
