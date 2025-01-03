@@ -1,8 +1,6 @@
 type: custom:vertical-stack-in-card
 cards:
   - type: horizontal-stack
-    grid_options:
-      columns: 6
     cards:
       - type: custom:digital-clock
         dateFormat:
@@ -16,10 +14,10 @@ cards:
         card_mod:
           style: |
             ha-card {
-              margin-top: 15px;
-              min-width: 290px !important;
-              margin-left: 20px !important; /* Platz oberhalb der Icons */
-              margin-right: 20px !important; /* Platz oberhalb der Icons */
+              min-width: 250px !important;
+              margin-top: 20px;
+              margin-left: 20px !important; 
+              margin-right: 10px !important; 
               background-color: transparent !important;
               color: var(--primary-color) !important;
               border: none !important;
@@ -28,7 +26,7 @@ cards:
             }
       - event_grouping: true
         drop_todayevents_from: "8:00:00"
-        next_days: 2
+        next_days: 1
         pattern:
           - icon: mdi:flower
             color: green
@@ -56,7 +54,7 @@ cards:
         day_style: counter
         alignment_style: center
         color_mode: icon
-        items_per_row: 1
+        items_per_row: 2
         refresh_rate: 600
         with_label: false
         layout: vertical
@@ -79,11 +77,10 @@ cards:
               border: none !important;
               border-radius: 0px !important;
               position: relative;
-              width: 100px !important;
-              margin-top: 3px !important; /* Platz oberhalb der Icons */
-              margin-left: 80px !important; /* Platz oberhalb der Icons */
-              padding-bottom: 0px !important; /* Platz unterhalb der Icons */       
-              
+              width: 80px !important;
+              margin-top: 5px !important; 
+              margin-left: 80px !important;   
+              padding-bottom: 0px !important; 
             }
             .card-container {
                 display: block !important;
@@ -111,6 +108,9 @@ cards:
         ha-card {
           margin: 8px !important; 
         }
+        .chip-container {
+            gap: 0px !important;
+        }
     alignment: center
     chips:
       - type: entity
@@ -122,7 +122,7 @@ cards:
               border: none !important;
               border-right: 1px solid grey !important;
               border-radius: 0px !important;
-              padding-right: 10px;
+              padding-right: 5px;
             }
         entity: sensor.steps_kilometer_taglich
         icon: mdi:walk
@@ -137,7 +137,7 @@ cards:
               border: none !important;
               border-right: 1px solid grey !important;
               border-radius: 0px !important;
-              padding-right: 10px;
+              padding-right: 5px;
             }
         entity: person.jayjojayson
         icon: m3of:person-4
@@ -156,7 +156,7 @@ cards:
               border: none !important;
               border-right: 1px solid grey !important;
               border-radius: 0px !important;
-              padding-right: 10px;
+              padding-right: 5px;
             }
         entity: person.mutti
         icon: m3of:person-2
