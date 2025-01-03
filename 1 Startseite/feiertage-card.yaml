@@ -1,13 +1,15 @@
 event_grouping: true
 drop_todayevents_from: "18:00:00"
-next_days: 30
+next_days: 14
 pattern:
   - icon: mdi:calendar-check
     color: orange
     type: others
 day_style: counter
-alignment_style: center
-color_mode: icon
+day_style_format: yyyy.MM.dd
+card_style: card
+alignment_style: left
+color_mode: background
 items_per_row: 4
 refresh_rate: 600
 with_label: true
