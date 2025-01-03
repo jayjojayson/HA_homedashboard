@@ -1,0 +1,49 @@
+event_grouping: true
+drop_todayevents_from: "18:00:00"
+next_days: 30
+pattern:
+  - icon: mdi:calendar-check
+    color: orange
+    type: others
+day_style: counter
+alignment_style: center
+color_mode: icon
+items_per_row: 4
+refresh_rate: 600
+with_label: true
+layout: vertical
+type: custom:trash-card
+entities:
+  - calendar.feiertage_25
+filter_events: false
+use_summary: false
+hide_time_range: false
+full_size: false
+visibility:
+  - condition: state
+    entity: calendar.feiertage_25
+    state: "on"
+card_mod:
+  style: |
+    ha-card {
+      position: relative;
+      padding-top: 5px !important; /* Platz oberhalb der Icons */
+      padding-bottom: 0px !important; /* Platz unterhalb der Icons */
+    }
+    /* Skaliert die Icons */
+    .icon-container {
+      transform: scale(1.5); /* Vergrößert nur die Icons */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    /* Begrenzt den Einfluss des Scales auf den Rest */
+    .icon-container ha-tile-image {
+      margin: 0 !important;
+    }
+    /* Text kleiner machen */
+    .content {
+      font-size: 12px !important; /* Anpassung der Textgröße */
+      text-align: center;
+    }
