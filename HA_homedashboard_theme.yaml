@@ -6,7 +6,7 @@ Temps:
   primary-text-color: "#4dafdf"
   card-background-color: "rgba(22, 22, 22, 0.3)"
 
-orange-theme:
+HA-homedashboard-theme:
   md-sys-color-surface-container: "var(--card-background-color, #181e2a)"
   modes:
     dark:
@@ -14,7 +14,7 @@ orange-theme:
       accent-color: "steelblue"
       primary-text-color: "#e1e1e1"
       secondary-text-color: "#7a7a7a"
-      primary-background-color: "#20293a"                #"radial-gradient(circle, rgba(68,77,96,1) 0%, rgba(24,30,42,1) 100%)"
+      primary-background-color: "#20293a"               
       data-table-background-color: "#20293a"
       text-primary-color: "#767676"
       text-accent-color: "#ffffff"
