@@ -78,10 +78,6 @@ sections:
                 use_summary: false
                 hide_time_range: false
                 full_size: false
-                visibility:
-                  - condition: state
-                    entity: sensor.abfall_voraus_morgen
-                    state: "off"
                 card_mod:
                   style: |
                     ha-card {
