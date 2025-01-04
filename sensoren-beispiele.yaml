@@ -1,19 +1,4 @@
-template:
-#prüft trash kalendar ob übermorgen ein Tonne gezogen wird und zeigt diese am Vortag an
-- sensor:
-      - name: "Abfall voraus Morgen"
-        state: >
-          {% set start_time = state_attr('calendar.abfall', 'start_time') %}
-          {% if start_time %}
-            {% if (start_time | as_datetime).date() == (now() + timedelta(days=1)).date() %}
-              on
-            {% else %}
-              off
-            {% endif %}
-          {% else %}
-            off
-          {% endif %}
-          
+template:          
 #zeigt an, welches Fenster genau geöffnet ist, wird für die Sprachausgabe Echo gebraucht
 - sensor:
       - name: "Geöffnete Fenster"

@@ -1,0 +1,39 @@
+grey-icon:
+  state-icon-color: grey
+
+Temps:
+  secondary-text-color: "#4dafdf"
+  primary-text-color: "#4dafdf"
+  card-background-color: "rgba(22, 22, 22, 0.3)"
+
+orange-theme:
+  md-sys-color-surface-container: "var(--card-background-color, #181e2a)"
+  modes:
+    dark:
+      primary-color: "#ffe084"
+      accent-color: "steelblue"
+      primary-text-color: "#e1e1e1"
+      secondary-text-color: "#7a7a7a"
+      primary-background-color: "#20293a"                #"radial-gradient(circle, rgba(68,77,96,1) 0%, rgba(24,30,42,1) 100%)"
+      data-table-background-color: "#20293a"
+      text-primary-color: "#767676"
+      text-accent-color: "#ffffff"
+      header-text-color: "#919398"
+      app-header-text-color: "#919398"
+      app-header-background-color: "#181e2a"
+      ha-heading-card-title-color: "#ffe084"
+      ha-heading-card-title-font-size: "18px"
+      ha-heading-card-title-letter-spacing: ".5px"
+      ha-card-border-radius: "8px 8px 45px 8px"
+      sidebar-menu-button-background-color: "#181e2a"
+      sidebar-background-color: "#181e2a"
+      md-dialog-container-color: "#181e2a"
+      md-sys-color-surface: "#181e2a"
+      md-list-container-color: "#20293a"
+      card-background-color: "rgba(22,22,22, 0.3)"       # menuoverlay "#181e2a" setzen, dann sind alle Menüs nicht mehr transparent
+      mdc-theme-surface: "#181e2a"
+      name-font-size: "1.1rem"
+      ha-control-select-color: "#ffe084"
+      state-climate-auto-color: "#ffe084"
+      material-background-color: "#181e2a"
+      
