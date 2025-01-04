@@ -10,7 +10,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
 Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
 
-## 📖 Features
+# 📖 Features
 
 - #### 📣 HA-Topmenü/Header ausblenden (Button-Action)  [(optional)](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
@@ -105,7 +105,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist notwendig, um Temperatur-, Luft-, und Solarwerte nach Zustand einzufärben.
 Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
-## 📥 Installation
+# 📥 Installation
 1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
 2. Gehe zu deinem Dashboard und füge den kopierten Code in eine neue Card oder direkt in eine neue Seite ein.
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
@@ -163,14 +163,14 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
 ## ‼️ Updates
 #### update Jan 25--
-HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Bespielfotos unter Voraussetzungen
+- HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Beispielfotos unter Voraussetzungen
+- Compass Card für Windrichtungsanzeige auf Wetterseite hinzugefügt
 
 #### update Dez 24--
-Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
+- Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
 Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
 Beispiel Foto anbei.
-
-<img src="https://github.com/user-attachments/assets/6e893014-133d-4acf-a6dd-05cd45a6a266" width="400" height="250" />
+- <img src="https://github.com/user-attachments/assets/6e893014-133d-4acf-a6dd-05cd45a6a266" width="400" height="250" />
 
 ## 👩‍💻 Sourcecode Yaml
 
