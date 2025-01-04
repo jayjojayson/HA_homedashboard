@@ -162,7 +162,10 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 </details>
 
 ## ‼️ Updates
+#### update Jan 25--
+HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Bespielfotos unter Voraussetzungen
 
+#### update Dez 24--
 Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
 Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
 Beispiel Foto anbei.
