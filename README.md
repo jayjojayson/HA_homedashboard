@@ -2,7 +2,7 @@
 Homedashboard Cards and Layout Code for Home Assistant
 
 Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Inzwischen ist die Struktur sehr gewachsen, wechselhalb so eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
-Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen.
+Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen. Aktuelle Updates halte ich [hier](#%EF%B8%8F-updates) fest.
 
 ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 
@@ -12,7 +12,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 
 ## 📖 Features
 
-- #### 📣 HA-Topmenü/Header ausblenden (Button-Action) (optional) [Link Text](#-installation)
+- #### 📣 HA-Topmenü/Header ausblenden (Button-Action)  [(optional)](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
 - #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete, Feiertage)
 - #### 📣 Zurück-Button (zur Statseite) am unteren Rand fest eingebunden 
@@ -127,13 +127,13 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
   ## 💬 HA_Homedashboard Theme Datei 
   
-  Wenn Ihr genaus die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, dann müsst ihr euch die HA_Homedashboard Theme Yaml in euer HA impotieren.
-  Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datein in den config Ordner oder in den lokal Ordner.
+  Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, dann müsst ihr euch die HA_Homedashboard Theme Yaml in euer HA impotieren.
+  Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datei in den config Ordner oder in den lokal Ordner.
   Der Speicherort spielt eigentlich keine Rolle. Die Theme-Datei wird von HA automatisch erkannt.
 
   Das Theme ist in drei Stück aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
 
-  Nachdem einfügen des Theme könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen.  
+  Nachdem einfügen des Theme könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert.  
 </details>
 
 ## ‼️ Updates
