@@ -48,27 +48,52 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 - mini graph card
 - layout card
 - auto entities card
+- <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+  </details>
 
 #### für Staubsauger und Müll Card notwendig
 - dreame vacuum map card
 - trash card
 - ics calendar 
+- <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
+  </details>
 
 #### für Wetter Card notwendig
 - deutscher wetterdienst
 - NINA Wetterwarnungen
 - compass card (neu für Windrichtung)
+- <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/5%20Wetter/wetterseite_ubersicht.jpg)  
+  </details>
 
 #### für Stromübersicht Card notwendig
 - power flow card plus
 - sankey chart card
 - energy overview card
+- <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/6%20Strom/stromseite_ubersicht.jpg)  
+  </details>
 
 #### für Paketeüberischt Card notwendig
 - 17track Integration
 
 #### für Raspi-Status Card notwendig
 - System Monitor Integration
+- <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
+  </details>
 
 (optional - Topmenu verstecken)
 - kiosk mode
