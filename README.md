@@ -1,7 +1,7 @@
 # ✨ HA_homedashboard ✨ 
 Homedashboard Cards and Layout Code for Home Assistant
 
-Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Inzwischen ist die Struktur sehr gewachsen, wechselhalb so eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
+Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Das Dashboard basiert auf dem neuen Kacheldesign in HA. Inzwischen ist die Struktur des Dashboards sehr gewachsen, wechselhalb eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
 Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen. Aktuelle Updates halte ich [hier](#%EF%B8%8F-updates) fest.
 
 ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
