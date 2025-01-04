@@ -158,7 +158,43 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
   Das Theme ist in drei Stück aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
 
-  Nachdem einfügen des Theme könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert.  
+  Nachdem einfügen des Theme könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert. 
+  Wenn ihr auch das Hintergrundfoto nutzen möchtet, findet ihr es im Ordner images. Das müsst ihr dann händisch auf jeder Seite hinterlegen/hochladen.
+</details>
+
+<details>
+  <summary> 💬 - <b>Automatisierung Müllansage Vorabend</b> ---</summary>
+
+  ## 💬 Automatisierung Müllansage Vorabend (Sprachausgabe + Notify Handy)
+
+Die Automation sagt euch am Vorabend um 18:00 Uhr an, welche Tonne herausgestellt werden muss. Dazu wird der Abfallkalender nach dem nächsten Termin durchsucht und da diese immer ganztäglich sind, beginnen sie somit um 0:00 Uhr. Daher ist ein Zeitversatz von -6h eingebaut, so dass die Ansage am Vorabend erfolgt. Ihr könnt die Zeit natürlich anpassen. Die Sprachausgabe erfolgt über einen media_player eurer Wahl. Zusätzlich könnt ihr euch auf dem Handy benachrichtigen lassen.
+  
+  ```bash
+alias: Ansage Abfallkalender
+description: Notification auf dem Handy und über Echo Dot
+triggers:
+  - entity_id: calendar.abfall
+    event: start
+    offset: "-6:0:0"
+    trigger: calendar
+conditions: []
+actions:
+  - data:
+      message: >
+        Heute muss die {{ state_attr('calendar.abfall', 'message') }}
+        herausgestellt werden.
+      title: |
+        {{ state_attr('calendar.abfall', 'message') }}
+    action: notify.mobile_app_samsung_s24
+  - data:
+      message: >
+        Es ist wieder Zeit, die {{ state_attr('calendar.abfall', 'message') }}
+        auf die Straße zu stellen.
+      title: Nächste Ziehung steht an!
+    action: notify.alexa_media_jan_s_echo
+mode: single
+
+  ```
 </details>
 
 ## ‼️ Updates
