@@ -12,7 +12,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 
 ## 📖 Features
 
-- #### 📣 HA-Topmenü/Header ausblenden (Button-Action) (optional)
+- #### 📣 HA-Topmenü/Header ausblenden (Button-Action) (optional) [Link Text](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
 - #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete, Feiertage)
 - #### 📣 Zurück-Button (zur Statseite) am unteren Rand fest eingebunden 
@@ -86,36 +86,58 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
 4. Schaue das Ergebnis an. 
 
-## 💬 Topmenü Hack
-
-Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
-Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
-Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbeitungsmodus für das Dashboard ist.
-
-```bash
+<details>
+  <summary> 💬 - <b>Topmenü Hack</b> ---</summary>
+  
+  Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
+  Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
+  Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbeitungsmodus für das Dashboard ist.
+  
+  ```bash
+    kiosk_mode:
+      mobile_settings:
+        hide_header: true
+        ignore_entity_settings: true
+        custom_width: 1280
+  ```
+  Es geht auch noch besser, wenn ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und Namen kioskmode angelegt könnt ihr den 
+  nachfolgenden Code wie folgt einfügen. Somit könnt ihr bequem per Schalter das Topmenü ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
+  
+  ```bash
   kiosk_mode:
-    mobile_settings:
+    non_admin_settings:
       hide_header: true
+      hide_menubutton: true
       ignore_entity_settings: true
-      custom_width: 1280
-```
-Es geht auch noch besser, wenn ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und Namen kioskmode angelegt könnt ihr den 
-nachfolgenden Code wie folgt einfügen. Somit könnt ihr bequem per Schalter das Topmenü ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
+    entity_settings:
+      - entity:
+          input_boolean.kioskmode: 'on'
+        hide_header: true
+      - entity:
+          input_boolean.kioskmode: 'off'
+        hide_header: false
+  ```
+  Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
+  Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
+  Beispiel Foto anbei.
+</details>
 
-```bash
-kiosk_mode:
-  non_admin_settings:
-    hide_header: true
-    hide_menubutton: true
-    ignore_entity_settings: true
-  entity_settings:
-    - entity:
-        input_boolean.kioskmode: 'on'
-      hide_header: true
-    - entity:
-        input_boolean.kioskmode: 'off'
-      hide_header: false
-```
+<details>
+  <summary> 💬 - <b>HA_Homedashboard Theme Datei</b> ---</summary>
+
+  ## 💬 HA_Homedashboard Theme Datei 
+  
+  Wenn Ihr genaus die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, dann müsst ihr euch die HA_Homedashboard Theme Yaml in euer HA impotieren.
+  Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datein in den config Ordner oder in den lokal Ordner.
+  Der Speicherort spielt eigentlich keine Rolle. Die Theme-Datei wird von HA automatisch erkannt.
+
+  Das Theme ist in drei Stück aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
+
+  Nachdem einfügen des Theme könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen.  
+</details>
+
+## ‼️ Updates
+
 Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
 Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
 Beispiel Foto anbei.
