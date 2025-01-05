@@ -196,6 +196,7 @@ mode: single
 
 ## ‼️ Updates
 #### update Jan 25--
+- mit der Integration für HACS begonnen (aktuell könnt ihr das komplette Dashboard importieren)
 - HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Beispielfotos unter Voraussetzungen
 - Compass Card für Windrichtungsanzeige auf Wetterseite hinzugefügt
 - Optimierungen am Layout für bessere Handynutzung
