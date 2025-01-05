@@ -1,0 +1,9 @@
+{
+  "name": "HA_homedashboard",
+  "content_in_root": true,
+  "filename": "ha_homedashboard.yaml",
+  "render_readme": true,
+  "domains": ["lovelace"],
+  "homeassistant": "2024.12.0",
+  "iot_class": "local_push"
+}
