@@ -142,9 +142,6 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
           input_boolean.kioskmode: 'off'
         hide_header: false
   ```
-  Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
-  Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
-  Beispiel Foto anbei.
 </details>
 
 <details>
