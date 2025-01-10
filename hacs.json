@@ -1,5 +1,5 @@
 {
-  "name": "ha_homedashboard",
+  "name": "HA_homedashboard",
   "content_in_root": true,
   "render_readme": true,
   "homeassistant": "2024.12.0",
