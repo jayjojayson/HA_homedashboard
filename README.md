@@ -106,6 +106,22 @@ Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist 
 Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
 # 📥 Installation
+## Installation über HACS
+
+#### Installation über HACS
+- Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Beim Dashboard ist auch das genutzte Theme dabei. Für das Theme muss in der configuration.yaml folgendes defniert werden. Das Dashboard ist `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
+
+Link für HACS
+```bash
+https://github.com/jayjojayson/ha_mobileXtheme
+```
+configuration.yaml mit folgendem ergänzen
+```bash
+  frontend:
+    themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
+  ```
+
+#### Manuelle Installation
 1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
 2. Gehe zu deinem Dashboard und füge den kopierten Code in eine neue Card oder direkt in eine neue Seite ein.
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
@@ -149,9 +165,12 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
   ## 💬 HA_Homedashboard Theme Datei 
   
-  Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, dann müsst ihr euch die HA_Homedashboard Theme Yaml in euer HA impotieren.
-  Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datei in den config Ordner oder in den lokal Ordner.
-  Der Speicherort spielt eigentlich keine Rolle. Die Theme-Datei wird von HA automatisch erkannt.
+  Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, könnt ihr HACS für die Installation nutzen oder könnt euch die HA_Homedashboard Theme Yaml in euer HA 
+  impotieren. Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datei in den config Ordner oder in den lokal Ordner.
+  Der Speicherort spielt eigentlich keine Rolle. Die Theme-Datei wird von HA automatisch erkannt. 
+
+  Die Installation über HACS geht natürlich einfacher, sucht einfach nach homedashboard oder HA_homedashboard und drückt auf installieren. In der configuration.yaml muss trotzdem die 
+  nachfolgende Anpassung vorgenommen
 
   Das Theme ist in drei Stück aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
 
@@ -161,7 +180,7 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
   Damit das Theme funktioniert müsst ihr in der configuration.yaml gleich am Anfang folgendes hinzufügen
   ```bash
   frontend:
-  themes: !include HA_homedashboard_theme.yaml
+    themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
 </details>
 
@@ -201,7 +220,13 @@ mode: single
 </details>
 
 ## ‼️ Updates
-#### update Jan 25--
+#### update 10 Jan 25--
+- Integration ab sofort über HACS möglich Theme und Dashboard werden import. 
+  Für Funktion muss Theme und Dashboard in configuration.yaml definiert werden.
+- Überarbeitung aller Cards für Integration mit Card Mod 3.4.4 und ab HA 2025.1
+- kleine bugfixes, sensoren.yaml angepasst
+  
+#### update 05 Jan 25--
 - mit der Integration für HACS begonnen (aktuell könnt ihr das komplette Dashboard importieren)
 - HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Beispielfotos unter Voraussetzungen
 - Compass Card für Windrichtungsanzeige auf Wetterseite hinzugefügt
