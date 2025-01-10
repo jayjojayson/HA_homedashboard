@@ -109,7 +109,7 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 ## Installation über HACS
 
 #### Installation über HACS
-- Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Beim Dashboard ist auch das genutzte Theme dabei. Beides Dashboard und Theme müssen in der configuration.yaml defniert werden.
+- Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Beim Dashboard ist auch das genutzte Theme dabei. Für das Theme muss in der configuration.yaml folgendes defniert werden. Das Dashboard ist `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen.
 
 Link für HACS
 ```bash
