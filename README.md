@@ -113,7 +113,7 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
 Link für HACS
 ```bash
-https://github.com/jayjojayson/ha_mobileXtheme
+https://github.com/jayjojayson/HA_homedashboard
 ```
 configuration.yaml mit folgendem ergänzen
 ```bash
