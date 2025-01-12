@@ -4,7 +4,8 @@ card_mod:
     ha-card {
       position: relative;
       overflow: hidden;
-    } ha-card::before {
+    } 
+    ha-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -135,7 +136,8 @@ cards:
   - type: custom:vertical-stack-in-card
     card_mod:
       style: |
-        ha-card {
+        :host {
+          background: none !important;
           border: none;
           border-top-right-radius: 0px !important;          
           border-top-left-radius: 0px !important;
@@ -159,7 +161,7 @@ cards:
         card_mod:
           style: |
             ha-card {
-              background: none;
+              background: none !important;
               box-shadow: none;
               z-index: 1 !important; /* Über dem Hintergrund */
             }
