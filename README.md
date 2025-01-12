@@ -14,7 +14,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 
 - #### 📣 HA-Topmenü/Header ausblenden (Button-Action)  [(optional)](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
-- #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Pakete, Feiertage)
+- #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)
 - #### 📣 Zurück-Button (zur Statseite) am unteren Rand fest eingebunden 
 - #### ⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
 - #### ⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia
