@@ -1,28 +1,37 @@
 type: markdown
+card_mod:
+  style: |
+    ha-card {
+      border: none;
+    }
 content: >
   **Zeitraum:**  
 
   {{
   as_timestamp(state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-  'start')) | timestamp_custom('%d.%m.%Y %H:%M') }}   -   {{
+  'start')) | timestamp_custom('%d.%m.%Y %H:%M') if
+  state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
+  'start') else 'unbekannt' }}   -   {{
   as_timestamp(state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-  'expires')) | timestamp_custom('%d.%m.%Y %H:%M') }}
+  'expires')) | timestamp_custom('%d.%m.%Y %H:%M') if
+  state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
+  'expires') else 'unbekannt' }}
 
 
   **{{
   state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-  'headline') }}**
+  'headline') or 'Keine Headline verfügbar' }}**
 
   {{
   state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-  'description') }}
+  'description') or 'Keine Beschreibung verfügbar' }}
 
 
-  **Empfohlene Maßnahmen:**  
+  **Empfohlene Maßnahmen:** 
 
   {{
   state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-  'recommended_actions') }}
+  'recommended_actions') or 'Keine Maßnahmen empfohlen' }}
 visibility:
   - condition: state
     entity: binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1

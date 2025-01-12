@@ -23,7 +23,7 @@ tabs:
                     box-shadow: none !important;
                     border: none !important;
                     border-radius: 0px !important;
-                    width: 325px;
+                    width: 315px;
                   }
               title: " "
               content: >
@@ -46,7 +46,7 @@ tabs:
                     border-radius: 0px !important;
                     zoom: 75%;
                     max-width: 160px;
-                    margin-left: 130px;
+                    margin-left: 120px;
                     margin-top: 20px;
                   }
               indicator_sensors:
@@ -123,17 +123,16 @@ tabs:
                     border-radius: 0px !important;
                   }       
         - type: custom:mod-card
-          card:
-            type: custom:mushroom-template-card
-            card_mod:
-              style: |
-                ha-card {
-                  height: 1px;
-                  border-bottom: 1px;
-                  background-color: grey;
-                  margin-left: 20px;
-                  margin-right: 20px;
-                }   
+          card: null
+          card_mod:
+            style: |
+              ha-card {
+                height: 1px;
+                border-bottom: 1px;
+                background-color: grey !important;
+                margin-left: 20px;
+                margin-right: 20px;
+              }   
         - type: horizontal-stack
           cards:
             - type: tile

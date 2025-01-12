@@ -2,7 +2,7 @@ type: custom:vertical-stack-in-card
 cards:
   - type: horizontal-stack
     cards:
-      - type: custom:vertical-stack-in-card
+      - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
             align_state: center
@@ -32,11 +32,9 @@ cards:
                 color: var(--grey-color)
                 y_axis: third
                 animate: true
-                line_width: 3
             card_mod:
               style: |
                 ha-card {
-                  background-color: transparent !important;
                   --primary-text-color:
                   {% if is_state('sensor.temperature_color', 'steelblue') %}
                     steelblue
@@ -51,24 +49,21 @@ cards:
                   }
                   .states .state__value {
                     font-weight: bold !important; /* Macht die Werte fett */
-                  }
+                  }                  
+                  border: none !important;
+                  border-radius: 8px 8px 0 0 !important;  
                 }
-        card_mod:
-          style: |
-            ha-card {
-              border: none !important;
-              border-bottom-right-radius: 0px !important;   
-            }
   - show_current: false
     show_forecast: true
     type: weather-forecast
     entity: weather.fuerstenwalde_spree
     forecast_type: hourly
-    theme: grey-orange
+    theme: grey-icon
     card_mod:
       style: |
         ha-card {
-          background-color: rgba(22, 22, 22, 0.3);
+          background-color: var(--card-background-color) !important;
+          margin-bottom: -1px;
         }
   - type: custom:weather-chart-card
     entity: weather.fuerstenwalde_spree
@@ -105,14 +100,15 @@ cards:
       condition_icons: true
       round_temp: false
       type: daily
-      number_of_forecasts: "0"
+      number_of_forecasts: "7"
       disable_animation: false
-      chart_height: "200"
+      chart_height: "180"
     units:
       speed: ""
     current_temp_size: "35"
 card_mod:
   style: |
     ha-card {
+      border: none;
       background: none !important;
     }
