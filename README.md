@@ -116,8 +116,8 @@ Link für HACS
 ```bash
 https://github.com/jayjojayson/HA_homedashboard
 ```
-configuration.yaml mit folgendem ergänzen
-```bash
+configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
+```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
@@ -137,7 +137,7 @@ configuration.yaml mit folgendem ergänzen
   Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
   Erreichbar ist der Editor über die drei Punkte oben rechts, wenn man im Bearbeitungsmodus für das Dashboard ist.
   
-  ```bash
+  ```yaml
     kiosk_mode:
       mobile_settings:
         hide_header: true
@@ -147,7 +147,7 @@ configuration.yaml mit folgendem ergänzen
   Es geht auch noch besser, wenn ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und Namen kioskmode angelegt könnt ihr den 
   nachfolgenden Code wie folgt einfügen. Somit könnt ihr bequem per Schalter das Topmenü ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
   
-  ```bash
+  ```yaml
   kiosk_mode:
     non_admin_settings:
       hide_header: true
@@ -178,7 +178,7 @@ configuration.yaml mit folgendem ergänzen
   Wenn ihr auch das Hintergrundfoto nutzen möchtet, findet ihr es im Ordner images. Das müsst ihr dann händisch auf jeder Seite hinterlegen/hochladen.
 
   Damit das Theme funktioniert müsst ihr in der configuration.yaml gleich am Anfang folgendes hinzufügen (Beispiel, wechselt den Pfad zu eurer Ablage)
-  ```bash
+  ```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
@@ -191,7 +191,7 @@ configuration.yaml mit folgendem ergänzen
 
 Die Automation sagt euch am Vorabend um 18:00 Uhr an, welche Tonne herausgestellt werden muss. Dazu wird der Abfallkalender nach dem nächsten Termin durchsucht und da diese immer ganztäglich sind, beginnen sie somit um 0:00 Uhr. Daher ist ein Zeitversatz von -6h eingebaut, so dass die Ansage am Vorabend erfolgt. Ihr könnt die Zeit natürlich anpassen. Die Sprachausgabe erfolgt über einen media_player eurer Wahl. Zusätzlich könnt ihr euch auf dem Handy benachrichtigen lassen. Die drei Entitäten Kalender, Media_player und Handy müsst ihr natürlich mit euren ausstauschen.
   
-  ```bash
+  ```yaml
 alias: Ansage Abfallkalender
 description: Notification auf dem Handy und über Echo Dot
 triggers:
