@@ -10,6 +10,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
 Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
 
+#
 # 📖 Features
 
 - #### 📣 HA-Topmenü/Header ausblenden (Button-Action)  [(optional)](#-installation)
@@ -33,7 +34,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 #### Unterseiten
 ![unterseiten](https://github.com/user-attachments/assets/7d6ffdfd-b7af-4478-a4b5-611d8ddefdb2)
 
-
+#
 ## ✔️ Voraussetzungen
 
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
@@ -105,8 +106,8 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist notwendig, um Temperatur-, Luft-, und Solarwerte nach Zustand einzufärben.
 Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
+#
 # 📥 Installation
-## Installation über HACS
 
 #### Installation über HACS
 - Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
@@ -216,7 +217,9 @@ mode: single
   ```
 </details>
 
+#
 ## ‼️ Updates
+
 #### update 12 Jan 25--
 - Integration über HACS möglich Dashboard wird unter www/community abgelegt.
   Von dort könnt ihr es in ein neues Dashboard kopieren
