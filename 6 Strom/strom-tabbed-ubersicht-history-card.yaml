@@ -508,13 +508,15 @@ tabs:
                     grid-template-columns: 100%
                     grid-template-rows: auto
               cards:
-                - type: energy-usage-graph
-                  card_mod:
-                    style: |
-                      ha-card {
-                        margin-top: -20px;
-                        background: transparent !important;
-                      }
+                - type: horizontal-stack
+                  cards:
+                    - type: energy-usage-graph
+                      card_mod:
+                        style: |
+                          ha-card  {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
                 - type: vertical-stack
                   cards:
                     - type: energy-grid-neutrality-gauge
@@ -566,13 +568,15 @@ tabs:
                     grid-template-columns: 100%
                     grid-template-rows: auto
               cards:
-                - type: energy-devices-graph
-                  card_mod:
-                    style: |
-                      ha-card {
-                        margin-top: -20px;
-                        background: transparent !important;
-                      }
+                - type: horizontal-stack
+                  cards:
+                    - type: energy-devices-graph
+                      card_mod:
+                        style: |
+                          ha-card {
+                            margin-top: -20px;
+                            background: transparent !important;
+                          }
                 - type: vertical-stack
                   cards:
                     - type: energy-grid-neutrality-gauge

@@ -10,239 +10,238 @@ sections:
         heading_style: title
       - type: custom:vertical-stack-in-card
         cards:
-          - type: horizontal-stack
+          - type: custom:stack-in-card
             cards:
-              - type: energy-self-sufficiency-gauge
+              - type: horizontal-stack
                 card_mod:
                   style: |
-                    ha-card {
-                      width: 80% !important;
-                      margin: 0 auto;
+                    :host {
                       background-color: transparent !important;
                       border: none !important;
-                      border-radius: 0px !important;
-                      --line-color: {{ states('sensor.solar_line_color') }};
                     }
-                    ha-svg-icon {
-                      visibility: hidden; 
-                    }
-              - type: energy-solar-consumed-gauge
-                card_mod:
-                  style: |
-                    ha-card {
-                      width: 80% !important;
-                      margin: 0 auto;
-                      background-color: transparent !important;
-                      border: none !important;
-                      border-radius: 0px !important;
-                      --line-color: {{ states('sensor.solar_line_color') }};
-                    }
-                    ha-svg-icon {
-                      visibility: hidden; 
-                    }
-          - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.homestation_solar_total_energie_heute
-                name: Ertrag Heute
-                hours_to_show: 72
-                points_per_hour: 0.25
-                height: 80
-                show:
-                  labels: true
-                  name: false
-                  state: false
-                  icon: false
-                color_thresholds:
-                  - value: 1
-                    color: grey
-                  - value: 2
-                    color: orange
-                  - value: 3
-                    color: yellow
-                  - value: 5
-                    color: blue
-                  - value: 10
-                    color: green
-                line_color: var(--line-color)
-                card_mod:
-                  style: |
-                    ha-card {
-                      background-color: transparent !important;
-                      border: none !important;
-                      border-radius: 0px !important;
-                      margin-top: -10px !important;
-                      --line-color: {{ states('sensor.solar_line_color') }};
-                    }
-              - type: custom:button-card
-                tap_action:
-                  action: none
-                styles:
-                  card:
-                    - background-color: rgba(22,22,22, 0.1)
-                    - text-align: center
-                    - border: none
-                    - border-radius: 0px
-                    - padding: 10px
-                    - "--primary-text-color": |
-                        [[[
-                          if (states['sensor.solar_color'].state === 'grey') return 'grey';
-                          if (states['sensor.solar_color'].state === 'darkyellow') return 'darkyellow';
-                          if (states['sensor.solar_color'].state === 'yellow') return 'yellow';
-                          if (states['sensor.solar_color'].state === 'darkgreen') return 'darkgreen';
-                          return 'green';
-                        ]]]
-                name: |
-                  [[[
-                    const solarTotal = states['sensor.homestation_solar_total_energie_heute'].state;
-                    return `Solarertrag heute: ${solarTotal} kWh`;
-                  ]]]
-              - type: entities
-                card_mod:
-                  style: |
-                    ha-card {
-                      background-color: transparent !important;
-                      border: none !important;
-                      border-radius: 0px !important;
-                    }
-                entities:
-                  - entity: sensor.homestation_solar_total_gesamtbetrag_heute
-                    name: Ertrag Heute €
-                    unit_of_measurement: €
-                  - entity: >-
-                      sensor.homestation_solar_total_energieleistung_wahrend_der_lebensdauer
-                    name: Ertrag Gesamt kWh
-                  - entity: sensor.homestation_solar_total_geld_lebensdauer
-                    name: Ertrag Gesamt €
-                    unit_of_measurement: €
-                  - entity: sensor.solar_netzeinspeisung_kwh
-                    name: Solar Netzeinspeisung Gesamt
-                  - entity: sensor.stromverbrauch_gesamt_kwh
-                    name: Stromverbrauch Gesamt
-                theme: grey-icon
+                cards:
+                  - type: energy-self-sufficiency-gauge
+                    card_mod:
+                      style: |
+                        ha-card {
+                          width: 80% !important;
+                          margin: 0 auto;
+                          background-color: transparent !important;
+                          border: 0px !important;
+                          border-radius: 0px !important;
+                          --line-color: {{ states('sensor.solar_line_color') }};
+                        }
+                        ha-svg-icon {
+                          visibility: hidden; 
+                        }
+                  - type: energy-solar-consumed-gauge
+                    card_mod:
+                      style: |
+                        ha-card {
+                          width: 80% !important;
+                          margin: 0 auto;
+                          background-color: transparent !important;
+                          border: none !important;
+                          border-radius: 0px !important;
+                          --line-color: {{ states('sensor.solar_line_color') }};
+                        }
+                        ha-svg-icon {
+                          visibility: hidden; 
+                        }
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.homestation_solar_total_energie_heute
+            name: Ertrag Heute
+            hours_to_show: 72
+            points_per_hour: 0.25
+            height: 80
+            show:
+              labels: true
+              name: false
+              state: false
+              icon: false
+            color_thresholds:
+              - value: 1
+                color: grey
+              - value: 2
+                color: orange
+              - value: 3
+                color: yellow
+              - value: 5
+                color: blue
+              - value: 10
+                color: green
+            line_color: var(--line-color)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 1px;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  --line-color: {{ states('sensor.solar_line_color') }};
+                }
+          - type: custom:button-card
+            tap_action:
+              action: none
+            styles:
+              card:
+                - background-color: rgba(22,22,22, 0.4)
+                - text-align: center
+                - border: none
+                - border-radius: 0px
+                - padding: 10px
+                - "--primary-text-color": |
+                    [[[
+                      if (states['sensor.solar_color'].state === 'grey') return 'grey';
+                      if (states['sensor.solar_color'].state === 'darkyellow') return 'darkyellow';
+                      if (states['sensor.solar_color'].state === 'yellow') return 'yellow';
+                      if (states['sensor.solar_color'].state === 'darkgreen') return 'darkgreen';
+                      return 'green';
+                    ]]]
+            name: |
+              [[[
+                const solarTotal = states['sensor.homestation_solar_total_energie_heute'].state;
+                return `Solarertrag heute: ${solarTotal} kWh`;
+              ]]]
+          - type: entities
+            entities:
+              - entity: sensor.homestation_solar_total_gesamtbetrag_heute
+                name: Ertrag Heute €
+                unit_of_measurement: €
+              - entity: >-
+                  sensor.homestation_solar_total_energieleistung_wahrend_der_lebensdauer
+                name: Ertrag Gesamt kWh
+              - entity: sensor.homestation_solar_total_geld_lebensdauer
+                name: Ertrag Gesamt €
+                unit_of_measurement: €
+              - entity: sensor.solar_netzeinspeisung_kwh
+                name: Solar Netzeinspeisung Gesamt
+              - entity: sensor.stromverbrauch_gesamt_kwh
+                name: Stromverbrauch Gesamt
+            theme: grey-icon
+          - type: custom:bar-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  border-radius: 0px !important;
+                }
+            name: Aktueller Strombedarf
+            positions:
+              name: inside
+              value: inside
+              indicator: "off"
+              icon: "off"
+            unit_of_measurement: W
+            max: 2500
+            height: 30px
+            severity:
+              - color: "#7bc13c"
+                from: 0
+                to: 50
+              - color: "#c1bb3c"
+                from: 50
+                to: 340
+              - color: orange
+                from: 340
+                to: 500
+              - color: darkorange
+                from: 500
+                to: 1000
+              - color: "#ff0000"
+                from: 1000
+                to: 50000
+            entities:
+              - entity: sensor.total_power_nur_verbrauch
+          - type: custom:auto-entities
             card_mod:
               style: |
                 ha-card {
                   background-color: transparent !important;
                   border: none !important;
                   border-radius: 0px !important;
-                  --line-color: {{ states('sensor.solar_line_color') }};
                 }
-          - type: vertical-stack
-            cards:
-              - type: custom:bar-card
-                card_mod:
-                  style: |
-                    ha-card {
-                      background-color: transparent !important;
-                      border: none !important;
-                      border-radius: 0px !important;
-                    }
-                name: Aktueller Strombedarf
-                positions:
-                  name: inside
-                  value: inside
-                  indicator: "off"
-                  icon: "off"
-                unit_of_measurement: W
-                max: 2500
-                height: 30px
-                severity:
-                  - color: "#7bc13c"
-                    from: 0
-                    to: 50
-                  - color: "#c1bb3c"
-                    from: 50
-                    to: 340
-                  - color: orange
-                    from: 340
-                    to: 500
-                  - color: darkorange
-                    from: 500
-                    to: 1000
-                  - color: "#ff0000"
-                    from: 1000
-                    to: 50000
-                entities:
-                  - entity: sensor.total_power_nur_verbrauch
-              - type: custom:auto-entities
-                card:
-                  type: custom:bar-card
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background-color: transparent !important;
-                        border: none !important;
-                        border-radius: 0px !important;
-                      }
-                  positions:
-                    name: inside
-                    value: inside
-                    indicator: "off"
-                    icon: "off"
-                  unit_of_measurement: W
-                  max: 1000
-                  severity:
-                    - color: "#7bc13c"
-                      from: 0
-                      to: 50
-                    - color: "#c1bb3c"
-                      from: 50
-                      to: 200
-                    - color: orange
-                      from: 200
-                      to: 500
-                    - color: darkorange
-                      from: 500
-                      to: 1400
-                    - color: "#ff0000"
-                      from: 1400
-                      to: 50000
-                  height: 30px
-                  decimals: 2
-                  style: |
-                    #states { padding: 0 } 
-                    bar-card-name, bar-card-value {
-                      color: #ffffff;
-                    }
-                    bar-card-value {
-                      font-weight: bold;
-                    }
-                    bar-card-indicator {
-                      transform: scaleY(-1);
-                    }
-                  stack: vertical
-                  direction: right
-                filter:
-                  include:
-                    - entity_id: sensor.innenlufter_shellyplug_switch_0_power
-                    - entity_id: sensor.growlampe_leistung
-                    - entity_id: sensor.wasserlauf_leistung
-                    - entity_id: sensor.stromungspumpen_leistung
-                    - entity_id: sensor.hauptpumpe_shelly_plug_switch_0_power
-                    - entity_id: sensor.skimmerpumpe_shelly_plug_switch_0_power
-                    - entity_id: sensor.poollicht_leistung
-                    - entity_id: sensor.werkstattheizung_leistung
-                    - entity_id: sensor.waschmaschine_leistung_2
-                    - entity_id: sensor.trockner_leistung_3
-                    - entity_id: sensor.3d_drucker_leistung
-                    - entity_id: sensor.herdlicht_rechts_leistung
-                    - entity_id: sensor.herdlicht_links_leistung
-                    - entity_id: sensor.sockelleisten_leistung
-                    - entity_id: sensor.weihnachtslicht_leistung
-                    - entity_id: sensor.lavalampe_leistung
-                    - entity_id: sensor.computer_leistung
-                    - entity_id: sensor.fernseher_plug_leistung
-                    - entity_id: sensor.fernseher_mutti_leistung_3
-                    - entity_id: sensor.fernseher_plug_mutti_schlafzimmer_leistung
-                    - entity_id: sensor.tablet_plug_leistung
-                  exclude:
-                    - state: < 2
-                sort:
-                  method: state
-                  numeric: true
-                  reverse: true
+            card:
+              type: custom:bar-card
+              card_mod:
+                style: |
+                  ha-card {
+                    border: none !important;
+                    border-radius: 0px !important;
+                  }
+              positions:
+                name: inside
+                value: inside
+                indicator: "off"
+                icon: "off"
+              unit_of_measurement: W
+              max: 1000
+              severity:
+                - color: "#7bc13c"
+                  from: 0
+                  to: 50
+                - color: "#c1bb3c"
+                  from: 50
+                  to: 200
+                - color: orange
+                  from: 200
+                  to: 500
+                - color: darkorange
+                  from: 500
+                  to: 1400
+                - color: "#ff0000"
+                  from: 1400
+                  to: 50000
+              height: 30px
+              decimals: 2
+              style: |
+                #states { padding: 0 } 
+                bar-card-name, bar-card-value {
+                  color: #ffffff;
+                }
+                bar-card-value {
+                  font-weight: bold;
+                }
+                bar-card-indicator {
+                  transform: scaleY(-1);
+                }
+              stack: vertical
+              direction: right
+            filter:
+              include:
+                - entity_id: sensor.innenlufter_shellyplug_switch_0_power
+                - entity_id: sensor.growlampe_leistung
+                - entity_id: sensor.wasserlauf_leistung
+                - entity_id: sensor.stromungspumpen_leistung
+                - entity_id: sensor.hauptpumpe_shelly_plug_switch_0_power
+                - entity_id: sensor.skimmerpumpe_shelly_plug_switch_0_power
+                - entity_id: sensor.poollicht_leistung
+                - entity_id: sensor.werkstattheizung_leistung
+                - entity_id: sensor.waschmaschine_leistung_2
+                - entity_id: sensor.trockner_leistung_3
+                - entity_id: sensor.3d_drucker_leistung
+                - entity_id: sensor.herdlicht_rechts_leistung
+                - entity_id: sensor.herdlicht_links_leistung
+                - entity_id: sensor.sockelleisten_leistung
+                - entity_id: sensor.weihnachtslicht_leistung
+                - entity_id: sensor.lavalampe_leistung
+                - entity_id: sensor.computer_leistung
+                - entity_id: sensor.fernseher_plug_leistung
+                - entity_id: sensor.fernseher_mutti_leistung_3
+                - entity_id: sensor.fernseher_plug_mutti_schlafzimmer_leistung
+                - entity_id: sensor.tablet_plug_leistung
+              exclude:
+                - state: < 2
+            sort:
+              method: state
+              numeric: true
+              reverse: true
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;
+              border: none;
+            }
   - type: grid
     cards:
       - type: heading
@@ -929,13 +928,15 @@ sections:
                             grid-template-columns: 100%
                             grid-template-rows: auto
                       cards:
-                        - type: energy-usage-graph
-                          card_mod:
-                            style: |
-                              ha-card {
-                                margin-top: -20px;
-                                background: transparent !important;
-                              }
+                        - type: horizontal-stack
+                          cards:
+                            - type: energy-usage-graph
+                              card_mod:
+                                style: |
+                                  ha-card  {
+                                    margin-top: -20px;
+                                    background: transparent !important;
+                                  }
                         - type: vertical-stack
                           cards:
                             - type: energy-grid-neutrality-gauge
@@ -987,13 +988,15 @@ sections:
                             grid-template-columns: 100%
                             grid-template-rows: auto
                       cards:
-                        - type: energy-devices-graph
-                          card_mod:
-                            style: |
-                              ha-card {
-                                margin-top: -20px;
-                                background: transparent !important;
-                              }
+                        - type: horizontal-stack
+                          cards:
+                            - type: energy-devices-graph
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    margin-top: -20px;
+                                    background: transparent !important;
+                                  }
                         - type: vertical-stack
                           cards:
                             - type: energy-grid-neutrality-gauge
@@ -1018,6 +1021,36 @@ sections:
               icon: mdi:history
         grid_options:
           columns: full
+    column_span: 2
+  - type: grid
+    cards:
+      - type: heading
+        heading: Detailansicht Growatt Server
+        heading_style: title
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: input_boolean.show_iframe
+        grid_options:
+          columns: full
+          rows: 0.5
+        show_state: true
+        name: History Growatt Server
+        icon_height: 1px
+      - type: conditional
+        conditions:
+          - entity: input_boolean.show_iframe
+            state: "on"
+        card:
+          type: iframe
+          url: >-
+            https://server.growatt.com/singlePage/toSinglePage/3437E9933DE49807D6A0AFBAA9EBC9DC084636BDC0EA6DD6E70F1F0A5B8629ABF4E55BC22EE5BDFDB830ED7032DC0EAB
+          aspect_ratio: 45%
+        grid_options:
+          columns: full
+          rows: 10
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
@@ -1055,36 +1088,6 @@ sections:
               margin: 0 !important;
               bottom: 0;
             }
-    column_span: 2
-  - type: grid
-    cards:
-      - type: heading
-        heading: Detailansicht Growatt Server
-        heading_style: title
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: input_boolean.show_iframe
-        grid_options:
-          columns: full
-          rows: 0.5
-        show_state: true
-        name: History Growatt Server
-        icon_height: 1px
-      - type: conditional
-        conditions:
-          - entity: input_boolean.show_iframe
-            state: "on"
-        card:
-          type: iframe
-          url: >-
-            https://server.growatt.com/singlePage/toSinglePage/3437E9933DE49807D6A0AFBAA9EBC9DC084636BDC0EA6DD6E70F1F0A5B8629ABF4E55BC22EE5BDFDB830ED7032DC0EAB
-          aspect_ratio: 45%
-        grid_options:
-          columns: full
-          rows: 10
     column_span: 3
 background:
   image: /api/image/serve/a0db373e66314ef8086b0b96661bab80/original
