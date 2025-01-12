@@ -41,7 +41,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 
 #### für alle Seiten notwendig
 - mushroom
-- card-mod (3.4.3 noch nicht 3.4.4)
+- card-mod
 - stack in card
 - tabbed card
 - bubble card
