@@ -89,17 +89,16 @@ sections:
                             border-radius: 0px !important;
                           }
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          height: 1px;
-                          border-bottom: 1px;
-                          background-color: grey;
-                          margin-left: 20px;
-                          margin-right: 20px;
-                        }  
+                  card: null
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey !important;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      } 
                 - type: horizontal-stack
                   cards:
                     - type: tile
@@ -206,17 +205,16 @@ sections:
                             text-align: center !important;
                           }
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          height: 1px;
-                          border-bottom: 1px;
-                          background-color: grey;
-                          margin-left: 20px;
-                          margin-right: 20px;
-                        } 
+                  card: null
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey !important;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      }
                 - type: custom:tabbed-card
                   styles:
                     "--mdc-theme-primary": var(--primary-color)
@@ -363,17 +361,16 @@ sections:
                             border-radius: 0px !important;
                           }        
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          height: 1px;
-                          border-bottom: 1px;
-                          background-color: grey;
-                          margin-left: 20px;
-                          margin-right: 20px;
-                        }            
+                  card: null
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey !important;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      }         
                 - type: vertical-stack
                   cards:
                     - type: history-graph
@@ -1035,17 +1032,16 @@ sections:
                             border-radius: 0px !important;
                           }        
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          height: 1px;
-                          border-bottom: 1px;
-                          background-color: grey;
-                          margin-left: 20px;
-                          margin-right: 20px;
-                        }   
+                  card: null
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey !important;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      } 
                 - type: horizontal-stack
                   cards:
                     - type: tile
@@ -1067,17 +1063,16 @@ sections:
                             text-align: center !important;
                           }    
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          height: 1px;
-                          border-bottom: 1px;
-                          background-color: grey;
-                          margin-left: 20px;
-                          margin-right: 20px;
-                        }  
+                  card: null
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 1px;
+                        border-bottom: 1px;
+                        background-color: grey !important;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                      }
                 - type: vertical-stack
                   cards:
                     - type: history-graph
@@ -1120,6 +1115,44 @@ sections:
             attributes:
               label: History & Reset
               icon: mdi:history
+      - type: custom:bubble-card
+        styles: |
+          .bubble-icon {
+            --mdc-icon-size: 45px !important;
+            height: 45px;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding-right: 20px; 
+          } 
+          * { 
+            font-size: 10px !important;
+            border: none !important;
+            border-radius: 0px !important;
+            background: rgba(0,0,0,0) !important;
+            box-shadow: none !important;
+          }
+        card_type: horizontal-buttons-stack
+        auto_order: false
+        1_name: ""
+        1_icon: mdi:keyboard-backspace
+        1_link: /dashboard-test/home
+        highlight_current_view: true
+        hide_gradient: false
+        margin: 20px
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background: rgba(0,0,0,0) !important;
+              box-shadow: rgba(0,0,0,0) !important;
+              padding: 0px; 
+              z-index: 2;
+              position: fixed;
+              margin: 0 !important;
+              bottom: 0;
+            }
   - type: grid
     cards: []
 background:
