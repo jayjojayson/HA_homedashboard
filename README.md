@@ -39,7 +39,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
 Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
 
-#### für alle Seiten notwendig
+### für alle Seiten notwendig
 - mushroom
 - card-mod
 - stack in card
@@ -48,48 +48,48 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 - mini graph card
 - layout card
 - auto entities card
-- <details>
+  <details>
     <summary> <b>Beispielbild</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
   </details>
 
-#### für Staubsauger und Müll Card notwendig
+### für Staubsauger und Müll Card notwendig
 - dreame vacuum map card
 - trash card
 - ics calendar 
-- <details>
+  <details>
     <summary> <b>Beispielbild</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
   </details>
 
-#### für Wetter Card notwendig
+### für Wetter Card notwendig
 - deutscher wetterdienst
 - NINA Wetterwarnungen
 - compass card (neu für Windrichtung)
-- <details>
+  <details>
     <summary> <b>Beispielbild</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/5%20Wetter/wetterseite_ubersicht.jpg)  
   </details>
 
-#### für Stromübersicht Card notwendig
+### für Stromübersicht Card notwendig
 - power flow card plus
 - sankey chart card
 - energy overview card
-- <details>
+  <details>
     <summary> <b>Beispielbild</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/6%20Strom/stromseite_ubersicht.jpg)  
   </details>
 
-#### für Paketeüberischt Card notwendig
+### für Paketeüberischt Card notwendig
 - 17track Integration
 
-#### für Raspi-Status Card notwendig
+### für Raspi-Status Card notwendig
 - System Monitor Integration
-- <details>
+  <details>
     <summary> <b>Beispielbild</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
