@@ -57,6 +57,7 @@ sections:
           style: |
             ha-card {
               padding: 10px;
+              border: none !important;
             }
         cards:
           - type: horizontal-stack
@@ -173,17 +174,15 @@ sections:
                           border-radius: 0px !important;
                         }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  }            
+                }   
           - type: horizontal-stack
             cards:
               - type: light
@@ -245,17 +244,15 @@ sections:
                       font-size: 110% !important;
                     }  
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  }           
+                }        
           - type: horizontal-stack
             cards:
               - type: tile
@@ -366,86 +363,68 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;  
-              border: none;
+              padding: 5px;
+              border: none !important;
             }
         cards:
-          - type: custom:vertical-stack-in-card
-            card_mod:
-              style: |
-                ha-card {
-                  background-color: transparent !important;  
-                  border: none;
-                }
+          - type: horizontal-stack
             cards:
-              - type: custom:vertical-stack-in-card
-                cards:
-                  - type: custom:mod-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          background-color: none !important; /* Halbtransparenter Grünton */      
-                          padding: 5px;   
-                        }
-                    card:
-                      type: horizontal-stack
-                      cards:
-                        - type: light
-                          entity: light.kuchenlicht
-                          name: Küche RGB
-                          theme: grey-icon
-                          icon: mdi:led-strip-variant
-                          hold_action:
-                            action: more-info
-                          double_tap_action:
-                            action: more-info
-                          card_mod:
-                            style: |
-                              ha-card {
-                                background: none !important;
-                                border-radius: 0px !important;
-                                border-right: 1px solid grey !important; 
-                                border-left: none !important; 
-                                border-top: none !important; 
-                                border-bottom: none !important;
-                                display: flex !important;
-                                align-items: center !important;
-                                justify-content: center !important;
-                                height: 100% !important;
-                                text-align: center !important;
-                              }
-                              #info {
-                                font-size: 110% !important;
-                              }  
-                              .card-content {
-                                margin: auto !important;
-                              }
-                        - type: tile
-                          entity: switch.kuchenlicht_2
-                          tap_action:
-                            action: toggle
-                          name: Unterschranklicht
-                          icon: mdi:led-strip
-                          vertical: true
-                          hide_state: true
-                          card_mod:
-                            style: |
-                              ha-card {
-                                background: none !important;
-                                border-radius: 0px !important;
-                                border-right: none !important; 
-                                border-left: none !important; 
-                                border-top: none !important; 
-                                border-bottom: none !important;
-                                display: flex !important;
-                                align-items: center !important;
-                                justify-content: center !important;
-                                height: 100% !important;
-                                text-align: center !important;
-                              }
-                              .card-content {
-                                margin: auto !important;
-                              }
+              - type: light
+                entity: light.kuchenlicht
+                name: Küche RGB
+                theme: grey-icon
+                icon: mdi:led-strip-variant
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: more-info
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
+                    }
+                    #info {
+                      font-size: 110% !important;
+                    }  
+                    .card-content {
+                      margin: auto !important;
+                    }
+              - type: tile
+                entity: switch.kuchenlicht_2
+                tap_action:
+                  action: toggle
+                name: Unterschranklicht
+                icon: mdi:led-strip
+                vertical: true
+                hide_state: true
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border-radius: 0px !important;
+                      border-right: none !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
+                    }
+                    .card-content {
+                      margin: auto !important;
+                    }
       - type: heading
         icon: ""
         heading_style: title
@@ -467,74 +446,64 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;  
-              border: none;
+              padding: 5px;
+              border: none !important;
             }
         cards:
-          - type: custom:vertical-stack-in-card
+          - type: horizontal-stack
             cards:
-              - type: custom:mod-card
+              - type: tile
+                entity: switch.bad_spiegellicht
+                tap_action:
+                  action: toggle
+                icon: mdi:mirror-rectangle
+                vertical: true
+                name: Spiegellicht
+                hide_state: true
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: none !important; /* Halbtransparenter Grünton */      
-                      padding: 5px;   
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
                     }
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: switch.bad_spiegellicht
-                      tap_action:
-                        action: toggle
-                      icon: mdi:mirror-rectangle
-                      vertical: true
-                      name: Spiegellicht
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: switch.ledstrip_bad_2
-                      tap_action:
-                        action: toggle
-                      icon: mdi:led-strip-variant
-                      vertical: true
-                      name: Schranklicht
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: none !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
+                    .card-content {
+                      margin: auto !important;
+                    }
+              - type: tile
+                entity: switch.ledstrip_bad_2
+                tap_action:
+                  action: toggle
+                icon: mdi:led-strip-variant
+                vertical: true
+                name: Schranklicht
+                hide_state: true
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: none !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
+                    }
+                    .card-content {
+                      margin: auto !important;
+                    }
       - type: heading
         heading_style: title
         heading: Flur
@@ -552,95 +521,85 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;  
-              border: none;
+              padding: 5px;
+              border: none !important;
             }
         cards:
-          - type: custom:vertical-stack-in-card
+          - type: horizontal-stack
             cards:
-              - type: custom:mod-card
+              - type: tile
+                entity: switch.flurlicht
+                tap_action:
+                  action: toggle
+                icon: mdi:ceiling-light
+                vertical: true
+                hide_state: true
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: none !important; /* Halbtransparenter Grünton */      
-                      padding: 5px;   
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
                     }
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: switch.flurlicht
-                      tap_action:
-                        action: toggle
-                      icon: mdi:ceiling-light
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: switch.sockelleisten_steckdose_1
-                      name: Sockelleisten
-                      icon: mdi:led-strip-variant
-                      tap_action:
-                        action: toggle
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: light.lampe_flur_schrank_leuchte
-                      name: Flurschrank
-                      tap_action:
-                        action: toggle
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }     
+                    .card-content {
+                      margin: auto !important;
+                    }
+              - type: tile
+                entity: switch.sockelleisten_steckdose_1
+                name: Sockelleisten
+                icon: mdi:led-strip-variant
+                tap_action:
+                  action: toggle
+                vertical: true
+                hide_state: true
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
+                    }
+                    .card-content {
+                      margin: auto !important;
+                    }
+              - type: tile
+                entity: light.lampe_flur_schrank_leuchte
+                name: Flurschrank
+                tap_action:
+                  action: toggle
+                vertical: true
+                hide_state: true
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      text-align: center !important;
+                    }
+                    .card-content {
+                      margin: auto !important;
+                    }     
   - type: grid
     cards:
       - type: heading
@@ -670,375 +629,352 @@ sections:
           style: |
             ha-card {
               padding: 5px;
+              border: none !important;
             }
         cards:
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: light
-                      entity: light.schlafzimmer_mutti_leuchte
-                      icon: mdi:ceiling-light
-                      name: Schlafzimmer
-                      theme: grey-icon
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: none !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          #info {
-                            font-size: 110% !important;
-                          }  
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: light
-                      entity: light.leselampe_mutti
-                      name: "Leselampe "
-                      theme: grey-icon
-                      icon: mdi:lamp-outline
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 0px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          #info {
-                            font-size: 110% !important;
-                          }  
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: light
-                      entity: light.esszimmerlicht_lampe_gruppe_mutti
-                      name: Esszimmer
-                      theme: grey-icon
-                      icon: mdi:ceiling-light-multiple
-                      hold_action:
-                        action: more-info
-                      double_tap_action:
-                        action: more-info
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          #info {
-                            font-size: 110% !important;
-                          }      
-                          .card-content {
-                            margin: auto !important;
-                          }     
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: light
+                    entity: light.schlafzimmer_mutti_leuchte
+                    icon: mdi:ceiling-light
+                    name: Schlafzimmer
+                    theme: grey-icon
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: none !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        #info {
+                          font-size: 110% !important;
+                        }  
+                        .card-content {
+                          margin: auto !important;
+                        }
+                  - type: light
+                    entity: light.leselampe_mutti
+                    name: "Leselampe "
+                    theme: grey-icon
+                    icon: mdi:lamp-outline
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 0px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        #info {
+                          font-size: 110% !important;
+                        }  
+                        .card-content {
+                          margin: auto !important;
+                        }
+                  - type: light
+                    entity: light.esszimmerlicht_lampe_gruppe_mutti
+                    name: Esszimmer
+                    theme: grey-icon
+                    icon: mdi:ceiling-light-multiple
+                    hold_action:
+                      action: more-info
+                    double_tap_action:
+                      action: more-info
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        #info {
+                          font-size: 110% !important;
+                        }      
+                        .card-content {
+                          margin: auto !important;
+                        }   
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  }        
+                }       
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: switch.growzelt_innenlufter
-                      icon: mdi:led-strip-variant
-                      vertical: false
-                      hide_state: true
-                      name: Dekolicht
-                      tap_action:
-                        action: toggle
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: switch.herdlicht_gruppe_mutti
-                      name: Herdlicht
-                      tap_action:
-                        action: toggle
-                      vertical: false
-                      icon: mdi:led-strip
-                      show_entity_picture: false
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: switch.korridorlicht
-                      name: Flurlicht
-                      tap_action:
-                        action: toggle
-                      vertical: false
-                      icon: mdi:ceiling-light
-                      show_entity_picture: false
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: tile
+                    entity: switch.growzelt_innenlufter
+                    icon: mdi:led-strip-variant
+                    vertical: false
+                    hide_state: true
+                    name: Dekolicht
+                    tap_action:
+                      action: toggle
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }
+                  - type: tile
+                    entity: switch.herdlicht_gruppe_mutti
+                    name: Herdlicht
+                    tap_action:
+                      action: toggle
+                    vertical: false
+                    icon: mdi:led-strip
+                    show_entity_picture: false
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }
+                  - type: tile
+                    entity: switch.korridorlicht
+                    name: Flurlicht
+                    tap_action:
+                      action: toggle
+                    vertical: false
+                    icon: mdi:ceiling-light
+                    show_entity_picture: false
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  }        
+                }        
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: light.stehlampe
-                      icon: mdi:floor-lamp
-                      vertical: false
-                      hide_state: true
-                      name: Stehlampe
-                      tap_action:
-                        action: toggle
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: light.wohnzimmer_treppe_mutti_leuchte
-                      name: Treppe
-                      tap_action:
-                        action: toggle
-                      double_tap_action:
-                        action: more-info
-                      vertical: false
-                      icon: mdi:lightbulb
-                      show_entity_picture: false
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: none !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: tile
+                    entity: light.stehlampe
+                    icon: mdi:floor-lamp
+                    vertical: false
+                    hide_state: true
+                    name: Stehlampe
+                    tap_action:
+                      action: toggle
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }
+                  - type: tile
+                    entity: light.wohnzimmer_treppe_mutti_leuchte
+                    name: Treppe
+                    tap_action:
+                      action: toggle
+                    double_tap_action:
+                      action: more-info
+                    vertical: false
+                    icon: mdi:lightbulb
+                    show_entity_picture: false
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: none !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  } 
+                }  
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: custom:mushroom-fan-card
-                      entity: fan.starkvind_luftreiniger_mutti_ventilator
-                      show_percentage_control: false
-                      show_oscillate_control: false
-                      collapsible_controls: false
-                      icon_animation: true
-                      fill_container: false
-                      secondary_info: none
-                      name: Luftreiniger
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            box-shadow: none !important;
-                            border: none !important;
-                            border-right: 1px solid grey !important;
-                            border-radius: 0px !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            text-align: center !important;
-                          }
-                    - type: custom:mushroom-entity-card
-                      entity: sensor.starkvind_luftreiniger_mutti_pm2_5
-                      primary_info: none
-                      fill_container: false
-                      icon_color: >
-                        {% if is_state('sensor.luftquality_color', 'green') %}
-                          green
-                        {% elif is_state('sensor.luftquality_color', 'yellow')
-                        %}
-                          yellow
-                        {% elif is_state('sensor.luftquality_color', 'orange')
-                        %}
-                          orange
-                        {% else %}
-                          red
-                        {% endif %}
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            box-shadow: none !important;
-                            border: none !important;
-                            border-radius: 0px !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            text-align: center !important;
-                            --primary-text-color:
-                              {% if is_state('sensor.luftquality_color', 'green') %}
-                                green;
-                              {% elif is_state('sensor.luftquality_color', 'yellow') %}
-                                yellow;
-                              {% elif is_state('sensor.luftquality_color', 'orange') %}
-                                orange;
-                              {% else %}
-                                red;
-                              {% endif %}
-                          }     
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mushroom-fan-card
+                    entity: fan.starkvind_luftreiniger_mutti_ventilator
+                    show_percentage_control: false
+                    show_oscillate_control: false
+                    collapsible_controls: false
+                    icon_animation: true
+                    fill_container: false
+                    secondary_info: none
+                    name: Luftreiniger
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-right: 1px solid grey !important;
+                          border-radius: 0px !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          text-align: center !important;
+                        }
+                  - type: custom:mushroom-entity-card
+                    entity: sensor.starkvind_luftreiniger_mutti_pm2_5
+                    primary_info: none
+                    fill_container: false
+                    icon_color: |
+                      {% if is_state('sensor.luftquality_color', 'green') %}
+                        green
+                      {% elif is_state('sensor.luftquality_color', 'yellow') %}
+                        yellow
+                      {% elif is_state('sensor.luftquality_color', 'orange') %}
+                        orange
+                      {% else %}
+                        red
+                      {% endif %}
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 0px !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          text-align: center !important;
+                          --primary-text-color:
+                            {% if is_state('sensor.luftquality_color', 'green') %}
+                              green;
+                            {% elif is_state('sensor.luftquality_color', 'yellow') %}
+                              yellow;
+                            {% elif is_state('sensor.luftquality_color', 'orange') %}
+                              orange;
+                            {% else %}
+                              red;
+                            {% endif %}
+                        }    
       - type: heading
         heading_style: title
         heading: Außenlicht
@@ -1065,252 +1001,279 @@ sections:
           style: |
             ha-card {
               padding: 5px;
+              border: none !important;
             }
         cards:
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: switch.licht_garage_wohnzimmer_licht_garage_ch2
-                      tap_action:
-                        action: toggle
-                      name: Garagenlicht
-                      icon: mdi:coach-lamp
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }        
-                    - type: tile
-                      entity: switch.aussenlicht
-                      tap_action:
-                        action: toggle
-                      icon: mdi:led-strip-variant
-                      name: Außenlicht
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          } 
-                    - type: tile
-                      entity: switch.weihnachtslicht_steckdose_1
-                      name: Christmaslicht
-                      icon: mdi:string-lights
-                      tap_action:
-                        action: toggle
-                      hide_state: true
-                      vertical: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }        
-                    - type: tile
-                      entity: switch.poollicht_steckdose_1
-                      icon: mdi:light-flood-down
-                      tap_action:
-                        action: toggle
-                      name: Poollicht
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 0px !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }     
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: tile
+                    entity: switch.licht_garage_wohnzimmer_licht_garage_ch2
+                    tap_action:
+                      action: toggle
+                    name: Garagenlicht
+                    icon: mdi:coach-lamp
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }        
+                  - type: tile
+                    entity: switch.aussenlicht
+                    tap_action:
+                      action: toggle
+                    icon: mdi:led-strip-variant
+                    name: Außenlicht
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        } 
+                  - type: tile
+                    entity: switch.weihnachtslicht_steckdose_1
+                    name: Christmaslicht
+                    icon: mdi:string-lights
+                    tap_action:
+                      action: toggle
+                    hide_state: true
+                    vertical: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }        
+                  - type: tile
+                    entity: switch.poollicht_steckdose_1
+                    icon: mdi:light-flood-down
+                    tap_action:
+                      action: toggle
+                    name: Poollicht
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 0px !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }  
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
+            card_mod:
+              style: |
+                ha-card {
                     height: 1px;
                     border-bottom: 1px;
-                    background-color: grey;
+                    background-color: grey !important;
                     margin-left: 20px;
                     margin-right: 20px;
-                  }  
+                }  
           - type: custom:vertical-stack-in-card
-            cards:
-              - type: custom:mod-card
-                card:
-                  type: horizontal-stack
-                  cards:
-                    - type: tile
-                      entity: >-
-                        switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
-                      name: Terr. Nord
-                      icon: mdi:lightbulb
-                      tap_action:
-                        action: toggle
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }        
-                    - type: tile
-                      entity: light.terrasse_sud_rgb_ww_cw
-                      name: Terr. Süd
-                      tap_action:
-                        action: toggle
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          } 
-                    - type: tile
-                      entity: light.terrasse_sud_rgb_ww_cw_2
-                      name: Terr. Süd
-                      tap_action:
-                        action: toggle
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }       
-                    - type: tile
-                      entity: light.terrasse_mutti_leuchte
-                      tap_action:
-                        action: toggle
-                      name: Terr. Mutti
-                      vertical: true
-                      hide_state: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 0px !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }     
             card_mod:
               style: |
                 ha-card {
                   border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
                 }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: tile
+                    entity: switch.licht_terrassetur_sud_aussenlicht_terrasse_sud_ch2
+                    name: Terr. Nord
+                    icon: mdi:lightbulb
+                    tap_action:
+                      action: toggle
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }        
+                  - type: tile
+                    entity: light.terrasse_sud_rgb_ww_cw
+                    name: Terr. Süd
+                    tap_action:
+                      action: toggle
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        } 
+                  - type: tile
+                    entity: light.terrasse_sud_rgb_ww_cw_2
+                    name: Terr. Süd
+                    tap_action:
+                      action: toggle
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 1px solid grey !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }       
+                  - type: tile
+                    entity: light.terrasse_mutti_leuchte
+                    tap_action:
+                      action: toggle
+                    name: Terr. Mutti
+                    vertical: true
+                    hide_state: true
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border-right: 0px !important; 
+                          border-left: none !important; 
+                          border-top: none !important; 
+                          border-bottom: none !important;
+                          display: flex !important;
+                          align-items: center !important;
+                          justify-content: center !important;
+                          height: 100% !important;
+                          text-align: center !important;
+                        }
+                        .card-content {
+                          margin: auto !important;
+                        }     
+      - type: custom:bubble-card
+        styles: |
+          .bubble-icon {
+            --mdc-icon-size: 45px !important;
+            height: 45px;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding-right: 20px; 
+          } 
+          * { 
+            font-size: 10px !important;
+            border: none !important;
+            border-radius: 0px !important;
+            background: rgba(0,0,0,0) !important;
+          }
+        card_type: horizontal-buttons-stack
+        auto_order: false
+        1_name: ""
+        1_icon: mdi:keyboard-backspace
+        1_link: /dashboard-test/home
+        highlight_current_view: true
+        hide_gradient: false
+        margin: 20px
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background: none !important;
+              box-shadow: none !important;
+              padding: 0px; 
+              z-index: 2;
+              position: fixed;
+              margin: 0 !important;
+              bottom: 0;
+            }
 background:
   image: /api/image/serve/6b3eb207651f9b943be97b66bcd3b4b8/original
 cards: []

@@ -3,6 +3,7 @@ card_mod:
   style: |
     ha-card {
       padding: 10px;
+      border: none !important;
     }
 cards:
   - type: horizontal-stack
@@ -119,17 +120,15 @@ cards:
                   border-radius: 0px !important;
                 }
   - type: custom:mod-card
-    card:
-      type: custom:mushroom-template-card
-      card_mod:
-        style: |
-          ha-card {
+    card_mod:
+      style: |
+        ha-card {
             height: 1px;
             border-bottom: 1px;
-            background-color: grey;
+            background-color: grey !important;
             margin-left: 20px;
             margin-right: 20px;
-          }            
+        }   
   - type: horizontal-stack
     cards:
       - type: light
@@ -191,17 +190,15 @@ cards:
               font-size: 110% !important;
             }  
   - type: custom:mod-card
-    card:
-      type: custom:mushroom-template-card
-      card_mod:
-        style: |
-          ha-card {
+    card_mod:
+      style: |
+        ha-card {
             height: 1px;
             border-bottom: 1px;
-            background-color: grey;
+            background-color: grey !important;
             margin-left: 20px;
             margin-right: 20px;
-          }           
+        }        
   - type: horizontal-stack
     cards:
       - type: tile
