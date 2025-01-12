@@ -130,6 +130,8 @@ configuration.yaml mit folgendem ergänzen
 
 <details>
   <summary> 💬 - <b>Topmenü Hack</b> ---</summary>
+
+  ## 💬 Topmenü Hack 
   
   Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
   Einfach über HACS installieren und im Anschluss folgenden Code im Raw-Konfigurationseditor an erster Stelle einfügen.
