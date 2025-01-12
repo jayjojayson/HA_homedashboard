@@ -220,10 +220,12 @@ mode: single
 </details>
 
 ## ‼️ Updates
-#### update 10 Jan 25--
-- Integration ab sofort über HACS möglich Theme und Dashboard werden import. 
-  Für Funktion muss Theme und Dashboard in configuration.yaml definiert werden.
+#### update 12 Jan 25--
+- Integration ab sofort über HACS möglich Dashboard wird unter www/community abgelegt
+  Von Dor könnt ihr es in ein neues Dashboard kopieren
+- Theme kann importiert werden, dafür muss das Theme  in configuration.yaml definiert werden
 - Überarbeitung aller Cards für Integration mit Card Mod 3.4.4 und ab HA 2025.1
+- minimal-graph-cards überarbeitet
 - kleine bugfixes, sensoren.yaml angepasst
   
 #### update 05 Jan 25--
