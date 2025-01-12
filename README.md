@@ -113,7 +113,7 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 - Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
 
 Link für HACS
-```bash
+```yaml
 https://github.com/jayjojayson/HA_homedashboard
 ```
 configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
