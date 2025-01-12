@@ -2,6 +2,7 @@ type: custom:stack-in-card
 card_mod:
   style: |
     ha-card {
+      border: none;
       margin-bottom: -10px !important;
     }
 cards:
@@ -33,17 +34,17 @@ cards:
         line-height: 35px !important;
         } 
   - type: custom:mod-card
-    card:
-      type: custom:mushroom-template-card
-      card_mod:
-        style: |
-          ha-card {
+    card_mod:
+      style: |
+        ha-card {
             height: 1px;
             border-bottom: 1px;
-            background-color: grey;
+            background-color: grey !important;
             margin-left: 20px;
             margin-right: 20px;
-          }  
+        }
+    card:
+      type: custom:mushroom-template-card
   - type: horizontal-stack
     cards:
       - type: entities
@@ -95,17 +96,18 @@ cards:
               Datum: {{ (states('sensor.pooltemp_statistik_min_date') |
               as_datetime).strftime('%d.%m.%Y') }}          
   - type: custom:mod-card
-    card:
-      type: custom:mushroom-template-card
-      card_mod:
-        style: |
-          ha-card {
+    card_mod:
+      style: |
+        ha-card {
             height: 1px;
             border-bottom: 1px;
-            background-color: grey;
+            background-color: grey !important;
             margin-left: 20px;
             margin-right: 20px;
-          }  
+        }
+    card:
+      type: custom:mushroom-template-card
+      card_mod: null
   - type: custom:mini-graph-card
     entities:
       - entity: sensor.pooltemperatur_temperatur
@@ -119,6 +121,17 @@ cards:
       name: true
       state: false
       icon: false
+    color_thresholds:
+      - value: 0
+        color: grey
+      - value: 2
+        color: steelblue
+      - value: 10
+        color: amber
+      - value: 15
+        color: green
+      - value: 23
+        color: orange
     card_mod:
       style: |
         ha-card {
@@ -126,4 +139,5 @@ cards:
           box-shadow: none !important;
           border: none !important;
           border-radius: 0px !important;
+          padding: 0px !important;
         }  

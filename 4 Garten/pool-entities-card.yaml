@@ -25,5 +25,6 @@ state_color: true
 card_mod:
   style: |
     ha-card {
-      background-color: rgba(22, 22, 22, 0.3);
+      background-color: var(--card-background-color) !important;
+      border: none;
     }
