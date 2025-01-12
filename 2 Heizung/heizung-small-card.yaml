@@ -69,4 +69,5 @@ card_mod:
   style: |
     ha-card {
       padding: 10px; !important;
+      border: none !important;
     }
