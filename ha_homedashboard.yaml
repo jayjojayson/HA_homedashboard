@@ -40,9 +40,9 @@ views:
                     card_mod:
                       style: |
                         ha-card {
-                          min-width: 260px !important;
-                          margin-top: 20px;
-                          margin-left: 20px !important; 
+                          min-width: 300px !important;
+                          margin-top: 10px;
+                          margin-left: 10px;
                           margin-right: 10px !important; 
                           background-color: transparent !important;
                           color: var(--primary-color) !important;
@@ -80,7 +80,7 @@ views:
                     day_style: counter
                     alignment_style: center
                     color_mode: icon
-                    items_per_row: 1
+                    items_per_row: 2
                     refresh_rate: 600
                     with_label: false
                     layout: vertical
@@ -93,19 +93,21 @@ views:
                     full_size: false
                     card_mod:
                       style: |
-                        :host {
+                        ha-card {
                           background-color: transparent !important;
                           color: var(--primary-color) !important;
                           border: none !important;
                           border-radius: 0px !important;
                           position: relative;
-                          width: 80px !important;
-                          margin-top: 5px !important; 
-                          margin-left: 140px !important;   
+                          width: 90px !important;
+                          margin-top: 0px !important; 
+                          margin-bottom: 10px !important; 
+                          margin-right: 5px !important;
+                          margin-left: 100px !important;   
                           padding-bottom: 0px !important; 
                         }
                         .card-container {
-                          display: block !important;
+                            display: block !important;
                         }
                         /* Skaliert die Icons */
                         .icon-container {
@@ -123,97 +125,177 @@ views:
                         .content {
                           font-size: 12px !important; /* Anpassung der Textgröße */
                           text-align: center;
-                        }      
+                        }    
               - type: horizontal-stack
                 cards:
-                  - type: custom:mushroom-chips-card
+                  - type: custom:vertical-stack-in-card
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:mushroom-entity-card
+                            entity: sensor.steps_kilometer_taglich
+                            name: Mutti
+                            primary_info: state
+                            fill_container: false
+                            secondary_info: none
+                            icon: mdi:walk
+                            icon_color: grey
+                            icon_tap_action:
+                              action: toggle
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  border-radius: 0px !important;
+                                  border-right: 1px solid grey !important; 
+                                  border-left: none !important; 
+                                  border-top: none !important; 
+                                  border-bottom: none !important;
+                                  display: flex !important;
+                                  align-items: center !important;
+                                  justify-content: center !important;
+                                  height: 75% !important;
+                                  text-align: center !important;
+                                  zoom: 75%; 
+                                  padding-right: 10px; 
+                                }
+                                mushroom-shape-icon {
+                                  --shape-color: none !important;
+                                }
+                                ha-state-icon {
+                                  margin-right: -20px;
+                                } 
+                          - type: custom:mushroom-entity-card
+                            entity: person.jayjojayson
+                            name: Jan
+                            primary_info: name
+                            fill_container: false
+                            secondary_info: none
+                            icon: m3of:person-4
+                            icon_color: grey
+                            icon_tap_action:
+                              action: toggle
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  border-radius: 0px !important;
+                                  border-right: 1px solid grey !important; 
+                                  border-left: none !important; 
+                                  border-top: none !important; 
+                                  border-bottom: none !important;
+                                  display: flex !important;
+                                  align-items: center !important;
+                                  justify-content: center !important;
+                                  height: 75% !important;
+                                  text-align: center !important;
+                                  zoom: 85%;
+                                  padding-right: 30px; 
+                                }
+                                mushroom-shape-icon {
+                                  --shape-color-disabled: transparent !important;
+                                  --shape-color: none !important;
+                                }
+                                ha-state-icon {
+                                  margin-right: -15px;
+                                  color: {% if states('person.jayjojayson') == 'home' %} green {% else %} grey {% endif %};
+                                } 
+                          - type: custom:mushroom-entity-card
+                            entity: person.mutti
+                            name: Mutti
+                            primary_info: name
+                            fill_container: false
+                            secondary_info: none
+                            icon: m3of:person-3
+                            icon_color: grey
+                            icon_tap_action:
+                              action: toggle
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  border-radius: 0px !important;
+                                  border-right: 1px solid grey !important; 
+                                  border-left: none !important; 
+                                  border-top: none !important; 
+                                  border-bottom: none !important;
+                                  display: flex !important;
+                                  align-items: center !important;
+                                  justify-content: center !important;
+                                  height: 75% !important;
+                                  text-align: center !important;
+                                  zoom: 85%;
+                                  padding-right: 30px; 
+                                }
+                                mushroom-shape-icon {
+                                  --shape-color-disabled: transparent !important;
+                                  --shape-color: none !important;
+                                }
+                                ha-state-icon {
+                                  margin-right: -15px;
+                                } 
+                                ha-state-icon {
+                                  margin-right: -15px;
+                                  color: {% if states('person.mutti') == 'home' %} green {% else %} grey {% endif %};
+                                }
+                          - type: custom:mushroom-entity-card
+                            entity: sensor.23124ra7eo_steps_sensor
+                            name: Mutti
+                            primary_info: state
+                            fill_container: false
+                            secondary_info: none
+                            icon: mdi:walk
+                            icon_color: grey
+                            icon_tap_action:
+                              action: toggle
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  border-radius: 0px !important;
+                                  border: none !important;
+                                  display: flex !important;
+                                  align-items: center !important;
+                                  justify-content: center !important;
+                                  height: 75% !important;
+                                  text-align: center !important;
+                                  zoom: 75%;
+                                  padding-right: 30px; 
+                                }
+                                mushroom-shape-icon {
+                                  --shape-color: none !important;
+                                } 
+                                ha-state-icon {
+                                  margin-right: -20px;
+                                } 
                     card_mod:
                       style: |
                         ha-card {
-                          margin: 8px !important; 
+                          background: none !important;
+                          border-radius: 0px !important;
+                          border: none !important; 
                         }
-                        .chip-container {
-                            gap: 0px !important;
-                        }
-                    alignment: center
-                    chips:
-                      - type: entity
-                        card_mod:
-                          style: |
-                            ha-card {
-                              background-color: transparent !important;
-                              color: var(--primary-color) !important;
-                              border: none !important;
-                              border-right: 1px solid grey !important;
-                              border-radius: 0px !important;
-                              padding-right: 5px;
-                            }
-                        entity: sensor.steps_kilometer_taglich
-                        icon: mdi:walk
-                        content_info: state
-                        name: ' '
-                      - type: entity
-                        card_mod:
-                          style: |
-                            ha-card {
-                              background-color: transparent !important;
-                              color: var(--blue-color) !important;
-                              border: none !important;
-                              border-right: 1px solid grey !important;
-                              border-radius: 0px !important;
-                              padding-right: 5px;
-                            }
-                        entity: person.jayjojayson
-                        icon: m3of:person-4
-                        content_info: name
-                        name: Jan
-                        visibility:
-                          - condition: state
-                            entity: person.jayjojayson
-                            state: home
-                      - type: entity
-                        card_mod:
-                          style: |
-                            ha-card {
-                              background-color: transparent !important;
-                              color: var(--blue-color) !important;
-                              border: none !important;
-                              border-right: 1px solid grey !important;
-                              border-radius: 0px !important;
-                              padding-right: 5px;
-                            }
-                        entity: person.mutti
-                        icon: m3of:person-2
-                        content_info: name
-                        name: Mutti
-                        visibility:
-                          - condition: state
-                            entity: person.mutti
-                            state: home
-                      - type: entity
-                        card_mod:
-                          style: |
-                            ha-card {
-                              background-color: transparent !important;
-                              color: var(--primary-color) !important;
-                              border: none !important;
-                            }
-                        entity: sensor.23124ra7eo_steps_sensor
-                        icon: mdi:walk
-                        content_info: state
-                        name: ' '
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                }
           - type: custom:stack-in-card
             card_mod:
               style: |
                 :host {
                   margin-bottom: -10px !important;
                 }
+                ha-card {
+                  border: none;
+                }
             cards:
               - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
                     :host {
-                      --ha-card-background: none !important;
+                      --ha-card-background: none !important;          
+                      --ha-card-border: none !important;
                     }
                 cards:
                   - type: horizontal-stack
@@ -229,14 +311,14 @@ views:
                             ha-card {
                               box-shadow: none !important;
                               border: none !important;
+                              width: 110%;
                             }
                             :host {
-                              --ha-card-background: transparent !important;
-                              --ha-card-border: none !important;
+                              --ha-card-background: transparent !important;                  
+                              border: none !important;
                               --ha-card-border-radius: 0px !important;  
-                              padding-right: 20px !important;         
-                              padding-left: 10px !important;
-                              height: 75px !important;
+                              padding-right: 30px !important;         
+                              padding-left: 20px !important;
                               text-align: center;
                               font-weight: bold !important;  
 
@@ -254,6 +336,36 @@ views:
                             .value {
                               font-size: 30px !important; /* Ändere die Schriftgröße */
                             }
+                      - type: custom:compass-card
+                        card_mod:
+                          style: |
+                            ha-card {
+                              background: none !important;
+                              box-shadow: none !important;
+                              border: none !important;
+                              border-radius: 0px !important;
+                              zoom: 50%;
+                              margin-top: 15px;
+                              margin-left: 5px;
+                              width: 160px;
+                            }
+                        indicator_sensors:
+                          - sensor: sensor.fuerstenwalde_spree_windrichtung
+                            indicator:
+                              type: arrow_inward
+                        value_sensors:
+                          - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
+                        compass:
+                          east:
+                            show: true
+                          west:
+                            show: true
+                          south:
+                            show: true
+                          north:
+                            show: true
+                            offset: 150
+                        language: de
                       - type: custom:mushroom-entity-card
                         entity: sensor.aussentemperatur_luftfeuchtigkeit
                         tap_action:
@@ -266,14 +378,13 @@ views:
                         card_mod:
                           style: |
                             :host {
-                              --ha-card-background: transparent !important;
-                              --ha-card-border: none !important; /* Rahmen entfernt */
+                              --ha-card-background: transparent !important;                                    
+                              border: none !important;
                               text-align: center;
                               --ha-card-border-radius: 0px !important;     
                               padding-right: 10px !important;         
-                              padding-left: 50px !important;        
-                              padding-top: 40px !important;
-                              height: 75px !important;
+                              padding-left: 10px !important;           
+                              padding-top: 40px !important;     
                               --mush-card-primary-font-size: 25px !important;
                               --mush-card-primary-color: steelblue !important;
                             }
@@ -373,6 +484,7 @@ views:
             card_mod:
               style: |
                 ha-card {
+                  margin-bottom: -100px !important;
                   position: relative;
                   padding-top: 5px !important; /* Platz oberhalb der Icons */
                   padding-bottom: 0px !important; /* Platz unterhalb der Icons */
@@ -398,6 +510,14 @@ views:
             icon: ''
             heading: Multimedia
             heading_style: title
+            tap_action:
+              action: navigate
+              navigation_path: /dashboard-test/multimedia
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: -10px !important;
+                }
           - type: custom:vertical-stack-in-card
             cards:
               - type: horizontal-stack
@@ -482,6 +602,8 @@ views:
               style: |
                 ha-card {
                   border: none !important;
+                  padding: 5px 0 5px 0;
+                  margin: -10px 0 0 0;
                 }
           - type: custom:vertical-stack-in-card
             cards:
@@ -510,7 +632,7 @@ views:
                 card_mod:
                   style: |
                     ha-card {
-                      margin-bottom: 8px !important; 
+                      margin: 2px !important; 
                       z-index: 1 !important; /* Über dem Hintergrund */
                     }
                 alignment: center
@@ -543,6 +665,7 @@ views:
             card_mod:
               style: |
                 ha-card {
+                  border: none !important;
                   position: relative;
                   overflow: hidden;
                 } ha-card::before {
@@ -559,10 +682,6 @@ views:
                   opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
                   transition: opacity 0.5s ease;
                 }
-            visibility:
-              - condition: state
-                entity: media_player.echo_show
-                state: 'off'
       - type: grid
         cards:
           - type: heading
@@ -671,12 +790,13 @@ views:
                         .card-content {
                           margin: auto !important;
                         }     
-          - type: vertical-stack
             card_mod:
               style: |
                 ha-card {
-                  margin-bottom: -50px !important;
+                  border: none !important;
+                  padding: 5px 0 5px 0;
                 }
+          - type: vertical-stack
             cards:
               - type: picture-glance
                 title: Hofkamera
@@ -686,6 +806,7 @@ views:
                     ha-card {
                           background: none !important;
                           box-shadow: none !important;
+                          border: none;
                           border-radius: 12px;
                     }
                 entities:
@@ -828,14 +949,46 @@ views:
                     fill_container: false
                     primary_info: none
                     secondary_info: none
-                    icon: mdi:cast-audio
+                    icon: mdi:pool
                     icon_type: entity-picture
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-test/multimedia
+                      navigation_path: /dashboard-test/garten
                     hold_action:
                       action: navigate
-                      navigation_path: /dashboard-test/multimedia
+                      navigation_path: /dashboard-test/garten
+                    icon_color: primary
+                    card_mod:
+                      style: |
+                        mushroom-shape-icon {
+                          --shape-color-disabled: transparent !important;
+                          --shape-color: transparent !important;
+                          --icon-color-disabled: var(--primary-color) !important;
+                          --icon-size: 45px !important;
+                          background: none !important;
+                          box-shadow: none !important;
+                        }
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-right: 1px solid grey !important;
+                          border-radius: 0px !important;
+                          padding-right: 10px;
+                        }  
+                  - type: custom:mushroom-entity-card
+                    entity: person.jayjojayson
+                    fill_container: false
+                    primary_info: none
+                    secondary_info: none
+                    icon: mdi:lightbulb-group
+                    icon_type: entity-picture
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/licht
+                    hold_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/licht
                     icon_color: primary
                     card_mod:
                       style: |
@@ -854,6 +1007,11 @@ views:
                           border-radius: 0px !important;
                           padding-right: 10px;
                         }      
+            card_mod:
+              style: |
+                ha-card {
+                  margin-bottom: -50px !important;
+                }
           - type: heading
             icon: ''
             heading: Lichtstatus
@@ -878,7 +1036,7 @@ views:
                   box-shadow: none !important;
                   border: none !important;
                   padding: 10px 0 10px 0;
-                  margin-top: -10px;
+                  margin-top: -15px;
                   margin-bottom: -10px !important;  
                 }
             cards:
@@ -889,7 +1047,7 @@ views:
                       type: entities
                       card_mod:
                         style: |
-                          hui-entities-card {
+                          ha-card {
                             background: none !important;
                             box-shadow: none !important;
                             border: none !important;
@@ -1031,8 +1189,8 @@ views:
                   style: |
                     ha-card {
                       border: none;
-                      border-top-right-radius: 0px !important;          
-                      border-top-left-radius: 0px !important;
+                      border-bottom-right-radius: 0px !important;          
+                      border-bottom-left-radius: 0px !important;
                       z-index: 1 !important; /* Über dem Hintergrund */
                     }
               - type: picture-glance
@@ -1135,7 +1293,7 @@ views:
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: rgb(22,22,22, 0.1);
+                      background: var(--card-background-color) !important;   
                     }
               - type: custom:button-card
                 tap_action:
@@ -1187,7 +1345,8 @@ views:
             card_mod:
               style: |
                 ha-card  { 
-                  background: none;      
+                  background: none !important;
+                  border: none;
                   margin-bottom: -10px !important;
                 }
           - type: heading
@@ -1316,6 +1475,11 @@ views:
               - condition: numeric_state
                 entity: sensor.homestation_solar_total_ausgangsleistung
                 above: 20
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                }
           - type: heading
             heading_style: title
             tap_action:
@@ -1375,6 +1539,7 @@ views:
             card_mod:
               style: |
                 ha-card {
+                  border: none; 
                   padding-bottom: 10px;
                   text-align: center;      
                   font-size: 20px !important; /* Ändere die Schriftgröße */        
@@ -2237,7 +2402,8 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: transparent !important;     
+                  background-color: transparent !important;
+                  border: none !important;
                 }
             cards:
               - type: custom:stack-in-card
@@ -2564,7 +2730,8 @@ views:
             card_mod:
               style: |
                 ha-card  { 
-                  background: none;      
+                  background: none; 
+                  border: none !important;
                   margin-bottom: -10px !important;
                 }
             cards:
@@ -2641,7 +2808,7 @@ views:
                     ha-card {
                       border: none !important;
                       border-radius: 0px !important;
-                      background-color: transparent !important;
+                      background-color: var(--card-background-color) !important;
                       padding-bottom: 0px !important;
                     }
               - type: history-graph
@@ -2650,7 +2817,6 @@ views:
                     ha-card {
                       border: none !important;
                       border-radius: 0px !important;
-                      background-color: transparent !important;
                       padding-bottom: 0px !important;
                       padding-left: 15px !important;
                       padding-right: 5px !important;
@@ -2667,7 +2833,6 @@ views:
                       border: none !important;
                       height: 80% !important
                       border-radius: 0px !important;
-                      background-color: rgba(0, 0, 0, 0) !important;          
                       font-color: red !important;
                     }
                     .header{
@@ -2777,6 +2942,7 @@ views:
               style: |
                 ha-card {
                   padding: 10px; !important;
+                  border: none !important;
                 }
       - type: grid
         cards:
@@ -2784,11 +2950,6 @@ views:
             heading: Wohnung Mutti
             heading_style: title
           - type: custom:vertical-stack-in-card
-            card_mod:
-              style: |
-                ha-card {
-                  background-color: transparent !important;     
-                }
             cards:
               - type: custom:stack-in-card
                 cards:
@@ -2804,8 +2965,8 @@ views:
                         entity: sensor.wandthermostat_mutti_temperatur
                         name: Temperatur
                         fill_container: false
-                        icon_color: red
                         layout: vertical
+                        icon_color: red
                         primary_info: state
                         secondary_info: none
                         card_mod:
@@ -2814,11 +2975,11 @@ views:
                               padding-top: 10px;
                               border: none !important;
                               border-radius: 0px !important;
-                              background-color: transparent !important;
+                              background-color: transparent !important;     
                             }
                             :host {
                               --mush-card-primary-font-size: 20px !important;
-                            }
+                            } 
                       - type: custom:mushroom-entity-card
                         entity: sensor.wandthermostat_mutti_luftfeuchtigkeit
                         name: Luftfeuchte
@@ -2860,14 +3021,22 @@ views:
                 entity: climate.wandthermostat_mutti_2
                 show_current_as_primary: false
                 features:
-                  - type: climate-hvac-modes
+                  - style: icons
+                    type: climate-hvac-modes
                 name: ' '
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent;
+                      background-color: none !important;
                       padding-left: 20px !important;          
                       padding-right: 20px !important;
+                    }
+                    /* Direktes Ansprechen des Shadow-DOMs */
+                    :host ::part(secondary) {
+                      display: none !important;
+                    }
+                    hui-thermostat-card .label.secondary {
+                      display: none !important;
                     }
               - type: vertical-stack
                 cards:
@@ -2888,7 +3057,8 @@ views:
                             entity_id: input_select.diagramm_heizung_anzeige
                         card_mod:
                           style: |
-                            ha-card {
+                            ha-card { 
+                              background-color: none !important;  
                               border-top: 0px;
                               border-left: 0px;
                               border-right: 0px;
@@ -2927,8 +3097,9 @@ views:
                                     card_mod:
                                       style: |
                                         ha-card {
+                                          background-color: none !important; 
                                           border-radius: 0px !important;
-                                          border: none !important;                          
+                                          border: none !important;                                                    
                                           padding-left: 30px;
                                           padding-right: 30px;
                                           transition: opacity 0.5s ease, transform 0.5s ease;
@@ -2955,8 +3126,9 @@ views:
                                     card_mod:
                                       style: |
                                         ha-card {
+                                          background-color: none !important; 
                                           border-radius: 0px !important;
-                                          border: none !important;                          
+                                          border: none !important;                                                    
                                           padding-left: 30px;
                                           padding-right: 30px;
                                           transition: opacity 0.5s ease, transform 0.5s ease;
@@ -2983,8 +3155,9 @@ views:
                                     card_mod:
                                       style: |
                                         ha-card {
+                                          background-color: none !important; 
                                           border-radius: 0px !important;
-                                          border: none !important;                          
+                                          border: none !important;                                                    
                                           padding-left: 30px;
                                           padding-right: 30px;
                                           transition: opacity 0.5s ease, transform 0.5s ease;
@@ -3007,7 +3180,7 @@ views:
                         background-color: grey;
                         margin-left: 20px;
                         margin-right: 20px;
-                    } 
+                    }
               - type: vertical-stack
                 cards:
                   - type: vertical-stack
@@ -3045,7 +3218,7 @@ views:
                               border-radius: 0px !important;
                             } 
                             mushroom-card::after {
-                              content: "Ventil: {{ states('sensor.thermostat_bad_mutti_ventil_offnungsgrad') }}%";
+                              content: "Ventil: {{ states('sensor.thermostat_bad_ventil_offnungsgrad') }}%";
                               position: absolute;
                               top: 3px;
                               right: 80px;
@@ -3053,13 +3226,13 @@ views:
                               color: var(--secondary-text-color);
                             }
                             ha-state-icon { 
-                              color: {% if state_attr('climate.thermostat_bad_mutti', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                              color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
                             } 
                             mushroom-shape-icon {
-                              --shape-color: {% if state_attr('climate.thermostat_bad_mutti', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+                              --shape-color: {% if state_attr('climate.thermostat_bad', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
                       - type: custom:mushroom-climate-card
                         entity: climate.thermostat_esszimmer_mutti
-                        name: Esszimmer
+                        name: Schlafzimmer
                         hvac_modes:
                           - auto
                           - 'off'
@@ -3082,7 +3255,7 @@ views:
                               border-radius: 0px !important;
                             }
                             mushroom-card::after {
-                              content: "Ventil: {{ states('sensor.thermostat_esszimmer_mutti_ventil_offnungsgrad') }}%";
+                              content: "Ventil: {{ states('sensor.thermostat_schlafzimmer_ventil_offnungsgrad') }}%";
                               position: absolute;
                               top: 0px;
                               right: 80px;
@@ -3090,10 +3263,16 @@ views:
                               color: var(--secondary-text-color);
                             }
                             ha-state-icon { 
-                              color: {% if state_attr('climate.thermostat_esszimmer_mutti', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
+                              color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} orange {% else %} grey {% endif %};
                             } 
                             mushroom-shape-icon {
-                              --shape-color: {% if state_attr('climate.thermostat_esszimmer_mutti', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+                              --shape-color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  border: none !important;
+                }
           - type: custom:bubble-card
             styles: |
               .bubble-icon {
@@ -3194,6 +3373,7 @@ views:
               style: |
                 ha-card {
                   padding: 10px;
+                  border: none !important;
                 }
             cards:
               - type: horizontal-stack
@@ -3496,6 +3676,12 @@ views:
             heading: Küche
             heading_style: title
           - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 5px;
+                  border: none !important;
+                }
             cards:
               - type: horizontal-stack
                 cards:
@@ -3573,6 +3759,12 @@ views:
                 show_icon: true
                 entity: binary_sensor.bewegungsmelder_bad_bewegung
           - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 5px;
+                  border: none !important;
+                }
             cards:
               - type: horizontal-stack
                 cards:
@@ -3642,6 +3834,12 @@ views:
                 show_icon: true
                 entity: binary_sensor.bewegungsmelder_flur_bewegung
           - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  padding: 5px;
+                  border: none !important;
+                }
             cards:
               - type: horizontal-stack
                 cards:
@@ -3747,6 +3945,7 @@ views:
               style: |
                 ha-card {
                   padding: 5px;
+                  border: none !important;
                 }
             cards:
               - type: custom:vertical-stack-in-card
@@ -4120,6 +4319,7 @@ views:
               style: |
                 ha-card {
                   padding: 5px;
+                  border: none !important;
                 }
             cards:
               - type: custom:vertical-stack-in-card
@@ -4428,7 +4628,8 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: rgba(22, 22, 22, 0.3);
+                  background-color: var(--card-background-color) !important;
+                  border: none;
                 }
       - type: grid
         cards:
@@ -4463,7 +4664,8 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: rgba(22, 22, 22, 0.3);
+                  background-color: var(--card-background-color) !important;
+                  border: none;
                 }
       - type: grid
         cards:
@@ -4500,7 +4702,8 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: rgba(22, 22, 22, 0.3);
+                  background-color: var(--card-background-color) !important;
+                  border: none;
                 }
       - type: grid
         cards:
@@ -4544,6 +4747,11 @@ views:
                     entity_id: select.poolkamera_ptz_voreinstellung
                     option: Terrasse
             camera_image: camera.poolkamera_fliessend
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                }
       - type: grid
         cards:
           - type: heading
@@ -4553,6 +4761,7 @@ views:
             card_mod:
               style: |
                 ha-card {
+                  border: none;
                   margin-bottom: -10px !important;
                 }
             cards:
@@ -4711,8 +4920,9 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: rgba(22, 22, 22, 0.3);
+                  background-color: var(--card-background-color) !important;
                   margin-bottom: -10px !important;
+                  border: none;
                 }
           - type: heading
             heading: Gartenbewässerung
@@ -4728,7 +4938,8 @@ views:
             card_mod:
               style: |
                 ha-card {
-                  background-color: rgba(22, 22, 22, 0.3);
+                  background-color: var(--card-background-color) !important;
+                  border: none;
                 }
           - type: custom:bubble-card
             styles: |
@@ -4835,7 +5046,6 @@ views:
                             color: var(--grey-color)
                             y_axis: third
                             animate: true
-                            line_width: 3
                         card_mod:
                           style: |
                             ha-card {
@@ -4866,7 +5076,7 @@ views:
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: rgba(22, 22, 22, 0.3);
+                      background-color: var(--card-background-color) !important;
                       margin-bottom: -1px;
                     }
               - type: custom:weather-chart-card
@@ -4913,6 +5123,7 @@ views:
             card_mod:
               style: |
                 ha-card {
+                  border: none;
                   background: none !important;
                 }
       - type: grid
@@ -4925,30 +5136,39 @@ views:
             layout_options:
               grid_columns: full
           - type: markdown
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                }
             content: >
               **Zeitraum:**  
 
               {{
               as_timestamp(state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-              'start')) | timestamp_custom('%d.%m.%Y %H:%M') }}   -   {{
+              'start')) | timestamp_custom('%d.%m.%Y %H:%M') if
+              state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
+              'start') else 'unbekannt' }}   -   {{
               as_timestamp(state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-              'expires')) | timestamp_custom('%d.%m.%Y %H:%M') }}
+              'expires')) | timestamp_custom('%d.%m.%Y %H:%M') if
+              state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
+              'expires') else 'unbekannt' }}
 
 
               **{{
               state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-              'headline') }}**
+              'headline') or 'Keine Headline verfügbar' }}**
 
               {{
               state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-              'description') }}
+              'description') or 'Keine Beschreibung verfügbar' }}
 
 
-              **Empfohlene Maßnahmen:**  
+              **Empfohlene Maßnahmen:** 
 
               {{
               state_attr('binary_sensor.warning_furstenwalde_spree_stadt_oder_spree_brandenburg_1',
-              'recommended_actions') }}
+              'recommended_actions') or 'Keine Maßnahmen empfohlen' }}
             visibility:
               - condition: state
                 entity: >-
@@ -5242,10 +5462,9 @@ views:
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent !important;
+                      margin-top: 1px;
                       border: none !important;
                       border-radius: 0px !important;
-                      margin-top: -10px !important;
                       --line-color: {{ states('sensor.solar_line_color') }};
                     }
               - type: custom:button-card
@@ -5291,7 +5510,6 @@ views:
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent !important;
                       border: none !important;
                       border-radius: 0px !important;
                     }
@@ -5332,6 +5550,12 @@ views:
                     }
                 card:
                   type: custom:bar-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none !important;
+                        border-radius: 0px !important;
+                      }
                   positions:
                     name: inside
                     value: inside
@@ -5403,6 +5627,7 @@ views:
               style: |
                 ha-card {
                   background-color: transparent !important;
+                  border: none;
                 }
       - type: grid
         cards:
@@ -6431,6 +6656,7 @@ views:
               style: |
                 ha-card {
                   padding: 10px;
+                  border: none;
                 }
             cards:
               - type: horizontal-stack
@@ -6648,6 +6874,11 @@ views:
             heading: Sicherheit
             heading_style: title
           - type: custom:stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                }
             cards:
               - type: vertical-stack
                 cards:
@@ -6764,6 +6995,11 @@ views:
                             }
           - type: picture
             image: /local/doorbell/latest.jpg?rand={{ (range(10000)|random) }}
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                }
           - type: custom:bubble-card
             styles: |
               .bubble-icon {
@@ -6813,6 +7049,7 @@ views:
               style: |
                 ha-card {
                   padding: 10px;
+                  border: none;
                 }
             cards:
               - type: horizontal-stack
@@ -6965,7 +7202,7 @@ views:
                           }
                     filter:
                       include:
-                        - entity_id: binary_sensor.fenster_*
+                        - entity_id: binary_sensor.fenster*
                       exclude:
                         - state: 'off'
                     sort:
@@ -9049,143 +9286,153 @@ views:
                 card:
                   type: horizontal-stack
                   cards:
-                    - type: tile
-                      entity: input_button.button_fernseher
-                      icon: mdi:cog
-                      hide_state: true
-                      show_entity_picture: false
-                      vertical: false
-                      name: Einstellungen
-                      tap_action:
-                        action: navigate
-                        navigation_path: '#einstellungen'
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: input_button.button_fernseher
-                      icon: mdi:home-automation
-                      hide_state: true
-                      show_entity_picture: false
-                      vertical: false
-                      name: Automatisierungen
-                      tap_action:
-                        action: navigate
-                        navigation_path: '#automatisierungen'
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: input_button.button_fernseher
-                      icon: mdi:integrated-circuit-chip
-                      hide_state: true
-                      show_entity_picture: false
-                      vertical: false
-                      name: Integrationen
-                      tap_action:
-                        action: navigate
-                        navigation_path: '#integrationen'
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          } 
-                              }  
-                    - type: tile
-                      entity: input_button.button_fernseher
-                      icon: mdi:view-list
-                      hide_state: true
-                      show_entity_picture: false
-                      vertical: false
-                      name: Entitäten
-                      tap_action:
-                        action: navigate
-                        navigation_path: '#entities'
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border-right: 1px solid grey !important; 
-                            border-left: none !important; 
-                            border-top: none !important; 
-                            border-bottom: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          }
-                    - type: tile
-                      entity: input_boolean.kioskmode
-                      icon: mdi:menu
-                      hide_state: true
-                      show_entity_picture: false
-                      vertical: false
-                      name: Topmenü
-                      tap_action:
-                        action: toggle
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            border-radius: 0px !important;
-                            border: none !important;
-                            display: flex !important;
-                            align-items: center !important;
-                            justify-content: center !important;
-                            height: 100% !important;
-                            text-align: center !important;
-                          }
-                          .card-content {
-                            margin: auto !important;
-                          } 
+                    - type: custom:layout-card
+                      layout_type: custom:grid-layout
+                      layout:
+                        grid-template-columns: 20% 20% 20% 20% 20%
+                        grid-template-rows: auto
+                        mediaquery:
+                          '(max-width: 1000px)':
+                            grid-template-columns: 100%
+                            grid-template-rows: auto
+                      cards:
+                        - type: tile
+                          entity: input_button.button_fernseher
+                          icon: mdi:cog
+                          hide_state: true
+                          show_entity_picture: false
+                          vertical: false
+                          name: Einstellungen
+                          tap_action:
+                            action: navigate
+                            navigation_path: '#einstellungen'
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                border-radius: 0px !important;
+                                border-right: 1px solid grey !important; 
+                                border-left: none !important; 
+                                border-top: none !important; 
+                                border-bottom: none !important;
+                                display: flex !important;
+                                align-items: center !important;
+                                justify-content: center !important;
+                                height: 100% !important;
+                                text-align: center !important;
+                              }
+                              .card-content {
+                                margin: auto !important;
+                              }
+                        - type: tile
+                          entity: input_button.button_fernseher
+                          icon: mdi:home-automation
+                          hide_state: true
+                          show_entity_picture: false
+                          vertical: false
+                          name: Automatisierungen
+                          tap_action:
+                            action: navigate
+                            navigation_path: '#automatisierungen'
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                border-radius: 0px !important;
+                                border-right: 1px solid grey !important; 
+                                border-left: none !important; 
+                                border-top: none !important; 
+                                border-bottom: none !important;
+                                display: flex !important;
+                                align-items: center !important;
+                                justify-content: center !important;
+                                height: 100% !important;
+                                text-align: center !important;
+                              }
+                              .card-content {
+                                margin: auto !important;
+                              }
+                        - type: tile
+                          entity: input_button.button_fernseher
+                          icon: mdi:integrated-circuit-chip
+                          hide_state: true
+                          show_entity_picture: false
+                          vertical: false
+                          name: Integrationen
+                          tap_action:
+                            action: navigate
+                            navigation_path: '#integrationen'
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                border-radius: 0px !important;
+                                border-right: 1px solid grey !important; 
+                                border-left: none !important; 
+                                border-top: none !important; 
+                                border-bottom: none !important;
+                                display: flex !important;
+                                align-items: center !important;
+                                justify-content: center !important;
+                                height: 100% !important;
+                                text-align: center !important;
+                              }
+                              .card-content {
+                                margin: auto !important;
+                              } 
+                                  }  
+                        - type: tile
+                          entity: input_button.button_fernseher
+                          icon: mdi:view-list
+                          hide_state: true
+                          show_entity_picture: false
+                          vertical: false
+                          name: Entitäten
+                          tap_action:
+                            action: navigate
+                            navigation_path: '#entities'
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                border-radius: 0px !important;
+                                border-right: 1px solid grey !important; 
+                                border-left: none !important; 
+                                border-top: none !important; 
+                                border-bottom: none !important;
+                                display: flex !important;
+                                align-items: center !important;
+                                justify-content: center !important;
+                                height: 100% !important;
+                                text-align: center !important;
+                              }
+                              .card-content {
+                                margin: auto !important;
+                              }
+                        - type: tile
+                          entity: input_boolean.kioskmode
+                          icon: mdi:menu
+                          hide_state: true
+                          show_entity_picture: false
+                          vertical: false
+                          name: Topmenü
+                          tap_action:
+                            action: toggle
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                border-radius: 0px !important;
+                                border: none !important;
+                                display: flex !important;
+                                align-items: center !important;
+                                justify-content: center !important;
+                                height: 100% !important;
+                                text-align: center !important;
+                              }
+                              .card-content {
+                                margin: auto !important;
+                              } 
             card_mod:
               style: |
                 ha-card {
