@@ -14,9 +14,9 @@ cards:
         card_mod:
           style: |
             ha-card {
-              min-width: 250px !important;
-              margin-top: 20px;
-              margin-left: 20px !important; 
+              min-width: 300px !important;
+              margin-top: 10px;
+              margin-left: 10px;
               margin-right: 10px !important; 
               background-color: transparent !important;
               color: var(--primary-color) !important;
@@ -73,9 +73,11 @@ cards:
               border: none !important;
               border-radius: 0px !important;
               position: relative;
-              width: 80px !important;
-              margin-top: 5px !important; 
-              margin-left: 80px !important;   
+              width: 90px !important;
+              margin-top: 0px !important; 
+              margin-bottom: 10px !important; 
+              margin-right: 5px !important;
+              margin-left: 100px !important;   
               padding-bottom: 0px !important; 
             }
             .card-container {
@@ -97,80 +99,158 @@ cards:
             .content {
               font-size: 12px !important; /* Anpassung der Textgröße */
               text-align: center;
-            }      
-  - type: custom:mushroom-chips-card
-    card_mod:
-      style: |
-        ha-card {
-          margin: 8px !important; 
-        }
-        .chip-container {
-            gap: 0px !important;
-        }
-    alignment: center
-    chips:
-      - type: entity
+            }    
+  - type: horizontal-stack
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.steps_kilometer_taglich
+                name: Mutti
+                primary_info: state
+                fill_container: false
+                secondary_info: none
+                icon: mdi:walk
+                icon_color: grey
+                icon_tap_action:
+                  action: toggle
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 75% !important;
+                      text-align: center !important;
+                      zoom: 75%; 
+                      padding-right: 10px; 
+                    }
+                    mushroom-shape-icon {
+                      --shape-color: none !important;
+                    }
+                    ha-state-icon {
+                      margin-right: -20px;
+                    } 
+              - type: custom:mushroom-entity-card
+                entity: person.jayjojayson
+                name: Jan
+                primary_info: name
+                fill_container: false
+                secondary_info: none
+                icon: m3of:person-4
+                icon_color: grey
+                icon_tap_action:
+                  action: toggle
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 75% !important;
+                      text-align: center !important;
+                      zoom: 85%;
+                      padding-right: 30px; 
+                    }
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: none !important;
+                    }
+                    ha-state-icon {
+                      margin-right: -15px;
+                      color: {% if states('person.jayjojayson') == 'home' %} green {% else %} grey {% endif %};
+                    } 
+              - type: custom:mushroom-entity-card
+                entity: person.mutti
+                name: Mutti
+                primary_info: name
+                fill_container: false
+                secondary_info: none
+                icon: m3of:person-3
+                icon_color: grey
+                icon_tap_action:
+                  action: toggle
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border-right: 1px solid grey !important; 
+                      border-left: none !important; 
+                      border-top: none !important; 
+                      border-bottom: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 75% !important;
+                      text-align: center !important;
+                      zoom: 85%;
+                      padding-right: 30px; 
+                    }
+                    mushroom-shape-icon {
+                      --shape-color-disabled: transparent !important;
+                      --shape-color: none !important;
+                    }
+                    ha-state-icon {
+                      margin-right: -15px;
+                    } 
+                    ha-state-icon {
+                      margin-right: -15px;
+                      color: {% if states('person.mutti') == 'home' %} green {% else %} grey {% endif %};
+                    }
+              - type: custom:mushroom-entity-card
+                entity: sensor.23124ra7eo_steps_sensor
+                name: Mutti
+                primary_info: state
+                fill_container: false
+                secondary_info: none
+                icon: mdi:walk
+                icon_color: grey
+                icon_tap_action:
+                  action: toggle
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border-radius: 0px !important;
+                      border: none !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 75% !important;
+                      text-align: center !important;
+                      zoom: 75%;
+                      padding-right: 30px; 
+                    }
+                    mushroom-shape-icon {
+                      --shape-color: none !important;
+                    } 
+                    ha-state-icon {
+                      margin-right: -20px;
+                    } 
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
-              color: var(--primary-color) !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
+              background: none !important;
               border-radius: 0px !important;
-              padding-right: 5px;
+              border: none !important; 
             }
-        entity: sensor.steps_kilometer_taglich
-        icon: mdi:walk
-        content_info: state
-        name: " "
-      - type: entity
-        card_mod:
-          style: |
-            ha-card {
-              background-color: transparent !important;
-              color: var(--blue-color) !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
-              border-radius: 0px !important;
-              padding-right: 5px;
-            }
-        entity: person.jayjojayson
-        icon: m3of:person-4
-        content_info: name
-        name: Jan
-        visibility:
-          - condition: state
-            entity: person.jayjojayson
-            state: home
-      - type: entity
-        card_mod:
-          style: |
-            ha-card {
-              background-color: transparent !important;
-              color: var(--blue-color) !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
-              border-radius: 0px !important;
-              padding-right: 5px;
-            }
-        entity: person.mutti
-        icon: m3of:person-2
-        content_info: name
-        name: Mutti
-        visibility:
-          - condition: state
-            entity: person.mutti
-            state: home
-      - type: entity
-        card_mod:
-          style: |
-            ha-card {
-              background-color: transparent !important;
-              color: var(--primary-color) !important;
-              border: none !important;
-            }
-        entity: sensor.23124ra7eo_steps_sensor
-        icon: mdi:walk
-        content_info: state
-        name: " "
+card_mod:
+  style: |
+    ha-card {
+      border: none !important;
+    }

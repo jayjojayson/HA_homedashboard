@@ -4,21 +4,29 @@ cards:
     entities:
       - sensor.starkvind_luftreiniger_pm2_5
     name: Luftqualität
-    hours_to_show: 10
-    points_per_hour: 0.25
-    refresh_interval: 5
+    hours_to_show: 24
+    points_per_hour: 0.7
     height: 80
     show:
       labels: true
       name: false
       state: false
       icon: false
-    line_color: var(--line-color)
+    color_thresholds:
+      - value: 0
+        color: grey
+      - value: 25
+        color: green
+      - value: 50
+        color: yellow
+      - value: 100
+        color: orange
+      - value: 150
+        color: red
     card_mod:
       style: |
         ha-card {
-          background-color: rgba(22,22,22, 0);
-          --line-color: {{ states('sensor.luftquality_line_color') }};
+          background: var(--card-background-color) !important;   
         }
   - type: custom:button-card
     tap_action:
@@ -28,7 +36,7 @@ cards:
         entity_id: fan.starkvind_luftreiniger_ventilator
     styles:
       card:
-        - background-color: rgba(22,22,22, 0.1)
+        - background-color: rgba(22,22,22, 0.4)
         - text-align: center
         - border: none
         - border-radius: 0px
@@ -67,8 +75,10 @@ cards:
       - entity: sensor.wandthermostat_mutti_luftfeuchtigkeit
         name: Wandthermostat Mutti Luftfeuchte
     theme: grey-icon
-    card_mod:
-      style: |
-        ha-card {
-          background-color: rgba(22,22,22, 0);
-        }
+card_mod:
+  style: |
+    ha-card  { 
+      background: none !important;
+      border: none;
+      margin-bottom: -10px !important;
+    }

@@ -5,6 +5,8 @@ card_mod:
       box-shadow: none !important;
       border: none !important;
       padding: 10px 0 10px 0;
+      margin-top: -15px;
+      margin-bottom: -10px !important;  
     }
 cards:
   - type: horizontal-stack

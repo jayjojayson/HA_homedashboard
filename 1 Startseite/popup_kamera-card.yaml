@@ -12,8 +12,8 @@ cards:
       style: |
         ha-card {
           border: none;
-          border-top-right-radius: 0px !important;          
-          border-top-left-radius: 0px !important;
+          border-bottom-right-radius: 0px !important;          
+          border-bottom-left-radius: 0px !important;
           z-index: 1 !important; /* Über dem Hintergrund */
         }
   - type: picture-glance

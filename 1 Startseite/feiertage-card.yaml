@@ -28,6 +28,7 @@ visibility:
 card_mod:
   style: |
     ha-card {
+      margin-bottom: -100px !important;
       position: relative;
       padding-top: 5px !important; /* Platz oberhalb der Icons */
       padding-bottom: 0px !important; /* Platz unterhalb der Icons */

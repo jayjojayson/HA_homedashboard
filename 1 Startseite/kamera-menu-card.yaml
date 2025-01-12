@@ -8,6 +8,7 @@ cards:
         ha-card {
               background: none !important;
               box-shadow: none !important;
+              border: none;
               border-radius: 12px;
         }
     entities:
@@ -150,14 +151,46 @@ cards:
         fill_container: false
         primary_info: none
         secondary_info: none
-        icon: mdi:cast-audio
+        icon: mdi:pool
         icon_type: entity-picture
         tap_action:
           action: navigate
-          navigation_path: /dashboard-test/multimedia
+          navigation_path: /dashboard-test/garten
         hold_action:
           action: navigate
-          navigation_path: /dashboard-test/multimedia
+          navigation_path: /dashboard-test/garten
+        icon_color: primary
+        card_mod:
+          style: |
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--primary-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
+            }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-right: 1px solid grey !important;
+              border-radius: 0px !important;
+              padding-right: 10px;
+            }  
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:lightbulb-group
+        icon_type: entity-picture
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/licht
+        hold_action:
+          action: navigate
+          navigation_path: /dashboard-test/licht
         icon_color: primary
         card_mod:
           style: |
@@ -176,3 +209,8 @@ cards:
               border-radius: 0px !important;
               padding-right: 10px;
             }      
+card_mod:
+  style: |
+    ha-card {
+      margin-bottom: -50px !important;
+    }

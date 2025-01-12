@@ -1,11 +1,20 @@
 type: custom:stack-in-card
 card_mod:
   style: |
+    :host {
+      margin-bottom: -10px !important;
+    }
     ha-card {
-      background-color: none !important;
+      border: none;
     }
 cards:
   - type: custom:vertical-stack-in-card
+    card_mod:
+      style: |
+        :host {
+          --ha-card-background: none !important;          
+          --ha-card-border: none !important;
+        }
     cards:
       - type: horizontal-stack
         cards:
@@ -18,14 +27,19 @@ cards:
             card_mod:
               style: |
                 ha-card {
-                  background-color: transparent !important;
-                  text-align: center;
-                  font-weight: bold !important; 
+                  box-shadow: none !important;
                   border: none !important;
-                  border-radius: 0px !important;     
-                  padding-right: 20px !important;         
-                  padding-left: 10px !important;
-                  height: 75px !important;
+                  width: 110%;
+                }
+                :host {
+                  --ha-card-background: transparent !important;                  
+                  border: none !important;
+                  --ha-card-border-radius: 0px !important;  
+                  padding-right: 30px !important;         
+                  padding-left: 20px !important;
+                  text-align: center;
+                  font-weight: bold !important;  
+
                   --primary-text-color:
                       {% if is_state('sensor.temperature_color', 'steelblue') %}
                         steelblue
@@ -36,10 +50,40 @@ cards:
                       {% else %}
                         red
                       {% endif %};
-                      .value {
-                      font-size: 30px !important; /* Ändere die Schriftgröße */
-                      }
                 }
+                .value {
+                  font-size: 30px !important; /* Ändere die Schriftgröße */
+                }
+          - type: custom:compass-card
+            card_mod:
+              style: |
+                ha-card {
+                  background: none !important;
+                  box-shadow: none !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  zoom: 50%;
+                  margin-top: 15px;
+                  margin-left: 5px;
+                  width: 160px;
+                }
+            indicator_sensors:
+              - sensor: sensor.fuerstenwalde_spree_windrichtung
+                indicator:
+                  type: arrow_inward
+            value_sensors:
+              - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
+            compass:
+              east:
+                show: true
+              west:
+                show: true
+              south:
+                show: true
+              north:
+                show: true
+                offset: 150
+            language: de
           - type: custom:mushroom-entity-card
             entity: sensor.aussentemperatur_luftfeuchtigkeit
             tap_action:
@@ -51,23 +95,24 @@ cards:
             icon_type: none
             card_mod:
               style: |
-                ha-card {
-                  background-color: transparent !important;
-                  text-align: center;
-                  border: none !important;
-                  border-radius: 0px !important;     
-                  padding-right: 10px !important;         
-                  padding-left: 50px !important;        
-                  padding-top: 40px !important;
-                  height: 75px !important;
-                }
                 :host {
+                  --ha-card-background: transparent !important;                                    
+                  border: none !important;
+                  text-align: center;
+                  --ha-card-border-radius: 0px !important;     
+                  padding-right: 10px !important;         
+                  padding-left: 10px !important;           
+                  padding-top: 40px !important;     
                   --mush-card-primary-font-size: 25px !important;
                   --mush-card-primary-color: steelblue !important;
                 }
+                ha-card {
+                  box-shadow: none !important; /* Schatten und Rahmen entfernt */
+                  border: none !important;     /* Explizit Rahmen entfernt */
+                }
       - type: custom:weather-chart-card
         entity: weather.fuerstenwalde_spree
-        show_main: true
+        show_main: false
         show_temperature: false
         show_current_condition: false
         show_attributes: false
@@ -109,16 +154,13 @@ cards:
         humid: sensor.aussentemperatur_humidity
         card_mod:
           style: |
-            ha-card {
-              background-color: transparent !important;
-            }
-            .card{
+            .card {
               padding-top: 0px !important;
             }        
-            .main {
+            main {
               margin-bottom: 0px !important;
             }
-            .main img {
+            main img {
               margin: 0 auto !important;
               margin-top: -65px !important;
             }

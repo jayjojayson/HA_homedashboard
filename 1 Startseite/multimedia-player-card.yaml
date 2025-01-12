@@ -1,0 +1,76 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: custom:mushroom-media-player-card
+    entity: media_player.wohnzimmer
+    media_controls:
+      - play_pause_stop
+      - next
+      - previous
+    volume_controls:
+      - volume_mute
+      - volume_buttons
+      - volume_set
+    show_volume_level: true
+    collapsible_controls: false
+    use_media_info: true
+    icon: mdi:cast-audio
+    card_mod:
+      style: |
+        :host {
+          background: none !important;
+          box-shadow: none;
+          z-index: 1 !important; /* Über dem Hintergrund */
+        }
+  - type: custom:mushroom-chips-card
+    card_mod:
+      style: |
+        ha-card {
+          margin: 2px !important; 
+          z-index: 1 !important; /* Über dem Hintergrund */
+        }
+    alignment: center
+    chips:
+      - type: entity
+        entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+        tap_action:
+          action: toggle
+        content_info: name
+        name: BB Radio
+      - type: entity
+        entity: script.radio_fritz_skript_fur_echo_wohnzimmer_gruppe
+        tap_action:
+          action: toggle
+        content_info: name
+        name: Fritz
+      - type: entity
+        entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+        tap_action:
+          action: toggle
+        content_info: name
+        name: Radio 1
+      - type: entity
+        entity: script.radio_berliner_rundfunk_skript_fur_echo_wohnzimmer_gruppe
+        tap_action:
+          action: toggle
+        content_info: name
+        name: 91,4
+card_mod:
+  style: |
+    ha-card {
+      border: none !important;
+      position: relative;
+      overflow: hidden;
+    } ha-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url({{ state_attr('media_player.wohnzimmer', 'entity_picture') }}) no-repeat center center;
+      background-size: cover;
+      filter: blur(30px);
+      z-index: 0;
+      opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
+      transition: opacity 0.5s ease;
+    }

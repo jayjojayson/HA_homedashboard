@@ -1,0 +1,111 @@
+type: custom:power-flow-card-plus
+entities:
+  battery:
+    entity: ""
+    state_of_charge: sensor.sm_s921b_battery_level
+  solar:
+    entity: sensor.homestation_solar_total_ausgangsleistung
+    display_zero_state: true
+    secondary_info: {}
+    color_value: true
+    color_icon: false
+    invert_state: false
+    use_metadata: false
+    color:
+      - 11
+      - 157
+      - 67
+  individual:
+    - entity: sensor.poolverbrauch_summe_watt
+      secondary_info: {}
+      icon: mdi:pool
+      name: Pool Summe
+      color:
+        - 42
+        - 101
+        - 156
+    - entity: sensor.growlampe_leistung
+      secondary_info: {}
+      name: GrowLed
+      calculate_flow_rate: false
+      color_value: false
+      color_icon: false
+      icon: mdi:ceiling-light
+      unit_white_space: true
+      inverted_animation: false
+      show_direction: false
+      use_metadata: false
+    - entity: sensor.innenlufter_shellyplug_switch_0_power
+      secondary_info: {}
+      name: Lüfter
+      icon: mdi:fan
+      color:
+        - 115
+        - 156
+        - 217
+    - entity: sensor.werkstattheizung_leistung
+      secondary_info: {}
+      color:
+        - 98
+        - 9
+        - 9
+      display_zero: false
+      name: Werkstatt Hzg.
+      display_zero_state: false
+      color_value: false
+      color_icon: false
+      icon: mdi:heating-coil
+      use_metadata: false
+      show_direction: false
+  home:
+    secondary_info: {}
+    circle_animation: true
+    override_state: true
+    subtract_individual: true
+    color_icon: true
+    color_value: true
+  grid:
+    secondary_info: {}
+    icon: ""
+    color:
+      consumption:
+        - 211
+        - 102
+        - 13
+      production:
+        - 182
+        - 12
+        - 12
+    color_value: true
+    invert_state: false
+    entity:
+      consumption: sensor.total_power_nur_verbrauch
+      production: sensor.solar_einspeisung_normiert_positiver_wert
+    color_circle: true
+    color_icon: true
+clickable_entities: true
+display_zero_lines:
+  mode: transparency
+  transparency: 50
+  grey_color:
+    - 189
+    - 189
+    - 189
+use_new_flow_rate_model: true
+w_decimals: 0
+kw_decimals: 1
+min_flow_rate: 0.75
+max_flow_rate: 6
+max_expected_power: 3000
+min_expected_power: 0.01
+watt_threshold: 1000
+transparency_zero_lines: 0
+visibility:
+  - condition: numeric_state
+    entity: sensor.homestation_solar_total_ausgangsleistung
+    above: 20
+card_mod:
+  style: |
+    ha-card {
+      border: none !important;
+    }
