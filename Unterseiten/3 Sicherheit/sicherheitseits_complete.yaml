@@ -13,6 +13,7 @@ sections:
           style: |
             ha-card {
               padding: 10px;
+              border: none;
             }
         cards:
           - type: horizontal-stack
@@ -32,17 +33,16 @@ sections:
                       text-align: center !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }
           - type: horizontal-stack
             cards:
               - type: tile
@@ -101,17 +101,16 @@ sections:
                       border-radius: 0px !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }
           - type: horizontal-stack
             cards:
               - type: tile
@@ -146,17 +145,16 @@ sections:
                       text-align: center !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }
           - type: horizontal-stack
             cards:
               - type: tile
@@ -191,17 +189,16 @@ sections:
                       text-align: center !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }            
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }          
           - type: horizontal-stack
             cards:
               - type: custom:auto-entities
@@ -234,6 +231,11 @@ sections:
         heading: Sicherheit
         heading_style: title
       - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }
         cards:
           - type: vertical-stack
             cards:
@@ -256,17 +258,16 @@ sections:
                       padding-top: 15px !important;
                     }
               - type: custom:mod-card
-                card:
-                  type: custom:mushroom-template-card
-                  card_mod:
-                    style: |
-                      ha-card {
-                        height: 1px;
-                        border-bottom: 1px;
-                        background-color: grey;
-                        margin-left: 20px;
-                        margin-right: 20px;
-                      }
+                card: null
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 1px;
+                      border-bottom: 1px;
+                      background-color: grey !important;
+                      margin-left: 20px;
+                      margin-right: 20px;
+                    }
               - type: alarm-panel
                 states:
                   - arm_home
@@ -281,17 +282,16 @@ sections:
                       border-radius: 0px !important;
                     }
               - type: custom:mod-card
-                card:
-                  type: custom:mushroom-template-card
-                  card_mod:
-                    style: |
-                      ha-card {
-                        height: 1px;
-                        border-bottom: 1px;
-                        background-color: grey;
-                        margin-left: 20px;
-                        margin-right: 20px;
-                      }
+                card: null
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 1px;
+                      border-bottom: 1px;
+                      background-color: grey !important;
+                      margin-left: 20px;
+                      margin-right: 20px;
+                    }
           - type: custom:stack-in-card
             card_mod:
               style: |
@@ -352,6 +352,11 @@ sections:
                         }
       - type: picture
         image: /local/doorbell/latest.jpg?rand={{ (range(10000)|random) }}
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+            }
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
@@ -401,6 +406,7 @@ sections:
           style: |
             ha-card {
               padding: 10px;
+              border: none;
             }
         cards:
           - type: horizontal-stack
@@ -466,17 +472,16 @@ sections:
                       border-radius: 0px !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }
           - type: horizontal-stack
             cards:
               - type: tile
@@ -524,17 +529,16 @@ sections:
                       border-radius: 0px !important;
                     }
           - type: custom:mod-card
-            card:
-              type: custom:mushroom-template-card
-              card_mod:
-                style: |
-                  ha-card {
-                    height: 1px;
-                    border-bottom: 1px;
-                    background-color: grey;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
+            card: null
+            card_mod:
+              style: |
+                ha-card {
+                  height: 1px;
+                  border-bottom: 1px;
+                  background-color: grey !important;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                }
           - type: horizontal-stack
             cards:
               - type: custom:auto-entities
@@ -555,7 +559,7 @@ sections:
                       }
                 filter:
                   include:
-                    - entity_id: binary_sensor.fenster_*
+                    - entity_id: binary_sensor.fenster*
                   exclude:
                     - state: "off"
                 sort:
