@@ -107,33 +107,36 @@ sections:
                             service_data:
                               entity_id: input_select.diagramm_anzeige
                               option: RAM
-                    - type: entities
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            box-shadow: none !important;
-                            border: none !important;
-                            border-right: 1px solid grey !important;
-                            border-left: 1px solid grey !important;
-                            border-radius: 0px !important;
-                          }
-                      entities:
-                        - entity: sensor.system_monitor_prozessortemperatur
-                          name: CPU Temp
-                        - entity: sensor.system_monitor_belegter_arbeitsspeicher
-                          name: RAM Belegt
-                        - entity: sensor.system_monitor_freier_arbeitsspeicher
-                          name: RAM Frei
-                        - entity: sensor.system_monitor_belegter_massenspeicher
-                          name: SSD Belegt
-                        - entity: sensor.system_monitor_freier_massenspeicher
-                          name: SSD Frei
-                        - entity: sensor.system_monitor_letzter_systemstart
-                          name: Letzter Restart
-                          icon: mdi:restart
-                      state_color: false
-                      show_header_toggle: true
+                    - type: vertical-stack
+                      cards:
+                        - type: entities
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-left: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: sensor.system_monitor_prozessortemperatur
+                              name: CPU Temp
+                            - entity: sensor.system_monitor_belegter_arbeitsspeicher
+                              name: RAM Belegt
+                            - entity: sensor.system_monitor_freier_arbeitsspeicher
+                              name: RAM Frei
+                            - entity: sensor.system_monitor_belegter_massenspeicher
+                              name: SSD Belegt
+                            - entity: sensor.system_monitor_freier_massenspeicher
+                              name: SSD Frei
+                            - entity: sensor.system_monitor_letzter_systemstart
+                              name: Letzter Restart
+                              icon: mdi:restart
+                          theme: grey-icon
+                          state_color: false
+                          show_header_toggle: true
                     - type: vertical-stack
                       cards:
                         - type: conditional
@@ -222,17 +225,15 @@ sections:
                                 color: "#ff4500"
                             more_info: true
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
+                  card_mod:
+                    style: |
+                      ha-card {
                           height: 1px;
                           border-bottom: 1px;
-                          background-color: grey;
+                          background-color: grey !important;
                           margin-left: 20px;
                           margin-right: 20px;
-                        }
+                      }   
                 - type: custom:layout-card
                   layout_type: custom:grid-layout
                   layout:
@@ -722,8 +723,8 @@ sections:
                               name: Bildschirmhelligkeit
                             - entity: switch.lenovo_tab_m10_3rd_gen_bewegungserkennung
                               name: Bewegungserkennung
-                            - entity: switch.lenovo_tab_m10_3rd_gen_bildschirm
-                              name: Bildschirm on/off
+                            - entity: switch.tablet_plug_schalter
+                              name: Laden on/off
                             - entity: sensor.lenovo_tab_m10_3rd_gen_freier_speicher
                               name: Freier RAM
                             - entity: sensor.lenovo_tab_m10_3rd_gen_batterie
@@ -732,17 +733,15 @@ sections:
                                 button.lenovo_tab_m10_3rd_gen_browser_neu_starten
                               name: Browser Restart
                 - type: custom:mod-card
-                  card:
-                    type: custom:mushroom-template-card
-                    card_mod:
-                      style: |
-                        ha-card {
+                  card_mod:
+                    style: |
+                      ha-card {
                           height: 1px;
                           border-bottom: 1px;
-                          background-color: grey;
+                          background-color: grey !important;
                           margin-left: 20px;
                           margin-right: 20px;
-                        }
+                      }   
                 - type: custom:layout-card
                   layout_type: custom:grid-layout
                   layout:
@@ -902,143 +901,153 @@ sections:
             card:
               type: horizontal-stack
               cards:
-                - type: tile
-                  entity: input_button.button_fernseher
-                  icon: mdi:cog
-                  hide_state: true
-                  show_entity_picture: false
-                  vertical: false
-                  name: Einstellungen
-                  tap_action:
-                    action: navigate
-                    navigation_path: "#einstellungen"
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: none !important;
-                        border-radius: 0px !important;
-                        border-right: 1px solid grey !important; 
-                        border-left: none !important; 
-                        border-top: none !important; 
-                        border-bottom: none !important;
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        height: 100% !important;
-                        text-align: center !important;
-                      }
-                      .card-content {
-                        margin: auto !important;
-                      }
-                - type: tile
-                  entity: input_button.button_fernseher
-                  icon: mdi:home-automation
-                  hide_state: true
-                  show_entity_picture: false
-                  vertical: false
-                  name: Automatisierungen
-                  tap_action:
-                    action: navigate
-                    navigation_path: "#automatisierungen"
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: none !important;
-                        border-radius: 0px !important;
-                        border-right: 1px solid grey !important; 
-                        border-left: none !important; 
-                        border-top: none !important; 
-                        border-bottom: none !important;
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        height: 100% !important;
-                        text-align: center !important;
-                      }
-                      .card-content {
-                        margin: auto !important;
-                      }
-                - type: tile
-                  entity: input_button.button_fernseher
-                  icon: mdi:integrated-circuit-chip
-                  hide_state: true
-                  show_entity_picture: false
-                  vertical: false
-                  name: Integrationen
-                  tap_action:
-                    action: navigate
-                    navigation_path: "#integrationen"
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: none !important;
-                        border-radius: 0px !important;
-                        border-right: 1px solid grey !important; 
-                        border-left: none !important; 
-                        border-top: none !important; 
-                        border-bottom: none !important;
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        height: 100% !important;
-                        text-align: center !important;
-                      }
-                      .card-content {
-                        margin: auto !important;
-                      } 
-                          }  
-                - type: tile
-                  entity: input_button.button_fernseher
-                  icon: mdi:view-list
-                  hide_state: true
-                  show_entity_picture: false
-                  vertical: false
-                  name: Entitäten
-                  tap_action:
-                    action: navigate
-                    navigation_path: "#entities"
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: none !important;
-                        border-radius: 0px !important;
-                        border-right: 1px solid grey !important; 
-                        border-left: none !important; 
-                        border-top: none !important; 
-                        border-bottom: none !important;
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        height: 100% !important;
-                        text-align: center !important;
-                      }
-                      .card-content {
-                        margin: auto !important;
-                      }
-                - type: tile
-                  entity: input_boolean.kioskmode
-                  icon: mdi:menu
-                  hide_state: true
-                  show_entity_picture: false
-                  vertical: false
-                  name: Topmenü
-                  tap_action:
-                    action: toggle
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: none !important;
-                        border-radius: 0px !important;
-                        border: none !important;
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: center !important;
-                        height: 100% !important;
-                        text-align: center !important;
-                      }
-                      .card-content {
-                        margin: auto !important;
-                      } 
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 20% 20% 20% 20% 20%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:cog
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Einstellungen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#einstellungen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:home-automation
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Automatisierungen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#automatisierungen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:integrated-circuit-chip
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Integrationen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#integrationen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          } 
+                              }  
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:view-list
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Entitäten
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#entities"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_boolean.kioskmode
+                      icon: mdi:menu
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Topmenü
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          } 
         card_mod:
           style: |
             ha-card {
@@ -1097,7 +1106,7 @@ sections:
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
+            --mdc-icon-size: 40px !important;
             height: 45px;
             align-items: center !important;
             justify-content: center !important;
@@ -1108,7 +1117,7 @@ sections:
             font-size: 10px !important;
             border: none !important;
             border-radius: 0px !important;
-            background: rgba(0,0,0,0) !important;
+            background: none !important;
           }
         card_type: horizontal-buttons-stack
         auto_order: false

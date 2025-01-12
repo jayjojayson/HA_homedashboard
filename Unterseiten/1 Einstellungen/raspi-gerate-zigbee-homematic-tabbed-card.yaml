@@ -95,33 +95,36 @@ tabs:
                     service_data:
                       entity_id: input_select.diagramm_anzeige
                       option: RAM
-            - type: entities
-              card_mod:
-                style: |
-                  ha-card {
-                    background: none !important;
-                    box-shadow: none !important;
-                    border: none !important;
-                    border-right: 1px solid grey !important;
-                    border-left: 1px solid grey !important;
-                    border-radius: 0px !important;
-                  }
-              entities:
-                - entity: sensor.system_monitor_prozessortemperatur
-                  name: CPU Temp
-                - entity: sensor.system_monitor_belegter_arbeitsspeicher
-                  name: RAM Belegt
-                - entity: sensor.system_monitor_freier_arbeitsspeicher
-                  name: RAM Frei
-                - entity: sensor.system_monitor_belegter_massenspeicher
-                  name: SSD Belegt
-                - entity: sensor.system_monitor_freier_massenspeicher
-                  name: SSD Frei
-                - entity: sensor.system_monitor_letzter_systemstart
-                  name: Letzter Restart
-                  icon: mdi:restart
-              state_color: false
-              show_header_toggle: true
+            - type: vertical-stack
+              cards:
+                - type: entities
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-right: 1px solid grey !important;
+                        border-left: 1px solid grey !important;
+                        border-radius: 0px !important;
+                      }
+                  entities:
+                    - entity: sensor.system_monitor_prozessortemperatur
+                      name: CPU Temp
+                    - entity: sensor.system_monitor_belegter_arbeitsspeicher
+                      name: RAM Belegt
+                    - entity: sensor.system_monitor_freier_arbeitsspeicher
+                      name: RAM Frei
+                    - entity: sensor.system_monitor_belegter_massenspeicher
+                      name: SSD Belegt
+                    - entity: sensor.system_monitor_freier_massenspeicher
+                      name: SSD Frei
+                    - entity: sensor.system_monitor_letzter_systemstart
+                      name: Letzter Restart
+                      icon: mdi:restart
+                  theme: grey-icon
+                  state_color: false
+                  show_header_toggle: true
             - type: vertical-stack
               cards:
                 - type: conditional
@@ -209,17 +212,15 @@ tabs:
                         color: "#ff4500"
                     more_info: true
         - type: custom:mod-card
-          card:
-            type: custom:mushroom-template-card
-            card_mod:
-              style: |
-                ha-card {
+          card_mod:
+            style: |
+              ha-card {
                   height: 1px;
                   border-bottom: 1px;
-                  background-color: grey;
+                  background-color: grey !important;
                   margin-left: 20px;
                   margin-right: 20px;
-                }
+              }   
         - type: custom:layout-card
           layout_type: custom:grid-layout
           layout:
@@ -706,8 +707,8 @@ tabs:
                       name: Bildschirmhelligkeit
                     - entity: switch.lenovo_tab_m10_3rd_gen_bewegungserkennung
                       name: Bewegungserkennung
-                    - entity: switch.lenovo_tab_m10_3rd_gen_bildschirm
-                      name: Bildschirm on/off
+                    - entity: switch.tablet_plug_schalter
+                      name: Laden on/off
                     - entity: sensor.lenovo_tab_m10_3rd_gen_freier_speicher
                       name: Freier RAM
                     - entity: sensor.lenovo_tab_m10_3rd_gen_batterie
@@ -715,17 +716,15 @@ tabs:
                     - entity: button.lenovo_tab_m10_3rd_gen_browser_neu_starten
                       name: Browser Restart
         - type: custom:mod-card
-          card:
-            type: custom:mushroom-template-card
-            card_mod:
-              style: |
-                ha-card {
+          card_mod:
+            style: |
+              ha-card {
                   height: 1px;
                   border-bottom: 1px;
-                  background-color: grey;
+                  background-color: grey !important;
                   margin-left: 20px;
                   margin-right: 20px;
-                }
+              }   
         - type: custom:layout-card
           layout_type: custom:grid-layout
           layout:

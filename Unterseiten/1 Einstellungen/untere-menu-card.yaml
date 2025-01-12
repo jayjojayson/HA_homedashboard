@@ -1,0 +1,165 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background-color: none !important; 
+          padding: 15px;   
+        }
+    card:
+      type: horizontal-stack
+      cards:
+        - type: custom:layout-card
+          layout_type: custom:grid-layout
+          layout:
+            grid-template-columns: 20% 20% 20% 20% 20%
+            grid-template-rows: auto
+            mediaquery:
+              "(max-width: 1000px)":
+                grid-template-columns: 100%
+                grid-template-rows: auto
+          cards:
+            - type: tile
+              entity: input_button.button_fernseher
+              icon: mdi:cog
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: Einstellungen
+              tap_action:
+                action: navigate
+                navigation_path: "#einstellungen"
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: input_button.button_fernseher
+              icon: mdi:home-automation
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: Automatisierungen
+              tap_action:
+                action: navigate
+                navigation_path: "#automatisierungen"
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: input_button.button_fernseher
+              icon: mdi:integrated-circuit-chip
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: Integrationen
+              tap_action:
+                action: navigate
+                navigation_path: "#integrationen"
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  } 
+                      }  
+            - type: tile
+              entity: input_button.button_fernseher
+              icon: mdi:view-list
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: Entitäten
+              tap_action:
+                action: navigate
+                navigation_path: "#entities"
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border-right: 1px solid grey !important; 
+                    border-left: none !important; 
+                    border-top: none !important; 
+                    border-bottom: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  }
+            - type: tile
+              entity: input_boolean.kioskmode
+              icon: mdi:menu
+              hide_state: true
+              show_entity_picture: false
+              vertical: false
+              name: Topmenü
+              tap_action:
+                action: toggle
+              card_mod:
+                style: |
+                  ha-card {
+                    background: none !important;
+                    border-radius: 0px !important;
+                    border: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                    text-align: center !important;
+                  }
+                  .card-content {
+                    margin: auto !important;
+                  } 
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;  
+      border: none;
+    }
