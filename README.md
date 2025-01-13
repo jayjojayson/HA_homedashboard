@@ -224,7 +224,12 @@ mode: single
 #
 ## ‼️ Updates
 
-#### update 12 Jan 25--
+#### update Jan 25-- 
+- Bewegungsmelder Card hinzugefügt auf Startseite (dynamisch)
+- hoftor-haustür-bewegung-card hat update erhalten
+- readME Englisch erstellt
+
+#### update 12 Jan 25-- v.1.0.2
 - Integration über HACS möglich Dashboard wird unter www/community abgelegt.
   Von dort könnt ihr es in ein neues Dashboard kopieren
 - Theme kann kopiert & importiert werden, dafür muss das Theme in configuration.yaml definiert werden
@@ -232,13 +237,13 @@ mode: single
 - minimal-graph-cards überarbeitet (keine Template-Sensoren mehr notwendig)
 - kleine bugfixes, sensoren.yaml angepasst
   
-#### update 05 Jan 25--
+#### update 05 Jan 25-- v.1.0.1
 - mit der Integration für HACS begonnen (aktuell könnt ihr das komplette Dashboard importieren)
 - HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Beispielfotos für einzelene Cards
 - Compass Card für Windrichtungsanzeige auf Wetterseite hinzugefügt
 - Optimierungen am Layout für bessere Handynutzung
 
-#### update Dez 24--
+#### update Dez 24-- v.1.0.0
 - Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
 Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
 Beispiel Foto anbei.
