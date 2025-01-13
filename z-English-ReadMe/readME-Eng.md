@@ -115,7 +115,7 @@ Link for HACS
 ```yaml
 https://github.com/jayjojayson/HA_homedashboard
 ```
-configuration.yaml for the theme (examplelink, must be adopted)
+configuration.yaml for the theme (examplelink, must be adjusted)
 ```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
