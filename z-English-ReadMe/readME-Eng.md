@@ -35,3 +35,185 @@ Everything is clearly structured so that you can easily copy the elements you wa
 #### Subpages
 ![unterseiten](https://github.com/user-attachments/assets/7d6ffdfd-b7af-4478-a4b5-611d8ddefdb2)
 
+#
+## ✔️ Requirements
+The following cards must be installed via HACS so that your copied code will work afterwards. You can also see which HACS card you ultimately need in the cards I created.
+
+### for all Pages and Cards
+- mushroom
+- card-mod
+- stack in card
+- tabbed card
+- bubble card
+- mini graph card
+- layout card
+- auto entities card
+  <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+  </details>
+
+### for vacuum and trash card
+- dreame vacuum map card
+- trash card
+- ics calendar 
+  <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
+  </details>
+
+### for weather card
+- deutscher wetterdienst
+- NINA Wetterwarnungen
+- compass card (neu für Windrichtung)
+  <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/5%20Wetter/wetterseite_ubersicht.jpg)  
+  </details>
+
+### for electricity cards notwendig
+- power flow card plus
+- sankey chart card
+- energy overview card
+  <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/6%20Strom/stromseite_ubersicht.jpg)  
+  </details>
+
+### for package Card
+- 17track Integration
+
+### for raspi-stats Card
+- System Monitor Integration
+  <details>
+    <summary> <b>Beispielbild</b></summary>  
+    
+    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
+  </details>
+
+(optional - hide Topmenu)
+- kiosk mode
+
+(optional - Swipe for Tablet or Mobile)
+- home assistant swipe navigation
+
+#### Sensors
+A few sensors need to be created in the configuration.yaml. This is necessary to color temperature, air and solar values ​​according to condition.
+You can find the sensors at sensors.yaml. Copy the corresponding sensor there, enter it in your config.yaml and (quickly) reload HA.
+
+#
+# 📥 Installation
+
+#### Installation via HACS
+- Go to Hacs and add the repository there. To do this, click on the three dots in the top right, select import and paste the link from here there. After importing, you can install the dashboard via HACS. The dashboard is stored at `www/community/HA_homedashboard/`. You can navigate there using the file manager in the menu. Copy the content and go to Settings > Dashboard > create new dashboard and then click on the three dots in the top right, select raw configuration editor and paste the copied code there. You can then open the dashboard and add your entities and design it as you wish.
+
+Link for HACS
+```yaml
+https://github.com/jayjojayson/HA_homedashboard
+```
+configuration.yaml for the theme (examplelink, must be adopted)
+```yaml
+  frontend:
+    themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
+```
+
+#### Manual installation
+1. Select the YAML code from a template from the folders and copy the code.
+2. Go to your dashboard and paste the copied code into a new card or directly into a new page.
+3. Customize the entities to yours, replacing IDs and sensors with those from your setup.
+4. Look at the result.
+
+<details>
+  <summary> 💬 - <b>Topheader Hack</b> ---</summary>
+
+  ## 💬 Topheader Hack 
+  
+  To hide the top menu on tablets and cell phones, I use the Kiosk Mode from HACS.
+  Simply install via HACS and then insert the following code first in the raw configuration editor.
+  The editor can be accessed via the three dots in the top right when you are in editing mode for the dashboard.
+  
+  ```yaml
+    kiosk_mode:
+      mobile_settings:
+        hide_header: true
+        ignore_entity_settings: true
+        custom_width: 1280
+  ```
+  It works even better if you create a helper with the type switch and name kioskmode under Devices & Services 
+  Paste the following code as follows. This means you can easily show or hide the top menu using a switch. I have saved the switch in the Settings subpage.
+  
+  ```yaml
+  kiosk_mode:
+    non_admin_settings:
+      hide_header: true
+      hide_menubutton: true
+      ignore_entity_settings: true
+    entity_settings:
+      - entity:
+          input_boolean.kioskmode: 'on'
+        hide_header: true
+      - entity:
+          input_boolean.kioskmode: 'off'
+        hide_header: false
+  ```
+</details>
+
+<details>
+  <summary> 💬 - <b>HA_Homedashboard Theme File</b> ---</summary>
+
+  ## 💬 HA_Homedashboard Theme Datei 
+  
+  If you want to have exactly the color design as shown in the preview images, you can use HACS for the installation or you can add the HA_Homedashboard Theme Yaml to your HA 
+  impotate. To do this, download the file and then go to the FileEditor in Home Assistant. There you add the file to the config folder or to the local folder.
+  The storage location doesn't actually matter. The theme file is automatically recognized by HA. 
+
+  The theme is divided into three pieces, the main theme, gray-icon and temps. I sometimes use Gray-icon to set the icon to gray and Temps to color standard temperature values.
+
+  After inserting the theme, you can select the theme under user settings as usual. It is then automatically adopted and saved. 
+  If you would also like to use the background photo, you can find it in the images folder. You then have to store/upload this manually on each page.
+
+  In order for the theme to work, you have to add the following line to the configuration.yaml right at the beginning (example, change the path to your storage)
+  ```yaml
+  frontend:
+    themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
+  ```
+</details>
+
+<details>
+  <summary> 💬 - <b>Automation Trash Evening</b> ---</summary>
+
+  ## 💬 Automation Trash Evening (Voice + Notify Mobile)
+
+The automation will tell you the evening before at 6:00 p.m. which bin needs to be put out. To do this, the waste calendar is searched for the next appointment and since these are always all day long, they start at midnight. Therefore, a time offset of -6 hours is built in so that the announcement is made the evening before. Of course you can adjust the time. The voice output is done via a media_player of your choice. You can also receive notifications on your cell phone. Of course you have to replace the three entities calendar, media_player and cell phone with yours.
+  
+  ```yaml
+alias: Ansage Abfallkalender
+description: Notification auf dem Handy und über Echo Dot
+triggers:
+  - entity_id: calendar.abfall
+    event: start
+    offset: "-6:0:0"
+    trigger: calendar
+conditions: []
+actions:
+  - data:
+      message: >
+        Heute muss die {{ state_attr('calendar.abfall', 'message') }}
+        herausgestellt werden.
+      title: |
+        {{ state_attr('calendar.abfall', 'message') }}
+    action: notify.mobile_app_samsung_s24
+  - data:
+      message: >
+        Es ist wieder Zeit, die {{ state_attr('calendar.abfall', 'message') }}
+        auf die Straße zu stellen.
+      title: Nächste Ziehung steht an!
+    action: notify.alexa_media_jan_s_echo
+mode: single
+
+  ```
+</details>
