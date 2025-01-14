@@ -51,6 +51,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 - mini graph card
 - layout card
 - auto entities card
+- multiple entity row card
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
@@ -225,7 +226,9 @@ mode: single
 ## ‼️ Updates
 
 #### update Jan 25-- 
-- Bewegungsmelder Card hinzugefügt auf Startseite (dynamisch)
+- sensoren.yaml update für neue card günstigste Tankstelle
+- multiple-entity-row (hacs) card aufgenommen für bessere Übersicht
+- Bewegungsmelder Card auf Startseite hinzugefügt (dynamische Einblendung)
 - hoftor-haustür-bewegung-card hat update erhalten
 - readME Englisch erstellt
 
