@@ -1,0 +1,27 @@
+type: entities
+entities:
+  - entity: sensor.gunstigster_benzinpreis
+    type: custom:multiple-entity-row
+    name: beste Tankstelle
+    icon: mdi:gas-station
+    state_color: true
+    hide_unavailable: true
+    entities:
+      - entity: sensor.gunstigster_benzinpreis_strasse
+        name: " "
+        styles:
+          margin-right: 15px
+          text-align: right
+          color: grey
+          font-size: 13px
+    styles:
+      color: var(--primary-color)
+      font-size: 16px
+theme: grey-icon
+card_mod:
+  style: |
+    ha-card {
+      border: none !important;
+      height: 65px !important;
+      padding-right: 5px
+    }
