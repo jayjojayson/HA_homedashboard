@@ -25,6 +25,44 @@ template:
           off
         {% endif %}
 
+
+- sensor:
+      - name: "Günstigster Benzinpreis"
+        unit_of_measurement: "€"
+        state: >
+          {% set preise = [
+            states('sensor.shell_hegelstr_21_super') | float(99),
+            states('sensor.shell_august_bebel_str_71_super') | float(99),
+            states('sensor.raiffeisen_lindenstr_59_super') | float(99),
+            states('sensor.aral_triftstrasse_36_super') | float(99),
+            states('sensor.aral_friedenstrasse_36_super') | float(99),
+            states('sensor.agip_eni_langenwahler_str_19_super') | float(99)
+          ] %}
+          {{ preise | min }}
+
+- sensor:
+    - name: "Günstigster Benzinpreis Straße"
+      state: >
+        {% set preise = [
+          states('sensor.shell_hegelstr_21_super') | float(99),
+          states('sensor.shell_august_bebel_str_71_super') | float(99),
+          states('sensor.raiffeisen_lindenstr_59_super') | float(99),
+          states('sensor.aral_triftstrasse_36_super') | float(99),
+          states('sensor.aral_friedenstrasse_36_super') | float(99),
+          states('sensor.agip_eni_langenwahler_str_19_super') | float(99)
+        ] %}
+        {% set straßen = [
+          "Shell Hegelstr. 21",
+          "Shell August-Bebel-Str. 71",
+          "Raiffeisen Lindenstr. 59",
+          "Aral Triftstrasse 36",
+          "Aral Friedenstrasse 36",
+          "Agip Langenwahler Str. 19"
+        ] %}
+        {% set min_preis = preise | min %}
+        {% set index = preise.index(min_preis) %}
+        {{ straßen[index] }}
+
 #virtuelle Sensoren um Temperaturwerte einzufärben
 sensor:
   - platform: template
@@ -41,8 +79,7 @@ sensor:
             orange
           {% else %}
             red
-          {% endif %}
-          
+          {% endif %}          
 
   - platform: template
     sensors:
@@ -76,21 +113,6 @@ sensor:
           {% else %}
             red
           {% endif %}
-          
-  - platform: template
-    sensors:
-      luftquality_line_color:
-        friendly_name: "Luftqualitäts Line Color"
-        value_template: >
-          {% if is_state('sensor.luftquality_color', 'green') %}
-            green
-          {% elif is_state('sensor.luftquality_color', 'yellow') %}
-            yellow
-          {% elif is_state('sensor.luftquality_color', 'orange') %}
-            orange
-          {% else %}
-            red
-          {% endif %}
 
   - platform: template
     sensors:
@@ -109,23 +131,6 @@ sensor:
           {% else %}
             green
           {% endif %}
-          
-  - platform: template
-    sensors:
-      solar_line_color:
-        friendly_name: "Solar Line Color"
-        value_template: >
-          {% if is_state('sensor.solar_color', 'grey') %}
-            grey
-          {% elif is_state('sensor.solar_color', 'darkyellow') %}
-            darkyellow
-          {% elif is_state('sensor.solar_color', 'yellow') %}
-            yellow
-          {% elif is_state('sensor.solar_color', 'darkgreen') %}
-            darkgreen    
-          {% else %}
-            green
-          {% endif %}  
           
    # Sensor für aktuelle Uhrzeit 
   - platform: time_date
