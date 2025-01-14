@@ -6,6 +6,12 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 
 ### Read in english - [English-ReadMe](https://github.com/jayjojayson/HA_homedashboard/blob/main/z-English-ReadMe/readME-Eng.md)
 
+<details>
+  <summary> <b>Beispielbild Startseite</b></summary>  
+  
+  ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+</details>
+
 ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 
 ## 📂 Ordnerstruktur
