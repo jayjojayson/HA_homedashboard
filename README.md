@@ -53,7 +53,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 - auto entities card
 - multiple entity row card
   <details>
-    <summary> <b>Beispielbild</b></summary>  
+    <summary> <b>Beispielbild Startseite</b></summary>  
     
     ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
   </details>
