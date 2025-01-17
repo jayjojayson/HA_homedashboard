@@ -277,7 +277,7 @@ mode: single
 
   ## 💬 günstigste Tankstelle ermitteln
 
-Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werden. Der erste ermittelt den günstigsten Preis in der Umgebung und der zweite die dazugehörige Straße bzw. Tankstelle.
+Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werden. Diese findet ihr in der sensoren-beispiel.yaml. Der erste ermittelt den günstigsten Preis in der Umgebung und der zweite die dazugehörige Straße bzw. Tankstelle.
 Die Enttitäten der Tanken müssen entsprechend angepasst werden. Ich nutze dafür die Integration Tankerkoenig. Ein kostenloser API Schlüssel kann auf der Seite von Tankerkoenig beantragt werden.
 Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
   
