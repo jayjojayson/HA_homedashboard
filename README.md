@@ -22,7 +22,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 # 📖 Features
 
 - #### 📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](#-installation)
-- #### 📣 particle Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)
+- #### 📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
 - #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)
 - #### 📣 Zurück-Button (zur Startseite) am unteren Rand fest eingebunden 
@@ -174,11 +174,11 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
 </details>
 
 <details>
-  <summary> 💬 - <b>particle background</b> ---</summary>
+  <summary> 💬 - <b>particles background</b> ---</summary>
 
-  ## 💬 particle background
+  ## 💬 particles background
   
-  Für den Particle Background sind zwei Dinge notwendig. Zuerst müsst ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Background Dashboard angelegen, dann könnt ihr den 
+  Für den Particles Background sind zwei Dinge notwendig. Zuerst müsst ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Background Dashboard angelegen, dann könnt ihr den 
   nachfolgenden Code wie folgt einfügen. Somit könnt ihr im Anschluß bequem per Schalter den partikel Hintergrund ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
 
   Das zweite ist das Anlegen der Dateien, kopiert dazu einfach alle Dateien aus folgendem github aus dem Ordner und fügt sie bei euch unter www/particles/ ein. Den Ordner "particles" müsst ihr vorab erstellen.
@@ -287,7 +287,7 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 ## ‼️ Updates
 
 #### update 17 Jan 25-- v.1.0.3
-- particle background mit Schalter-Option hinzugefügt
+- particles background mit Schalter-Option hinzugefügt
 - sensoren.yaml update für neue card günstigste Tankstelle
 - multiple-entity-row (hacs) card aufgenommen für bessere Übersicht
 - Bewegungsmelder Card auf Startseite hinzugefügt (dynamische Einblendung)
