@@ -286,7 +286,7 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 #
 ## ‼️ Updates
 
-#### update Jan 25-- 
+#### update 17 Jan 25-- v.1.0.3
 - particle background mit Schalter-Option hinzugefügt
 - sensoren.yaml update für neue card günstigste Tankstelle
 - multiple-entity-row (hacs) card aufgenommen für bessere Übersicht
