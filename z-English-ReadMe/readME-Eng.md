@@ -13,7 +13,8 @@ Everything is clearly structured so that you can easily copy the elements you wa
 
 # 📖 Features
 
-* #### 📣 Hide HA top menu/header (button action - optional)
+* #### 📣 Hide HA top menu/header (switch action - optional)
+* #### 📣 Hide particles Background (switch-Action - optional)
 * #### ⭐ Home page with popups for heating, weather, camera and electricity
 * #### ⭐ Home page with dynamic content for (garbage, windows, light, multimedia, packages, holidays)
 * #### 📣 Back button (to the start-page) permanently integrated at the bottom
@@ -160,6 +161,47 @@ configuration.yaml for the theme (examplelink, must be adjusted)
           input_boolean.kioskmode: 'off'
         hide_header: false
   ```
+</details>
+
+<details>
+  <summary> 💬 - <b>particles background</b> ---</summary>
+
+  ## 💬 particles background
+  
+  Two things are necessary for the Particles Background. First you have to create a helper under Devices & Services with the type Switch and the name Button Background Dashboard, then you can insert the following code as follows. This means you can then easily show or hide the particle background using a switch. I have saved the switch in the Settings subpage.
+
+The second is to create the files. To do this, simply copy all the files from my  github from the "z-particles background" folder and paste them under www/particles/. You have to create the “particles” folder in advance.
+
+Depending on which page you ultimately want to use the background, a conditional card must be inserted. The code for this looks like this. The card remains empty for now and Card Mod puts it in the right place. The positioning of the card within the dashboard should be done at the end. The colors can be edited in the css and in the app.js (don't forget to clear the cache afterwards).
+  
+  ```yaml
+  type: conditional
+  conditions:
+    - condition: state
+      entity: input_boolean.button_background_dashboard
+      state: "on"
+  card:
+    type: iframe
+    url: /local/particles/background/index.html
+    aspect_ratio: 50%
+    card_mod:
+      style: |
+        ha-card {
+          border: none !important;
+          border-radius: 0px !important;
+          background: none !important;
+          box-shadow: none !important;
+          z-index: -1;
+          position: fixed;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          opacity:0.3;
+        }
+  ```
+  ![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
+    
 </details>
 
 <details>
