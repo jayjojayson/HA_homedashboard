@@ -23,6 +23,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 
 - #### 📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](#-installation)
 - #### 📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)
+- #### 📣 sticky Sidebar ein-/ausblenden (Button-Action)  [(optional)](#-installation)
 - #### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
 - #### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)
 - #### 📣 Zurück-Button (zur Startseite) am unteren Rand fest eingebunden 
@@ -211,6 +212,558 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
           height:100%;
           opacity:0.3;
         }
+  ```
+  ![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
+    
+</details>
+
+<details>
+  <summary> 💬 - <b>sticky Sidebar</b> ---</summary>
+
+  ## 💬 sticky Sidebar
+  
+  Für die Sticky Sidebar wird ein Helfer benötigt. Unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Sidebar Menu angelegen, dann könnt ihr den 
+  Code aus meinem Beispeil einfügen. Somit könnt ihr im Anschluß bequem per Schalter die Sidebar ein- oder ausblenden. Ich habe den Schalter auf der Startseite oben rechts neben der Überschrift Heizung hinterlegt.
+  Auch hier ist Card-Mod wieder eine Vorraussetzung das alles korrekt funktioniert.
+  
+  ```yaml
+  type: conditional
+  conditions:
+    - condition: state
+      entity: input_boolean.button_sidebar_menu
+      state: "on"
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(1, 1fr)
+      grid-template-rows: repeat(3, auto)
+    cards:
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background: #181e2a !important;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none !important;
+              border-radius: 40px 0 0 40px !important;
+              padding: 15px;
+              margin-top: 75px;
+              width: 300px !important;
+              opacity: 1;
+              z-index: 2;
+              position: fixed;
+              top:0;
+              right:0;
+              width:100%;
+              height:80%;
+            }
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                color: transparent
+                icon: none
+                name: Hauptseiten
+                styles:
+                  card:
+                    - text-transform: uppercase;
+                    - justify-content: middle
+                    - align-self: middle
+                    - margin: none
+                    - height: 50px
+                    - font-family: verdana
+                    - color: var(--primary-color)
+                    - background-color: transparent
+                    - border-radius: 12px 12px 40px 12px
+                    - border-style: none
+                    - box-shadow: none
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:lightbulb-group
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/licht
+                    styles:
+                      card:
+                        - background-color: "#354b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--primary-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:heating-coil
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/heizung
+                    styles:
+                      card:
+                        - background-color: "#354b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--primary-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:weather-partly-cloudy
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/wetter
+                    styles:
+                      card:
+                        - background-color: "#354b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--primary-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:solar-power-variant
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/solar
+                    styles:
+                      card:
+                        - background-color: "#354b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--primary-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                color: transparent
+                icon: none
+                name: Unterseiten
+                styles:
+                  card:
+                    - text-transform: uppercase;
+                    - justify-content: middle
+                    - align-self: middle
+                    - margin: none
+                    - height: 85px
+                    - font-family: verdana
+                    - color: grey
+                    - background-color: transparent
+                    - border-radius: 12px 12px 40px 12px
+                    - border-style: none
+                    - box-shadow: none
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:cog
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/einstellungen
+                    styles:
+                      card:
+                        - background-color: "#404b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--secondary-text-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:robot-mower
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/robter-steuerung
+                    styles:
+                      card:
+                        - background-color: "#404b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--secondary-text-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:cctv
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/sicherheit
+                    styles:
+                      card:
+                        - background-color: "#404b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--secondary-text-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:pool
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-test/garten
+                    styles:
+                      card:
+                        - background-color: "#404b5e"
+                        - border-radius: 10px 10px 10px 10px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 25px
+                        - height: 25px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: var(--secondary-text-color)
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                color: transparent
+                name: Settings
+                icon: none
+                styles:
+                  card:
+                    - text-transform: uppercase;
+                    - justify-content: middle
+                    - align-self: middle
+                    - margin: none
+                    - height: 87px
+                    - font-family: verdana
+                    - color: var(--secondary-text-color)
+                    - background-color: transparent
+                    - border-radius: 12px 12px 40px 12px
+                    - border-style: none
+                    - box-shadow: none
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:menu
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_boolean.toggle
+                      target:
+                        entity_id: input_boolean.kioskmode
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 20px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:webpack
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_boolean.toggle
+                      target:
+                        entity_id: input_boolean.button_background_dashboard
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 20px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:menu-open
+                    tap_action:
+                      action: perform-action
+                      perform_action: input_boolean.toggle
+                      target:
+                        entity_id: input_boolean.button_sidebar_menu
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 20px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  background: none;
+                  border: none;
+                  border-radius: 0px !important;
+                  margin-top: 10px !important;
+                  padding-bottom: 6px;
+                }
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:hammer
+                    tap_action:
+                      action: navigate
+                      navigation_path: /developer-tools/yaml
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 23px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:backup-restore
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config/backup/overview
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 23px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:cog
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 23px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:devices
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config/integrations/dashboard
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 18px
+                        - height: 23px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+                  - type: custom:button-card
+                    color: transparent
+                    icon: mdi:robot
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config/automation/dashboard
+                    styles:
+                      card:
+                        - background-color: "#1f2634"
+                        - border-radius: 40px
+                        - border-style: none
+                        - box-shadow: >-
+                            rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px
+                            7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset
+                      icon:
+                        - width: 15px
+                        - height: 23px
+                        - color: white
+                        - align-self: start
+                        - text-align: start
+                        - padding: 12px
+                        - color: steelblue
+                      img_cell:
+                        - justify-content: middle
+                        - align-self: middle
+                        - margin: none
+
   ```
   ![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
     
