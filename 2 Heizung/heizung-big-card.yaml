@@ -2,7 +2,9 @@ type: custom:vertical-stack-in-card
 card_mod:
   style: |
     ha-card {
-      background-color: transparent !important;
+      background-color: transparent !important;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
       border: none !important;
     }
 cards:
@@ -94,12 +96,17 @@ cards:
         }
   - type: vertical-stack
     cards:
-      - type: vertical-stack
+      - type: custom:vertical-stack-in-card
         card_mod:
           style: |
-            #root {
-              gap: 0px !important;     
-            }
+            ha-card {
+               background: none !important;  
+               border: none !important; 
+               border-radius: 0px !important;   
+             }
+             #root {               
+               gap: 0px !important;     
+             }
         cards:
           - type: custom:mushroom-template-card
             primary: Diagramm
@@ -116,7 +123,7 @@ cards:
                   border-top: 0px;
                   border-left: 0px;
                   border-right: 0px;
-                  border-bottom: 1px solid var(--secondary-text-color);
+                  border-bottom: 0px solid var(--secondary-text-color);
                   border-radius: 0px !important;
                   text-align: center;
                   display: flex;
@@ -124,6 +131,7 @@ cards:
                   justify-content: center;
                   align-items: center;
                   height: 100%;
+                  margin-top: -10px;
                 }
           - type: conditional
             conditions:
@@ -230,19 +238,24 @@ cards:
       style: |
         ha-card {
             height: 1px;
-            border-bottom: 1px;
+            background: black;
             background-color: grey;
             margin-left: 20px;
             margin-right: 20px;
         }
   - type: vertical-stack
     cards:
-      - type: vertical-stack
+      - type: custom:vertical-stack-in-card
         card_mod:
           style: |
-            #root {
-                gap: 0px !important;
-            }  
+            ha-card {
+               background: none !important;  
+               border: none !important; 
+               border-radius: 0px !important;   
+             }
+             #root {               
+               gap: 0px !important;     
+             } 
         cards:
           - type: custom:mushroom-climate-card
             entity: climate.thermostat_bad
@@ -264,11 +277,8 @@ cards:
                   padding-left: 10px;
                   padding-top: 8px;
                   padding-bottom: 0px;
-                  padding-right: 10px;
-                  border-top: 1px solid var(--secondary-text-color);
-                  border-bottom: none!important;
-                  border-left: none !important;
-                  border-right: none !important;
+                  padding-right: 10px;                  
+                  border: none !important;
                   border-radius: 0px !important;
                 } 
                 mushroom-card::after {

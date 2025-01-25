@@ -68,9 +68,9 @@ sections:
               - value: 3
                 color: yellow
               - value: 5
-                color: blue
-              - value: 10
                 color: green
+              - value: 10
+                color: blue
             line_color: var(--line-color)
             card_mod:
               style: |
@@ -239,7 +239,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
+              background-color: transparent !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
   - type: grid
@@ -409,6 +411,13 @@ sections:
             sort_by: state
             sort_group_by_parent: true
         type: custom:sankey-chart
+        card_mod:
+          style: |
+            ha-card {    
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
         min_state: 0
         show_names: true
         show_icons: false
@@ -427,6 +436,13 @@ sections:
         tabs:
           - card:
               type: custom:sankey-chart
+              card_mod:
+                style: |
+                  ha-card {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
+                  }
               min_state: 0
               show_names: true
               show_icons: false
@@ -609,6 +625,14 @@ sections:
                     grid-template-rows: auto
               cards:
                 - type: custom:plotly-graph
+                  card_mod:
+                    style: |
+                      ha-card {
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                        border: none;
+                        margin-right: 10px !important;
+                      }
                   entities:
                     - entity: sensor.homestation_solar_total_ausgangsleistung
                       name: Solarertrag
@@ -639,6 +663,13 @@ sections:
                   layout:
                     height: 300
                 - type: custom:apexcharts-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                        border: none;
+                      }
                   graph_span: 7d
                   span:
                     end: day
@@ -793,6 +824,13 @@ sections:
                   min_expected_power: 0.01
                   watt_threshold: 1000
                   transparency_zero_lines: 0
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
+                      }
                 - type: custom:power-flow-card-plus
                   entities:
                     solar:
@@ -896,6 +934,13 @@ sections:
                     min_expected_power: 0.01
                     watt_threshold: 1000
                     transparency_zero_lines: 0
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
+                      }
             attributes:
               label: Leistung Akt.
               icon: mdi:solar-power-variant
@@ -907,6 +952,9 @@ sections:
                     style: |
                       ha-card {
                         padding: 0px;
+                        border: none;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
                       }
                   cards:
                     - type: horizontal-stack
@@ -967,6 +1015,9 @@ sections:
                     style: |
                       ha-card {
                         padding: 0px;
+                        border: none;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
                       }
                   cards:
                     - type: horizontal-stack
@@ -1039,6 +1090,13 @@ sections:
         show_state: true
         name: History Growatt Server
         icon_height: 1px
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
       - type: conditional
         conditions:
           - entity: input_boolean.show_iframe
@@ -1054,12 +1112,13 @@ sections:
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
+            --mdc-icon-size: 30px !important;
+            height: 35px;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            padding-right: 20px; 
+            padding-right: 10px; 
+            color: var(--primary-color);
           } 
           * { 
             font-size: 10px !important;
@@ -1072,9 +1131,16 @@ sections:
         1_name: ""
         1_icon: mdi:keyboard-backspace
         1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
+        2_link: /dashboard-test/heizung
+        2_icon: mdi:heating-coil
+        3_link: /dashboard-test/licht
+        3_icon: mdi:lamps
+        4_link: /dashboard-test/garten
+        4_icon: mdi:pool
+        5_link: /dashboard-test/wetter
+        5_icon: mdi:weather-partly-cloudy
+        6_link: /dashboard-test/solar
+        6_icon: m3of:solar-power
         card_mod:
           style: |
             ha-card {
@@ -1090,6 +1156,11 @@ sections:
             }
     column_span: 3
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/a0db373e66314ef8086b0b96661bab80/original
 cards: []
 max_columns: 3

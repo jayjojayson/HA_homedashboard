@@ -77,7 +77,7 @@ cards:
               margin-top: 0px !important; 
               margin-bottom: 10px !important; 
               margin-right: 5px !important;
-              margin-left: 100px !important;   
+              margin-left: 105px !important;   
               padding-bottom: 0px !important; 
             }
             .card-container {
@@ -108,14 +108,15 @@ cards:
             cards:
               - type: custom:mushroom-entity-card
                 entity: sensor.steps_kilometer_taglich
-                name: Mutti
+                name: Jan
                 primary_info: state
                 fill_container: false
                 secondary_info: none
                 icon: mdi:walk
                 icon_color: grey
-                icon_tap_action:
-                  action: toggle
+                tap_action:
+                  action: more-info
+                  entity: person.jayjojayson
                 card_mod:
                   style: |
                     ha-card {
@@ -140,15 +141,16 @@ cards:
                       margin-right: -20px;
                     } 
               - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
+                entity: device_tracker.samsung_s24
                 name: Jan
                 primary_info: name
                 fill_container: false
                 secondary_info: none
                 icon: m3of:person-4
                 icon_color: grey
-                icon_tap_action:
-                  action: toggle
+                tap_action:
+                  action: more-info
+                  entity: person.jayjojayson
                 card_mod:
                   style: |
                     ha-card {
@@ -172,18 +174,19 @@ cards:
                     }
                     ha-state-icon {
                       margin-right: -15px;
-                      color: {% if states('person.jayjojayson') == 'home' %} green {% else %} grey {% endif %};
+                      color: {% if states('device_tracker.samsung_s24') == 'home' %} green {% else %} grey {% endif %};
                     } 
               - type: custom:mushroom-entity-card
-                entity: person.mutti
+                entity: device_tracker.23124ra7eo
                 name: Mutti
                 primary_info: name
                 fill_container: false
                 secondary_info: none
                 icon: m3of:person-3
                 icon_color: grey
-                icon_tap_action:
-                  action: toggle
+                tap_action:
+                  action: more-info
+                  entity: person.mutti
                 card_mod:
                   style: |
                     ha-card {
@@ -252,5 +255,8 @@ cards:
 card_mod:
   style: |
     ha-card {
-      border: none !important;
+      margin-bottom: 3px !important;
+      border: none !important;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
     }

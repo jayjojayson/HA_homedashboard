@@ -2,6 +2,20 @@ type: horizontal-stack
 cards:
   - type: picture
     image: https://www.dwd.de/DWD/wetter/radar/radfilm_brd_akt.gif
+    card_mod:
+      style: |
+        ha-card {    
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                      13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+          border: none;
+        }
   - type: picture
     image: >-
       https://www.dwd.de/DE/wetter/wetterundklima_vorort/berlin-brandenburg/_functions/bildgalerie/wetter_aktuell.jpg;jsessionid=99C15221AF8EC82583F21E7DC775388A.live31081?view=nasImage&nn=561856
+    card_mod:
+      style: |
+        ha-card {    
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                      13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+          border: none;
+        }

@@ -101,10 +101,10 @@ cards:
                 border: none !important;
                 color: var(--primary-color);
                 margin-top: -30px;
-                margin-bottom: -30px;
+                margin-bottom: -25px;
                 margin-left: 60px !important;
                 margin-right: 60px !important;
-                padding-top: 10px;
+                padding-top: 2px;
               }
           columns: null
         filter:
@@ -117,14 +117,68 @@ cards:
             ha-card {
               background: none !important;
               box-shadow: none !important;
-              border: none !important;border-top: 1px solid var(--secondary-text-color) !important;
-              border-top: 1px solid var(--secondary-text-color) !important;     
+              border: none !important;
+              border-top: 0px solid var(--secondary-text-color) !important;
+              border-top: 0px solid var(--secondary-text-color) !important;     
               padding-top: 0px !important;
               padding-bottom: 0px !important;
-            }       
+            }
+  - type: picture-glance
+    title: Hofkamera
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    card_mod:
+      style: |
+        ha-card { 
+          background: none !important;
+          box-shadow: none !important;
+          border: none;
+          border-radius: 0 0 40px 8px !important;
+          margin-top: 4px;
+          margin-bottom: -4px;
+        }
+    entities:
+      - entity: select.hofkamera_ptz_voreinstellung
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Straßenansicht
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Straßenansicht
+      - entity: select.hofkamera_ptz_voreinstellung
+        icon: mdi:car
+        tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Pool
+        icon_tap_action:
+          action: call-service
+          service: select.select_option
+          service_data:
+            entity_id: select.hofkamera_ptz_voreinstellung
+            option: Pool
+      - entity: select.hofkamera_ptz_voreinstellung
+        icon: mdi:pool
+        tap_action:
+          action: navigate
+          navigation_path: "#poolkamera"
+        icon_tap_action:
+          action: navigate
+          navigation_path: "#poolkamera"
+    camera_image: camera.hofkamera_fliessend
 card_mod:
   style: |
-    ha-card {
-      border: none !important;
-      padding: 5px 0 5px 0;
+    ha-card { 
+      margin-bottom: -15px; 
+      border: none !important;      
+      padding: 5px 0 5px 0;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
     }

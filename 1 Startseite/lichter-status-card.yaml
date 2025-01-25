@@ -1,12 +1,12 @@
 type: custom:stack-in-card
 card_mod:
   style: |
-    ha-card {
-      box-shadow: none !important;
+    ha-card {         
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
       border: none !important;
       padding: 10px 0 10px 0;
-      margin-top: -15px;
-      margin-bottom: -10px !important;  
+      margin-bottom: -15px !important;  
     }
 cards:
   - type: horizontal-stack
@@ -43,7 +43,7 @@ cards:
           exclude:
             - state: "off"
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
-            - entity_id: light.cyd_display_backlight
+            - entity_id: light.cyd_*
         sort:
           method: area
       - type: custom:auto-entities

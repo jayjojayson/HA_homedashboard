@@ -23,6 +23,9 @@ sections:
                 style: |
                   ha-card {
                     padding: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
                   }
               cards:
                 - type: horizontal-stack
@@ -857,6 +860,9 @@ sections:
                 style: |
                   ha-card {
                     padding: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
                   }
               cards:
                 - type: horizontal-stack
@@ -1118,12 +1124,13 @@ sections:
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
+            --mdc-icon-size: 30px !important;
+            height: 35px;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            padding-right: 20px; 
+            padding-right: 10px; 
+            color: var(--primary-color);
           } 
           * { 
             font-size: 10px !important;
@@ -1137,16 +1144,21 @@ sections:
         1_name: ""
         1_icon: mdi:keyboard-backspace
         1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
+        2_link: /dashboard-test/einstellungen
+        2_icon: mdi:cog
+        3_link: /dashboard-test/sicherheit
+        3_icon: mdi:cctv
+        4_link: /dashboard-test/robter-steuerung
+        4_icon: mdi:robot-mower
+        5_link: /dashboard-test/multimedia
+        5_icon: mdi:multimedia
         card_mod:
           style: |
             ha-card {
               border: none !important;
               border-radius: 0px !important;
-              background: rgba(0,0,0,0) !important;
-              box-shadow: rgba(0,0,0,0) !important;
+              background: none !important;
+              box-shadow: none !important;
               padding: 0px; 
               z-index: 2;
               position: fixed;
@@ -1156,5 +1168,10 @@ sections:
   - type: grid
     cards: []
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/c789823a4879dc28f06f87180043b6a3/original
 cards: []

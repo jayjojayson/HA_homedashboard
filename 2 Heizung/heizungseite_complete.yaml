@@ -2,6 +2,11 @@ type: sections
 path: heizung
 max_columns: 3
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/2ac92547a867465b67f64b5eb72e63e0/original
 title: Heizung
 sections:
@@ -14,7 +19,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
+              background-color: transparent !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none !important;
             }
         cards:
@@ -106,12 +113,17 @@ sections:
                 }
           - type: vertical-stack
             cards:
-              - type: vertical-stack
+              - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
-                    #root {
-                      gap: 0px !important;     
-                    }
+                    ha-card {
+                       background: none !important;  
+                       border: none !important; 
+                       border-radius: 0px !important;   
+                     }
+                     #root {               
+                       gap: 0px !important;     
+                     }
                 cards:
                   - type: custom:mushroom-template-card
                     primary: Diagramm
@@ -128,7 +140,7 @@ sections:
                           border-top: 0px;
                           border-left: 0px;
                           border-right: 0px;
-                          border-bottom: 1px solid var(--secondary-text-color);
+                          border-bottom: 0px solid var(--secondary-text-color);
                           border-radius: 0px !important;
                           text-align: center;
                           display: flex;
@@ -136,6 +148,7 @@ sections:
                           justify-content: center;
                           align-items: center;
                           height: 100%;
+                          margin-top: -10px;
                         }
                   - type: conditional
                     conditions:
@@ -242,19 +255,24 @@ sections:
               style: |
                 ha-card {
                     height: 1px;
-                    border-bottom: 1px;
+                    background: black;
                     background-color: grey;
                     margin-left: 20px;
                     margin-right: 20px;
                 }
           - type: vertical-stack
             cards:
-              - type: vertical-stack
+              - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
-                    #root {
-                        gap: 0px !important;
-                    }  
+                    ha-card {
+                       background: none !important;  
+                       border: none !important; 
+                       border-radius: 0px !important;   
+                     }
+                     #root {               
+                       gap: 0px !important;     
+                     } 
                 cards:
                   - type: custom:mushroom-climate-card
                     entity: climate.thermostat_bad
@@ -276,11 +294,8 @@ sections:
                           padding-left: 10px;
                           padding-top: 8px;
                           padding-bottom: 0px;
-                          padding-right: 10px;
-                          border-top: 1px solid var(--secondary-text-color);
-                          border-bottom: none!important;
-                          border-left: none !important;
-                          border-right: none !important;
+                          padding-right: 10px;                  
+                          border: none !important;
                           border-radius: 0px !important;
                         } 
                         mushroom-card::after {
@@ -343,8 +358,10 @@ sections:
           style: |
             ha-card  { 
               background: none; 
-              border: none !important;
-              margin-bottom: -10px !important;
+              border: none !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              margin-bottom: -15px !important;
             }
         cards:
           - type: custom:stack-in-card
@@ -553,7 +570,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              padding: 10px; !important;
+              padding: 10px; !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none !important;
             }
   - type: grid
@@ -651,12 +670,17 @@ sections:
                 }
           - type: vertical-stack
             cards:
-              - type: vertical-stack
+              - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
-                    #root {
-                      gap: 0px !important;     
-                    }
+                    ha-card {
+                       background: none !important;  
+                       border: none !important; 
+                       border-radius: 0px !important;   
+                     }
+                     #root {               
+                       gap: 0px !important;     
+                     }
                 cards:
                   - type: custom:mushroom-template-card
                     primary: Diagramm
@@ -673,7 +697,7 @@ sections:
                           border-top: 0px;
                           border-left: 0px;
                           border-right: 0px;
-                          border-bottom: 1px solid var(--secondary-text-color);
+                          border-bottom: 0px solid var(--secondary-text-color);
                           border-radius: 0px !important;
                           text-align: center;
                           display: flex;
@@ -681,6 +705,7 @@ sections:
                           justify-content: center;
                           align-items: center;
                           height: 100%;
+                          margin-top: -10px;
                         }
                   - type: conditional
                     conditions:
@@ -787,19 +812,23 @@ sections:
               style: |
                 ha-card {
                     height: 1px;
-                    border-bottom: 1px;
                     background-color: grey;
                     margin-left: 20px;
                     margin-right: 20px;
                 }
           - type: vertical-stack
             cards:
-              - type: vertical-stack
+              - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
-                    #root {
-                        gap: 0px !important;
-                    }  
+                    ha-card {
+                       background: none !important;  
+                       border: none !important; 
+                       border-radius: 0px !important;   
+                     }
+                     #root {               
+                       gap: 0px !important;     
+                     }
                 cards:
                   - type: custom:mushroom-climate-card
                     entity: climate.thermostat_bad_mutti
@@ -821,11 +850,8 @@ sections:
                           padding-left: 10px;
                           padding-top: 8px;
                           padding-bottom: 0px;
-                          padding-right: 10px;
-                          border-top: 1px solid var(--secondary-text-color);
-                          border-bottom: none!important;
-                          border-left: none !important;
-                          border-right: none !important;
+                          padding-right: 10px;                  
+                          border: none !important;
                           border-radius: 0px !important;
                         } 
                         mushroom-card::after {
@@ -881,33 +907,44 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
+              background-color: transparent !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none !important;
             }
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
+            --mdc-icon-size: 30px !important;
+            height: 35px;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            padding-right: 20px; 
+            padding-right: 10px; 
+            color: var(--primary-color);
           } 
           * { 
             font-size: 10px !important;
             border: none !important;
             border-radius: 0px !important;
             background: rgba(0,0,0,0) !important;
+            box-shadow: none !important;
           }
         card_type: horizontal-buttons-stack
         auto_order: false
         1_name: ""
         1_icon: mdi:keyboard-backspace
         1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
+        2_link: /dashboard-test/heizung
+        2_icon: mdi:heating-coil
+        3_link: /dashboard-test/licht
+        3_icon: mdi:lamps
+        4_link: /dashboard-test/garten
+        4_icon: mdi:pool
+        5_link: /dashboard-test/wetter
+        5_icon: mdi:weather-partly-cloudy
+        6_link: /dashboard-test/solar
+        6_icon: m3of:solar-power
         card_mod:
           style: |
             ha-card {
