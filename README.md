@@ -286,7 +286,7 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 #
 ## ‼️ Updates
 
-#### update 25 Jan 25-- v.1.0.3
+#### update 25 Jan 25-- v.1.0.4
 - Sticky sidebar Menu mit Schalter-Option hinzugefügt
 - Box-Shadow für alle Cards erstellt
 - Submenu-Cards überarbeitet (für bessere Navigation)
