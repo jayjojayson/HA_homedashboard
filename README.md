@@ -13,7 +13,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 </details>
 
 
-[![HA_homedashboard](https://github.com/user-attachments/assets/65028f2f-0690-4be7-97e3-0534963f4440)](https://www.youtube.com/watch?v=JbHVu8I5IbE "HA_homedashboard")
+[![HA_homedashboard](https://github.com/user-attachments/assets/65028f2f-0690-4be7-97e3-0534963f4440)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
 
 
 
