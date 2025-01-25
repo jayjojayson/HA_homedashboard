@@ -7,6 +7,13 @@ styles:
 tabs:
   - card:
       type: custom:sankey-chart
+      card_mod:
+        style: |
+          ha-card {
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                        13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+            border: none;
+          }
       min_state: 0
       show_names: true
       show_icons: false
@@ -189,6 +196,14 @@ tabs:
             grid-template-rows: auto
       cards:
         - type: custom:plotly-graph
+          card_mod:
+            style: |
+              ha-card {
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                border: none;
+                margin-right: 10px !important;
+              }
           entities:
             - entity: sensor.homestation_solar_total_ausgangsleistung
               name: Solarertrag
@@ -219,6 +234,13 @@ tabs:
           layout:
             height: 300
         - type: custom:apexcharts-card
+          card_mod:
+            style: |
+              ha-card {
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                border: none;
+              }
           graph_span: 7d
           span:
             end: day
@@ -373,6 +395,13 @@ tabs:
           min_expected_power: 0.01
           watt_threshold: 1000
           transparency_zero_lines: 0
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
+              }
         - type: custom:power-flow-card-plus
           entities:
             solar:
@@ -476,6 +505,13 @@ tabs:
             min_expected_power: 0.01
             watt_threshold: 1000
             transparency_zero_lines: 0
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
+              }
     attributes:
       label: Leistung Akt.
       icon: mdi:solar-power-variant
@@ -487,6 +523,9 @@ tabs:
             style: |
               ha-card {
                 padding: 0px;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
               }
           cards:
             - type: horizontal-stack
@@ -547,6 +586,9 @@ tabs:
             style: |
               ha-card {
                 padding: 0px;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                            13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;            
               }
           cards:
             - type: horizontal-stack

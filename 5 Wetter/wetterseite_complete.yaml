@@ -4,6 +4,11 @@ icon: mdi:weather-partly-cloudy
 type: sections
 max_columns: 3
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/c41ae54bf57868154d63abfcba430f04/original
 sections:
   - type: grid
@@ -18,13 +23,34 @@ sections:
         layout_options:
           grid_columns: 4
           grid_rows: 7
+        card_mod:
+          style: |
+            ha-card {    
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
       - type: horizontal-stack
         cards:
           - type: picture
             image: https://www.dwd.de/DWD/wetter/radar/radfilm_brd_akt.gif
+            card_mod:
+              style: |
+                ha-card {    
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                              13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                  border: none;
+                }
           - type: picture
             image: >-
               https://www.dwd.de/DE/wetter/wetterundklima_vorort/berlin-brandenburg/_functions/bildgalerie/wetter_aktuell.jpg;jsessionid=99C15221AF8EC82583F21E7DC775388A.live31081?view=nasImage&nn=561856
+            card_mod:
+              style: |
+                ha-card {    
+                  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                              13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                  border: none;
+                }
   - type: grid
     cards:
       - type: heading
@@ -141,7 +167,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              border: none;
+              border: none;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               background: none !important;
             }
   - type: grid
@@ -153,10 +181,19 @@ sections:
         image: https://www.dwd.de/DWD/warnungen/warnstatus/SchilderPD.jpg
         layout_options:
           grid_columns: full
+        card_mod:
+          style: |
+            ha-card {    
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
       - type: markdown
         card_mod:
           style: |
-            ha-card {
+            ha-card {   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
         content: >
@@ -204,7 +241,10 @@ sections:
               card_mod:
                 style: |
                   ha-card {
-                    padding: 10px;
+                    padding: 10px;  
+                    border: none !important;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
                   }
               cards:
                 - type: horizontal-stack
@@ -269,7 +309,10 @@ sections:
               card_mod:
                 style: |
                   ha-card {
-                    padding: 10px;
+                    padding: 10px;  
+                    border: none !important;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
                   }
               cards:
                 - type: horizontal-stack
@@ -368,12 +411,13 @@ sections:
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
+            --mdc-icon-size: 30px !important;
+            height: 35px;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            padding-right: 20px; 
+            padding-right: 10px; 
+            color: var(--primary-color);
           } 
           * { 
             font-size: 10px !important;
@@ -386,9 +430,16 @@ sections:
         1_name: ""
         1_icon: mdi:keyboard-backspace
         1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
+        2_link: /dashboard-test/heizung
+        2_icon: mdi:heating-coil
+        3_link: /dashboard-test/licht
+        3_icon: mdi:lamps
+        4_link: /dashboard-test/garten
+        4_icon: mdi:pool
+        5_link: /dashboard-test/wetter
+        5_icon: mdi:weather-partly-cloudy
+        6_link: /dashboard-test/solar
+        6_icon: m3of:solar-power
         card_mod:
           style: |
             ha-card {

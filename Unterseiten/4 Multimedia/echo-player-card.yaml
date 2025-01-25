@@ -4,6 +4,9 @@ card_mod:
     ha-card {
       position: relative;
       overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;
     } 
     ha-card::before {
       content: '';
@@ -27,7 +30,7 @@ cards:
           style: |
             ha-card {
               background: transparent !important;
-              border: 0px !important;
+              border: none !important;
               border-radius: none !important;
               box-shadow: none !important;
               z-index: 1 !important; /* Über dem Hintergrund */
@@ -93,7 +96,7 @@ cards:
                     style: |
                       ha-card {
                         background: transparent !important;
-                        border: 0px !important;
+                        border: none !important;
                         border-radius: none !important;
                         box-shadow: none;
                         font-size: 12px !important;
@@ -136,11 +139,8 @@ cards:
   - type: custom:vertical-stack-in-card
     card_mod:
       style: |
-        :host {
-          background: none !important;
-          border: none;
-          border-top-right-radius: 0px !important;          
-          border-top-left-radius: 0px !important;
+        ha-card {
+          border: none !important;
           z-index: 1 !important; /* Über dem Hintergrund */
         }
     cards:
@@ -162,6 +162,7 @@ cards:
           style: |
             ha-card {
               background: none !important;
+              border: none !important;
               box-shadow: none;
               z-index: 1 !important; /* Über dem Hintergrund */
             }

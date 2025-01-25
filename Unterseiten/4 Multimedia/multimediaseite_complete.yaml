@@ -16,6 +16,9 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
             } 
             ha-card::before {
               content: '';
@@ -39,7 +42,7 @@ sections:
                   style: |
                     ha-card {
                       background: transparent !important;
-                      border: 0px !important;
+                      border: none !important;
                       border-radius: none !important;
                       box-shadow: none !important;
                       z-index: 1 !important; /* Über dem Hintergrund */
@@ -105,7 +108,7 @@ sections:
                             style: |
                               ha-card {
                                 background: transparent !important;
-                                border: 0px !important;
+                                border: none !important;
                                 border-radius: none !important;
                                 box-shadow: none;
                                 font-size: 12px !important;
@@ -148,11 +151,8 @@ sections:
           - type: custom:vertical-stack-in-card
             card_mod:
               style: |
-                :host {
-                  background: none !important;
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                ha-card {
+                  border: none !important;
                   z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
@@ -174,6 +174,7 @@ sections:
                   style: |
                     ha-card {
                       background: none !important;
+                      border: none !important;
                       box-shadow: none;
                       z-index: 1 !important; /* Über dem Hintergrund */
                     }
@@ -217,6 +218,9 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
             }
             ha-card::before {
               content: '';
@@ -344,9 +348,8 @@ sections:
             card_mod:
               style: |
                 ha-card {
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
               - type: custom:mushroom-media-player-card
@@ -407,6 +410,9 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
             }
             ha-card::before {
               content: '';
@@ -534,9 +540,8 @@ sections:
             card_mod:
               style: |
                 ha-card {
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
               - type: custom:mushroom-media-player-card
@@ -564,6 +569,9 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
             }
             ha-card::before {
               content: '';
@@ -691,9 +699,8 @@ sections:
             card_mod:
               style: |
                 ha-card {
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
               - type: custom:mushroom-media-player-card
@@ -728,6 +735,9 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
             }
             ha-card::before {
               content: '';
@@ -855,9 +865,8 @@ sections:
             card_mod:
               style: |
                 ha-card {
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
               - type: custom:mushroom-media-player-card
@@ -890,7 +899,11 @@ sections:
             ha-card {
               position: relative;
               overflow: hidden;
-            } ha-card::before {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            } 
+            ha-card::before {
               content: '';
               position: absolute;
               top: 0;
@@ -1016,9 +1029,8 @@ sections:
             card_mod:
               style: |
                 ha-card {
-                  border: none;
-                  border-top-right-radius: 0px !important;          
-                  border-top-left-radius: 0px !important;
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
                 }
             cards:
               - type: custom:mushroom-media-player-card
@@ -1040,44 +1052,6 @@ sections:
                       background: none;
                       box-shadow: none;
                     }
-      - type: custom:bubble-card
-        styles: |
-          .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
-            padding-right: 20px; 
-          } 
-          * { 
-            font-size: 10px !important;
-            border: none !important;
-            border-radius: 0px !important;
-            background: rgba(0,0,0,0) !important;
-            box-shadow: none !important;
-          }
-        card_type: horizontal-buttons-stack
-        auto_order: false
-        1_name: ""
-        1_icon: mdi:keyboard-backspace
-        1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
-        card_mod:
-          style: |
-            ha-card {
-              border: none !important;
-              border-radius: 0px !important;
-              background: rgba(0,0,0,0) !important;
-              box-shadow: rgba(0,0,0,0) !important;
-              padding: 0px; 
-              z-index: 2;
-              position: fixed;
-              margin: 0 !important;
-              bottom: 0;
-            }
     column_span: 2
   - type: grid
     cards:
@@ -1085,6 +1059,13 @@ sections:
         heading: TV und Beamer
         heading_style: title
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
         cards:
           - type: horizontal-stack
             cards:
@@ -1211,16 +1192,27 @@ sections:
                           .card-content {
                             margin: auto !important;
                           }
-        condition: state
-        entity: media_player.lg_webos_smart_tv
-        state: "off"
       - type: media-control
         entity: media_player.lg_webos_smart_tv
         visibility:
           - condition: state
             entity: media_player.lg_webos_smart_tv
             state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
         cards:
           - type: horizontal-stack
             cards:
@@ -1330,7 +1322,21 @@ sections:
           - condition: state
             entity: media_player.marantz_wohnzimmer
             state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
         cards:
           - type: horizontal-stack
             cards:
@@ -1428,7 +1434,56 @@ sections:
                           .card-content {
                             margin: auto !important;
                           }
+      - type: custom:bubble-card
+        styles: |
+          .bubble-icon {
+            --mdc-icon-size: 30px !important;
+            height: 35px;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding-right: 10px; 
+            color: var(--primary-color);
+          } 
+          * { 
+            font-size: 10px !important;
+            border: none !important;
+            border-radius: 0px !important;
+            background: rgba(0,0,0,0) !important;
+            box-shadow: none !important;
+          }
+        card_type: horizontal-buttons-stack
+        auto_order: false
+        1_name: ""
+        1_icon: mdi:keyboard-backspace
+        1_link: /dashboard-test/home
+        2_link: /dashboard-test/einstellungen
+        2_icon: mdi:cog
+        3_link: /dashboard-test/sicherheit
+        3_icon: mdi:cctv
+        4_link: /dashboard-test/robter-steuerung
+        4_icon: mdi:robot-mower
+        5_link: /dashboard-test/multimedia
+        5_icon: mdi:multimedia
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background: none !important;
+              box-shadow: none !important;
+              padding: 0px; 
+              z-index: 2;
+              position: fixed;
+              margin: 0 !important;
+              bottom: 0;
+            }
     column_span: 1
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/a0db373e66314ef8086b0b96661bab80/original
 cards: []

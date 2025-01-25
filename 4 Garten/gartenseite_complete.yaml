@@ -3,6 +3,11 @@ path: garten
 icon: mdi:pool
 type: sections
 background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
   image: /api/image/serve/ebe98ffd5a0a6e0bbd3d22360b6aeb6d/original
 sections:
   - type: grid
@@ -30,7 +35,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: var(--card-background-color) !important;
+              background-color: var(--card-background-color) !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
   - type: grid
@@ -66,13 +73,15 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: var(--card-background-color) !important;
+              background-color: var(--card-background-color) !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
   - type: grid
     cards:
       - type: heading
-        heading: Pool Extras
+        heading: Pool Steuerung
         heading_style: title
         tap_action:
           action: navigate
@@ -104,7 +113,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: var(--card-background-color) !important;
+              background-color: var(--card-background-color) !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
   - type: grid
@@ -152,7 +163,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              border: none !important;
+              border: none !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
             }
   - type: grid
     cards:
@@ -163,7 +176,9 @@ sections:
         card_mod:
           style: |
             ha-card {
-              border: none;
+              border: none;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               margin-bottom: -10px !important;
             }
         cards:
@@ -320,8 +335,10 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: var(--card-background-color) !important;
-              margin-bottom: -10px !important;
+              background-color: var(--card-background-color) !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              margin-bottom: -5px !important;
               border: none;
             }
       - type: heading
@@ -338,18 +355,21 @@ sections:
         card_mod:
           style: |
             ha-card {
-              background-color: var(--card-background-color) !important;
+              background-color: var(--card-background-color) !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               border: none;
             }
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
-            --mdc-icon-size: 45px !important;
-            height: 45px;
+            --mdc-icon-size: 30px !important;
+            height: 35px;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            padding-right: 20px; 
+            padding-right: 10px; 
+            color: var(--primary-color);
           } 
           * { 
             font-size: 10px !important;
@@ -362,9 +382,16 @@ sections:
         1_name: ""
         1_icon: mdi:keyboard-backspace
         1_link: /dashboard-test/home
-        highlight_current_view: true
-        hide_gradient: false
-        margin: 20px
+        2_link: /dashboard-test/heizung
+        2_icon: mdi:heating-coil
+        3_link: /dashboard-test/licht
+        3_icon: mdi:lamps
+        4_link: /dashboard-test/garten
+        4_icon: mdi:pool
+        5_link: /dashboard-test/wetter
+        5_icon: mdi:weather-partly-cloudy
+        6_link: /dashboard-test/solar
+        6_icon: m3of:solar-power
         card_mod:
           style: |
             ha-card {

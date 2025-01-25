@@ -1,19 +1,23 @@
 type: custom:stack-in-card
 card_mod:
   style: |
-    :host {
-      margin-bottom: -10px !important;
-    }
-    ha-card {
-      border: none;
+    ha-card {  
+      margin-bottom: -3px; 
+      border: none;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
     }
 cards:
   - type: custom:vertical-stack-in-card
     card_mod:
       style: |
         :host {
+          border: none;  
           --ha-card-background: none !important;          
           --ha-card-border: none !important;
+        }
+        ha-card {
+          border: none;  
         }
     cards:
       - type: horizontal-stack
@@ -27,19 +31,15 @@ cards:
             card_mod:
               style: |
                 ha-card {
+                  width: 130%;
                   box-shadow: none !important;
                   border: none !important;
-                  width: 110%;
-                }
-                :host {
-                  --ha-card-background: transparent !important;                  
-                  border: none !important;
-                  --ha-card-border-radius: 0px !important;  
-                  padding-right: 30px !important;         
-                  padding-left: 20px !important;
+                  background: transparent !important;                  
+                  border-radius: 0px !important;  
+                  margin-right: 30px !important; 
+                  margin-top: -10px !important;
                   text-align: center;
-                  font-weight: bold !important;  
-
+                  font-weight: bold !important; 
                   --primary-text-color:
                       {% if is_state('sensor.temperature_color', 'steelblue') %}
                         steelblue
@@ -54,6 +54,10 @@ cards:
                 .value {
                   font-size: 30px !important; /* Ändere die Schriftgröße */
                 }
+                .measurement {
+                    font-size: 18px;
+                    color: var(--primary-text-color) !important;
+                }
           - type: custom:compass-card
             card_mod:
               style: |
@@ -64,8 +68,8 @@ cards:
                   border-radius: 0px !important;
                   zoom: 50%;
                   margin-top: 15px;
-                  margin-left: 5px;
-                  width: 160px;
+                  margin-left: 65px;
+                  width: 70%;
                 }
             indicator_sensors:
               - sensor: sensor.fuerstenwalde_spree_windrichtung
@@ -100,11 +104,20 @@ cards:
                   border: none !important;
                   text-align: center;
                   --ha-card-border-radius: 0px !important;     
-                  padding-right: 10px !important;         
-                  padding-left: 10px !important;           
-                  padding-top: 40px !important;     
+                  margin-right: 10px !important;         
+                  margin-left: 10px !important;           
+                  margin-top: 30px !important;     
                   --mush-card-primary-font-size: 25px !important;
-                  --mush-card-primary-color: steelblue !important;
+                  --mush-card-primary-color:
+                      {% if is_state('sensor.temperature_color', 'steelblue') %}
+                        steelblue
+                      {% elif is_state('sensor.temperature_color', 'green') %}
+                        green
+                      {% elif is_state('sensor.temperature_color', 'orange') %}
+                        orange
+                      {% else %}
+                        red
+                      {% endif %};
                 }
                 ha-card {
                   box-shadow: none !important; /* Schatten und Rahmen entfernt */

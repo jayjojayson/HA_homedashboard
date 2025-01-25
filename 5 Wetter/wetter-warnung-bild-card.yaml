@@ -2,3 +2,10 @@ type: picture
 image: https://www.dwd.de/DWD/warnungen/warnstatus/SchilderPD.jpg
 layout_options:
   grid_columns: full
+card_mod:
+  style: |
+    ha-card {    
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;
+    }

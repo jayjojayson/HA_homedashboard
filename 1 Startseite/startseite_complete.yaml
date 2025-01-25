@@ -90,7 +90,7 @@ sections:
                       margin-top: 0px !important; 
                       margin-bottom: 10px !important; 
                       margin-right: 5px !important;
-                      margin-left: 110px !important;   
+                      margin-left: 105px !important;   
                       padding-bottom: 0px !important; 
                     }
                     .card-container {
@@ -127,8 +127,9 @@ sections:
                         secondary_info: none
                         icon: mdi:walk
                         icon_color: grey
-                        icon_tap_action:
-                          action: toggle
+                        tap_action:
+                          action: more-info
+                          entity: person.jayjojayson
                         card_mod:
                           style: |
                             ha-card {
@@ -160,8 +161,9 @@ sections:
                         secondary_info: none
                         icon: m3of:person-4
                         icon_color: grey
-                        icon_tap_action:
-                          action: toggle
+                        tap_action:
+                          action: more-info
+                          entity: person.jayjojayson
                         card_mod:
                           style: |
                             ha-card {
@@ -185,7 +187,7 @@ sections:
                             }
                             ha-state-icon {
                               margin-right: -15px;
-                              color: {% if states('person.jayjojayson') == 'home' %} green {% else %} grey {% endif %};
+                              color: {% if states('device_tracker.samsung_s24') == 'home' %} green {% else %} grey {% endif %};
                             } 
                       - type: custom:mushroom-entity-card
                         entity: device_tracker.23124ra7eo
@@ -195,8 +197,9 @@ sections:
                         secondary_info: none
                         icon: m3of:person-3
                         icon_color: grey
-                        icon_tap_action:
-                          action: toggle
+                        tap_action:
+                          action: more-info
+                          entity: person.mutti
                         card_mod:
                           style: |
                             ha-card {
@@ -265,24 +268,31 @@ sections:
         card_mod:
           style: |
             ha-card {
-              border: none !important;
+              margin-bottom: 3px !important;
+              border: none !important;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
       - type: custom:stack-in-card
         card_mod:
           style: |
-            :host {
-              margin-bottom: -15px !important;
-            }
-            ha-card {
-              border: none;
+            ha-card {  
+              margin-bottom: -3px; 
+              border: none;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
         cards:
           - type: custom:vertical-stack-in-card
             card_mod:
               style: |
                 :host {
+                  border: none;  
                   --ha-card-background: none !important;          
                   --ha-card-border: none !important;
+                }
+                ha-card {
+                  border: none;  
                 }
             cards:
               - type: horizontal-stack
@@ -296,19 +306,15 @@ sections:
                     card_mod:
                       style: |
                         ha-card {
+                          width: 130%;
                           box-shadow: none !important;
                           border: none !important;
-                          width: 110%;
-                        }
-                        :host {
-                          --ha-card-background: transparent !important;                  
-                          border: none !important;
-                          --ha-card-border-radius: 0px !important;  
-                          padding-right: 30px !important;         
-                          padding-left: 20px !important;
+                          background: transparent !important;                  
+                          border-radius: 0px !important;  
+                          margin-right: 30px !important; 
+                          margin-top: -10px !important;
                           text-align: center;
-                          font-weight: bold !important;  
-
+                          font-weight: bold !important; 
                           --primary-text-color:
                               {% if is_state('sensor.temperature_color', 'steelblue') %}
                                 steelblue
@@ -323,6 +329,10 @@ sections:
                         .value {
                           font-size: 30px !important; /* Ändere die Schriftgröße */
                         }
+                        .measurement {
+                            font-size: 18px;
+                            color: var(--primary-text-color) !important;
+                        }
                   - type: custom:compass-card
                     card_mod:
                       style: |
@@ -333,8 +343,8 @@ sections:
                           border-radius: 0px !important;
                           zoom: 50%;
                           margin-top: 15px;
-                          margin-left: 5px;
-                          width: 160px;
+                          margin-left: 65px;
+                          width: 70%;
                         }
                     indicator_sensors:
                       - sensor: sensor.fuerstenwalde_spree_windrichtung
@@ -369,11 +379,20 @@ sections:
                           border: none !important;
                           text-align: center;
                           --ha-card-border-radius: 0px !important;     
-                          padding-right: 10px !important;         
-                          padding-left: 10px !important;           
-                          padding-top: 40px !important;     
+                          margin-right: 10px !important;         
+                          margin-left: 10px !important;           
+                          margin-top: 30px !important;     
                           --mush-card-primary-font-size: 25px !important;
-                          --mush-card-primary-color: steelblue !important;
+                          --mush-card-primary-color:
+                              {% if is_state('sensor.temperature_color', 'steelblue') %}
+                                steelblue
+                              {% elif is_state('sensor.temperature_color', 'green') %}
+                                green
+                              {% elif is_state('sensor.temperature_color', 'orange') %}
+                                orange
+                              {% else %}
+                                red
+                              {% endif %};
                         }
                         ha-card {
                           box-shadow: none !important; /* Schatten und Rahmen entfernt */
@@ -470,7 +489,9 @@ sections:
             state: "on"
         card_mod:
           style: |
-            ha-card {
+            ha-card {   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               position: relative;
               padding-top: 5px !important; /* Platz oberhalb der Icons */
               padding-bottom: 0px !important; /* Platz unterhalb der Icons */
@@ -588,8 +609,10 @@ sections:
           style: |
             ha-card {
               border: none !important;
-              padding: 5px 0 5px 0;
-              margin: -10px 0 0 0;
+              padding: 5px 0 5px 0; 
+              margin: -10px 0 0 0;  
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
       - type: custom:vertical-stack-in-card
         cards:
@@ -653,8 +676,11 @@ sections:
             ha-card {
               border: none !important;
               position: relative;
-              overflow: hidden;
-            } ha-card::before {
+              overflow: hidden;  
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important; 
+            } 
+            ha-card::before {
               content: '';
               position: absolute;
               top: 0;
@@ -686,6 +712,9 @@ sections:
             state_content:
               - name
               - state
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-test/sicherheit
       - type: custom:vertical-stack-in-card
         cards:
           - type: horizontal-stack
@@ -789,10 +818,10 @@ sections:
                         border: none !important;
                         color: var(--primary-color);
                         margin-top: -30px;
-                        margin-bottom: -30px;
+                        margin-bottom: -25px;
                         margin-left: 60px !important;
                         margin-right: 60px !important;
-                        padding-top: 10px;
+                        padding-top: 2px;
                       }
                   columns: null
                 filter:
@@ -805,29 +834,24 @@ sections:
                     ha-card {
                       background: none !important;
                       box-shadow: none !important;
-                      border: none !important;border-top: 1px solid var(--secondary-text-color) !important;
-                      border-top: 1px solid var(--secondary-text-color) !important;     
+                      border: none !important;
+                      border-top: 0px solid var(--secondary-text-color) !important;
+                      border-top: 0px solid var(--secondary-text-color) !important;     
                       padding-top: 0px !important;
                       padding-bottom: 0px !important;
-                    }       
-        card_mod:
-          style: |
-            ha-card {
-              border: none !important;
-              padding: 5px 0 5px 0;
-            }
-      - type: vertical-stack
-        cards:
+                    }
           - type: picture-glance
             title: Hofkamera
             image: https://demo.home-assistant.io/stub_config/kitchen.png
             card_mod:
               style: |
-                ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none;
-                      border-radius: 12px;
+                ha-card { 
+                  background: none !important;
+                  box-shadow: none !important;
+                  border: none;
+                  border-radius: 0 0 40px 8px !important;
+                  margin-top: 4px;
+                  margin-bottom: -4px;
                 }
             entities:
               - entity: select.hofkamera_ptz_voreinstellung
@@ -866,171 +890,14 @@ sections:
                   action: navigate
                   navigation_path: "#poolkamera"
             camera_image: camera.hofkamera_fliessend
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
-                fill_container: false
-                primary_info: none
-                secondary_info: none
-                icon: mdi:cog
-                icon_type: entity-picture
-                icon_color: primary
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/einstellungen
-                hold_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/einstellungen
-                card_mod:
-                  style: |
-                    mushroom-shape-icon {
-                      --shape-color-disabled: transparent !important;
-                      --shape-color: transparent !important;
-                      --icon-color-disabled: var(--primary-color) !important;
-                      --icon-size: 45px !important;
-                      background: none !important;
-                      box-shadow: none !important;
-                    }
-                    ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none !important;
-                      border-right: 1px solid grey !important;
-                      border-radius: 0px !important;
-                      padding-right: 10px;
-                    }
-              - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
-                fill_container: false
-                primary_info: none
-                secondary_info: none
-                icon: mdi:robot-mower
-                icon_type: entity-picture
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/robter-steuerung
-                hold_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/robter-steuerung
-                icon_color: primary
-                card_mod:
-                  style: |
-                    mushroom-shape-icon {
-                      --shape-color-disabled: transparent !important;
-                      --shape-color: transparent !important;
-                      --icon-color-disabled: var(--primary-color) !important;
-                      --icon-size: 45px !important;
-                      background: none !important;
-                      box-shadow: none !important;
-                    }
-                    ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none !important;
-                      border-right: 1px solid grey !important;
-                      border-radius: 0px !important;
-                      padding-right: 10px;
-                    }
-              - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
-                fill_container: false
-                primary_info: none
-                secondary_info: none
-                icon: mdi:cctv
-                icon_type: entity-picture
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/sicherheit
-                hold_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/sicherheit
-                icon_color: primary
-                card_mod:
-                  style: |
-                    mushroom-shape-icon {
-                      --shape-color-disabled: transparent !important;
-                      --shape-color: transparent !important;
-                      --icon-color-disabled: var(--primary-color) !important;
-                      --icon-size: 45px !important;
-                      background: none !important;
-                      box-shadow: none !important;
-                    }
-                    ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none !important;
-                      border-right: 1px solid grey !important;
-                      border-radius: 0px !important;
-                      padding-right: 10px;
-                    }
-              - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
-                fill_container: false
-                primary_info: none
-                secondary_info: none
-                icon: mdi:pool
-                icon_type: entity-picture
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/garten
-                hold_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/garten
-                icon_color: primary
-                card_mod:
-                  style: |
-                    mushroom-shape-icon {
-                      --shape-color-disabled: transparent !important;
-                      --shape-color: transparent !important;
-                      --icon-color-disabled: var(--primary-color) !important;
-                      --icon-size: 45px !important;
-                      background: none !important;
-                      box-shadow: none !important;
-                    }
-                    ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none !important;
-                      border-right: 1px solid grey !important;
-                      border-radius: 0px !important;
-                      padding-right: 10px;
-                    }  
-              - type: custom:mushroom-entity-card
-                entity: person.jayjojayson
-                fill_container: false
-                primary_info: none
-                secondary_info: none
-                icon: mdi:lightbulb-group
-                icon_type: entity-picture
-                tap_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/licht
-                hold_action:
-                  action: navigate
-                  navigation_path: /dashboard-test/licht
-                icon_color: primary
-                card_mod:
-                  style: |
-                    mushroom-shape-icon {
-                      --shape-color-disabled: transparent !important;
-                      --shape-color: transparent !important;
-                      --icon-color-disabled: var(--primary-color) !important;
-                      --icon-size: 45px !important;
-                      background: none !important;
-                      box-shadow: none !important;
-                    }
-                    ha-card {
-                      background: none !important;
-                      box-shadow: none !important;
-                      border: none !important;
-                      border-radius: 0px !important;
-                      padding-right: 10px;
-                    }      
         card_mod:
           style: |
-            ha-card {
-              margin-bottom: -50px !important;
+            ha-card { 
+              margin-bottom: -15px; 
+              border: none !important;      
+              padding: 5px 0 5px 0;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
       - type: heading
         icon: ""
@@ -1043,21 +910,15 @@ sections:
           - condition: state
             entity: sensor.licht_eingeschaltet
             state: "on"
-        card_mod:
-          style: |
-            ha-card {
-              margin-top: -10px;
-              height: 50px !important;
-            }
       - type: custom:stack-in-card
         card_mod:
           style: |
-            ha-card {
-              box-shadow: none !important;
+            ha-card {         
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
               border: none !important;
               padding: 10px 0 10px 0;
-              margin-top: -15px;
-              margin-bottom: -10px !important;  
+              margin-bottom: -15px !important;  
             }
         cards:
           - type: horizontal-stack
@@ -1143,56 +1004,86 @@ sections:
           - condition: state
             entity: sensor.fenster_geoffnet
             state: "on"
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: " "
-          card_mod:
-            style: |
-              ha-card {
-                box-shadow: none !important;
-                border: none !important;
-              }
-        filter:
-          include:
-            - entity_id: binary_sensor.fenster_*
-          exclude:
-            - state: "off"
-        sort:
-          method: name
-        visibility:
-          - condition: state
-            entity: sensor.fenster_geoffnet
-            state: "on"
-      - type: markdown
-        content: >
-          {% if state_attr('sensor.17track_unterwegs', 'packages') | length > 0
-          %}
-            **Paketauskunft:**  
-            {% for package in state_attr('sensor.17track_unterwegs', 'packages') %}
-              >> Paket: {{ package['friendly_name'] if package['friendly_name'] else ' ' }}
-                - Status: {{ package['status'] if package['status'] else 'Keine Angabe' }} - {{ package['timestamp'] if package['timestamp'] else 'Unbekannt' }}   
-                - Ort: {{ package['location'] if package['location'] else 'Unbekannt' }}  
-                - Info: {{ package['info_text'] if package['info_text'] else 'Keine Information' }}  
-                - Tracking Nr.: {{ package['tracking_number'] }}  
-            {% endfor %}
-          {% else %}
-            **Es sind keine Pakete unterwegs.**
-          {% endif %}
-        style: |
-          ha-card {
-            white-space: normal;
-            overflow: visible;
-            word-wrap: break-word;
-          }
-          code, pre {
-            background-color: transparent !important; /* Verhindert den Hintergrund für Codeblöcke */
-            border-radius: 3px; /* Optional: abgerundete Ecken */
-          }
-        visibility:
-          - condition: numeric_state
-            entity: sensor.17track_unterwegs
-            above: 0
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background: none !imortant;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+              border: none !important;
+            }
+        cards:
+          - type: custom:auto-entities
+            card:
+              type: entities
+              title: " "
+              card_mod:
+                style: |
+                  ha-card {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+                    border: none !important;
+                    box-shadow: none !important;
+                    border: none !important;
+                  }
+            filter:
+              include:
+                - entity_id: binary_sensor.fenster_*
+              exclude:
+                - state: "off"
+            sort:
+              method: name
+            visibility:
+              - condition: state
+                entity: sensor.fenster_geoffnet
+                state: "on"
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {         
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+              border: none !important;
+              margin-top: 20px !important;
+            }
+        cards:
+          - type: markdown
+            card_mod:
+              style: |
+                ha-card {
+                  background: none !important;
+                  box-shadow: none !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  padding: 5px !important;
+                  white-space: normal;
+                  overflow: visible;
+                  word-wrap: break-word;
+                }
+                code, pre {
+                  border: none !important;
+                  background-color: transparent !important; /* Verhindert den Hintergrund für Codeblöcke */
+                  border-radius: 3px; /* Optional: abgerundete Ecken */
+                }
+            content: >
+              {% if state_attr('sensor.17track_unterwegs', 'packages') | length
+              > 0 %}
+                **Paketauskunft:**  
+                {% for package in state_attr('sensor.17track_unterwegs', 'packages') %}
+                  🚚 Paket: {{ package['friendly_name'] if package['friendly_name'] else ' ' }}
+                    - Status: {{ package['status'] if package['status'] else 'Keine Angabe' }} - {{ package['timestamp'] if package['timestamp'] else 'Unbekannt' }}   
+                    - Ort: {{ package['location'] if package['location'] else 'Unbekannt' }}  
+                    - Info: {{ package['info_text'] if package['info_text'] else 'Keine Information' }}  
+                    - Tracking Nr.: {{ package['tracking_number'] }}  
+                {% endfor %}
+              {% else %}
+                **Es sind keine Pakete unterwegs.**
+              {% endif %}
+            visibility:
+              - condition: numeric_state
+                entity: sensor.17track_unterwegs
+                above: 0
       - type: vertical-stack
         cards:
           - type: custom:bubble-card
@@ -1283,38 +1174,69 @@ sections:
         tap_action:
           action: navigate
           navigation_path: /dashboard-test/heizung
-      - type: custom:vertical-stack-in-card
+        grid_options:
+          columns: 9
+          rows: 1
+      - type: custom:mushroom-entity-card
+        entity: person.jayjojayson
+        fill_container: false
+        primary_info: none
+        secondary_info: none
+        icon: mdi:menu-open
+        icon_type: entity-picture
+        tap_action:
+          action: perform-action
+          perform_action: input_boolean.toggle
+          target:
+            entity_id: input_boolean.button_sidebar_menu
+        hold_action:
+          action: none
+        icon_color: grey
+        double_tap_action:
+          action: none
         card_mod:
           style: |
-            ha-card {
-              background: none !important;   
-              border: none;
-              margin-bottom: -15px;
+            mushroom-shape-icon {
+              --shape-color-disabled: transparent !important;
+              --shape-color: transparent !important;
+              --icon-color-disabled: var(--secondary-text-color) !important;
+              --icon-size: 45px !important;
+              background: none !important;
+              box-shadow: none !important;
             }
+            ha-card {
+              background: none !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+              margin-top: 13px;
+              margin-left: 50px;
+            }   
+      - type: custom:vertical-stack-in-card
         cards:
           - type: custom:mini-graph-card
             entities:
               - sensor.starkvind_luftreiniger_pm2_5
             name: Luftqualität
-            hours_to_show: 24
-            points_per_hour: 0.7
-            height: 80
+            color: green
+            hours_to_show: 96
+            points_per_hour: 0.5
+            height: 70
             show:
               labels: true
               name: false
               state: false
               icon: false
             color_thresholds:
-              - value: 0
-                color: grey
-              - value: 25
+              - value: 40
                 color: green
-              - value: 50
+              - value: 55
                 color: yellow
               - value: 100
                 color: orange
               - value: 150
                 color: red
+            line_color: var(--line-color)
             card_mod:
               style: |
                 ha-card {
@@ -1412,6 +1334,15 @@ sections:
                   color: var(--primary-text-color)
                   font-size: 16px
             theme: grey-icon
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;   
+              border: none;
+              margin-bottom: -15px;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+            }
       - type: heading
         heading: Solar
         heading_style: title
@@ -1542,7 +1473,9 @@ sections:
           style: |
             ha-card {
               border: none !important;
-              margin-bottom: -15px;
+              margin-bottom: -15px;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
       - type: heading
         heading_style: title
@@ -1602,7 +1535,9 @@ sections:
             below: 20
         card_mod:
           style: |
-            ha-card {
+            ha-card {   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
               border: none; 
               padding-bottom: 10px;
               margin-bottom: -15px;
@@ -1619,32 +1554,83 @@ sections:
         icon: ""
         heading: Tanken
         heading_style: title
-      - type: entities
-        entities:
-          - entity: sensor.gunstigster_benzinpreis
-            type: custom:multiple-entity-row
-            name: beste Tankstelle
-            icon: mdi:gas-station
-            state_color: true
-            hide_unavailable: true
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
             entities:
               - entity: sensor.gunstigster_benzinpreis_strasse
+                type: custom:multiple-entity-row
                 name: " "
+                icon: none
+                state_color: true
+                hide_unavailable: true
                 styles:
-                  margin-right: 15px
-                  text-align: right
-                  color: grey
-                  font-size: 13px
-            styles:
-              color: var(--primary-color)
-              font-size: 16px
-        theme: grey-icon
+                  color: var(--primary-color)
+                  font-size: 14px
+            theme: grey-icon
+            card_mod:
+              style: |
+                ha-card {   
+                  background: none !important;  
+                  box-shadow: none !important;   
+                  border: none !important;
+                  height: 65px !important;
+                  padding-right: 5px
+                  position: absolute;
+                  margin-bottom: -75px !important;
+                }
+          - type: custom:mini-graph-card
+            card_mod:
+              style: |
+                ha-card {   
+                  background: none !important;  
+                  box-shadow: none !important;   
+                  border: none !important;
+                  height: 65px !important;
+                  padding-right: 5px
+                }
+                .state__value {
+                  font-size: 2.0em !important;
+                  margin-right: 0.25rem;
+                  line-height: 1.2em;
+                  color: var(--primary-color);
+                  padding-left: 5px !important;
+                  margin-top: 10px !important;
+                }
+                .state__uom {
+                  margin-top: 0.75em !important;
+                }
+            entities:
+              - sensor.gunstigster_benzinpreis
+            name: Ertrag Heute
+            hours_to_show: 120
+            points_per_hour: 0.4
+            height: 70
+            show:
+              labels: true
+              name: false
+              state: true
+              icon: false
+            color_thresholds:
+              - value: 1.4
+                color: grey
+              - value: 1.6
+                color: darkgreen
+              - value: 1.75
+                color: steelblue
+              - value: 1.85
+                color: yellow
+              - value: 2
+                color: orange
+            line_color: var(--line-color)
         card_mod:
           style: |
             ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
               border: none !important;
-              height: 65px !important;
-              padding-right: 5px
+              border-radius: var(--ha-card-border-radius) !important;
+              --line-color: {{ states('sensor.solar_line_color') }};
             }
   - type: grid
     cards:
@@ -2498,8 +2484,560 @@ sections:
                 left:0;
                 width:100%;
                 height:100%;
-                opacity:0.3;
+                opacity:0.2;
               }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.button_sidebar_menu
+            state: "on"
+        card:
+          type: custom:layout-card
+          layout_type: custom:grid-layout
+          layout:
+            grid-template-columns: repeat(1, 1fr)
+            grid-template-rows: repeat(3, auto)
+          cards:
+            - type: custom:vertical-stack-in-card
+              card_mod:
+                style: |
+                  ha-card {
+                    background: #181e2a !important;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none !important;
+                    border-radius: 40px 0 0 40px !important;
+                    padding: 15px;
+                    margin-top: 75px;
+                    width: 300px !important;
+                    opacity: 1;
+                    z-index: 2;
+                    position: fixed;
+                    top:0;
+                    right:0;
+                    width:100%;
+                    height:80%;
+                  }
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: custom:button-card
+                      color: transparent
+                      icon: none
+                      name: Hauptseiten
+                      styles:
+                        card:
+                          - text-transform: uppercase;
+                          - justify-content: middle
+                          - align-self: middle
+                          - margin: none
+                          - height: 50px
+                          - font-family: verdana
+                          - color: var(--primary-color)
+                          - background-color: transparent
+                          - border-radius: 12px 12px 40px 12px
+                          - border-style: none
+                          - box-shadow: none
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:lightbulb-group
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/licht
+                          styles:
+                            card:
+                              - background-color: "#354b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--primary-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:heating-coil
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/heizung
+                          styles:
+                            card:
+                              - background-color: "#354b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--primary-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:weather-partly-cloudy
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/wetter
+                          styles:
+                            card:
+                              - background-color: "#354b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--primary-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:solar-power-variant
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/solar
+                          styles:
+                            card:
+                              - background-color: "#354b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--primary-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                - type: vertical-stack
+                  cards:
+                    - type: custom:button-card
+                      color: transparent
+                      icon: none
+                      name: Unterseiten
+                      styles:
+                        card:
+                          - text-transform: uppercase;
+                          - justify-content: middle
+                          - align-self: middle
+                          - margin: none
+                          - height: 85px
+                          - font-family: verdana
+                          - color: grey
+                          - background-color: transparent
+                          - border-radius: 12px 12px 40px 12px
+                          - border-style: none
+                          - box-shadow: none
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:cog
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/einstellungen
+                          styles:
+                            card:
+                              - background-color: "#404b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--secondary-text-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:robot-mower
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/robter-steuerung
+                          styles:
+                            card:
+                              - background-color: "#404b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--secondary-text-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:cctv
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/sicherheit
+                          styles:
+                            card:
+                              - background-color: "#404b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--secondary-text-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:pool
+                          tap_action:
+                            action: navigate
+                            navigation_path: /dashboard-test/garten
+                          styles:
+                            card:
+                              - background-color: "#404b5e"
+                              - border-radius: 10px 10px 10px 10px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 25px
+                              - height: 25px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: var(--secondary-text-color)
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                - type: vertical-stack
+                  cards:
+                    - type: custom:button-card
+                      color: transparent
+                      name: Settings
+                      icon: none
+                      styles:
+                        card:
+                          - text-transform: uppercase;
+                          - justify-content: middle
+                          - align-self: middle
+                          - margin: none
+                          - height: 87px
+                          - font-family: verdana
+                          - color: var(--secondary-text-color)
+                          - background-color: transparent
+                          - border-radius: 12px 12px 40px 12px
+                          - border-style: none
+                          - box-shadow: none
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:menu
+                          tap_action:
+                            action: perform-action
+                            perform_action: input_boolean.toggle
+                            target:
+                              entity_id: input_boolean.kioskmode
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 20px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:webpack
+                          tap_action:
+                            action: perform-action
+                            perform_action: input_boolean.toggle
+                            target:
+                              entity_id: input_boolean.button_background_dashboard
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 20px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:menu-open
+                          tap_action:
+                            action: perform-action
+                            perform_action: input_boolean.toggle
+                            target:
+                              entity_id: input_boolean.button_sidebar_menu
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 20px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                - type: custom:vertical-stack-in-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                        border: none;
+                        background: none;
+                        border: none;
+                        border-radius: 0px !important;
+                        margin-top: 10px !important;
+                        padding-bottom: 6px;
+                      }
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:hammer
+                          tap_action:
+                            action: navigate
+                            navigation_path: /developer-tools/yaml
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 23px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:backup-restore
+                          tap_action:
+                            action: navigate
+                            navigation_path: /config/backup/overview
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 23px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:cog
+                          tap_action:
+                            action: navigate
+                            navigation_path: /config
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 23px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:devices
+                          tap_action:
+                            action: navigate
+                            navigation_path: /config/integrations/dashboard
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 18px
+                              - height: 23px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
+                        - type: custom:button-card
+                          color: transparent
+                          icon: mdi:robot
+                          tap_action:
+                            action: navigate
+                            navigation_path: /config/automation/dashboard
+                          styles:
+                            card:
+                              - background-color: "#1f2634"
+                              - border-radius: 40px
+                              - border-style: none
+                              - box-shadow: >-
+                                  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0,
+                                  0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px
+                                  -3px 0px inset
+                            icon:
+                              - width: 15px
+                              - height: 23px
+                              - color: white
+                              - align-self: start
+                              - text-align: start
+                              - padding: 12px
+                              - color: steelblue
+                            img_cell:
+                              - justify-content: middle
+                              - align-self: middle
+                              - margin: none
     column_span: 3
 background:
   opacity: 100
