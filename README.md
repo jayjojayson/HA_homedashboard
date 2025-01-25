@@ -286,6 +286,13 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 #
 ## ‼️ Updates
 
+#### update 25 Jan 25-- v.1.0.3
+- Sticky sidebar Menu mit Schalter-Option hinzugefügt
+- Box-Shadow für alle Cards erstellt
+- Submenu-Cards überarbeitet (für bessere Navigation)
+- alle Seiten von Startseite ohne Topheader erreichbar
+- HA updates in "Einstellungen" Seite intgriert (updates können dort mit Autobackup durchgeführt werden)
+
 #### update 17 Jan 25-- v.1.0.3
 - particles background mit Schalter-Option hinzugefügt
 - sensoren.yaml update für neue card günstigste Tankstelle
