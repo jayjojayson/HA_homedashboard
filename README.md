@@ -12,7 +12,16 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
   ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
 </details>
 
-![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
+<details>
+  <summary> <b>Startseite als GIF</b></summary>   
+  
+  ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
+</details>
+
+
+[![HA_homedashboard](https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
+
+
 
 ## 📂 Ordnerstruktur
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
@@ -844,6 +853,7 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 - Box-Shadow für alle Cards erstellt
 - Submenu-Cards überarbeitet (für bessere Navigation)
 - alle Seiten von Startseite ohne Topheader erreichbar
+- Video für Beispielnutzung erstellt
 - HA updates in "Einstellungen" Seite intgriert (updates können dort mit Autobackup durchgeführt werden)
 
 #### update 17 Jan 25-- v.1.0.3
