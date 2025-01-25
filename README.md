@@ -12,7 +12,9 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
   ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
 </details>
 
-[![image](https://github.com/user-attachments/assets/65028f2f-0690-4be7-97e3-0534963f4440)]([https://www.youtube.com/watch?v=JbHVu8I5IbE]([https://youtu.be/](https://www.youtube.com/watch?v=)JbHVu8I5IbE))
+
+[![HA_homedashboard](https://github.com/user-attachments/assets/65028f2f-0690-4be7-97e3-0534963f4440)](https://www.youtube.com/watch?v=JbHVu8I5IbE "HA_homedashboard")
+
 
 
 ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
