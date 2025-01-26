@@ -7,13 +7,13 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 ### Read in english - [English-ReadMe](https://github.com/jayjojayson/HA_homedashboard/blob/main/z-English-ReadMe/readME-Eng.md)
 
 <details>
-  <summary> <b>Beispielbild Startseite</b></summary>  
+  <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
   
   ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
 </details>
 
 <details>
-  <summary> <b>Startseite als GIF</b></summary>   
+  <summary> <b>Startseite als GIF (animiert)</b></summary>   
   
   ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 </details>
@@ -879,10 +879,9 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 - Optimierungen am Layout für bessere Handynutzung
 
 #### update Dez 24-- v.1.0.0
-- Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (zuruck-Startseite-Button.yaml) ist in allen Ordnern zu finden. 
+- Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (submenu-untere-menu-card.yaml) ist in allen Ordnern zu finden. 
 Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
 Beispiel Foto anbei.
-- <img src="https://github.com/user-attachments/assets/6e893014-133d-4acf-a6dd-05cd45a6a266" width="400" height="250" />
 - first release
 
 ## 👩‍💻 Sourcecode Yaml
