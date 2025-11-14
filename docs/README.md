@@ -7,7 +7,7 @@ Homedashboard Cards and Layout Code for Home Assistant
 Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Das Dashboard basiert auf dem neuen Kacheldesign in HA. Inzwischen ist die Struktur des Dashboards sehr gewachsen, wechselhalb eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
 Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Daher wird gerade die Startseite mit vielen dynamischen Einblendungen, PopUp- und Conditional-Cards gestaltet. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen. Aktuelle Updates Infos findet ihr in den jeweiligen Releases.
 
-### Read in english - [English-ReadMe](https://github.com/jayjojayson/HA_homedashboard/blob/main/z-English-ReadMe/readME-Eng.md)
+**Read in english - [English-ReadMe](https://github.com/jayjojayson/HA_homedashboard/blob/main/z-English-ReadMe/readME-Eng.md)**
 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
@@ -19,27 +19,27 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 
 
 
-### 📂 Ordnerstruktur
+**📂 Ordnerstruktur**
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
 Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
 
 #
 # 📖 Features
 
-- ### 📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](#-installation)
-- ### 📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)
-- ### 📣 sticky Sidebar ein-/ausblenden (Button-Action)  [(optional)](#-installation)
-- ### ⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom
-- ### ⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)
-- ### 📣 Zurück-Button (zur Startseite) am unteren Rand fest eingebunden 
-- ### ⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite
-- ### ⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia
-- ### ☔ ausführliche Wettercard (dwd wetterdienst vorausgesetzt)
-- ### ⚡ ausführliche Stromübersicht - aktuelle Verbrauchswerte für Geräte und Gesamt (Watt/kWh) 📈 History 
-- ### ☀️ Solarinput ebenfalls mit in Stromübersichtkarte & Startseite aufgenommen
-- ### 💻 angepasst für Lenovo M10 3.Gen Tablet (aber auch andere Tablets mit 10 oder 11")
-- ### 📱 großteils Handy kompatibel (getestet mit s24)
-- ### viele tabbed und popups cards
+- **📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
+- **📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
+- **📣 sticky Sidebar ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
+- **⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom**
+- **⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)**
+- **📣 Zurück-Button (zur Startseite) am unteren Rand fest eingebunden** 
+- **⭐ Hauptseiten für Heizung, Licht, Garten, Wetter und Strom plus Startseite**
+- **⭐ Unterseiten für Einstellungen, Roboter, 📹 Sicherheit und Multimedia**
+- **☔ ausführliche Wettercard (dwd wetterdienst vorausgesetzt)**
+- **⚡ ausführliche Stromübersicht - aktuelle Verbrauchswerte für Geräte und Gesamt (Watt/kWh) 📈 History**
+- **☀️ Solarinput ebenfalls mit in Stromübersichtkarte & Startseite aufgenommen**
+- **💻 angepasst für Lenovo M10 3.Gen Tablet (aber auch andere Tablets mit 10 oder 11")**
+- **📱 großteils Handy kompatibel (getestet mit s24)**
+- **viele tabbed und popups cards**
 
 ...coming soon
 
@@ -49,7 +49,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
 Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
 
-### für alle Seiten notwendig
+**für alle Seiten notwendig**
 - mushroom
 - card-mod
 - stack in card
@@ -65,7 +65,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
     ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg)  
   </details>
 
-### für Staubsauger und Müll Card notwendig
+**für Staubsauger und Müll Card notwendig**
 - dreame vacuum map card
 - trash card
 - ics calendar 
@@ -75,7 +75,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
     ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
   </details>
 
-### für Wetter Card notwendig
+**für Wetter Card notwendig**
 - deutscher wetterdienst
 - NINA Wetterwarnungen
 - compass card (neu für Windrichtung)
@@ -85,7 +85,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
     ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg)  
   </details>
 
-### für Stromübersicht Card notwendig
+**für Stromübersicht Card notwendig**
 - power flow card plus
 - sankey chart card
 - energy overview card
@@ -95,7 +95,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
     ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg)  
   </details>
 
-### für Paketeüberischt Card notwendig
+**für Paketeüberischt Card notwendig**
 - 17track Integration
 
 ### für Raspi-Status Card notwendig
@@ -112,14 +112,14 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 (optional - Swipen für vor und zurück auf Tablet oder Handy)
 - home assistant swipe navigation
 
-### Sensoren
+**Sensoren**
 Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist notwendig, um Temperatur-, Luft-, und Solarwerte nach Zustand einzufärben.
 Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
 #
 # 📥 Installation
 
-### Installation über HACS
+## Installation über HACS
 - Gehe zu Hacs und füge das Respository dort ein. Dazu oben rechts auf die drei Punkte klicken, importieren auswählen und den Link von hier dort einfügen. Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
 
 Link für HACS
@@ -132,7 +132,7 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
 
-### Manuelle Installation
+## Manuelle Installation
 1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
 2. Gehe zu deinem Dashboard und füge den kopierten Code in eine neue Card oder direkt in eine neue Seite ein.
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
@@ -843,5 +843,5 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
-#### ` Note: Danke an die Entwickler der Cards aus meinen Voraussetzungen.`
-#### ` Dadurch wird das Dahsboard zu dem, was es ist. 🤗` 
+**` Note: Danke an die Entwickler der Cards aus meinen Voraussetzungen.`**
+**` Dadurch wird das Dahsboard zu dem, was es ist. 🤗`**
