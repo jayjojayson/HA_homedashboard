@@ -841,44 +841,6 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
   
 </details>
 
-#
-## ‼️ Updates
-
-#### update 25 Jan 25-- v.1.0.4
-- Sticky sidebar Menu mit Schalter-Option hinzugefügt
-- Box-Shadow für alle Cards erstellt
-- Submenu-Cards überarbeitet (für bessere Navigation)
-- alle Seiten von Startseite ohne Topheader erreichbar
-- Video für Beispielnutzung erstellt
-- HA updates in "Einstellungen" Seite intgriert (updates können dort mit Autobackup durchgeführt werden)
-
-#### update 17 Jan 25-- v.1.0.3
-- particles background mit Schalter-Option hinzugefügt
-- sensoren.yaml update für neue card günstigste Tankstelle
-- multiple-entity-row (hacs) card aufgenommen für bessere Übersicht
-- Bewegungsmelder Card auf Startseite hinzugefügt (dynamische Einblendung)
-- hoftor-haustür-bewegung-card hat update erhalten
-- readME Englisch erstellt
-
-#### update 12 Jan 25-- v.1.0.2
-- Integration über HACS möglich Dashboard wird unter www/community abgelegt.
-  Von dort könnt ihr es in ein neues Dashboard kopieren
-- Theme kann kopiert & importiert werden, dafür muss das Theme in configuration.yaml definiert werden
-- Überarbeitung aller Cards für Integration mit Card Mod 3.4.4 und ab HA 2025.1
-- minimal-graph-cards überarbeitet (keine Template-Sensoren mehr notwendig)
-- kleine bugfixes, sensoren.yaml angepasst
-  
-#### update 05 Jan 25-- v.1.0.1
-- mit der Integration für HACS begonnen (aktuell könnt ihr das komplette Dashboard importieren)
-- HA_homedashbord_theme Yaml hinzugefügt und ReadMe Datei besser struktiert, mit Beispielfotos für einzelene Cards
-- Compass Card für Windrichtungsanzeige auf Wetterseite hinzugefügt
-- Optimierungen am Layout für bessere Handynutzung
-
-#### update Dez 24-- v.1.0.0
-- Auf allen Haupt- und Unterseiten wurde ein "zurück Button" eingefügt. Der Code (submenu-untere-menu-card.yaml) ist in allen Ordnern zu finden. 
-Ihr könnt einfach bei euch auf dem Dashboard eine neue manuelle card erstellen und den Code dort hineinkopieren. Der Button wird im Anschluss fest unten eingefügt.
-Beispiel Foto anbei.
-- first release
 
 ## 👩‍💻 Sourcecode Yaml
 
