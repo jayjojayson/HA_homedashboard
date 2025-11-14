@@ -98,7 +98,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 **für Paketeüberischt Card notwendig**
 - 17track Integration
 
-### für Raspi-Status Card notwendig
+**für Raspi-Status Card notwendig**
 - System Monitor Integration
   <details>
     <summary> <b>Beispielbild</b></summary>  
