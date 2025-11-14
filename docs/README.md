@@ -138,9 +138,7 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.
 4. Schaue das Ergebnis an. 
 
-<details>
-  <summary> 💬 - <b>Topmenü Hack</b> ---</summary>
-
+  #
   ## 💬 Topmenü Hack 
   
   Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
@@ -171,10 +169,6 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
           input_boolean.kioskmode: 'off'
         hide_header: false
   ```
-</details>
-
-<details>
-  <summary> 💬 - <b>particles background</b> ---</summary>
 
   ## 💬 particles background
   
@@ -214,11 +208,6 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
   ```
   ![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
     
-</details>
-
-<details>
-  <summary> 💬 - <b>sticky Sidebar</b> ---</summary>
-
   ## 💬 sticky Sidebar
   
   Für die Sticky Sidebar wird ein Helfer benötigt. Unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Sidebar Menu angelegen, dann könnt ihr den 
@@ -766,11 +755,6 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
   ```
   ![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
     
-</details>
-
-<details>
-  <summary> 💬 - <b>HA_Homedashboard Theme Datei</b> ---</summary>
-
   ## 💬 HA_Homedashboard Theme Datei 
   
   Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, könnt ihr HACS für die Installation nutzen oder könnt euch die HA_Homedashboard Theme Yaml in euer HA 
@@ -787,53 +771,45 @@ configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
-</details>
-
-<details>
-  <summary> 💬 - <b>Automatisierung Müllansage Vorabend</b> ---</summary>
 
   ## 💬 Automatisierung Müllansage Vorabend (Sprachausgabe + Notify Handy)
-
-Die Automation sagt euch am Vorabend um 18:00 Uhr an, welche Tonne herausgestellt werden muss. Dazu wird der Abfallkalender nach dem nächsten Termin durchsucht und da diese immer ganztäglich sind, beginnen sie somit um 0:00 Uhr. Daher ist ein Zeitversatz von -6h eingebaut, so dass die Ansage am Vorabend erfolgt. Ihr könnt die Zeit natürlich anpassen. Die Sprachausgabe erfolgt über einen media_player eurer Wahl. Zusätzlich könnt ihr euch auf dem Handy benachrichtigen lassen. Die drei Entitäten Kalender, Media_player und Handy müsst ihr natürlich mit euren ausstauschen.
   
-  ```yaml
-alias: Ansage Abfallkalender
-description: Notification auf dem Handy und über Echo Dot
-triggers:
-  - entity_id: calendar.abfall
-    event: start
-    offset: "-6:0:0"
-    trigger: calendar
-conditions: []
-actions:
-  - data:
-      message: >
-        Heute muss die {{ state_attr('calendar.abfall', 'message') }}
-        herausgestellt werden.
-      title: |
-        {{ state_attr('calendar.abfall', 'message') }}
-    action: notify.mobile_app_samsung_s24
-  - data:
-      message: >
-        Es ist wieder Zeit, die {{ state_attr('calendar.abfall', 'message') }}
-        auf die Straße zu stellen.
-      title: Nächste Ziehung steht an!
-    action: notify.alexa_media_jan_s_echo
-mode: single
-
-  ```
-</details>
-
-<details>
-  <summary> 💬 - <b>günstigste Tankstelle ermitteln</b> ---</summary>
-
+  Die Automation sagt euch am Vorabend um 18:00 Uhr an, welche Tonne herausgestellt werden muss. Dazu wird der Abfallkalender nach dem nächsten Termin durchsucht und da diese immer ganztäglich sind, beginnen sie somit um 0:00 Uhr. Daher ist ein Zeitversatz von -6h eingebaut, so dass die Ansage am Vorabend erfolgt. Ihr könnt die Zeit natürlich anpassen. Die Sprachausgabe erfolgt über einen media_player eurer Wahl. Zusätzlich könnt ihr euch auf dem Handy benachrichtigen lassen. Die drei Entitäten Kalender, Media_player und Handy müsst ihr natürlich mit euren ausstauschen.
+    
+    ```yaml
+  alias: Ansage Abfallkalender
+  description: Notification auf dem Handy und über Echo Dot
+  triggers:
+    - entity_id: calendar.abfall
+      event: start
+      offset: "-6:0:0"
+      trigger: calendar
+  conditions: []
+  actions:
+    - data:
+        message: >
+          Heute muss die {{ state_attr('calendar.abfall', 'message') }}
+          herausgestellt werden.
+        title: |
+          {{ state_attr('calendar.abfall', 'message') }}
+      action: notify.mobile_app_samsung_s24
+    - data:
+        message: >
+          Es ist wieder Zeit, die {{ state_attr('calendar.abfall', 'message') }}
+          auf die Straße zu stellen.
+        title: Nächste Ziehung steht an!
+      action: notify.alexa_media_jan_s_echo
+  mode: single
+  
+    ```
+  
   ## 💬 günstigste Tankstelle ermitteln
-
-Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werden. Diese findet ihr in der sensoren-beispiel.yaml. Der erste ermittelt den günstigsten Preis in der Umgebung und der zweite die dazugehörige Straße bzw. Tankstelle.
-Die Enttitäten der Tanken müssen entsprechend angepasst werden. Ich nutze dafür die Integration Tankerkoenig. Ein kostenloser API Schlüssel kann auf der Seite von Tankerkoenig beantragt werden.
-Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
   
-</details>
+  Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werden. Diese findet ihr in der sensoren-beispiel.yaml. Der erste ermittelt den günstigsten Preis in der Umgebung und der zweite die dazugehörige Straße bzw. Tankstelle.
+  Die Enttitäten der Tanken müssen entsprechend angepasst werden. Ich nutze dafür die Integration Tankerkoenig. Ein kostenloser API Schlüssel kann auf der Seite von Tankerkoenig beantragt werden.
+  Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
+    
+
 
 #
 #  👩‍💻 Sourcecode Yaml
