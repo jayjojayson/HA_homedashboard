@@ -1,6 +1,7 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
-# ✨ HA_homedashboard ✨ 
+#
+# Einführung
 Homedashboard Cards and Layout Code for Home Assistant
 
 Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Das Dashboard basiert auf dem neuen Kacheldesign in HA. Inzwischen ist die Struktur des Dashboards sehr gewachsen, wechselhalb eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
@@ -11,15 +12,8 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
   
-  ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+  ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg)  
 </details>
-
-<details>
-  <summary> <b>Startseite als GIF (animiert)</b></summary>   
-  
-  ![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
-</details>
-
 
 [![HA_homedashboard](https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
 
@@ -56,7 +50,7 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 ![unterseiten](https://github.com/user-attachments/assets/7d6ffdfd-b7af-4478-a4b5-611d8ddefdb2)
 
 #
-## ✔️ Voraussetzungen
+# ✔️ Voraussetzungen
 
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
 Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
@@ -74,7 +68,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild Startseite</b></summary>  
     
-    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg)  
   </details>
 
 ### für Staubsauger und Müll Card notwendig
@@ -84,7 +78,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
+    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
   </details>
 
 ### für Wetter Card notwendig
@@ -94,7 +88,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/5%20Wetter/wetterseite_ubersicht.jpg)  
+    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg)  
   </details>
 
 ### für Stromübersicht Card notwendig
@@ -104,7 +98,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/6%20Strom/stromseite_ubersicht.jpg)  
+    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg)  
   </details>
 
 ### für Paketeüberischt Card notwendig
@@ -115,7 +109,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
+    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
   </details>
 
 (optional - Topmenu verstecken)
