@@ -755,7 +755,6 @@ card:
                       - margin: none
 
 ```
-![Aufzeichnung 2025-01-17 174641 (2)](https://github.com/user-attachments/assets/8a822d2b-757b-411f-b239-982fd412243c)
   
 ## 💬 HA_Homedashboard Theme Datei 
 
