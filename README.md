@@ -1,6 +1,5 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/jayjojayson/HA_homedashboard?include_prereleases=&sort=semver&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases/)
-[![Downloads](https://img.shields.io/github/downloads/jayjojayson/HA_homedashboard/total?label=downloads&logo=github&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases)
 [![GH-code-size](https://img.shields.io/github/languages/code-size/jayjojayson/HA_homedashboard?color=blue)](https://github.com/jayjojayson/HA_homedashboard)
 
 # ✨ HA_homedashboard ✨ 
