@@ -28,9 +28,9 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 #
 # 📖 Features
 
-- **📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
-- **📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
-- **📣 sticky Sidebar ein-/ausblenden (Button-Action)  [(optional)](#-installation)**
+- **📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](https://jayjojayson.github.io/HA_homedashboard/#/Custom_Cards)**
+- **📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](https://jayjojayson.github.io/HA_homedashboard/#/Custom_Cards)**
+- **📣 sticky Sidebar ein-/ausblenden (Button-Action)  [(optional)](https://jayjojayson.github.io/HA_homedashboard/#/Custom_Cards)**
 - **⭐ Startseite mit popups für Heizung, Wetter, Kamera und Strom**
 - **⭐ Startseite mit dynamischen Inhalten für (Müll, Fenster, Licht, Multimedia, Pakete, Feiertage)**
 - **📣 Zurück-Button (zur Startseite) am unteren Rand fest eingebunden** 
