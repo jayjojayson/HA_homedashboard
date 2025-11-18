@@ -23,5 +23,5 @@
   - [📟 Systemgeräte](System_Geraete.md)
 
 - ⚙️ **Custom Konfiguration**
-  - [🧩 Custom Cards](Custom_Cards.md)
+  - [🧩 Custom Stuff](Custom_Cards.md)
 
