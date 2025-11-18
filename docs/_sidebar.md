@@ -1,19 +1,20 @@
-* [**Willkommen**](README) 
-* [Startseite](Startseite)
----
-* **System & Technik**
-    * [System & Geräte](System_Geraete)
-    * [Custom Cards](Custom_Cards)
-    * [Home Dashboard Theme](HomeDashboard_Theme)
----
-* **Haussteuerung**
-    * [Licht](Licht)
-    * [Heizung](Heizung)
-    * [Energie](Energie)
-    * [Sicherheit](Sicherheit)
-    * [Roboter](Roboter)
----
-* **Spezial**
-    * [Garten & Pool](Garten_Pool)
-    * [Media](Media)
-    * [Wetter](Wetter)
+- Dokumentation Start
+  - [Willkommen (Übersicht)](README.md)
+  - [Startseite](Startseite.md)
+
+- System & Technik
+  - [System & Geräte](System_Geraete.md)
+  - [Custom Cards](Custom_Cards.md)
+  - [Home Dashboard Theme](HomeDashboard_Theme.md)
+
+- Haussteuerung
+  - [Licht](Licht.md)
+  - [Heizung](Heizung.md)
+  - [Energie](Energie.md)
+  - [Sicherheit](Sicherheit.md)
+  - [Roboter](Roboter.md)
+  - [Garten & Pool](Garten_Pool.md)
+
+- Unterhaltung & Daten
+  - [Media](Media.md)
+  - [Wetter](Wetter.md)
