@@ -1,4 +1,4 @@
-# 📚 Dokumentation
+# 
 
 - 📚 Doku
   - [📘 Einführung / Installation](README.md)
