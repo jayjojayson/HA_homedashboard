@@ -1,20 +1,20 @@
-- Dokumentation Start
-  - [Willkommen (Übersicht)](README.md)
-  - [Startseite](Startseite.md)
+# 📚 Dokumentation
 
-- System & Technik
-  - [System & Geräte](System_Geraete.md)
-  - [Custom Cards](Custom_Cards.md)
-  - [Home Dashboard Theme](HomeDashboard_Theme.md)
+- 🏠 **Start**
+  - [📘 Einführung/Installtion](README.md)
 
-- Haussteuerung
-  - [Licht](Licht.md)
-  - [Heizung](Heizung.md)
-  - [Energie](Energie.md)
-  - [Sicherheit](Sicherheit.md)
-  - [Roboter](Roboter.md)
-  - [Garten & Pool](Garten_Pool.md)
+- 💡 **Bereiche**
+  - [🏡 Übersicht](Startseite.md)
+  - [💡 Licht](Licht.md)
+  - [🔥 Heizung](Heizung.md)
+  - [⚡ Energie](Energie.md)
+  - [🌦️ Wetter](Wetter.md)
+  - [🏊 Garten & Pool](Garten_Pool.md)
+  - [🔒 Sicherheit](Sicherheit.md)
+  - [🎬 Media](Media.md)
+  - [🤖 Roboter](Roboter.md)
 
-- Unterhaltung & Daten
-  - [Media](Media.md)
-  - [Wetter](Wetter.md)
+- 🛠️ **Systeme & Geräte**
+  - [🧩 Custom Cards](Custom_Cards.md)
+  - [📟 Systemgeräte](System_Geraete.md)
+  - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
