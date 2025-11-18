@@ -110,7 +110,9 @@ You can find the sensors at sensors.yaml. Copy the corresponding sensor there, e
 # 📥 Installation
 
 #### Installation via HACS
-- Go to Hacs and add the repository there. To do this, click on the three dots in the top right, select import and paste the link from here there. After importing, you can install the dashboard via HACS. The dashboard is stored at `www/community/HA_homedashboard/`. You can navigate there using the file manager in the menu. Copy the content and go to Settings > Dashboard > create new dashboard and then click on the three dots in the top right, select raw configuration editor and paste the copied code there. You can then open the dashboard and add your entities and design it as you wish.
+- Go to Hacs and add the repository there. To do this, or use this Link.
+- [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=integration)
+- After importing, you can install the dashboard via HACS. The dashboard is stored at `www/community/HA_homedashboard/`. You can navigate there using the file manager in the menu. Copy the content and go to Settings > Dashboard > create new dashboard and then click on the three dots in the top right, select raw configuration editor and paste the copied code there. You can then open the dashboard and add your entities and design it as you wish.
 
 Link for HACS
 ```yaml
@@ -259,3 +261,4 @@ mode: single
 
   ```
 </details>
+
