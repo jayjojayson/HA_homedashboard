@@ -24,4 +24,5 @@
 
 - ⚙️ **Custom Konfiguration**
   - [🧩 Custom Stuff](Custom_Cards.md)
+  - [🧩 Custom Sensoren](Custom_Sensoren.md)
 
