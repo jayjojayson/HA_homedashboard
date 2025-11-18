@@ -1,0 +1,3 @@
+- [🏠 Startseite](/)
+- [🧰 GitHub Repo](https://github.com/jayjojayson/HA_homedashboard)
+- [📥 Download](https://github.com/jayjojayson/HA_homedashboard/releases)
