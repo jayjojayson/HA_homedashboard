@@ -1,4 +1,3 @@
-#
 ## 💬 Sensoren 
 
 Diese Sensoren nutze ich im Dahsboard. Wer z.B. den günstigen Spritpreis nachbauen möchte, findet hier die Sensoren dazu. Ich habe diese in der configuration.yaml hinterlegt, können aber auch nach Wunsch in einzelne Sensoredateien ausgelagert werden.
