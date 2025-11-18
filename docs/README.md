@@ -1,5 +1,5 @@
-[![hacs_badge](https://img.shields.io/badge/HACS-custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
-
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![GitHub release](https://img.shields.io/github/release/jayjojayson/HA_homedashboard?include_prereleases=&sort=semver&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases/)
 #
 # ℹ️ Einführung
 Homedashboard Cards and Layout Code for Home Assistant
