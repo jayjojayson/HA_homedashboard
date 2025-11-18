@@ -20,4 +20,4 @@
   - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
 
 - 🛠️ **Custom Konfiguration**
-  - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
+  - folgt...
