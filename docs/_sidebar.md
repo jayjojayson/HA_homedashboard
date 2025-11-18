@@ -1,5 +1,7 @@
 - 📚 Doku
   - [📘 Einführung/Installtion](README.md)
+  - [🧰 GitHub Repo](https://github.com/jayjojayson/HA_homedashboard)
+  - [📥 Download](https://github.com/jayjojayson/HA_homedashboard/releases)
 
 - 📲 **Dashboard Hauptseiten Cards**
   - [🏡 Übersicht](Startseite.md)
