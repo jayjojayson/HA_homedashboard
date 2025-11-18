@@ -1,9 +1,9 @@
 - 📚 Doku
-  - [📘 Einführung/Installtion](README.md)
+  - [📘 Einführung / Installation](README.md)
   - [🧰 GitHub Repo](https://github.com/jayjojayson/HA_homedashboard)
   - [📥 Download](https://github.com/jayjojayson/HA_homedashboard/releases)
 
-- 📲 **Dashboard Hauptseiten Cards**
+- 📲 **Dashboard Hauptseiten**
   - [🏡 Übersicht](Startseite.md)
   - [💡 Licht](Licht.md)
   - [🔥 Heizung](Heizung.md)
@@ -11,7 +11,7 @@
   - [🏊 Garten & Pool](Garten_Pool.md)
   - [⚡ Energie](Energie.md)
 
-- 📲 **Dashboard Unterseiten Cards**
+- 📲 **Dashboard Unterseiten**
   - [🔒 Sicherheit](Sicherheit.md)
   - [🎬 Media](Media.md)
   - [🤖 Roboter](Roboter.md)
@@ -21,5 +21,6 @@
 - 🛠️ **Dashboard Theme**
   - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
 
-- 🛠️ **Custom Konfiguration**
-  - folgt...
+- ⚙️ **Custom Konfiguration**
+  - *(Hier später eigene Inhalte ergänzen)*  
+
