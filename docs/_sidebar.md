@@ -1,3 +1,5 @@
+# 📚 Dokumentation
+
 - 📚 Doku
   - [📘 Einführung / Installation](README.md)
   - [🧰 GitHub Repo](https://github.com/jayjojayson/HA_homedashboard)
