@@ -1,20 +1,23 @@
-# 📚 Dokumentation
-
-- 🏠 **Start**
+- 📚 Doku
   - [📘 Einführung/Installtion](README.md)
 
-- 💡 **Bereiche**
+- 📲 **Dashboard Hauptseiten Cards**
   - [🏡 Übersicht](Startseite.md)
   - [💡 Licht](Licht.md)
   - [🔥 Heizung](Heizung.md)
-  - [⚡ Energie](Energie.md)
   - [🌦️ Wetter](Wetter.md)
   - [🏊 Garten & Pool](Garten_Pool.md)
+  - [⚡ Energie](Energie.md)
+
+- 📲 **Dashboard Unterseiten Cards**
   - [🔒 Sicherheit](Sicherheit.md)
   - [🎬 Media](Media.md)
   - [🤖 Roboter](Roboter.md)
-
-- 🛠️ **Systeme & Geräte**
   - [🧩 Custom Cards](Custom_Cards.md)
   - [📟 Systemgeräte](System_Geraete.md)
+
+- 🛠️ **Dashboard Theme**
+  - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
+
+- 🛠️ **Custom Konfiguration**
   - [🎨 Home Dashboard Theme](Homedashboard_Theme.md)
