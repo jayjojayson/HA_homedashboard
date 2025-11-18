@@ -1,4 +1,3 @@
-#
 ## 💬 Topmenü Hack 
 
 Um das Topmenü auf Tablet und Handy auszublenden nutze ich den Kiosk Mode von HACS.
@@ -651,4 +650,5 @@ Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werde
 Die Enttitäten der Tanken müssen entsprechend angepasst werden. Ich nutze dafür die Integration Tankerkoenig. Ein kostenloser API Schlüssel kann auf der Seite von Tankerkoenig beantragt werden.
 Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
     
+
 
