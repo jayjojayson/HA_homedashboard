@@ -19,8 +19,24 @@
         loadSidebar: true, 					// Muss 'true' sein
 		name: '✨HA_homedashboard✨',		// Seitentitel
 		subMaxLevel: 2 						// Generiert Inhaltsverzeichnis bis H3
+		// Such-Plugin Konfiguration
+	    search: {
+	      maxAge: 86400000, // Maximale Cache-Dauer (1 Tag)
+	      paths: 'auto',   // Sucht in allen Dateien
+	      placeholder: 'Suchen', // Text im Suchfeld
+	      noData: 'Keine Ergebnisse gefunden!', // Text bei keiner Übereinstimmung
+	      // Übersetzungs- und Pfadkonfiguration (wenn nötig)
+	    },
+		// Konfiguration des Copy-Code Plugins
+	    copyCode: {
+	      buttonText: 'Copy', // Text auf dem Button
+	      errorText: 'Fehler beim Kopieren!',      // Text, wenn Kopieren fehlschlägt
+	      successText: 'Done!',                    // Text, wenn Kopieren erfolgreich ist
+	    },
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+	<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>     
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
   </body>
 </html>
