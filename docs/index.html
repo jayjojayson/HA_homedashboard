@@ -18,7 +18,12 @@
       window.$docsify = {
         loadSidebar: true, 					// Muss 'true' sein
 		name: '✨HA_homedashboard✨',		// Seitentitel
-		subMaxLevel: 2 						// Generiert Inhaltsverzeichnis bis H3
+		subMaxLevel: 2, 						// Generiert Inhaltsverzeichnis bis H3
+        theme: 'simple', 
+
+		// NEU: Definiert die Reihenfolge der Elemente in der Seitenleiste
+		sidebarDisplayLevel: 0, // Option für 'simple' theme
+		sidebarDisplayOrder: ['logo', 'search', 'content', 'sidebar'],
       };
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
