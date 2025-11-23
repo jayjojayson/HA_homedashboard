@@ -1,5 +1,4 @@
-
-![img](https://github.com/jayjojayson/HA_homedashboard/blob/main/2%20Heizung/heizungseite_ubersicht.jpg)
+![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/2%20Heizung/heizungseite_ubersicht.jpg)
 
 
 # Heizung Card (groß)
@@ -634,3 +633,4 @@ card_mod:
       bottom: 0;
     }
 ```
+
