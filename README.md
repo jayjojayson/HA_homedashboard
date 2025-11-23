@@ -854,10 +854,11 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 
 #### update 23 Nov 25 -- v.1.0.5
 - komplette Überarbeitung des Dashboard
-- Wiki für Dashboard und alle Cards integriert
 - Anpassung auf aktuellen HA Stand
+- Wiki für Dashboard und alle Cards integriert
+- Energiedashboard neu gestaltet (ausführlichere Daten in der Übersicht)
 - neue Custom Cards: Pool-Flow-Card, Energy-Flow-Card, Sonnenstand-Card
-- Custom Unterseite Victron
+- neue Custom Unterseite Victron
   
 #### update 25 Jan 25-- v.1.0.4
 - Sticky sidebar Menu mit Schalter-Option hinzugefügt
