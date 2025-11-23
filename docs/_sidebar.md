@@ -21,6 +21,7 @@
   - [🎬 Media](Media.md)
   - [🤖 Roboter](Roboter.md)
   - [📟 Systemgeräte](System_Geraete.md)
+  - [⚡ Victron](Victron.md)
 
 - ⚙️ **Custom Konfiguration**
   - [🧩 Dashboard Stuff](Custom_Cards.md)
