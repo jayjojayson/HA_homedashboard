@@ -140,7 +140,7 @@ Link für HACS
 ```yaml
 https://github.com/jayjojayson/HA_homedashboard
 ```
-Für das Theme: configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
+Für das Theme: configuration.yaml mit folgendem ergänzen (Beispiellink)
 ```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
