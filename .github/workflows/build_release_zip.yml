@@ -1,0 +1,28 @@
+name: Build Release ZIP
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create ZIP with required files
+        run: |
+          mkdir package
+          cp ha_homedashboard.yaml package/
+          cp HA_homedashboard_theme.yaml package/
+          cd package
+          zip -r ../HA_homedashboard.zip .
+
+      - name: Upload ZIP to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: HA_homedashboard.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
