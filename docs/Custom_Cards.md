@@ -31,6 +31,8 @@ kiosk_mode:
 
 ## 💬 particles background
 
+Wenn Ihr das Dashobard über Hacs installiert habt, findet die eine fertig und gebrauchsfähige Kopie der Card im Ordner `www/community/HA_homedashboard/`.
+
 Für den Particles Background sind zwei Dinge notwendig. Zuerst müsst ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Background Dashboard angelegen, dann könnt ihr den 
 nachfolgenden Code wie folgt einfügen. Somit könnt ihr im Anschluß bequem per Schalter den partikel Hintergrund ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
 

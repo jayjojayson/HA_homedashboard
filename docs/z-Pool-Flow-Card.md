@@ -1,5 +1,7 @@
 # 🌅 Pool-Flow-Card
 
+Wenn Ihr das Dashobard über Hacs installiert habt, findet die eine fertig und gebrauchsfähige Kopie der Card im Ordner `www/community/HA_homedashboard/`.
+
 Heute möchte ich mal die ha-floorplan-card vorstellen, mit der man auch wunderbar Custom Kreisläufe von Strom, Wasser, Heizung, Solar usw. darstellen kann. Ich habe mich daran mal versucht und eine Flow-Card für meinen Pool erstellt. So sehe ich direkt, welche Pumpen laufen und welche Kreisläufe gerade aktiv sind.  Durch Nutzung der Card kann eine interaktive Darstellung realisiert werden.​
 
 ![image](https://github.com/user-attachments/assets/2b339aff-3de8-4d9d-98ef-00b119002369)

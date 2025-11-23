@@ -120,10 +120,19 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 #
 # 📥 Installation
 
-## ➡️ Installation über HACS
-- Gehe zu Hacs und füge das Respository dort ein, oder nutzt diesen Link.
+#### Installation über HACS
+- Gehe zu Hacs und füge das Respository dort ein. oder benutze diesen Link.
 - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=integration)
-- Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard und Theme wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
+- Nach dem Import könnt ihr über HACS das Dashboard installieren. Alle Dateien werden unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
+
+Installiert wird:
+
+- HA_Dashboard.yaml (muss manuell in neues Dahsboard kopiert werden)
+- HA_Dashboard_Theme.yaml
+- Background-Image
+- Particles Background
+- Pool-Flow-Card
+- Energy-Flow-Card
 
 Link für HACS
 ```yaml
