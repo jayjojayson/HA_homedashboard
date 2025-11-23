@@ -44,6 +44,7 @@ cards:
             - state: "off"
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
             - entity_id: light.cyd_*
+            - entity_id: light.a1_03919c441800312_druckraumbeleuchtung
         sort:
           method: area
       - type: custom:auto-entities
@@ -78,6 +79,7 @@ cards:
             - state: "off"
             - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
             - entity_id: light.cyd_display_backlight
+            - entity_id: light.hofkamera_status_led
         sort:
           method: area
 visibility:

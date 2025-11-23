@@ -1,4 +1,134 @@
 type: custom:vertical-stack-in-card
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: switch.flurlicht
+        card_layout: normal
+        grid_options:
+          columns: 6
+          rows: 1
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:ceiling-light
+        name: Flurlicht
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: switch.sockelleisten_steckdose_1
+        card_layout: normal
+        grid_options:
+          columns: 6
+          rows: 1
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:led-strip-variant
+        name: Sockelleisten
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: light.lampe_flur_schrank_leuchte
+        card_layout: normal
+        grid_options:
+          columns: 6
+          rows: 1
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        name: Flurschrank
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
 card_mod:
   style: |
     ha-card {
@@ -7,79 +137,3 @@ card_mod:
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                   13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
     }
-cards:
-  - type: horizontal-stack
-    cards:
-      - type: tile
-        entity: switch.flurlicht
-        tap_action:
-          action: toggle
-        icon: mdi:ceiling-light
-        vertical: true
-        hide_state: true
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              border-radius: 0px !important;
-              border-right: 1px solid grey !important; 
-              border-left: none !important; 
-              border-top: none !important; 
-              border-bottom: none !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              height: 100% !important;
-              text-align: center !important;
-            }
-            .card-content {
-              margin: auto !important;
-            }
-      - type: tile
-        entity: switch.sockelleisten_steckdose_1
-        name: Sockelleisten
-        icon: mdi:led-strip-variant
-        tap_action:
-          action: toggle
-        vertical: true
-        hide_state: true
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              border-radius: 0px !important;
-              border-right: 1px solid grey !important; 
-              border-left: none !important; 
-              border-top: none !important; 
-              border-bottom: none !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              height: 100% !important;
-              text-align: center !important;
-            }
-            .card-content {
-              margin: auto !important;
-            }
-      - type: tile
-        entity: light.lampe_flur_schrank_leuchte
-        name: Flurschrank
-        tap_action:
-          action: toggle
-        vertical: true
-        hide_state: true
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              border-radius: 0px !important;
-              border: none !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              height: 100% !important;
-              text-align: center !important;
-            }
-            .card-content {
-              margin: auto !important;
-            }     

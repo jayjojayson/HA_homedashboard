@@ -59,22 +59,10 @@ cards:
                     color: var(--primary-text-color) !important;
                 }
           - type: custom:compass-card
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                  zoom: 50%;
-                  margin-top: 15px;
-                  margin-left: 65px;
-                  width: 70%;
-                }
             indicator_sensors:
               - sensor: sensor.fuerstenwalde_spree_windrichtung
                 indicator:
-                  type: arrow_inward
+                  image: arrow_inward
             value_sensors:
               - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
             compass:
@@ -87,6 +75,18 @@ cards:
               north:
                 show: true
                 offset: 150
+            card_mod:
+              style: |
+                ha-card {
+                  background: none !important;
+                  box-shadow: none !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  zoom: 50%;
+                  margin-top: 15px;
+                  margin-left: 65px;
+                  width: 70%;
+                }
             language: de
           - type: custom:mushroom-entity-card
             entity: sensor.aussentemperatur_luftfeuchtigkeit
@@ -163,8 +163,6 @@ cards:
           chart_height: "160"
         units:
           speed: ""
-        temp: sensor.aussentemperatur_temperatur
-        humid: sensor.aussentemperatur_humidity
         card_mod:
           style: |
             .card {

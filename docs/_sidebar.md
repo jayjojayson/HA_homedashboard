@@ -23,6 +23,10 @@
   - [📟 Systemgeräte](System_Geraete.md)
 
 - ⚙️ **Custom Konfiguration**
-  - [🧩 Custom Stuff](Custom_Cards.md)
-  - [🧩 Custom Sensoren](Custom_Sensoren.md)
+  - [🧩 Dashboard Stuff](Custom_Cards.md)
+  - [🧩 Dashboard Sensoren](Custom_Sensoren.md)
+  - [🧩 Energy-Flow-Card](z-Energy_Power-Flow-Card.md) 
+  - [🧩 Pool-Flow-Card](z-Pool-Flow-Card.md) 
+  - [🧩 SolarModul-Card](z-Solar-Paneel-Modul-Card.md) 
+  - [🧩 Sonnenstand-Card](z-Sonnenstand-Card.md) 
 

@@ -12,12 +12,24 @@ sections:
           action: navigate
           navigation_path: /dashboard-test/wetter
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {  
+              margin-bottom: 2px; 
+              border: none;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+            }
         cards:
-          - type: horizontal-stack
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            layout:
+              grid-template-columns: 1fr auto
+              grid-template-rows: auto
             cards:
               - type: custom:digital-clock
                 dateFormat:
-                  weekday: long
+                  weekday: short
                   day: 2-digit
                   month: short
                   year: numeric
@@ -27,92 +39,95 @@ sections:
                 card_mod:
                   style: |
                     ha-card {
-                      min-width: 300px !important;
-                      margin-top: 10px;
-                      margin-left: 10px;
-                      margin-right: 10px !important; 
+                      justify-self: center; /* Zentriert die Uhrzeit, wenn keine Tonne da ist */
                       background-color: transparent !important;
                       color: var(--primary-color) !important;
                       border: none !important;
-                      border-radius: 0px !important;
-                      color: var(--primary-color) !important;
+                      margin-top: 5px;
                     }
-              - event_grouping: true
-                drop_todayevents_from: "8:00:00"
-                next_days: 1
-                pattern:
-                  - icon: mdi:flower
-                    color: green
-                    type: organic
-                    pattern: Biotonne
-                    image: /local/bilder/gruen.jpg
-                  - icon: mdi:newspaper
-                    color: blue
-                    type: paper
-                    pattern: Papiertonne
-                    image: /local/bilder/blau.png
-                  - icon: mdi:recycle-variant
-                    color: amber
-                    type: recycle
-                    pattern: Gelber Sack
-                    image: /local/bilder/gelb.png
-                  - icon: mdi:trash-can-outline
-                    color: grey
-                    type: waste
-                    pattern: Restabfall
-                    image: /local/bilder/schwarz.png
-                  - icon: mdi:dump-truck
-                    color: purple
-                    type: others
-                day_style: counter
-                alignment_style: center
-                color_mode: icon
-                items_per_row: 2
-                refresh_rate: 600
-                with_label: false
-                layout: vertical
-                type: custom:trash-card
-                entities:
-                  - calendar.abfall
-                filter_events: false
-                use_summary: false
-                hide_time_range: false
-                full_size: false
+              - type: custom:vertical-stack-in-card
                 card_mod:
                   style: |
                     ha-card {
                       background-color: transparent !important;
                       color: var(--primary-color) !important;
                       border: none !important;
-                      border-radius: 0px !important;
-                      position: relative;
-                      width: 90px !important;
-                      margin-top: 0px !important; 
-                      margin-bottom: 10px !important; 
-                      margin-right: 5px !important;
-                      margin-left: 105px !important;   
-                      padding-bottom: 0px !important; 
+                      border-radius: 0px !important; 
+                      zoom: 80%; 
                     }
-                    .card-container {
-                        display: block !important;
-                    }
-                    /* Skaliert die Icons */
-                    .icon-container {
-                      transform: scale(1.5); /* Vergrößert nur die Icons */
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      margin-top: 10px;
-                    }
-                    /* Begrenzt den Einfluss des Scales auf den Rest */
-                    .icon-container ha-tile-image {
-                      margin: 0 !important;
-                    }
-                    /* Text kleiner machen */
-                    .content {
-                      font-size: 12px !important; /* Anpassung der Textgröße */
-                      text-align: center;
-                    }    
+                cards:
+                  - type: custom:trash-card
+                    event_grouping: true
+                    drop_todayevents_from: "8:00:00"
+                    next_days: 1
+                    pattern:
+                      - icon: mdi:flower
+                        color: green
+                        type: organic
+                        pattern: Biotonne
+                        image: /local/bilder/gruen.jpg
+                      - icon: mdi:newspaper
+                        color: blue
+                        type: paper
+                        pattern: Papiertonne
+                        image: /local/bilder/blau.png
+                      - icon: mdi:recycle-variant
+                        color: amber
+                        type: recycle
+                        pattern: Gelber Sack
+                        image: /local/bilder/gelb.png
+                      - icon: mdi:trash-can-outline
+                        color: grey
+                        type: waste
+                        pattern: Restabfall
+                        image: /local/bilder/schwarz.png
+                      - icon: mdi:dump-truck
+                        color: purple
+                        type: others
+                    day_style: counter
+                    alignment_style: center
+                    color_mode: icon
+                    items_per_row: 2
+                    refresh_rate: 600
+                    with_label: false
+                    layout: vertical
+                    entities:
+                      - calendar.abfall
+                    filter_events: false
+                    use_summary: false
+                    hide_time_range: false
+                    full_size: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: transparent !important;
+                          color: var(--primary-color) !important;
+                          border: none !important;
+                          border-radius: 0px !important;
+                          position: relative;
+                          padding-bottom: 0px !important;
+                          width: 100px;
+                        }
+                        .card-container {
+                            display: block !important;
+                        }
+                        /* Skaliert die Icons */
+                        .icon-container {
+                          transform: scale(1.5); /* Vergrößert nur die Icons */
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          margin-top: 12px;
+                        }
+                        /* Begrenzt den Einfluss des Scales auf den Rest */
+                        .icon-container ha-tile-image {
+                          margin: 0 !important;
+                        }
+                        /* Text kleiner machen */
+                        .content {
+                          font-size: 12px !important; /* Anpassung der Textgröße */
+                          text-align: center;
+                        }    
           - type: horizontal-stack
             cards:
               - type: custom:vertical-stack-in-card
@@ -264,15 +279,8 @@ sections:
                       background: none !important;
                       border-radius: 0px !important;
                       border: none !important; 
+                      margin-top: -10px !important; margin-bottom: -3px; 
                     }
-        card_mod:
-          style: |
-            ha-card {
-              margin-bottom: 3px !important;
-              border: none !important;   
-              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
-            }
       - type: custom:stack-in-card
         card_mod:
           style: |
@@ -334,22 +342,10 @@ sections:
                             color: var(--primary-text-color) !important;
                         }
                   - type: custom:compass-card
-                    card_mod:
-                      style: |
-                        ha-card {
-                          background: none !important;
-                          box-shadow: none !important;
-                          border: none !important;
-                          border-radius: 0px !important;
-                          zoom: 50%;
-                          margin-top: 15px;
-                          margin-left: 65px;
-                          width: 70%;
-                        }
                     indicator_sensors:
                       - sensor: sensor.fuerstenwalde_spree_windrichtung
                         indicator:
-                          type: arrow_inward
+                          image: arrow_inward
                     value_sensors:
                       - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
                     compass:
@@ -362,6 +358,18 @@ sections:
                       north:
                         show: true
                         offset: 150
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none !important;
+                          box-shadow: none !important;
+                          border: none !important;
+                          border-radius: 0px !important;
+                          zoom: 50%;
+                          margin-top: 15px;
+                          margin-left: 65px;
+                          width: 70%;
+                        }
                     language: de
                   - type: custom:mushroom-entity-card
                     entity: sensor.aussentemperatur_luftfeuchtigkeit
@@ -438,8 +446,6 @@ sections:
                   chart_height: "160"
                 units:
                   speed: ""
-                temp: sensor.aussentemperatur_temperatur
-                humid: sensor.aussentemperatur_humidity
                 card_mod:
                   style: |
                     .card {
@@ -490,6 +496,7 @@ sections:
         card_mod:
           style: |
             ha-card {   
+              opacity: 0.5 !important;
               box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                           13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
               position: relative;
@@ -498,11 +505,13 @@ sections:
             }
             /* Skaliert die Icons */
             .icon-container {
+              opacity: 0.5 !important;
               transform: scale(1.5); /* Vergrößert nur die Icons */
               display: flex;
               justify-content: center;
               align-items: center;
               margin-top: 20px;
+              height: 10px;
             }
             /* Begrenzt den Einfluss des Scales auf den Rest */
             .icon-container ha-tile-image {
@@ -615,9 +624,32 @@ sections:
                           13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
             }
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.jan_s_echo', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.jan_s_echo', 'playing') or is_state('media_player.jan_s_echo', 'paused') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.3s ease;
+            }
         cards:
           - type: custom:mushroom-media-player-card
-            entity: media_player.wohnzimmer
+            entity: media_player.echo_show
             media_controls:
               - play_pause_stop
               - next
@@ -630,13 +662,6 @@ sections:
             collapsible_controls: false
             use_media_info: true
             icon: mdi:cast-audio
-            card_mod:
-              style: |
-                :host {
-                  background: none !important;
-                  box-shadow: none;
-                  z-index: 1 !important; /* Über dem Hintergrund */
-                }
           - type: custom:mushroom-chips-card
             card_mod:
               style: |
@@ -671,29 +696,6 @@ sections:
                   action: toggle
                 content_info: name
                 name: 91,4
-        card_mod:
-          style: |
-            ha-card {
-              border: none !important;
-              position: relative;
-              overflow: hidden;  
-              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important; 
-            } 
-            ha-card::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background: url({{ state_attr('media_player.wohnzimmer', 'entity_picture') }}) no-repeat center center;
-              background-size: cover;
-              filter: blur(30px);
-              z-index: 0;
-              opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
-              transition: opacity 0.5s ease;
-            }
         visibility:
           - condition: state
             entity: media_player.echo_show
@@ -716,6 +718,14 @@ sections:
           action: navigate
           navigation_path: /dashboard-test/sicherheit
       - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {  
+              margin-bottom: -3px; 
+              border: none;   
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+            }
         cards:
           - type: horizontal-stack
             cards:
@@ -840,65 +850,109 @@ sections:
                       padding-top: 0px !important;
                       padding-bottom: 0px !important;
                     }
-          - type: picture-glance
-            title: Hofkamera
-            image: https://demo.home-assistant.io/stub_config/kitchen.png
-            card_mod:
-              style: |
-                ha-card { 
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none;
-                  border-radius: 0 0 40px 8px !important;
-                  margin-top: 4px;
-                  margin-bottom: -4px;
-                }
-            entities:
-              - entity: select.hofkamera_ptz_voreinstellung
-                tap_action:
-                  action: call-service
-                  service: select.select_option
-                  service_data:
-                    entity_id: select.hofkamera_ptz_voreinstellung
-                    option: Straßenansicht
-                icon_tap_action:
-                  action: call-service
-                  service: select.select_option
-                  service_data:
-                    entity_id: select.hofkamera_ptz_voreinstellung
-                    option: Straßenansicht
-              - entity: select.hofkamera_ptz_voreinstellung
-                icon: mdi:car
-                tap_action:
-                  action: call-service
-                  service: select.select_option
-                  service_data:
-                    entity_id: select.hofkamera_ptz_voreinstellung
-                    option: Pool
-                icon_tap_action:
-                  action: call-service
-                  service: select.select_option
-                  service_data:
-                    entity_id: select.hofkamera_ptz_voreinstellung
-                    option: Pool
-              - entity: select.hofkamera_ptz_voreinstellung
-                icon: mdi:pool
-                tap_action:
-                  action: navigate
-                  navigation_path: "#poolkamera"
-                icon_tap_action:
-                  action: navigate
-                  navigation_path: "#poolkamera"
-            camera_image: camera.hofkamera_fliessend
-        card_mod:
-          style: |
-            ha-card { 
-              margin-bottom: -15px; 
-              border: none !important;      
-              padding: 5px 0 5px 0;   
-              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
-            }
+          - type: horizontal-stack
+            cards:
+              - type: picture-glance
+                title: " "
+                image: https://demo.home-assistant.io/stub_config/kitchen.png
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none;
+                      border-radius: 0 0 0px 8px !important;
+                      margin-top: 4px;
+                      margin-bottom: -4px;
+                    }
+                    .box {
+                      position: absolute;
+                      left: 0px;
+                      right: 0px;
+                      bottom: 0px;
+                      background-color: var(--ha-picture-card-background-color,rgba(0,0,0,.2)) !important;
+                      padding: 0px 0px 5px 0px !important;
+                      display: flex;
+                      justify-content: flex-center !important;
+                      flex-direction: row;
+                    }
+                entities:
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    tap_action:
+                      action: call-service
+                      service: select.select_option
+                      service_data:
+                        entity_id: select.hofkamera_ptz_voreinstellung
+                        option: Straßenansicht
+                    icon_tap_action:
+                      action: call-service
+                      service: select.select_option
+                      service_data:
+                        entity_id: select.hofkamera_ptz_voreinstellung
+                        option: Straßenansicht
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    icon: mdi:car
+                    tap_action:
+                      action: call-service
+                      service: select.select_option
+                      service_data:
+                        entity_id: select.hofkamera_ptz_voreinstellung
+                        option: Pool
+                    icon_tap_action:
+                      action: call-service
+                      service: select.select_option
+                      service_data:
+                        entity_id: select.hofkamera_ptz_voreinstellung
+                        option: Pool
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    icon: mdi:car-hatchback
+                    tap_action:
+                      action: navigate
+                      navigation_path: "#auto"
+                    icon_tap_action:
+                      action: navigate
+                      navigation_path: "#auto"
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    icon: mdi:pool
+                    tap_action:
+                      action: navigate
+                      navigation_path: "#poolkamera"
+                    icon_tap_action:
+                      action: navigate
+                      navigation_path: "#poolkamera"
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    icon: mdi:leaf
+                    tap_action:
+                      action: navigate
+                      navigation_path: growstation
+                    icon_tap_action:
+                      action: navigate
+                      navigation_path: growstation
+                  - entity: select.hofkamera_ptz_voreinstellung
+                    icon: mdi:printer-3d-nozzle
+                    tap_action:
+                      action: navigate
+                      navigation_path: 3d-drucker
+                    icon_tap_action:
+                      action: navigate
+                      navigation_path: 3d-drucker
+                camera_image: camera.hofkamera_klar
+              - type: picture-glance
+                card_mod:
+                  style: |
+                    ha-card { 
+                      background: none !important;
+                      box-shadow: none !important;
+                      border: none;
+                      border-radius: 0 0 0px 8px !important;
+                      margin-top: 4px;
+                      margin-bottom: -4px;
+                    }
+                fit_mode: cover
+                title: " "
+                image: https://demo.home-assistant.io/stub_config/kitchen.png
+                entities: []
+                camera_image: camera.hofkamera_2
       - type: heading
         icon: ""
         heading: Lichtstatus
@@ -956,6 +1010,7 @@ sections:
                     - state: "off"
                     - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
                     - entity_id: light.cyd_*
+                    - entity_id: light.a1_03919c441800312_druckraumbeleuchtung
                 sort:
                   method: area
               - type: custom:auto-entities
@@ -990,6 +1045,7 @@ sections:
                     - state: "off"
                     - entity_id: light.m5stack_atom_echo_a1449c_m5stack_atom_echo_a1449c
                     - entity_id: light.cyd_display_backlight
+                    - entity_id: light.hofkamera_status_led
                 sort:
                   method: area
         visibility:
@@ -1021,6 +1077,7 @@ sections:
               card_mod:
                 style: |
                   ha-card {
+                    background: none !imortant;
                     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                                 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
                     border: none !important;
@@ -1104,7 +1161,7 @@ sections:
                 }
           - type: picture-glance
             camera_view: auto
-            title: Pool
+            title: " "
             image: https://demo.home-assistant.io/stub_config/kitchen.png
             entities:
               - entity: select.poolkamera_ptz_voreinstellung
@@ -1135,7 +1192,20 @@ sections:
                   service_data:
                     entity_id: select.poolkamera_ptz_voreinstellung
                     option: Terrasse
-            camera_image: camera.poolkamera_fliessend
+            camera_image: camera.poolkamera_klar
+            card_mod:
+              style: |
+                .box {
+                  position: absolute;
+                  left: 0px;
+                  right: 0px;
+                  bottom: 0px;
+                  background-color: var(--ha-picture-card-background-color,rgba(0,0,0,.2)) !important;
+                  padding: 0px 0px 0px 0px !important;
+                  display: flex;
+                  justify-content: flex-center !important;
+                  flex-direction: row;
+                }
           - type: tile
             entity: input_button.button_fernseher
             icon: mdi:grass
@@ -1230,9 +1300,9 @@ sections:
             color_thresholds:
               - value: 40
                 color: green
-              - value: 55
+              - value: 61
                 color: yellow
-              - value: 100
+              - value: 99
                 color: orange
               - value: 150
                 color: red
@@ -1351,7 +1421,7 @@ sections:
           navigation_path: /dashboard-test/solar
         visibility:
           - condition: numeric_state
-            entity: sensor.homestation_solar_total_ausgangsleistung
+            entity: sensor.growatt_outpowerwatt
             above: 20
         badges:
           - type: entity
@@ -1363,119 +1433,121 @@ sections:
             tap_action:
               action: navigate
               navigation_path: "#strom"
-      - type: custom:power-flow-card-plus
-        entities:
-          battery:
-            entity: ""
-            state_of_charge: sensor.sm_s921b_battery_level
-          solar:
-            entity: sensor.homestation_solar_total_ausgangsleistung
-            display_zero_state: true
-            secondary_info: {}
-            color_value: true
-            color_icon: false
-            invert_state: false
-            use_metadata: false
-            color:
-              - 11
-              - 157
-              - 67
-          individual:
-            - entity: sensor.poolverbrauch_summe_watt
-              secondary_info: {}
-              icon: mdi:pool
-              name: Pool Summe
-              color:
-                - 42
-                - 101
-                - 156
-            - entity: sensor.growlampe_leistung
-              secondary_info: {}
-              name: GrowLed
-              calculate_flow_rate: false
-              color_value: false
-              color_icon: false
-              icon: mdi:ceiling-light
-              unit_white_space: true
-              inverted_animation: false
-              show_direction: false
-              use_metadata: false
-            - entity: sensor.innenlufter_shellyplug_switch_0_power
-              secondary_info: {}
-              name: Lüfter
-              icon: mdi:fan
-              color:
-                - 115
-                - 156
-                - 217
-            - entity: sensor.werkstattheizung_leistung
-              secondary_info: {}
-              color:
-                - 98
-                - 9
-                - 9
-              display_zero: false
-              name: Werkstatt Hzg.
-              display_zero_state: false
-              color_value: false
-              color_icon: false
-              icon: mdi:heating-coil
-              use_metadata: false
-              show_direction: false
-          home:
-            secondary_info: {}
-            circle_animation: true
-            override_state: true
-            subtract_individual: true
-            color_icon: true
-            color_value: true
-          grid:
-            secondary_info: {}
-            icon: ""
-            color:
-              consumption:
-                - 211
-                - 102
-                - 13
-              production:
-                - 182
-                - 12
-                - 12
-            color_value: true
-            invert_state: false
-            entity:
-              consumption: sensor.total_power_nur_verbrauch
-              production: sensor.solar_einspeisung_normiert_positiver_wert
-            color_circle: true
-            color_icon: true
-        clickable_entities: true
-        display_zero_lines:
-          mode: transparency
-          transparency: 50
-          grey_color:
-            - 189
-            - 189
-            - 189
-        use_new_flow_rate_model: true
-        w_decimals: 0
-        kw_decimals: 1
-        min_flow_rate: 0.75
-        max_flow_rate: 6
-        max_expected_power: 3000
-        min_expected_power: 0.01
-        watt_threshold: 1000
-        transparency_zero_lines: 0
+      - type: custom:venus-os-dashboard
+        param:
+          boxCol1: 2
+          boxCol3: 2
+          boxCol2: 1
+        theme: dark
+        devices:
+          1-1:
+            icon: mdi:transmission-tower
+            name: Netz
+            entity: sensor.total_power
+            anchors: R-1
+            link:
+              "1":
+                start: R-1
+                end: 2-1_L-1
+                entity: sensor.total_power
+            graph: true
+            footerEntity1: " "
+            footerEntity2: sensor.solar_netzeinspeisung_kwh_taglich_gerundet
+          1-2:
+            icon: mdi:battery-charging
+            name: Batterie
+            entity: sensor.victron_system_battery_soc
+            anchors: R-1
+            link:
+              "1":
+                start: R-1
+                end: 2-1_B-1
+                entity: sensor.victron_system_battery_current
+            gauge: true
+            headerEntity: sensor.victron_vebus_battery_temperature_239
+            footerEntity1: sensor.victron_system_battery_voltage
+            footerEntity3: sensor.victron_system_battery_power
+            graph: true
+          2-1:
+            icon: mdi:cellphone-charging
+            name: Multiplus II
+            entity: sensor.victron_system_battery_state
+            anchors: L-1, B-2, R-1
+            footerEntity1: sensor.victron_settings_ess_batterylife_minimumsoc
+            footerEntity3: sensor.victron_settings_ess_maxchargecurrent
+          3-1:
+            icon: mdi:home-lightning-bolt
+            name: AC-Haus
+            entity: sensor.total_power_kombiniert
+            anchors: L-1
+            link:
+              "1":
+                start: L-1
+                end: 2-1_R-1
+                entity: sensor.total_power_kombiniert
+                inv: true
+            footerEntity1: sensor.victron_system_grid_l1
+            footerEntity2: sensor.victron_system_grid_l2
+            footerEntity3: sensor.victron_system_grid_l3
+          3-2:
+            icon: mdi:weather-sunny
+            name: Solar
+            entity: sensor.total_solar_power_kombiniert
+            anchors: L-1
+            link:
+              "1":
+                start: L-1
+                end: 2-1_B-2
+                entity: sensor.total_solar_power_kombiniert
+                inv: true
+            footerEntity1: " "
+            footerEntity2: sensor.erzeugzung_taglich_kombination_solaranlagen
+            graph: true
+        styles:
+          header: auto
+          footer: auto
         visibility:
           - condition: numeric_state
-            entity: sensor.homestation_solar_total_ausgangsleistung
+            entity: sensor.growatt_outpowerwatt
             above: 20
         card_mod:
           style: |
             ha-card {
-              border: none !important;
-              margin-bottom: -15px;   
               box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            --box-background-color: rgb(31,42,60,0.1);
+            --box-shadow-color: steelblue;
+            --anchor-color: green;
+            --line-color: orange;
+            }
+            .dashboard {
+              background: none;
+            }
+            .boxSensor1 {
+              padding-top: 5px !important;
+            }
+            .ball {
+              r: 6 !important;
+              fill: steelblue !important; 
+            }
+            .graph path {
+              stroke: green !important;
+            }    
+            .boxFooter {
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              bottom: 2px;
+              width: 100%;
+              font-size: 0.8em;
+              gap: 10% !important;
+              z-index: 1000;
+            }
+            .headerEntity {
+              font-size: 0.8em;
+              line-height: 1.1em;
             }
       - type: heading
         heading_style: title
@@ -1485,7 +1557,7 @@ sections:
         heading: Strombedarf
         visibility:
           - condition: numeric_state
-            entity: sensor.homestation_solar_total_ausgangsleistung
+            entity: sensor.growatt_outpowerwatt
             below: 20
         badges:
           - type: entity
@@ -1504,6 +1576,7 @@ sections:
             icon_trailing: ""
             animation:
               inverted: false
+            current: sensor.batterieentladung_vr_watt
           - power: sensor.stromverbrauch_taglich
             color: red
             animation:
@@ -1516,7 +1589,7 @@ sections:
               inverted: true
               min_duration: 10
               max_duration: 15
-          - power: sensor.homestation_solar_total_energie_heute
+          - power: sensor.growatt_todaygenerateenergy
             icon_leading: mdi:home-lightning-bolt
             color: green
             animation:
@@ -1531,7 +1604,7 @@ sections:
           min_duration: 4
         visibility:
           - condition: numeric_state
-            entity: sensor.homestation_solar_total_ausgangsleistung
+            entity: sensor.growatt_outpowerwatt
             below: 20
         card_mod:
           style: |
@@ -1603,7 +1676,7 @@ sections:
             entities:
               - sensor.gunstigster_benzinpreis
             name: Ertrag Heute
-            hours_to_show: 120
+            hours_to_show: 72
             points_per_hour: 0.4
             height: 70
             show:
@@ -1614,24 +1687,15 @@ sections:
             color_thresholds:
               - value: 1.4
                 color: grey
-              - value: 1.6
+              - value: 1.67
                 color: darkgreen
               - value: 1.75
                 color: steelblue
-              - value: 1.85
+              - value: 1.83
                 color: yellow
               - value: 2
                 color: orange
             line_color: var(--line-color)
-        card_mod:
-          style: |
-            ha-card {
-              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
-              border: none !important;
-              border-radius: var(--ha-card-border-radius) !important;
-              --line-color: {{ states('sensor.solar_line_color') }};
-            }
   - type: grid
     cards:
       - type: vertical-stack
@@ -2239,22 +2303,25 @@ sections:
             shadow_opacity: 0
             width_desktop: 650px
             margin_top_desktop: 0vh
+          - type: custom:stack-in-card
             card_mod:
               style: |
                 ha-card {
-                  background-color: transparent !important;
+                  background: none !important;
                   border: none !important;
                   border-radius: 0px !important;
-                  --line-color: {{ states('sensor.solar_line_color') }};
                 }
-                .bubble-pop-up-container {
-                  padding: 0px 0px calc(140px + var(--custom-height-offset-desktop)) 0px !important;
-                }
-          - type: custom:vertical-stack-in-card
             cards:
               - type: custom:mini-graph-card
                 entities:
-                  - sensor.homestation_solar_total_energie_heute
+                  - entity: sensor.growatt_todaygenerateenergy
+                    name: Ertrag
+                    show_state: false
+                  - entity: sensor.energy_production_today_3
+                    name: Vorhersage
+                    show_state: false
+                    color: rgba(122,122,122,0.3)
+                    y_axis: secondary
                 name: Ertrag Heute
                 hours_to_show: 72
                 points_per_hour: 0.25
@@ -2272,24 +2339,24 @@ sections:
                   - value: 3
                     color: yellow
                   - value: 5
-                    color: blue
-                  - value: 10
                     color: green
-                line_color: var(--line-color)
+                  - value: 10
+                    color: blue
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent !important;
+                      margin-top: 1px;
                       border: none !important;
                       border-radius: 0px !important;
                       --line-color: {{ states('sensor.solar_line_color') }};
                     }
               - type: custom:button-card
                 tap_action:
-                  action: none
+                  action: navigate
+                  navigation_path: /49686a9f_evcc
                 styles:
                   card:
-                    - background-color: rgba(22,22,22, 0.1)
+                    - background-color: rgba(22,22,22, 0.4)
                     - text-align: center
                     - border: none
                     - border-radius: 0px
@@ -2304,45 +2371,63 @@ sections:
                         ]]]
                 name: |
                   [[[
-                    const solarTotal = states['sensor.homestation_solar_total_energie_heute'].state;
+                    const solarTotal = states['sensor.growatt_todaygenerateenergy'].state;
                     return `Solarertrag heute: ${solarTotal} kWh`;
                   ]]]
               - type: entities
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent !important;
+                      background: none !important;
                       border: none !important;
                       border-radius: 0px !important;
                     }
                 entities:
-                  - entity: sensor.homestation_solar_total_gesamtbetrag_heute
+                  - entity: sensor.growatt_todaygenerateenergy_euro
+                    type: custom:multiple-entity-row
                     name: Ertrag Heute €
+                    state_color: true
+                    hide_unavailable: true
+                    entities:
+                      - entity: sensor.solcast_pv_forecast_prognose_heute
+                        name: " "
+                        styles:
+                          margin-top: 2px
+                          margin-right: 20px
+                          text-align: right
+                          color: "#676767"
+                          font-size: 13px
+                      - entity: sensor.solcast_pv_forecast_prognose_morgen
+                        name: " "
+                        styles:
+                          margin-top: 2px
+                          margin-right: 20px
+                          text-align: right
+                          color: "#676767"
+                          font-size: 13px
+                  - entity: sensor.growatt_totalgenerateenergy
+                    name: Ertrag Gesamt kWh
+                  - entity: sensor.growatt_totalgenerateenergy_euro
+                    name: Ertrag Gesamt €
                     unit_of_measurement: €
-                  - entity: sensor.solar_netzeinspeisung_kwh_taglich
-                    name: Netzeinspeisung Heute
-                  - entity: sensor.stromverbrauch_taglich
-                    name: Stromverbrauch Heute
+                    icon: mdi:counter
+                  - entity: sensor.solar_netzeinspeisung_kwh
+                    name: Solar Netzeinspeisung Gesamt
                   - entity: sensor.stromverbrauch_gesamt_kwh
                     name: Stromverbrauch Gesamt
                 theme: grey-icon
-            card_mod:
-              style: |
-                ha-card {
-                  background-color: transparent !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                  --line-color: {{ states('sensor.solar_line_color') }};
-                }
-          - type: vertical-stack
-            cards:
               - type: custom:bar-card
                 card_mod:
                   style: |
                     ha-card {
-                      background-color: transparent !important;
                       border: none !important;
                       border-radius: 0px !important;
+                    }               
+                    bar-card-backgroundbar { 
+                      border-radius: 3px !important;  
+                    }
+                    bar-card-currentbar {
+                      border-radius: 3px !important;  
                     }
                 name: Aktueller Strombedarf
                 positions:
@@ -2352,7 +2437,7 @@ sections:
                   icon: "off"
                 unit_of_measurement: W
                 max: 2500
-                height: 30px
+                height: 25px
                 severity:
                   - color: "#7bc13c"
                     from: 0
@@ -2371,15 +2456,109 @@ sections:
                     to: 50000
                 entities:
                   - entity: sensor.total_power_nur_verbrauch
+              - type: custom:stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:bar-card
+                        card_mod:
+                          style: |
+                            ha-card {
+                              border: none !important;
+                              border-radius: 0px !important;
+                              --primary-color: #7bc13c !important;          
+                            }
+                            #states {
+                              padding: 0 16px 0 16px !important;
+                            } 
+                            bar-card-currentbar {
+                              border-radius: 3px !important; 
+                                
+                              {% if states['switch.acpowervonbatterie'].state == 'on' %}
+                              background: linear-gradient(270deg, red, orange, green);
+                              background-size: 300% 100%;
+                              animation: gradientShiftNormal 3s linear infinite;
+                              clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+
+                              {% elif states['switch.acpowerzubatterie'].state == 'on' %}
+                              background: linear-gradient(270deg, red, orange, green);
+                              background-size: 300% 100%;
+                              animation: gradientShiftReverse 3s linear infinite;
+                              clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+
+                              {% else %}
+                              background: linear-gradient(to right, darkorange 15%, orange 25%, yellow 50%, green 100%);
+                              clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+                              {% endif %}
+                            }                  
+                            bar-card-backgroundbar { 
+                              border-radius: 3px !important; 
+                              background: linear-gradient(to right, darkorange 15%, orange 25%, yellow 50%, green 100%);
+                              clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+                            }
+                            @keyframes gradientShiftNormal {
+                              0% { background-position: 0% 50%; }
+                              100% { background-position: 100% 50%; }
+                            }
+                            @keyframes gradientShiftReverse {
+                              100% { background-position: 0% 50%; }
+                              0% { background-position: 100% 50%; }
+                            }
+                        name: Hausspeicher
+                        positions:
+                          name: inside
+                          value: inside
+                          indicator: "off"
+                          icon: "off"
+                        unit_of_measurement: "%"
+                        max: 100
+                        height: 20px
+                        severity:
+                          - color: "#ff0000"
+                            from: 0
+                            to: 25
+                          - color: darkorange
+                            from: 25
+                            to: 50
+                          - color: orange
+                            from: 50
+                            to: 75
+                          - color: "#7bc13c"
+                            from: 75
+                            to: 100
+                        entities:
+                          - entity: sensor.batterie_ladezustand
+                        tap_action:
+                          action: navigate
+                          navigation_path: "#batterie"
               - type: custom:auto-entities
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: transparent !important;
+                      border: none !important;
+                      border-radius: 0px !important;
+                    }
                 card:
                   type: custom:bar-card
                   card_mod:
                     style: |
                       ha-card {
-                        background-color: transparent !important;
                         border: none !important;
                         border-radius: 0px !important;
+                      }               
+                      bar-card-backgroundbar { 
+                        border-radius: 3px !important;  
+                      }
+                      bar-card-currentbar {
+                        border-radius: 3px !important;  
                       }
                   positions:
                     name: inside
@@ -2400,11 +2579,11 @@ sections:
                       to: 500
                     - color: darkorange
                       from: 500
-                      to: 1000
+                      to: 1400
                     - color: "#ff0000"
-                      from: 1000
+                      from: 1400
                       to: 50000
-                  height: 30px
+                  height: 20px
                   decimals: 2
                   style: |
                     #states { padding: 0 } 
@@ -2462,6 +2641,107 @@ sections:
             url: >-
               https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
             aspect_ratio: 100%
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#auto"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+            width_desktop: ""
+            margin_top_desktop: 10vh
+          - type: custom:vehicle-info-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  border-radius: 0px !important;
+                  background: none !important;
+                  --secondary-background-color: rgba(22,22,22, 0.3);
+                  --ha-card-border-radius: 12px;
+                }
+            name: C-Class T-Modell
+            entity: sensor.fw_jm_584_car
+            model_name: C 180 T-Modell
+            selected_language: system
+            show_slides: true
+            show_map: true
+            show_buttons: true
+            show_header_info: true
+            show_background: true
+            enable_map_popup: true
+            enable_services_control: true
+            show_error_notify: true
+            device_tracker: device_tracker.samsung_s24
+            map_popup_config:
+              hours_to_show: 24
+              default_zoom: 13
+              theme_mode: auto
+            selected_theme:
+              theme: orange-theme
+              mode: dark
+            extra_configs:
+              tire_card_custom:
+                background: ""
+                horizontal: true
+                image_size: 80
+                value_size: 80
+                top: 50
+                left: 50
+              images_swipe:
+                max_height: 250
+                max_width: 450
+                autoplay: false
+                loop: true
+                delay: 5000
+                speed: 1000
+                effect: fade
+              mini_map_height: 200
+              show_address: true
+              section_order:
+                - images_slider
+                - header_info
+                - buttons
+                - mini_map
+            button_grid:
+              use_swiper: false
+              rows_size: 2
+            services:
+              auxheat: false
+              charge: false
+              doorsLock: true
+              engine: false
+              preheat: false
+              sendRoute: false
+              sigPos: false
+              sunroof: true
+              windows: true
+            use_custom_cards:
+              vehicle_card: false
+              trip_card: false
+              eco_card: false
+              tyre_card: false
+            images:
+              - url: /local/bilder/auto.png
+                title: /local/bilder/auto.png
+              - url: /local/bilder/auto2.png
+                title: /local/bilder/auto2.png
+              - url: /local/bilder/auto3.png
+                title: /local/bilder/auto3.png
+            show_image_index: false
+            trip_button:
+              hide: false
+              button_action:
+                tap_action: more-info
+                hold_action: none
+                double_tap_action: none
+              enabled: true
+              entity: lock.fw_jm_584_lock
+            trip_card: []
+            vehicle_button:
+              enabled: true
+              entity: binary_sensor.fw_jm_584_engine_light_warning
       - type: conditional
         conditions:
           - condition: state
@@ -2507,16 +2787,15 @@ sections:
                                 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
                     border: none !important;
                     border-radius: 40px 0 0 40px !important;
+                    width: 300px !important;            
+                    height:80%;
                     padding: 15px;
                     margin-top: 75px;
-                    width: 300px !important;
                     opacity: 1;
                     z-index: 2;
                     position: fixed;
                     top:0;
                     right:0;
-                    width:100%;
-                    height:80%;
                   }
               cards:
                 - type: vertical-stack
@@ -2625,7 +2904,7 @@ sections:
                               - margin: none
                         - type: custom:button-card
                           color: transparent
-                          icon: mdi:solar-power-variant
+                          icon: mdi:home-lightning-bolt-outline
                           tap_action:
                             action: navigate
                             navigation_path: /dashboard-test/solar

@@ -4,12 +4,13 @@ cards:
     cards:
       - type: tile
         entity: input_button.button_fernseher
-        hide_state: true
-        show_entity_picture: false
-        vertical: false
         name: TV on
+        show_entity_picture: false
+        hide_state: true
+        vertical: false
         tap_action:
           action: toggle
+        features_position: bottom
         card_mod:
           style: |
             ha-card {

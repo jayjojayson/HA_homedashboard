@@ -1,10 +1,22 @@
 type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {  
+      margin-bottom: 2px; 
+      border: none;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+    }
 cards:
-  - type: horizontal-stack
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 1fr auto
+      grid-template-rows: auto
     cards:
       - type: custom:digital-clock
         dateFormat:
-          weekday: long
+          weekday: short
           day: 2-digit
           month: short
           year: numeric
@@ -14,92 +26,95 @@ cards:
         card_mod:
           style: |
             ha-card {
-              min-width: 300px !important;
-              margin-top: 10px;
-              margin-left: 10px;
-              margin-right: 10px !important; 
+              justify-self: center; /* Zentriert die Uhrzeit, wenn keine Tonne da ist */
               background-color: transparent !important;
               color: var(--primary-color) !important;
               border: none !important;
-              border-radius: 0px !important;
-              color: var(--primary-color) !important;
+              margin-top: 5px;
             }
-      - event_grouping: true
-        drop_todayevents_from: "8:00:00"
-        next_days: 1
-        pattern:
-          - icon: mdi:flower
-            color: green
-            type: organic
-            pattern: Biotonne
-            image: /local/bilder/gruen.jpg
-          - icon: mdi:newspaper
-            color: blue
-            type: paper
-            pattern: Papiertonne
-            image: /local/bilder/blau.png
-          - icon: mdi:recycle-variant
-            color: amber
-            type: recycle
-            pattern: Gelber Sack
-            image: /local/bilder/gelb.png
-          - icon: mdi:trash-can-outline
-            color: grey
-            type: waste
-            pattern: Restabfall
-            image: /local/bilder/schwarz.png
-          - icon: mdi:dump-truck
-            color: purple
-            type: others
-        day_style: counter
-        alignment_style: center
-        color_mode: icon
-        items_per_row: 2
-        refresh_rate: 600
-        with_label: false
-        layout: vertical
-        type: custom:trash-card
-        entities:
-          - calendar.abfall
-        filter_events: false
-        use_summary: false
-        hide_time_range: false
-        full_size: false
+      - type: custom:vertical-stack-in-card
         card_mod:
           style: |
             ha-card {
               background-color: transparent !important;
               color: var(--primary-color) !important;
               border: none !important;
-              border-radius: 0px !important;
-              position: relative;
-              width: 90px !important;
-              margin-top: 0px !important; 
-              margin-bottom: 10px !important; 
-              margin-right: 5px !important;
-              margin-left: 105px !important;   
-              padding-bottom: 0px !important; 
+              border-radius: 0px !important; 
+              zoom: 80%; 
             }
-            .card-container {
-                display: block !important;
-            }
-            /* Skaliert die Icons */
-            .icon-container {
-              transform: scale(1.5); /* Vergrößert nur die Icons */
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin-top: 10px;
-            }
-            /* Begrenzt den Einfluss des Scales auf den Rest */
-            .icon-container ha-tile-image {
-              margin: 0 !important;
-            }
-            /* Text kleiner machen */
-            .content {
-              font-size: 12px !important; /* Anpassung der Textgröße */
-              text-align: center;
-            }    
+        cards:
+          - type: custom:trash-card
+            event_grouping: true
+            drop_todayevents_from: "8:00:00"
+            next_days: 1
+            pattern:
+              - icon: mdi:flower
+                color: green
+                type: organic
+                pattern: Biotonne
+                image: /local/bilder/gruen.jpg
+              - icon: mdi:newspaper
+                color: blue
+                type: paper
+                pattern: Papiertonne
+                image: /local/bilder/blau.png
+              - icon: mdi:recycle-variant
+                color: amber
+                type: recycle
+                pattern: Gelber Sack
+                image: /local/bilder/gelb.png
+              - icon: mdi:trash-can-outline
+                color: grey
+                type: waste
+                pattern: Restabfall
+                image: /local/bilder/schwarz.png
+              - icon: mdi:dump-truck
+                color: purple
+                type: others
+            day_style: counter
+            alignment_style: center
+            color_mode: icon
+            items_per_row: 2
+            refresh_rate: 600
+            with_label: false
+            layout: vertical
+            entities:
+              - calendar.abfall
+            filter_events: false
+            use_summary: false
+            hide_time_range: false
+            full_size: false
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: transparent !important;
+                  color: var(--primary-color) !important;
+                  border: none !important;
+                  border-radius: 0px !important;
+                  position: relative;
+                  padding-bottom: 0px !important;
+                  width: 100px;
+                }
+                .card-container {
+                    display: block !important;
+                }
+                /* Skaliert die Icons */
+                .icon-container {
+                  transform: scale(1.5); /* Vergrößert nur die Icons */
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 12px;
+                }
+                /* Begrenzt den Einfluss des Scales auf den Rest */
+                .icon-container ha-tile-image {
+                  margin: 0 !important;
+                }
+                /* Text kleiner machen */
+                .content {
+                  font-size: 12px !important; /* Anpassung der Textgröße */
+                  text-align: center;
+                }    
   - type: horizontal-stack
     cards:
       - type: custom:vertical-stack-in-card
@@ -251,12 +266,5 @@ cards:
               background: none !important;
               border-radius: 0px !important;
               border: none !important; 
+              margin-top: -10px !important; margin-bottom: -3px; 
             }
-card_mod:
-  style: |
-    ha-card {
-      margin-bottom: 3px !important;
-      border: none !important;   
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
-    }

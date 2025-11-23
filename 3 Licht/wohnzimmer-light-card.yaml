@@ -10,117 +10,123 @@ card_mod:
 cards:
   - type: horizontal-stack
     cards:
-      - type: vertical-stack
-        cards:
-          - type: tile
-            entity: switch.pc_led_pv_led
-            tap_action:
-              action: toggle
-            icon: mdi:led-strip
-            name: PC-Led
-            vertical: true
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-right: 1px solid grey !important;
-                  border-radius: 0px !important;
-                }
-          - show_name: true
-            show_icon: true
-            type: button
-            tap_action:
-              action: toggle
-            entity: input_button.button_lichtfarbe_random_andern
-            name: Farbe random
-            theme: orange-theme
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-right: 1px solid grey !important;
-                  border-radius: 0px !important;
-                  font-size: 16px !important;
-                }
-                ha-state-icon {
-                  width: 30% !important;
-                  color: rgb(
-                    {{ state_attr('light.kuchenlicht', 'rgb_color')[0] }},
-                    {{ state_attr('light.kuchenlicht', 'rgb_color')[1] }},
-                    {{ state_attr('light.kuchenlicht', 'rgb_color')[2] }}
-                  ) !important;
-                }
-      - type: vertical-stack
-        cards:
-          - type: tile
-            entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
-            name: Wohnzimmer
-            icon: mdi:ceiling-light
-            tap_action:
-              action: toggle
-            vertical: false
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                }
-          - type: tile
-            entity: switch.esszimmerlicht
-            name: Esstisch
-            tap_action:
-              action: toggle
-            icon: mdi:ceiling-light
-            vertical: false
-            show_entity_picture: false
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                }
-          - type: tile
-            entity: switch.bildbeleuchtung_2
-            icon: mdi:panorama-variant-outline
-            tap_action:
-              action: toggle
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                }
-          - type: tile
-            entity: switch.lavalampe_steckdose_1
-            name: Lavalampe
-            tap_action:
-              action: toggle
-            icon: mdi:lava-lamp
-            vertical: false
-            show_entity_picture: false
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: light.pc_led_pv_led
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: ""
+        scrolling_effect: false
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: switch.bildbeleuchtung_2
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:panorama-variant-outline
+        scrolling_effect: false
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: switch.lavalampe_steckdose_1
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:lava-lamp
+        scrolling_effect: false
+        name: Lavalampe
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
   - type: custom:mod-card
     card_mod:
       style: |
@@ -128,69 +134,188 @@ cards:
             height: 1px;
             border-bottom: 1px;
             background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin: 0px 20px 0px 20px;
+        } 
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: switch.licht_terrassetur_sud_deckenlicht_wohnecke_ch1
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:ceiling-light
+        name: Wohnzimmer
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: light.esszimmerlicht
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:ceiling-light
+        name: Esszimmer
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
+        entity: input_button.button_lichtfarbe_random_andern
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:lightbulb-group
+        name: Farbe random
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        scrolling_effect: false
+        show_last_changed: false
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey !important;
+            margin: 0px 20px 5px 20px;
         }   
-  - type: horizontal-stack
-    cards:
-      - type: light
-        entity: light.wandlicht
-        theme: grey-icon
-        icon: mdi:led-strip-variant
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0px !important;
-            }
-            #info {
-              font-size: 110% !important;
-            }  
-      - type: light
-        entity: light.couchlicht
-        theme: grey-icon
-        icon: mdi:lamp-outline
-        double_tap_action:
-          action: more-info
-        hold_action:
-          action: more-info
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0px !important;
-            }
-            #info {
-              font-size: 110% !important;
-            }  
-      - type: light
-        entity: light.schlafzimmerlicht
-        name: Schlafzi.
-        theme: grey-icon
-        icon: mdi:lightbulb-variant
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0px !important;
-            }
-            #info {
-              font-size: 110% !important;
-            }  
+  - type: custom:bubble-card
+    card_type: button
+    button_type: slider
+    entity: light.wandlicht
+    name: Wandlicht
+    show_state: false
+    max_value: 100
+    min_value: 0
+    step: 5
+    light_transition: true
+    tap_to_slide: true
+    light_transition_time: "60"
+    button_action:
+      tap_action:
+        action: toggle
+    card_layout: normal
+    allow_light_slider_to_0: true
+    tap_action:
+      action: toggle
+    sub_button:
+      - entity: automation.abendlicht_lichtfarbe_random_andern
+        show_name: true
+        show_icon: false
+        name: Autom.
+      - entity: input_button.button_lichtfarbe_random_andern
+        show_name: true
+        show_icon: false
+        name: Farbe
+    hold_action:
+      action: more-info
+    styles: |
+      * {  
+        font-size: 12px !important;
+      }
+      ha-card {
+        --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+        --bubble-icon-color: white !important;
+        --bubble-accent-color: rgba(55,55,55,0.3);
+        --bubble-button-border-radius: 3px;
+      }
+      .bubble-button-card-container {
+        background: rgba(22,22,22,0) !important;
+        border-radius: 10px;
+      }
+      .bubble-button-background {
+        opacity: 0.7 !important;
+        border-radius: 10px;
+      }
   - type: custom:mod-card
     card_mod:
       style: |
@@ -198,106 +323,320 @@ cards:
             height: 1px;
             border-bottom: 1px;
             background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
-        }        
+            margin: 05px 20px 5px 20px;
+        } 
   - type: horizontal-stack
     cards:
-      - type: tile
+      - type: custom:bubble-card
+        card_type: button
+        button_type: slider
+        entity: light.couchlicht
+        name: Couchlicht
+        show_state: false
+        max_value: 100
+        min_value: 0
+        step: 5
+        light_transition: true
+        tap_to_slide: true
+        light_transition_time: "60"
+        button_action:
+          tap_action:
+            action: toggle
+        card_layout: normal
+        allow_light_slider_to_0: true
+        tap_action:
+          action: toggle
+        sub_button: []
+        hold_action:
+          action: more-info
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+            --bubble-button-border-radius: 3px;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        card_mod:
+          style: |
+            ha-card {
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
+            }
+        icon: mdi:lamp-outline
+      - type: custom:bubble-card
+        card_type: button
+        button_type: slider
+        entity: light.schlafzimmerlicht
+        name: ""
+        show_state: false
+        max_value: 100
+        min_value: 0
+        step: 5
+        light_transition: true
+        tap_to_slide: true
+        light_transition_time: "60"
+        button_action:
+          tap_action:
+            action: toggle
+        card_layout: normal
+        allow_light_slider_to_0: true
+        tap_action:
+          action: toggle
+        sub_button: []
+        hold_action:
+          action: more-info
+        icon: mdi:lightbulb-variant
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+            --bubble-button-border-radius: 3px;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey !important;
+            margin: 0px 20px 5px 20px;
+        } 
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
         entity: switch.modelleisenbahn_licht_tasmota
-        name: Modellbahn-Licht
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
         icon: mdi:railroad-light
-        hide_state: true
+        name: Modellbahn Licht
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        scrolling_effect: true
         card_mod:
           style: |
             ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
-              border-radius: 0px !important;
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
             }
-      - type: tile
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
         entity: switch.lok_einschalten_2
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
         icon: mdi:train
-        hide_state: true
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0px !important;
-            }
+        name: Lok
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'orange' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
+        scrolling_effect: true
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey !important;
+            margin: 5px 20px 5px 20px;
+        } 
   - type: horizontal-stack
     cards:
-      - type: custom:mushroom-entity-card
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
         entity: switch.3d_drucker_schalter
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
         icon: mdi:printer-3d-nozzle
-        secondary_info: none
-        name: 3D Drucker
+        name: Drucker
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'blue' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
         card_mod:
           style: |
             ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
-              border-radius: 0px !important;
+              padding-right: 10px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
             }
-      - type: custom:mushroom-fan-card
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: switch
         entity: fan.starkvind_luftreiniger_ventilator
-        show_percentage_control: false
-        show_oscillate_control: false
-        collapsible_controls: false
-        icon_animation: true
-        fill_container: false
-        secondary_info: none
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: false
+        scrolling_effect: false
+        modules:
+          - animated_icon
+        animated_icon:
+          mode: fan
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: mdi:fan
         name: Luftreiniger
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: white !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state === 'on' ? 'steelblue' : ''} !important;
+            opacity: 0.7 !important;
+            border-radius: 10px;
+          }
         card_mod:
           style: |
             ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-right: 1px solid grey !important;
-              border-radius: 0px !important;
+              padding-right: 10px;
+              margin-bottom: 5px;
+              border-right: 1px solid grey !important; 
+              border-left: none !important; 
+              border-top: none !important; 
+              border-bottom: none !important;
             }
-      - type: custom:mushroom-entity-card
+      - type: custom:bubble-card
+        card_type: button
+        sub_button: []
+        button_type: state
         entity: sensor.starkvind_luftreiniger_pm2_5
-        primary_info: none
-        fill_container: false
-        icon_color: |
-          {% if is_state('sensor.luftquality_color', 'green') %}
-            green
-          {% elif is_state('sensor.luftquality_color', 'yellow') %}
-            yellow
-          {% elif is_state('sensor.luftquality_color', 'orange') %}
-            orange
-          {% else %}
-            red
-          {% endif %}
-        card_mod:
-          style: |
-            ha-card {
-              background: none !important;
-              box-shadow: none !important;
-              border: none !important;
-              border-radius: 0px !important;
-              --primary-text-color:
-                {% if is_state('sensor.luftquality_color', 'green') %}
-                  green;
-                {% elif is_state('sensor.luftquality_color', 'yellow') %}
-                  yellow;
-                {% elif is_state('sensor.luftquality_color', 'orange') %}
-                  orange;
-                {% else %}
-                  red;
-                {% endif %}
-            }
+        card_layout: normal
+        show_icon: true
+        show_name: true
+        show_state: true
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        button_action: {}
+        icon: m3of:air
+        name: PPM
+        styles: |
+          * {  
+            font-size: 12px !important;
+          }
+          ha-card {
+            --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+            --bubble-icon-color: gray !important;
+          }
+          .bubble-button-card-container {
+            background: rgba(22,22,22,0) !important;
+            border-radius: 10px;
+          }
+          .bubble-button-background {
+            background-color: ${state > '55' ? 'red' : ''} !important;
+            opacity: 0.2 !important;
+            border-radius: 10px;
+          }
+        scrolling_effect: true

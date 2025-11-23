@@ -16,9 +16,9 @@ cards:
     color_thresholds:
       - value: 40
         color: green
-      - value: 55
+      - value: 61
         color: yellow
-      - value: 100
+      - value: 99
         color: orange
       - value: 150
         color: red

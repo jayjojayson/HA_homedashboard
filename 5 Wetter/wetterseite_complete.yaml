@@ -14,11 +14,11 @@ sections:
   - type: grid
     cards:
       - type: heading
-        heading: Niederschlagskarten
+        heading: Temperatur-/Niederschlagskarten
         heading_style: title
       - type: iframe
         url: >-
-          https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
+          https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=4&overlay=temp&product=ecmwf&level=surface&lat=51.173&lon=12.806&detailLat=52.384&detailLon=14.055&marker=true&message=true
         aspect_ratio: 100%
         layout_options:
           grid_columns: 4
@@ -34,6 +34,9 @@ sections:
         cards:
           - type: picture
             image: https://www.dwd.de/DWD/wetter/radar/radfilm_brd_akt.gif
+            tap_action:
+              action: navigate
+              navigation_path: "#wetter"
             card_mod:
               style: |
                 ha-card {    
@@ -44,6 +47,12 @@ sections:
           - type: picture
             image: >-
               https://www.dwd.de/DE/wetter/wetterundklima_vorort/berlin-brandenburg/_functions/bildgalerie/wetter_aktuell.jpg;jsessionid=99C15221AF8EC82583F21E7DC775388A.live31081?view=nasImage&nn=561856
+            hold_action:
+              action: navigate
+              navigation_path: ""
+            tap_action:
+              action: navigate
+              navigation_path: "#wetter"
             card_mod:
               style: |
                 ha-card {    
@@ -257,7 +266,7 @@ sections:
                             box-shadow: none !important;
                             border: none !important;
                             border-radius: 0px !important;
-                            width: 315px;
+                            width: 308px;
                           }
                       title: " "
                       content: >
@@ -270,37 +279,54 @@ sections:
                           {{ text[start:end].strip() if end else text[start:].strip() }}
                         {% else %}
                           Keine Wetterdaten verfügbar.
-                        {% endif %}
-                    - type: custom:compass-card
-                      card_mod:
-                        style: |
-                          ha-card {
-                            background: none !important;
-                            box-shadow: none !important;
-                            border: none !important;
-                            border-radius: 0px !important;
-                            zoom: 75%;
-                            max-width: 160px;
-                            margin-left: 120px;
-                            margin-top: 20px;
-                          }
-                      indicator_sensors:
-                        - sensor: sensor.fuerstenwalde_spree_windrichtung
-                          indicator:
-                            type: arrow_inward
-                      value_sensors:
-                        - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
-                      compass:
-                        east:
-                          show: true
-                        west:
-                          show: true
-                        south:
-                          show: true
-                        north:
-                          show: true
-                          offset: 150
-                      language: de
+                        {% endif %}            
+                    - type: vertical-stack
+                      cards:
+                        - type: custom:compass-card
+                          indicator_sensors:
+                            - sensor: sensor.fuerstenwalde_spree_windrichtung
+                              indicator:
+                                image: arrow_inward
+                          value_sensors:
+                            - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
+                          compass:
+                            east:
+                              show: true
+                            west:
+                              show: true
+                            south:
+                              show: true
+                            north:
+                              show: true
+                              offset: 150
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                                zoom: 65%;
+                                max-width: 160px;
+                                margin-left: 145px;
+                                margin-top: 20px;
+                              }
+                          language: de
+                        - type: markdown
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                                zoom: 75%;
+                                max-width: 160px;
+                                margin-left: 120px;
+                              } 
+                          content: >-
+                            ![Sonnenstand]({{ states('sensor.sun_position_bild')
+                            }})
             attributes:
               label: Wetterbericht
               icon: mdi:weather-cloudy-clock
@@ -408,6 +434,20 @@ sections:
             attributes:
               label: Wetterinfos
               icon: mdi:history
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#wetter"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+            width_desktop: 650px
+            margin_top_desktop: 10vh
+          - type: iframe
+            url: >-
+              https://radar.wo-cloud.com/mobile/embedded?wrx=52.367,14.067&wrm=8&wry=52.367,14.067
+            aspect_ratio: 100%
       - type: custom:bubble-card
         styles: |
           .bubble-icon {
@@ -439,7 +479,7 @@ sections:
         5_link: /dashboard-test/wetter
         5_icon: mdi:weather-partly-cloudy
         6_link: /dashboard-test/solar
-        6_icon: m3of:solar-power
+        6_icon: mdi:home-lightning-bolt-outline
         card_mod:
           style: |
             ha-card {
@@ -453,4 +493,28 @@ sections:
               margin: 0 !important;
               bottom: 0;
             }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.button_background_dashboard
+            state: "on"
+        card:
+          type: iframe
+          url: /local/particles/background/index.html
+          aspect_ratio: 50%
+          card_mod:
+            style: |
+              ha-card {
+                border: none !important;
+                border-radius: 0px !important;
+                background: none !important;
+                box-shadow: none !important;
+                z-index: -1;
+                position: fixed;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                opacity:0.2;
+              }
 cards: []

@@ -28,6 +28,7 @@ visibility:
 card_mod:
   style: |
     ha-card {   
+      opacity: 0.5 !important;
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                   13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
       position: relative;
@@ -36,11 +37,13 @@ card_mod:
     }
     /* Skaliert die Icons */
     .icon-container {
+      opacity: 0.5 !important;
       transform: scale(1.5); /* Vergrößert nur die Icons */
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 20px;
+      height: 10px;
     }
     /* Begrenzt den Einfluss des Scales auf den Rest */
     .icon-container ha-tile-image {

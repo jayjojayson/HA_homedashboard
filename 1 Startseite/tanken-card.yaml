@@ -47,7 +47,7 @@ cards:
     entities:
       - sensor.gunstigster_benzinpreis
     name: Ertrag Heute
-    hours_to_show: 120
+    hours_to_show: 72
     points_per_hour: 0.4
     height: 70
     show:
@@ -58,21 +58,12 @@ cards:
     color_thresholds:
       - value: 1.4
         color: grey
-      - value: 1.6
+      - value: 1.67
         color: darkgreen
       - value: 1.75
         color: steelblue
-      - value: 1.85
+      - value: 1.83
         color: yellow
       - value: 2
         color: orange
     line_color: var(--line-color)
-card_mod:
-  style: |
-    ha-card {
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
-      border: none !important;
-      border-radius: var(--ha-card-border-radius) !important;
-      --line-color: {{ states('sensor.solar_line_color') }};
-    }

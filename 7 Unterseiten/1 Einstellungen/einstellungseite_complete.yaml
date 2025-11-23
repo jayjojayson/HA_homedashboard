@@ -1,0 +1,1519 @@
+type: sections
+path: einstellungen
+title: Einstellungen
+icon: mdi:cog
+subview: true
+cards: []
+background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
+  image: /api/image/serve/bc693d3fb5d088e6ebff68d21ca43daf/original
+sections:
+  - type: grid
+    cards:
+      - type: custom:tabbed-card
+        styles:
+          "--mdc-theme-primary": var(--primary-color)
+          "--mdc-tab-text-label-color-default": grey
+          "--mdc-typography-button-font-size": 14px
+          "--mdc-typography-button-text-transform": capitalize
+        tabs:
+          - card:
+              type: custom:stack-in-card
+              card_mod:
+                style: |
+                  ha-card {
+                    padding: 25px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
+                  }
+              cards:
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 15% 25% 60%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: vertical-stack
+                      cards:
+                        - type: picture-entity
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                          camera_view: auto
+                          image: >-
+                            /api/image/serve/ca4c05698bc1567f27c5460b28284ea7/512x512
+                          entity: sensor.system_monitor_prozessornutzung
+                          show_state: false
+                          show_name: false
+                        - type: custom:button-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: sensor.system_monitor_prozessornutzung
+                          name: " "
+                          icon: mdi:cpu-64-bit
+                          show_state: true
+                          size: 20%
+                          styles:
+                            card:
+                              - padding: 0px
+                              - font-size: 20px
+                            icon:
+                              - padding-bottom: 5px
+                              - width: 30px
+                              - height: 30px
+                          tap_action:
+                            action: call-service
+                            service: input_select.select_option
+                            service_data:
+                              entity_id: input_select.diagramm_anzeige
+                              option: Temperatur
+                        - type: custom:button-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: sensor.system_monitor_arbeitsspeicherauslastung
+                          name: " "
+                          icon: mdi:memory
+                          show_state: true
+                          size: 20%
+                          styles:
+                            card:
+                              - padding-top: 5px
+                              - font-size: 20px
+                            icon:
+                              - padding-bottom: 5px
+                              - width: 30px
+                              - height: 30px
+                          tap_action:
+                            action: call-service
+                            service: input_select.select_option
+                            service_data:
+                              entity_id: input_select.diagramm_anzeige
+                              option: RAM
+                    - type: vertical-stack
+                      cards:
+                        - type: custom:vertical-stack-in-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                box-shadow: none !important;
+                                border-right: 1px solid grey; 
+                                border-left: 1px solid grey; 
+                                border-top: 0px solid grey; 
+                                border-bottom: 0px solid grey; 
+                                border-radius: 0px !important;
+                                background: none !important;
+                                padding: 40px 15px 10px 15px;
+                              }
+                          cards:
+                            - type: custom:auto-entities
+                              show_empty: false
+                              card:
+                                type: grid
+                                square: false
+                                columns: 1
+                              card_param: cards
+                              filter:
+                                include:
+                                  - options:
+                                      type: custom:entity-progress-card
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                            height: 65%;  
+                                            margin-bottom: -10px;
+                                            border: none;  
+                                            background: none;
+                                          }
+                                          .name-custom-info {
+                                            float: right !important;
+                                          }
+                                      entity: this.entity_id
+                                      name: CPU
+                                      bar_size: medium
+                                      name_info: >-
+                                        {{
+                                        states('sensor.system_monitor_prozessortemperatur')
+                                        | float | round(1) }}
+                                        {{state_attr('sensor.system_monitor_prozessortemperatur','unit_of_measurement')}}
+                                      hide:
+                                        - icon
+                                      custom_theme:
+                                        - min: 0
+                                          max: 30
+                                          color: "#7bc13c"
+                                        - min: 30
+                                          max: 50
+                                          color: "#c1bb3c"
+                                        - min: 50
+                                          max: 60
+                                          color: orange
+                                        - min: 60
+                                          max: 68
+                                          color: darkorange
+                                        - min: 68
+                                          max: 80
+                                          color: "#ff0000"
+                                    entity_id: sensor.system_monitor_prozessornutzung
+                                  - options:
+                                      type: custom:entity-progress-card
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                            height: 65%;  
+                                            margin-bottom: -10px;
+                                            border: none;  
+                                            background: none;
+                                          }
+                                          .name-custom-info {
+                                            float: right !important;
+                                          }
+                                      entity: this.entity_id
+                                      name: RAM belegt
+                                      bar_size: medium
+                                      name_info: >-
+                                        {{
+                                        states('sensor.system_monitor_belegter_arbeitsspeicher')
+                                        | float | round(1) }}
+                                        {{state_attr('sensor.system_monitor_belegter_arbeitsspeicher','unit_of_measurement')}}
+                                      hide:
+                                        - icon
+                                      custom_theme:
+                                        - min: 0
+                                          max: 1200
+                                          color: "#7bc13c"
+                                        - min: 1200
+                                          max: 1500
+                                          color: "#c1bb3c"
+                                        - min: 1500
+                                          max: 1700
+                                          color: orange
+                                        - min: 1700
+                                          max: 2500
+                                          color: darkorange
+                                        - min: 2500
+                                          max: 4000
+                                          color: "#ff0000"
+                                    entity_id: >-
+                                      sensor.system_monitor_arbeitsspeicherauslastung
+                                  - options:
+                                      type: custom:entity-progress-card
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                            height: 65%;  
+                                            margin-bottom: -10px;
+                                            border: none;  
+                                            background: none;
+                                          }
+                                          .name-custom-info {
+                                            float: right !important;
+                                          }
+                                      entity: this.entity_id
+                                      name: SSD belegt
+                                      bar_size: medium
+                                      name_info: >-
+                                        {{
+                                        states('sensor.system_monitor_belegter_massenspeicher')
+                                        | float | round(1) }}
+                                        {{state_attr('sensor.system_monitor_belegter_massenspeicher','unit_of_measurement')}}
+                                      hide:
+                                        - icon
+                                      custom_theme:
+                                        - min: 0
+                                          max: 35
+                                          color: "#7bc13c"
+                                        - min: 35
+                                          max: 50
+                                          color: "#c1bb3c"
+                                        - min: 50
+                                          max: 60
+                                          color: orange
+                                        - min: 60
+                                          max: 80
+                                          color: darkorange
+                                        - min: 80
+                                          max: 100
+                                          color: "#ff0000"
+                                    entity_id: >-
+                                      sensor.system_monitor_massenspeicher_auslastung
+                                  - options:
+                                      type: custom:entity-progress-card
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                            height: 65%;  
+                                            margin-bottom: -10px;
+                                            border: none;  
+                                            background: none;
+                                          }
+                                          .name-custom-info {
+                                            float: right !important;
+                                          }
+                                      entity: this.entity_id
+                                      name: Netzwerk in/out
+                                      bar_size: medium
+                                      name_info: >-
+                                        {{
+                                        states('sensor.system_monitor_netzwerkeingang_lo')
+                                        | float | round(1) }}
+                                        {{state_attr('sensor.system_monitor_netzwerkeingang_lo','unit_of_measurement')}}
+                                      hide:
+                                        - icon
+                                      custom_theme:
+                                        - min: 0
+                                          max: 1200
+                                          color: "#7bc13c"
+                                        - min: 1200
+                                          max: 1500
+                                          color: "#c1bb3c"
+                                        - min: 1500
+                                          max: 1700
+                                          color: orange
+                                        - min: 1700
+                                          max: 2500
+                                          color: darkorange
+                                        - min: 2500
+                                          max: 4000
+                                          color: "#ff0000"
+                                    entity_id: sensor.system_monitor_netzwerkausgang_lo
+                                  - options:
+                                      type: custom:entity-progress-card
+                                      card_mod:
+                                        style: |
+                                          ha-card {
+                                            height: 65%;  
+                                            margin-bottom: -10px;
+                                            border: none;  
+                                            background: none;
+                                          }
+                                          .name-custom-info {
+                                            float: right !important;
+                                          }
+                                      entity: this.entity_id
+                                      name: Letzter Restart
+                                      bar_size: medium
+                                      name_info: >-
+                                        {{
+                                        states('sensor.system_monitor_letzter_systemstart')
+                                        }}
+                                      hide:
+                                        - icon
+                                        - value
+                                        - secondary_info
+                                    entity_id: sensor.system_monitor_letzter_systemstart
+                    - type: vertical-stack
+                      cards:
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.diagramm_anzeige
+                              state: Temperatur
+                          card:
+                            type: custom:mini-graph-card
+                            card_mod:
+                              style: |
+                                ha-card {      
+                                  padding: 20px !important;     
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-radius: 0px !important;
+                                }
+                            entities:
+                              - entity: sensor.system_monitor_prozessortemperatur
+                                name: CPU-Temp
+                                show_state: true
+                                show_min: true
+                                show_max: true
+                              - entity: sensor.system_monitor_prozessornutzung
+                                name: CPU-Auslastung
+                                show_state: true
+                                show_min: true
+                                show_max: true
+                            hours_to_show: 168
+                            points_per_hour: 1
+                            show:
+                              legend: true
+                              labels: true
+                              name: false
+                              state: true
+                              icon: false
+                            color_thresholds:
+                              - value: 0
+                                color: "#1e90ff"
+                              - value: 50
+                                color: "#ffa500"
+                              - value: 80
+                                color: "#ff4500"
+                            more_info: true
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.diagramm_anzeige
+                              state: RAM
+                          card:
+                            type: custom:mini-graph-card
+                            card_mod:
+                              style: |
+                                ha-card {     
+                                  padding: 20px !important;
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-radius: 0px !important;
+                                }
+                            entities:
+                              - entity: sensor.system_monitor_belegter_arbeitsspeicher
+                                name: RAM-Nutzung
+                                show_state: true
+                                show_min: true
+                                show_max: true
+                              - entity: >-
+                                  sensor.system_monitor_arbeitsspeicherauslastung
+                                name: RAM-Auslastung
+                                show_state: true
+                                show_min: true
+                                show_max: true
+                            hours_to_show: 168
+                            points_per_hour: 1
+                            show:
+                              legend: true
+                              labels: true
+                              name: false
+                              state: true
+                              icon: false
+                            color_thresholds:
+                              - value: 800
+                                color: "#1e90ff"
+                              - value: 1500
+                                color: "#ffa500"
+                              - value: 1700
+                                color: "#ff4500"
+                            more_info: true
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                          height: 1px;
+                          border-bottom: 1px;
+                          background-color: grey !important;
+                          margin-left: 20px;
+                          margin-right: 20px;
+                      }   
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 50% 50%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: vertical-stack
+                      cards:
+                        - type: custom:mini-graph-card
+                          card_mod:
+                            style: |
+                              ha-card {        
+                                padding: 10px !important;
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: sensor.system_monitor_arbeitsspeicherauslastung
+                              name: Arbeitsspeicher
+                              show_state: true
+                              show_min: true
+                              show_max: true
+                          hours_to_show: 168
+                          points_per_hour: 1
+                          show:
+                            legend: true
+                            extrema: true
+                            labels: true
+                            name: false
+                            state: false
+                            icon: false
+                          color_thresholds:
+                            - value: 20
+                              color: "#1e90ff"
+                            - value: 50
+                              color: "#ffa500"
+                            - value: 80
+                              color: "#ff4500"
+                          more_info: true
+                    - type: vertical-stack
+                      cards:
+                        - type: custom:mini-graph-card
+                          card_mod:
+                            style: |
+                              ha-card {       
+                                padding: 10px !important;      
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: sensor.system_monitor_prozessornutzung
+                              name: CPU-Auslastung
+                              show_state: true
+                              show_min: true
+                              show_max: true
+                          hours_to_show: 168
+                          points_per_hour: 1
+                          show:
+                            legend: true
+                            extrema: true
+                            labels: true
+                            name: false
+                            state: false
+                            icon: false
+                          color_thresholds:
+                            - value: 0
+                              color: "#1e90ff"
+                            - value: 15
+                              color: "#ffa500"
+                            - value: 35
+                              color: "#ff4500"
+                          more_info: true
+            attributes:
+              label: Raspi
+              icon: mdi:raspberry-pi
+          - card:
+              type: custom:stack-in-card
+              card_mod:
+                style: |
+                  ha-card {
+                    padding: 25px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
+                  }
+              cards:
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 25% 25% 25% 25%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/nspanel2.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:button-card
+                              name: Firmware
+                              icon: mdi:chip
+                              tap_action:
+                                action: call-service
+                                service: input_select.select_option
+                                service_data:
+                                  entity_id: input_select.panel_view
+                                  option: Firmware
+                              styles:
+                                card:
+                                  - height: 50px
+                                  - padding: 5px
+                                icon:
+                                  - width: 40px
+                                  - height: 40px
+                                  - color: steelblue
+                                name:
+                                  - font-size: 12px
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    background: none !important;
+                                    box-shadow: none !important;
+                                    border: none !important;
+                                    border-radius: 0px !important;
+                                  }
+                            - type: custom:button-card
+                              name: Settings
+                              icon: mdi:cog
+                              tap_action:
+                                action: call-service
+                                service: input_select.select_option
+                                service_data:
+                                  entity_id: input_select.panel_view
+                                  option: Settings
+                              styles:
+                                card:
+                                  - height: 50px
+                                  - padding: 5px
+                                icon:
+                                  - width: 40px
+                                  - height: 40px
+                                  - color: steelblue
+                                name:
+                                  - font-size: 12px
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    background: none !important;
+                                    box-shadow: none !important;
+                                    border: none !important;
+                                    border-right: 1px solid grey !important;
+                                    border-radius: 0px !important;
+                                  }
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.panel_view
+                              state: Firmware
+                          card:
+                            type: entities
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-right: 1px solid grey !important;
+                                  border-radius: 0px !important;
+                                }
+                            title: Firmware
+                            entities:
+                              - entity: sensor.ns_panel_version_tft
+                                name: TFT ver.
+                              - entity: sensor.ns_panel_version_esphome
+                                name: ESPHome ver.
+                              - entity: sensor.ns_panel_version_blueprint
+                                name: Blueprint ver.
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.panel_view
+                              state: Settings
+                          card:
+                            type: entities
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-right: 1px solid grey !important;
+                                  border-radius: 0px !important;
+                                }
+                            title: Settings
+                            entities:
+                              - entity: sensor.ns_panel_display_current_brightness
+                                name: Display Aktuell
+                                icon: mdi:overscan
+                              - entity: number.ns_panel_display_brightness
+                                name: Display Brightness
+                              - entity: number.ns_panel_display_brightness_dimdown
+                                name: Brightness Dimdown
+                              - entity: number.ns_panel_display_brightness_sleep
+                                name: Brightness Sleep
+                              - entity: binary_sensor.ns_panel_left_button
+                                name: Button Flurlicht
+                              - entity: binary_sensor.ns_panel_right_button
+                                name: Button Hoftor
+                              - entity: number.ns_panel_timeout_dimming
+                                name: Timeout Dimming
+                              - entity: number.ns_panel_timeout_page
+                                name: Timeout Page
+                              - entity: number.ns_panel_timeout_sleep
+                                name: Timeout Sleep
+                              - entity: button.ns_panel_restart
+                                name: Neustart
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/nspanel2.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:button-card
+                              name: Firmware
+                              icon: mdi:chip
+                              tap_action:
+                                action: call-service
+                                service: input_select.select_option
+                                service_data:
+                                  entity_id: input_select.panel_view
+                                  option: Firmware
+                              styles:
+                                card:
+                                  - height: 50px
+                                  - padding: 5px
+                                icon:
+                                  - width: 40px
+                                  - height: 40px
+                                  - color: steelblue
+                                name:
+                                  - font-size: 12px
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    background: none !important;
+                                    box-shadow: none !important;
+                                    border: none !important;
+                                    border-radius: 0px !important;
+                                  }
+                            - type: custom:button-card
+                              name: Settings
+                              icon: mdi:cog
+                              tap_action:
+                                action: call-service
+                                service: input_select.select_option
+                                service_data:
+                                  entity_id: input_select.panel_view
+                                  option: Settings
+                              styles:
+                                card:
+                                  - height: 50px
+                                  - padding: 5px
+                                icon:
+                                  - width: 40px
+                                  - height: 40px
+                                  - color: steelblue
+                                name:
+                                  - font-size: 12px
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    background: none !important;
+                                    box-shadow: none !important;
+                                    border: none !important;
+                                    border-right: 1px solid grey !important;
+                                    border-radius: 0px !important;
+                                  }
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.panel_view
+                              state: Firmware
+                          card:
+                            type: entities
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-right: 1px solid grey !important;
+                                  border-radius: 0px !important;
+                                }
+                            title: Firmware
+                            entities:
+                              - entity: sensor.ns_panel_mutti_version_tft
+                                secondary_info: none
+                                name: TFT ver.
+                              - entity: sensor.ns_panel_mutti_version_esphome
+                                name: ESPHome ver.
+                              - entity: sensor.ns_panel_mutti_version_blueprint
+                                name: Blueprint ver.
+                        - type: conditional
+                          conditions:
+                            - entity: input_select.panel_view
+                              state: Settings
+                          card:
+                            type: entities
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-right: 1px solid grey !important;
+                                  border-radius: 0px !important;
+                                }
+                            title: Settings
+                            entities:
+                              - entity: >-
+                                  sensor.ns_panel_mutti_display_current_brightness
+                                name: Display Aktuell
+                                icon: mdi:overscan
+                              - entity: number.ns_panel_mutti_display_brightness
+                                name: Display Brightness
+                              - entity: >-
+                                  number.ns_panel_mutti_display_brightness_dimdown
+                                name: Brightness Dimdown
+                              - entity: number.ns_panel_mutti_display_brightness_sleep
+                                name: Brightness Sleep
+                              - entity: binary_sensor.ns_panel_mutti_left_button
+                                name: Button Flurlicht
+                              - entity: binary_sensor.ns_panel_mutti_right_button
+                                name: Button Stehlampe
+                              - entity: number.ns_panel_mutti_timeout_dimming
+                                name: Timeout Dimming
+                              - entity: number.ns_panel_mutti_timeout_page
+                                name: Timeout Page
+                              - entity: number.ns_panel_mutti_timeout_sleep
+                                name: Timeout Sleep
+                              - entity: button.ns_panel_mutti_restart
+                                name: Neustart
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/cyd.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: custom:mushroom-light-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: light.cyd_display_backlight
+                          fill_container: false
+                          use_light_color: false
+                          show_brightness_control: true
+                          collapsible_controls: true
+                          name: Display Backlight
+                        - type: custom:mushroom-light-card
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: light.cyd_led
+                          fill_container: false
+                          use_light_color: true
+                          show_brightness_control: true
+                          collapsible_controls: true
+                          show_color_control: true
+                          show_color_temp_control: false
+                          name: CYD LED RGB
+                        - type: tile
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: automation.cyd_backlight_nachtschaltung
+                          vertical: false
+                          show_entity_picture: false
+                          hide_state: false
+                          name: Programm Backlight
+                        - type: tile
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entity: switch.tz3000_okaz9tjs_ts011f_schalter_2
+                          name: Steckdose für Display
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/lenovo.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: entities
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: >-
+                                number.lenovo_tab_m10_3rd_gen_bildschirmhelligkeit
+                              name: Bildschirmhelligkeit
+                            - entity: switch.lenovo_tab_m10_3rd_gen_bewegungserkennung
+                              name: Bewegungserkennung
+                            - entity: switch.tablet_plug_schalter
+                              name: Laden on/off
+                            - entity: sensor.lenovo_tab_m10_3rd_gen_freier_speicher
+                              name: Freier RAM
+                            - entity: sensor.lenovo_tab_m10_3rd_gen_batterie
+                              name: Akku aktuell
+                            - entity: >-
+                                button.lenovo_tab_m10_3rd_gen_browser_neu_starten
+                              name: Browser Restart
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      ha-card {
+                          height: 1px;
+                          border-bottom: 1px;
+                          background-color: grey !important;
+                          margin-left: 20px;
+                          margin-right: 20px;
+                      }   
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 25% 25% 25% 25%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/starkvind.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: entities
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: sensor.starkvind_luftreiniger_filterlaufzeit
+                              name: Filterlaufzeit
+                              icon: mdi:air-filter
+                            - entity: >-
+                                number.starkvind_luftreiniger_lebensdauer_des_filters
+                              name: Filter Lebensdauer
+                            - entity: >-
+                                binary_sensor.starkvind_luftreiniger_filter_ersetzen
+                              name: Filter ersetzen
+                              icon: mdi:air-filter
+                            - entity: switch.starkvind_luftreiniger_led_deaktivieren
+                              name: LED deaktivieren
+                              icon: mdi:led-on
+                            - entity: sensor.starkvind_luftreiniger_pm2_5
+                              name: Luftqualität
+                            - entity: fan.starkvind_luftreiniger_ventilator
+                              name: "Luftreiniger "
+                    - type: vertical-stack
+                      cards:
+                        - type: picture
+                          image: /local/bilder/starkvindtisch.png
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-radius: 0px !important;
+                              }
+                              img {
+                                max-width: 200px !important;
+                                height: auto !important;    
+                                display: block;
+                                margin: 0 auto;         
+                              }
+                        - type: entities
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none !important;
+                                box-shadow: none !important;
+                                border: none !important;
+                                border-right: 1px solid grey !important;
+                                border-radius: 0px !important;
+                              }
+                          entities:
+                            - entity: >-
+                                sensor.starkvind_luftreiniger_mutti_filterlaufzeit
+                              name: Filterlaufzeit
+                              icon: mdi:air-filter
+                            - entity: >-
+                                number.starkvind_luftreiniger_mutti_lebensdauer_des_filters
+                              name: Filter Lebensdauer
+                            - entity: >-
+                                binary_sensor.starkvind_luftreiniger_mutti_filter_ersetzen
+                              name: Filter ersetzen
+                              icon: mdi:air-filter
+                            - entity: >-
+                                switch.starkvind_luftreiniger_mutti_led_deaktivieren
+                              name: LED deaktivieren
+                              icon: mdi:led-on
+                            - entity: sensor.starkvind_luftreiniger_mutti_pm2_5
+                              name: Luftqualität
+                            - entity: fan.starkvind_luftreiniger_mutti_ventilator
+                              name: "Luftreiniger "
+            attributes:
+              label: Geräte
+              icon: mdi:devices
+          - card:
+              type: horizontal-stack
+              cards:
+                - type: iframe
+                  url: >-
+                    http://192.168.178.119:8123/config/zha/visualization?config_entry=01JDFDWEQ1KMZHG9F25M636B38
+                  aspect_ratio: 60%
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: rgba(0, 0, 0, 0.3);
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                    13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                        border: none;
+                      }
+            attributes:
+              label: Zigbee
+              icon: mdi:zigbee
+          - card:
+              type: custom:stack-in-card
+              card_mod:
+                style: |
+                  ha-card {
+                    padding: 25px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                                13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+                    border: none;
+                  }
+              cards:
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 50% 50%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: sensor.homematicip_sv_servicemeldungen
+                          state_not: "0"
+                      card:
+                        type: markdown
+                        content: >
+                          ## Servicemeldung <div style="height: 300px;
+                          overflow-y: auto;">
+                            {{ states('sensor.homematicip_sv_servicemeldung_batterie') | replace('\n', '<br><br>') }}
+                          </div>
+                        card_mod:
+                          style: |
+                            ha-card {
+                              background: none !important;
+                              box-shadow: none !important;
+                              border: none !important;
+                              border-right: 1px solid grey !important;
+                              border-radius: 0px !important;
+                            }
+                    - type: vertical-stack
+                      cards:
+                        - type: custom:auto-entities
+                          card:
+                            type: entities
+                            card_mod:
+                              style: |
+                                ha-card {
+                                  background: none !important;
+                                  box-shadow: none !important;
+                                  border: none !important;
+                                  border-radius: 0px !important;
+                                }
+                          filter:
+                            include:
+                              - domain: update
+                                state: "on"
+                                attributes:
+                                  supported_features: $$/(1|3|5|7|9)$/
+                                options:
+                                  hold_action:
+                                    action: call-service
+                                    service: update.install
+                                    service_data:
+                                      entity_id: this.entity_id
+                                      backup: true
+                        - type: custom:button-card
+                          name: Entites Export as CSV
+                          tap_action:
+                            action: javascript
+                            javascript: |
+                              [[[
+                                function generateEntityItems() {
+                                    const hass = document.querySelector("home-assistant").hass;
+                                    const entities = hass.entities;
+                                    
+                                    const sorted = Object.values(entities).sort((a, b) => {
+                                        const idA = a.entity_id?.toLowerCase() || '';
+                                        const idB = b.entity_id?.toLowerCase() || '';
+                                        return idA.localeCompare(idB);
+                                    });
+                                
+                                    let csvContent = "ENTITY ID;ENTITY NAME;DEVICE NAME;DEVICE ID;AREA;PLATFORM (INTEGRATION);STATE;FORMATED STATE\n";
+                                    
+                                    sorted.forEach((ent) => {
+                                        const eId = ent.entity_id;
+                                        const stateObj = hass.states[eId];
+                                        const entityName = hass.formatEntityName(stateObj, "entity");
+                                        const deviceName = hass.formatEntityName(stateObj, "device");
+                                        const deviceId =  ent.device_id;
+                                        const areaName = hass.formatEntityName(stateObj, "area") || '';
+                                        const platform = ent.platform || '';
+                                        const state = stateObj.state;
+                                        const formatedState = hass.formatEntityState(stateObj);
+                                        
+                                        const info = [eId, entityName, deviceName, deviceId, areaName, platform, state, formatedState].join("; ");
+                                        
+                                        csvContent += `${info}\n`;
+                                    });
+                                
+                                    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+                                    const url = URL.createObjectURL(blob);
+                                    const link = document.createElement("a");
+                                    link.setAttribute("href", url);
+                                    link.setAttribute("download", "hass_entities.csv");
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                };
+                                generateEntityItems();
+                              ]]]
+                    - type: markdown
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            box-shadow: none !important;
+                            border: none !important;
+                            border-radius: 0px !important;
+                          }
+                      content: |
+                        Homestation-M verbunden:
+                        {{ states.device_tracker 
+                           | selectattr('attributes.source_type', 'defined') 
+                           | selectattr('attributes.source_type', 'equalto', 'router') 
+                           | selectattr('attributes.ssid', 'defined') 
+                           | selectattr('attributes.ssid', 'equalto', 'Homestation-M')
+                           | list 
+                           | length }} - Geräte
+                        {% for device in states.device_tracker 
+                           | selectattr('attributes.source_type', 'defined') 
+                           | selectattr('attributes.source_type', 'equalto', 'router') 
+                           | selectattr('attributes.ssid', 'defined') 
+                           | selectattr('attributes.ssid', 'equalto', 'Homestation-M') %}
+                          - {{ device.name }}  -  ({{ device.attributes.ip if device.attributes.ip is defined else 'keine IP' }})
+                        {% endfor %}
+                    - type: iframe
+                      url: http://192.168.178.205/
+                      aspect_ratio: 50%
+            attributes:
+              label: Homematic & HA Updates
+              icon: mdi:home-automation
+        grid_options:
+          columns: full
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:mod-card
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: none !important; 
+                  padding: 15px;   
+                }
+            card:
+              type: horizontal-stack
+              cards:
+                - type: custom:layout-card
+                  layout_type: custom:grid-layout
+                  layout:
+                    grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%
+                    grid-template-rows: auto
+                    mediaquery:
+                      "(max-width: 1000px)":
+                        grid-template-columns: 100%
+                        grid-template-rows: auto
+                  cards:
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:cog
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Einstellungen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#einstellungen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:home-automation
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Automatisierungen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#automatisierungen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:integrated-circuit-chip
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Integrationen
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#integrationen"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          } 
+                              }  
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      icon: mdi:view-list
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Entitäten
+                      tap_action:
+                        action: navigate
+                        navigation_path: "#entities"
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_boolean.kioskmode
+                      icon: mdi:menu
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Topmenü
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          } 
+                    - type: tile
+                      entity: input_boolean.button_background_dashboard
+                      icon: mdi:menu
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Particle Backgr.
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          } 
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;  
+              border: none;
+            }
+        grid_options:
+          columns: full
+    column_span: 4
+  - type: grid
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#einstellungen"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: iframe
+            url: http://192.168.178.119:8123/config
+            aspect_ratio: 140%
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#automatisierungen"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: iframe
+            url: http://192.168.178.119:8123/config/automation/dashboard
+            aspect_ratio: 140%
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#integrationen"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: iframe
+            url: http://192.168.178.119:8123/config/integrations/dashboard
+            aspect_ratio: 140%
+      - type: vertical-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#entities"
+            show_header: false
+            bg_color: rgb(43 53 71)
+            shadow_opacity: 0
+          - type: iframe
+            url: http://192.168.178.119:8123/config/entities
+            aspect_ratio: 140%
+      - type: custom:bubble-card
+        styles: |
+          .bubble-icon {
+            --mdc-icon-size: 30px !important;
+            height: 35px;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding-right: 10px; 
+            color: var(--primary-color);
+          } 
+          * { 
+            font-size: 10px !important;
+            border: none !important;
+            border-radius: 0px !important;
+            background: rgba(0,0,0,0) !important;
+            box-shadow: none !important;
+          }
+        card_type: horizontal-buttons-stack
+        auto_order: false
+        1_name: ""
+        1_icon: mdi:keyboard-backspace
+        1_link: /dashboard-test/home
+        2_link: /dashboard-test/einstellungen
+        2_icon: mdi:cog
+        3_link: /dashboard-test/sicherheit
+        3_icon: mdi:cctv
+        4_link: /dashboard-test/robter-steuerung
+        4_icon: mdi:robot-mower
+        5_link: /dashboard-test/multimedia
+        5_icon: mdi:multimedia
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background: none !important;
+              box-shadow: none !important;
+              padding: 0px; 
+              z-index: 2;
+              position: fixed;
+              margin: 0 !important;
+              bottom: 0;
+            }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.button_background_dashboard
+            state: "on"
+        card:
+          type: iframe
+          url: /local/particles/background/index.html
+          aspect_ratio: 50%
+          card_mod:
+            style: |
+              ha-card {
+                border: none !important;
+                border-radius: 0px !important;
+                background: none !important;
+                box-shadow: none !important;
+                z-index: -1;
+                position: fixed;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                opacity:0.2;
+              }
+    column_span: 3
+max_columns: 3
+badges: []

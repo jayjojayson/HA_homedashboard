@@ -1,0 +1,46 @@
+type: entities
+entities:
+  - entity: switch.pflanzenbeet
+    type: custom:multiple-entity-row
+    name: Pflanzbeet Bewässerung
+    icon: mdi:sprinkler-variant
+    state_color: true
+    hide_unavailable: true
+    toggle: true
+    entities:
+      - entity: input_number.literstand_pflanzenbeet
+        name: " "
+        styles:
+          margin-top: 2px
+          margin-right: 20px
+          text-align: right
+          color: steelblue
+          font-size: 14px
+  - entity: switch.bewasserung_poolbeet
+    type: custom:multiple-entity-row
+    name: Poolbeet Bewässerung
+    icon: mdi:sprinkler-variant
+    state_color: true
+    hide_unavailable: true
+    toggle: true
+    entities:
+      - entity: input_number.literstand_poolbeet
+        name: " "
+        styles:
+          margin-top: 2px
+          margin-right: 20px
+          text-align: right
+          color: steelblue
+          font-size: 14px
+state_color: true
+theme: grey-icon
+card_mod:
+  style: |
+    ha-card {
+      background-color: var(--card-background-color) !important;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;
+      margin-bottom: 6px !important;
+      margin-top: -15px !important;
+    }

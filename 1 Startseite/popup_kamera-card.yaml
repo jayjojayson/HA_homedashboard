@@ -18,7 +18,7 @@ cards:
         }
   - type: picture-glance
     camera_view: auto
-    title: Pool
+    title: " "
     image: https://demo.home-assistant.io/stub_config/kitchen.png
     entities:
       - entity: select.poolkamera_ptz_voreinstellung
@@ -49,7 +49,20 @@ cards:
           service_data:
             entity_id: select.poolkamera_ptz_voreinstellung
             option: Terrasse
-    camera_image: camera.poolkamera_fliessend
+    camera_image: camera.poolkamera_klar
+    card_mod:
+      style: |
+        .box {
+          position: absolute;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          background-color: var(--ha-picture-card-background-color,rgba(0,0,0,.2)) !important;
+          padding: 0px 0px 0px 0px !important;
+          display: flex;
+          justify-content: flex-center !important;
+          flex-direction: row;
+        }
   - type: tile
     entity: input_button.button_fernseher
     icon: mdi:grass

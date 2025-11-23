@@ -1,114 +1,116 @@
-type: custom:power-flow-card-plus
-entities:
-  battery:
-    entity: ""
-    state_of_charge: sensor.sm_s921b_battery_level
-  solar:
-    entity: sensor.homestation_solar_total_ausgangsleistung
-    display_zero_state: true
-    secondary_info: {}
-    color_value: true
-    color_icon: false
-    invert_state: false
-    use_metadata: false
-    color:
-      - 11
-      - 157
-      - 67
-  individual:
-    - entity: sensor.poolverbrauch_summe_watt
-      secondary_info: {}
-      icon: mdi:pool
-      name: Pool Summe
-      color:
-        - 42
-        - 101
-        - 156
-    - entity: sensor.growlampe_leistung
-      secondary_info: {}
-      name: GrowLed
-      calculate_flow_rate: false
-      color_value: false
-      color_icon: false
-      icon: mdi:ceiling-light
-      unit_white_space: true
-      inverted_animation: false
-      show_direction: false
-      use_metadata: false
-    - entity: sensor.innenlufter_shellyplug_switch_0_power
-      secondary_info: {}
-      name: Lüfter
-      icon: mdi:fan
-      color:
-        - 115
-        - 156
-        - 217
-    - entity: sensor.werkstattheizung_leistung
-      secondary_info: {}
-      color:
-        - 98
-        - 9
-        - 9
-      display_zero: false
-      name: Werkstatt Hzg.
-      display_zero_state: false
-      color_value: false
-      color_icon: false
-      icon: mdi:heating-coil
-      use_metadata: false
-      show_direction: false
-  home:
-    secondary_info: {}
-    circle_animation: true
-    override_state: true
-    subtract_individual: true
-    color_icon: true
-    color_value: true
-  grid:
-    secondary_info: {}
-    icon: ""
-    color:
-      consumption:
-        - 211
-        - 102
-        - 13
-      production:
-        - 182
-        - 12
-        - 12
-    color_value: true
-    invert_state: false
-    entity:
-      consumption: sensor.total_power_nur_verbrauch
-      production: sensor.solar_einspeisung_normiert_positiver_wert
-    color_circle: true
-    color_icon: true
-clickable_entities: true
-display_zero_lines:
-  mode: transparency
-  transparency: 50
-  grey_color:
-    - 189
-    - 189
-    - 189
-use_new_flow_rate_model: true
-w_decimals: 0
-kw_decimals: 1
-min_flow_rate: 0.75
-max_flow_rate: 6
-max_expected_power: 3000
-min_expected_power: 0.01
-watt_threshold: 1000
-transparency_zero_lines: 0
+type: custom:venus-os-dashboard
+param:
+  boxCol1: 2
+  boxCol3: 2
+  boxCol2: 1
+theme: dark
+devices:
+  1-1:
+    icon: mdi:transmission-tower
+    name: Netz
+    entity: sensor.total_power
+    anchors: R-1
+    link:
+      "1":
+        start: R-1
+        end: 2-1_L-1
+        entity: sensor.total_power
+    graph: true
+    footerEntity1: " "
+    footerEntity2: sensor.solar_netzeinspeisung_kwh_taglich_gerundet
+  1-2:
+    icon: mdi:battery-charging
+    name: Batterie
+    entity: sensor.victron_system_battery_soc
+    anchors: R-1
+    link:
+      "1":
+        start: R-1
+        end: 2-1_B-1
+        entity: sensor.victron_system_battery_current
+    gauge: true
+    headerEntity: sensor.victron_vebus_battery_temperature_239
+    footerEntity1: sensor.victron_system_battery_voltage
+    footerEntity3: sensor.victron_system_battery_power
+    graph: true
+  2-1:
+    icon: mdi:cellphone-charging
+    name: Multiplus II
+    entity: sensor.victron_system_battery_state
+    anchors: L-1, B-2, R-1
+    footerEntity1: sensor.victron_settings_ess_batterylife_minimumsoc
+    footerEntity3: sensor.victron_settings_ess_maxchargecurrent
+  3-1:
+    icon: mdi:home-lightning-bolt
+    name: AC-Haus
+    entity: sensor.total_power_kombiniert
+    anchors: L-1
+    link:
+      "1":
+        start: L-1
+        end: 2-1_R-1
+        entity: sensor.total_power_kombiniert
+        inv: true
+    footerEntity1: sensor.victron_system_grid_l1
+    footerEntity2: sensor.victron_system_grid_l2
+    footerEntity3: sensor.victron_system_grid_l3
+  3-2:
+    icon: mdi:weather-sunny
+    name: Solar
+    entity: sensor.total_solar_power_kombiniert
+    anchors: L-1
+    link:
+      "1":
+        start: L-1
+        end: 2-1_B-2
+        entity: sensor.total_solar_power_kombiniert
+        inv: true
+    footerEntity1: " "
+    footerEntity2: sensor.erzeugzung_taglich_kombination_solaranlagen
+    graph: true
+styles:
+  header: auto
+  footer: auto
 visibility:
   - condition: numeric_state
-    entity: sensor.homestation_solar_total_ausgangsleistung
+    entity: sensor.growatt_outpowerwatt
     above: 20
 card_mod:
   style: |
     ha-card {
-      border: none !important;
-      margin-bottom: -15px;   
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;   
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;
+    --box-background-color: rgb(31,42,60,0.1);
+    --box-shadow-color: steelblue;
+    --anchor-color: green;
+    --line-color: orange;
+    }
+    .dashboard {
+      background: none;
+    }
+    .boxSensor1 {
+      padding-top: 5px !important;
+    }
+    .ball {
+      r: 6 !important;
+      fill: steelblue !important; 
+    }
+    .graph path {
+      stroke: green !important;
+    }    
+    .boxFooter {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      bottom: 2px;
+      width: 100%;
+      font-size: 0.8em;
+      gap: 10% !important;
+      z-index: 1000;
+    }
+    .headerEntity {
+      font-size: 0.8em;
+      line-height: 1.1em;
     }

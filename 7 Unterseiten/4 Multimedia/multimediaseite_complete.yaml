@@ -1,0 +1,1489 @@
+type: sections
+max_columns: 3
+title: MultiMedia
+path: multimedia
+icon: mdi:multimedia
+subview: true
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Echo Geräte
+        heading_style: title
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            } 
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.wohnzimmer', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.5s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: none !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.wohnzimmer
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.wohnzimmer
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: 0px !important;
+                                padding: 15px !important;
+                                z-index: 1 !important; /* Über dem Hintergrund */
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.wohnzimmer
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Gruppe Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                                z-index: 1 !important; /* Über dem Hintergrund */
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.wohnzimmer
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Gruppe Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: none !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                                z-index: 1 !important; /* Über dem Hintergrund */
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.wohnzimmer
+                            state: standby
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Gruppe Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                                z-index: 1 !important; /* Über dem Hintergrund */
+                              }
+              - type: picture
+                image: /local/bilder/echogruppe.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.wohnzimmer
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                use_media_info: true
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none !important;
+                      border: none !important;
+                      box-shadow: none;
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+              - type: custom:mushroom-chips-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-bottom: 8px !important; 
+                      z-index: 1 !important; /* Über dem Hintergrund */
+                    }
+                alignment: center
+                chips:
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: BB Radio
+                  - type: entity
+                    entity: script.radio_fritz_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Fritz
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Radio 1
+                  - type: entity
+                    entity: >-
+                      script.radio_berliner_rundfunk_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: 91,4
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.echo_show', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.echo_show', 'playing') or is_state('media_player.echo_show', 'paused') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.3s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: 0px !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.echo_show
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: 0px !important;
+                                padding: 15px !important;
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show
+                            state: standby
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                              }
+              - type: picture
+                image: /local/bilder/echoshow.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.echo_show
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                show_volume_level: true
+                collapsible_controls: false
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                    }
+              - type: custom:mushroom-chips-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-bottom: 8px !important; 
+                    }
+                alignment: center
+                chips:
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: BB Radio
+                  - type: entity
+                    entity: script.radio_fritz_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Fritz
+                  - type: entity
+                    entity: script.bb_radio_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: Radio 1
+                  - type: entity
+                    entity: >-
+                      script.radio_berliner_rundfunk_skript_fur_echo_wohnzimmer_gruppe
+                    tap_action:
+                      action: toggle
+                    content_info: name
+                    name: 91,4
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.echo_dot_wohnzimmer', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.echo_dot_wohnzimmer', 'playing') or is_state('media_player.echo_dot_wohnzimmer', 'paused') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.3s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: 0px !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_wohnzimmer
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.echo_dot_wohnzimmer
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: 0px !important;
+                                padding: 15px !important;
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_wohnzimmer
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_wohnzimmer
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_wohnzimmer
+                            state: standby
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                              }
+              - type: picture
+                image: /local/bilder/echodot.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.echo_dot_wohnzimmer
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                    }
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.jan_s_echo', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.jan_s_echo', 'playing') or is_state('media_player.jan_s_echo', 'paused') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.3s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: 0px !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.jan_s_echo
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.jan_s_echo
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: 0px !important;
+                                padding: 15px !important;
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.jan_s_echo
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Plus Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.jan_s_echo
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Plus Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.jan_s_echo
+                            state: standby
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Plus Wohnzimmer
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                              }
+              - type: picture
+                image: /local/bilder/echoplus.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.jan_s_echo
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                icon: mdi:cast-audio
+                card_mod:
+                  style: >
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                    }
+
+                    /* Add this CSS to target the slider and change its color to
+                    orange */
+
+                    .slider {
+                      --main-color: orange;
+                    }
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.echo_dot_badezimmer', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.echo_dot_badezimmer', 'playing') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.3s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: 0px !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_badezimmer
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.echo_dot_badezimmer
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: none !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px !important;
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_badezimmer
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Bad
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_badezimmer
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Bad
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_dot_badezimmer
+                            state: "off"
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Dot Bad
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                              }
+              - type: picture
+                image: /local/bilder/echodot.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.echo_dot_badezimmer
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                    }
+                    .slider,
+                    .slider-track-active {
+                      --slider-color: var(--primary); /* Use your primary color variable */
+                      background-color: var(--slider-color) !important;
+                    }
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              position: relative;
+              overflow: hidden;
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            } 
+            ha-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url({{ state_attr('media_player.echo_show_mutti', 'entity_picture') }}) no-repeat center center;
+              background-size: cover;
+              filter: blur(30px);
+              z-index: 0;
+              opacity: {% if is_state('media_player.echo_show_mutti', 'playing') %} 1 {% else %} 0 {% endif %};
+              transition: opacity 0.5s ease;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:vertical-stack-in-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: transparent !important;
+                      border: 0px !important;
+                      border-radius: none !important;
+                      box-shadow: none !important;
+                    }
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show_mutti
+                            state: playing
+                        card:
+                          type: custom:button-card
+                          entity: media_player.echo_show_mutti
+                          show_state: false
+                          show_name: false
+                          show_icon: false
+                          show_entity_picture: true
+                          size: 120px
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: 0px !important;
+                                padding: 15px !important;
+                              }
+                              #img-cell {
+                                display: flex !important;
+                                align-items: flex-start !important;
+                                justify-content: flex-start !important;
+                                margin: 0 !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show_mutti
+                            state: paused
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Mutti
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                padding: 15px;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show_mutti
+                            state: idle
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Mutti
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: transparent !important;
+                                border: 0px !important;
+                                border-radius: none !important;
+                                box-shadow: none;
+                                font-size: 12px !important;
+                              }
+                      - type: conditional
+                        conditions:
+                          - entity: media_player.echo_show_mutti
+                            state: standby
+                        card:
+                          type: markdown
+                          content: |
+                            ## Echo Show Mutti
+                          card_mod:
+                            style: |
+                              ha-card {
+                                background: none;
+                                border: none;
+                                border-radius: none;
+                                box-shadow: none;
+                                padding: 20px;
+                                font-size: 12px !important;
+                              }
+              - type: picture
+                image: /local/bilder/echoshow.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 150px;
+                      height: 150px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  z-index: 1 !important; /* Über dem Hintergrund */
+                }
+            cards:
+              - type: custom:mushroom-media-player-card
+                entity: media_player.echo_show_mutti
+                media_controls:
+                  - play_pause_stop
+                  - next
+                  - previous
+                volume_controls:
+                  - volume_mute
+                  - volume_buttons
+                  - volume_set
+                show_volume_level: true
+                collapsible_controls: false
+                icon: mdi:cast-audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      box-shadow: none;
+                    }
+    column_span: 2
+  - type: grid
+    cards:
+      - type: heading
+        heading: TV und Beamer
+        heading_style: title
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: markdown
+                content: |
+                  ## LG OLED Wohnzimmer
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      padding: 20px;
+                    }
+              - type: picture
+                image: /local/bilder/lgtv.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 160px;
+                      height: 160px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  border-top-right-radius: 0px !important;          
+                  border-top-left-radius: 0px !important;
+                }
+            cards:
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: none !important; /* Halbtransparenter Grünton */      
+                      padding-top: 20px;
+                      padding-bottom: 20px;  
+                      padding-right: 0px;
+                      padding-left: 0px; 
+                    }
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - type: tile
+                      entity: input_button.button_fernseher
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV on
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_fernseher_off
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV off
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                           border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: switch.fernseher_plug_schalter
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: TV Plug
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+      - type: media-control
+        entity: media_player.lg_webos_smart_tv
+        visibility:
+          - condition: state
+            entity: media_player.lg_webos_smart_tv
+            state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: markdown
+                content: |
+                  ## Marantz NR Wohnzimmer
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      padding: 20px;
+                    }
+              - type: picture
+                image: /local/bilder/marantz.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 160px;
+                      height: 160px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  border-top-right-radius: 0px !important;          
+                  border-top-left-radius: 0px !important;
+                }
+            cards:
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: none !important; /* Halbtransparenter Grünton */      
+                      padding: 20px;   
+                    }
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - type: tile
+                      entity: media_player.marantz_wohnzimmer
+                      name: Hifi on
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      tap_action:
+                        action: call-service
+                        service: media_player.turn_on
+                        service_data:
+                          entity_id: media_player.marantz_wohnzimmer
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: media_player.marantz_wohnzimmer
+                      name: Hifi off
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      tap_action:
+                        action: call-service
+                        service: media_player.turn_off
+                        service_data:
+                          entity_id: media_player.marantz_wohnzimmer
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+      - type: media-control
+        entity: media_player.marantz_wohnzimmer
+        visibility:
+          - condition: state
+            entity: media_player.marantz_wohnzimmer
+            state: "on"
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                          13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+              border: none;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: markdown
+                content: |
+                  ## Optoma Beamer Wohnzimmer
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      padding: 20px;
+                    }
+              - type: picture
+                image: /local/bilder/beamer.png
+                aspect_ratio: 1/1
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: none;
+                      border: none;
+                      border-radius: none;
+                      box-shadow: none;
+                      width: 160px;
+                      height: 160px;
+                      margin-left: auto;
+                    }
+          - type: custom:vertical-stack-in-card
+            card_mod:
+              style: |
+                ha-card {
+                  border: none;
+                  border-top-right-radius: 0px !important;          
+                  border-top-left-radius: 0px !important;
+                }
+            cards:
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      background-color: none !important; /* Halbtransparenter Grünton */      
+                      padding: 20px;   
+                    }
+                card:
+                  type: horizontal-stack
+                  cards:
+                    - type: tile
+                      entity: input_button.button_leinwand_runter
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Kino on
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border-right: 1px solid grey !important; 
+                            border-left: none !important; 
+                            border-top: none !important; 
+                            border-bottom: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+                    - type: tile
+                      entity: input_button.button_leinwand_hoch
+                      hide_state: true
+                      show_entity_picture: false
+                      vertical: false
+                      name: Kino off
+                      tap_action:
+                        action: toggle
+                      card_mod:
+                        style: |
+                          ha-card {
+                            background: none !important;
+                            border-radius: 0px !important;
+                            border: none !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            height: 100% !important;
+                            text-align: center !important;
+                          }
+                          .card-content {
+                            margin: auto !important;
+                          }
+      - type: custom:bubble-card
+        styles: |
+          .bubble-icon {
+            --mdc-icon-size: 30px !important;
+            height: 35px;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding-right: 10px; 
+            color: var(--primary-color);
+          } 
+          * { 
+            font-size: 10px !important;
+            border: none !important;
+            border-radius: 0px !important;
+            background: rgba(0,0,0,0) !important;
+            box-shadow: none !important;
+          }
+        card_type: horizontal-buttons-stack
+        auto_order: false
+        1_name: ""
+        1_icon: mdi:keyboard-backspace
+        1_link: /dashboard-test/home
+        2_link: /dashboard-test/einstellungen
+        2_icon: mdi:cog
+        3_link: /dashboard-test/sicherheit
+        3_icon: mdi:cctv
+        4_link: /dashboard-test/robter-steuerung
+        4_icon: mdi:robot-mower
+        5_link: /dashboard-test/multimedia
+        5_icon: mdi:multimedia
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              border-radius: 0px !important;
+              background: none !important;
+              box-shadow: none !important;
+              padding: 0px; 
+              z-index: 2;
+              position: fixed;
+              margin: 0 !important;
+              bottom: 0;
+            }
+    column_span: 1
+background:
+  opacity: 100
+  alignment: center
+  size: cover
+  repeat: no-repeat
+  attachment: fixed
+  image: /api/image/serve/a0db373e66314ef8086b0b96661bab80/original
+cards: []

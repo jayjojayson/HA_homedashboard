@@ -1,12 +1,11 @@
 type: custom:vertical-stack-in-card
 card_mod:
   style: |
-    ha-card  { 
-      background: none; 
-      border: none !important;   
+    ha-card { 
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                   13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
-      margin-bottom: -15px !important;
+      border: none !important;
+      background: none;
     }
 cards:
   - type: custom:stack-in-card
@@ -133,11 +132,11 @@ cards:
     color_thresholds:
       - value: -5
         color: grey
-      - value: 0
+      - value: 1
         color: steelblue
-      - value: 10
-        color: amber
-      - value: 15
+      - value: 6
+        color: yellow
+      - value: 16
         color: green
       - value: 23
         color: orange

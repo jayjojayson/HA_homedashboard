@@ -1,0 +1,119 @@
+type: custom:stack-in-card
+grid_options:
+  columns: full
+card_mod:
+  style: |
+    ha-card {
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;   
+      padding: 0px;
+      height: 65%;
+    }
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.total_power_kombiniert
+            icon: " "
+            name: Verbrauch
+            color: darkorange
+        height: 60px
+        width: 70%
+        direction: up
+        max: 3500
+        card_mod:
+          style: |
+            :host {
+              --stack-card-margin: 0px;
+              --ha-card-border-radius: 5px;
+              --ha-card-border-width: 0px;
+            }
+            ha-card {              
+              background: none !important; 
+              border: none;      
+              box-shadow: none;
+              padding-top: 0px;
+              padding-bottm: 0px;
+              margin: 5px -30px 0 -30px;
+              height: 65%;
+            }
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.total_power
+            icon: " "
+            name: Netz
+            color: red
+        height: 60px
+        width: 70%
+        direction: up
+        max: 3500
+        card_mod:
+          style: |
+            :host {
+              --stack-card-margin: 0px;
+              --ha-card-border-radius: 5px;
+              --ha-card-border-width: 0px;
+            }
+            ha-card {           
+              background: none !important; 
+              border: none;     
+              box-shadow: none;
+              padding-top: 0px;
+              padding-bottm: 0px;
+              margin: 5px -30px 0 -30px;
+              height: 65%;
+            }
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.total_solar_power_kombiniert
+            icon: " "
+            name: Solar
+            color: green
+        height: 60px
+        width: 70%
+        direction: up
+        max: 3500
+        card_mod:
+          style: |
+            :host {
+              --stack-card-margin: 0px;
+              --ha-card-border-radius: 5px;
+              --ha-card-border-width: 0px;
+            }
+            ha-card {           
+              background: none !important; 
+              border: none;     
+              box-shadow: none;
+              padding-top: 0px;
+              padding-bottm: 0px;
+              margin: 5px -30px 0 -30px;
+              height: 65%;
+            }
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.victron_system_battery_power
+            icon: " "
+            name: Batterie
+            color: "#6C9BC4"
+        height: 60px
+        width: 70%
+        direction: up
+        max: 3500
+        card_mod:
+          style: |
+            :host {
+              --stack-card-margin: 0px;
+              --ha-card-border-radius: 5px;
+              --ha-card-border-width: 0px;
+            }
+            ha-card {           
+              background: none !important; 
+              border: none;     
+              box-shadow: none;
+              padding-top: 0px;
+              padding-bottm: 0px;
+              margin: 5px -30px 0 -30px;
+              height: 65%;
+            }

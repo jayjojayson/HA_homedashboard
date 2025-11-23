@@ -1,5 +1,6 @@
 type: picture
-image: https://www.dwd.de/DWD/warnungen/warnstatus/SchilderPD.jpg
+image:
+  media_content_id: https://www.dwd.de/DWD/warnungen/warnstatus/SchilderPD.jpg
 layout_options:
   grid_columns: full
 card_mod:

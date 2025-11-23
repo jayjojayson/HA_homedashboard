@@ -5,6 +5,7 @@ entities:
     icon_trailing: ""
     animation:
       inverted: false
+    current: sensor.batterieentladung_vr_watt
   - power: sensor.stromverbrauch_taglich
     color: red
     animation:
@@ -17,7 +18,7 @@ entities:
       inverted: true
       min_duration: 10
       max_duration: 15
-  - power: sensor.homestation_solar_total_energie_heute
+  - power: sensor.growatt_todaygenerateenergy
     icon_leading: mdi:home-lightning-bolt
     color: green
     animation:
@@ -32,7 +33,7 @@ animation:
   min_duration: 4
 visibility:
   - condition: numeric_state
-    entity: sensor.homestation_solar_total_ausgangsleistung
+    entity: sensor.growatt_outpowerwatt
     below: 20
 card_mod:
   style: |

@@ -8,102 +8,50 @@ card_mod:
                   13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
     }
 cards:
-  - type: custom:vertical-stack-in-card
+  - type: custom:bubble-card
+    card_type: button
+    button_type: slider
+    entity: light.schlafzimmer_mutti_leuchte
+    icon: mdi:ceiling-light
+    name: Schlafzimmer
+    show_state: false
+    max_value: 100
+    min_value: 0
+    step: 5
+    light_transition: true
+    tap_to_slide: true
+    light_transition_time: "60"
+    button_action:
+      tap_action:
+        action: toggle
+    card_layout: normal
+    allow_light_slider_to_0: true
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    styles: |
+      * {  
+        font-size: 12px !important;
+      }
+      ha-card {
+        --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+        --bubble-icon-color: white !important;
+        --bubble-button-border-radius: 3px;
+      }
+      .bubble-button-card-container {
+        background: rgba(22,22,22,0) !important;
+        border-radius: 10px;
+      }
+      .bubble-button-background {
+        opacity: 0.7 !important;
+        border-radius: 10px;
+      }
     card_mod:
       style: |
         ha-card {
-          border: none;
+            margin-top: 5px;
         }
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: light
-            entity: light.schlafzimmer_mutti_leuchte
-            icon: mdi:ceiling-light
-            name: Schlafzimmer
-            theme: grey-icon
-            hold_action:
-              action: more-info
-            double_tap_action:
-              action: more-info
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border-right: none !important; 
-                  border-left: none !important; 
-                  border-top: none !important; 
-                  border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                #info {
-                  font-size: 110% !important;
-                }  
-                .card-content {
-                  margin: auto !important;
-                }
-          - type: light
-            entity: light.leselampe_mutti
-            name: "Leselampe "
-            theme: grey-icon
-            icon: mdi:lamp-outline
-            hold_action:
-              action: more-info
-            double_tap_action:
-              action: more-info
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border-right: 0px solid grey !important; 
-                  border-left: none !important; 
-                  border-top: none !important; 
-                  border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                #info {
-                  font-size: 110% !important;
-                }  
-                .card-content {
-                  margin: auto !important;
-                }
-          - type: light
-            entity: light.esszimmerlicht_lampe_gruppe_mutti
-            name: Esszimmer
-            theme: grey-icon
-            icon: mdi:ceiling-light-multiple
-            hold_action:
-              action: more-info
-            double_tap_action:
-              action: more-info
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                #info {
-                  font-size: 110% !important;
-                }      
-                .card-content {
-                  margin: auto !important;
-                }   
   - type: custom:mod-card
     card_mod:
       style: |
@@ -111,169 +59,241 @@ cards:
             height: 1px;
             border-bottom: 1px;
             background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
-        }       
-  - type: custom:vertical-stack-in-card
+            margin: 8px 20px 0px 20px;
+        }    
+  - type: custom:bubble-card
+    card_type: button
+    button_type: slider
+    entity: light.esszimmerlicht_lampe_gruppe_mutti
+    icon: mdi:ceiling-light-multiple
+    name: Esszimmer
+    show_state: false
+    max_value: 100
+    min_value: 0
+    step: 5
+    light_transition: true
+    tap_to_slide: true
+    light_transition_time: "60"
+    button_action:
+      tap_action:
+        action: toggle
+    card_layout: normal
+    allow_light_slider_to_0: true
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    styles: |
+      * {  
+        font-size: 12px !important;
+      }
+      ha-card {
+        --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+        --bubble-icon-color: white !important;
+        --bubble-button-border-radius: 3px;
+      }
+      .bubble-button-card-container {
+        background: rgba(22,22,22,0) !important;
+        border-radius: 10px;
+      }
+      .bubble-button-background {
+        opacity: 0.7 !important;
+        border-radius: 10px;
+      }
     card_mod:
       style: |
         ha-card {
-          border: none;
+            margin-top: 5px;
         }
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey !important;
+            margin: 8px 20px 0px 20px;
+        }    
+  - type: custom:bubble-card
+    card_type: button
+    button_type: slider
+    entity: light.leselampe_mutti
+    icon: mdi:lamp-outline
+    name: Leslampe
+    show_state: false
+    max_value: 100
+    min_value: 0
+    step: 5
+    light_transition: true
+    tap_to_slide: true
+    light_transition_time: "60"
+    button_action:
+      tap_action:
+        action: toggle
+    card_layout: normal
+    allow_light_slider_to_0: true
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    styles: |
+      * {  
+        font-size: 12px !important;
+      }
+      ha-card {
+        --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+        --bubble-icon-color: white !important;
+        --bubble-button-border-radius: 3px;
+      }
+      .bubble-button-card-container {
+        background: rgba(22,22,22,0) !important;
+        border-radius: 10px;
+      }
+      .bubble-button-background {
+        opacity: 0.7 !important;
+        border-radius: 10px;
+      }
+    card_mod:
+      style: |
+        ha-card {
+            margin-top: 5px;
+        }
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+            height: 1px;
+            border-bottom: 1px;
+            background-color: grey !important;
+            margin: 8px 20px 0px 20px;
+        } 
+  - type: custom:vertical-stack-in-card
     cards:
       - type: horizontal-stack
         cards:
-          - type: tile
-            entity: switch.growzelt_innenlufter
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: switch
+            entity: light.steckdose_dekolicht_mutti
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: false
+            scrolling_effect: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            button_action: {}
             icon: mdi:led-strip-variant
-            vertical: false
-            hide_state: true
             name: Dekolicht
-            tap_action:
-              action: toggle
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state === 'on' ? 'orange' : ''} !important;
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }
             card_mod:
               style: |
                 ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
+                  padding-right: 10px;
                   border-right: 1px solid grey !important; 
                   border-left: none !important; 
                   border-top: none !important; 
                   border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
                 }
-                .card-content {
-                  margin: auto !important;
-                }
-          - type: tile
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: switch
             entity: switch.herdlicht_gruppe_mutti
-            name: Herdlicht
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: false
+            scrolling_effect: false
             tap_action:
               action: toggle
-            vertical: false
-            icon: mdi:led-strip
-            show_entity_picture: false
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border-right: 1px solid grey !important; 
-                  border-left: none !important; 
-                  border-top: none !important; 
-                  border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                .card-content {
-                  margin: auto !important;
-                }
-          - type: tile
-            entity: switch.korridorlicht
-            name: Flurlicht
-            tap_action:
-              action: toggle
-            vertical: false
-            icon: mdi:ceiling-light
-            show_entity_picture: false
-            hide_state: true
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                .card-content {
-                  margin: auto !important;
-                }
-  - type: custom:mod-card
-    card_mod:
-      style: |
-        ha-card {
-            height: 1px;
-            border-bottom: 1px;
-            background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
-        }        
-  - type: custom:vertical-stack-in-card
-    card_mod:
-      style: |
-        ha-card {
-          border: none;
-        }
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: tile
-            entity: light.stehlampe
-            icon: mdi:floor-lamp
-            vertical: false
-            hide_state: true
-            name: Stehlampe
-            tap_action:
-              action: toggle
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border-right: 1px solid grey !important; 
-                  border-left: none !important; 
-                  border-top: none !important; 
-                  border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
-                }
-                .card-content {
-                  margin: auto !important;
-                }
-          - type: tile
-            entity: light.wohnzimmer_treppe_mutti_leuchte
-            name: Treppe
-            tap_action:
-              action: toggle
-            double_tap_action:
+            hold_action:
               action: more-info
-            vertical: false
-            icon: mdi:lightbulb
-            show_entity_picture: false
-            hide_state: true
+            button_action: {}
+            icon: mdi:led-strip
+            name: Herdlicht
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state === 'on' ? 'orange' : ''} !important;
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }
             card_mod:
               style: |
                 ha-card {
-                  background: none !important;
-                  border-radius: 0px !important;
-                  border-right: none !important; 
+                  padding-right: 10px;
+                  border-right: 1px solid grey !important; 
                   border-left: none !important; 
                   border-top: none !important; 
                   border-bottom: none !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  height: 100% !important;
-                  text-align: center !important;
                 }
-                .card-content {
-                  margin: auto !important;
-                }
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: switch
+            entity: switch.korridorlicht
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: false
+            scrolling_effect: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            button_action: {}
+            icon: mdi:ceiling-light
+            name: Flurlicht
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state === 'on' ? 'orange' : ''} !important;
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }
+    card_mod:
+      style: |
+        ha-card {
+          padding: 5px;
+          border: none !important;   
+        }  
   - type: custom:mod-card
     card_mod:
       style: |
@@ -281,8 +301,7 @@ cards:
             height: 1px;
             border-bottom: 1px;
             background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin: 0px 20px 5px 20px;
         }  
   - type: custom:vertical-stack-in-card
     card_mod:
@@ -293,61 +312,173 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-fan-card
-            entity: fan.starkvind_luftreiniger_mutti_ventilator
-            show_percentage_control: false
-            show_oscillate_control: false
-            collapsible_controls: false
-            icon_animation: true
-            fill_container: false
-            secondary_info: none
-            name: Luftreiniger
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: switch
+            entity: light.stehlampe
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: false
+            scrolling_effect: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            button_action: {}
+            icon: mdi:floor-lamp
+            name: Stehlampe
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state === 'on' ? 'orange' : ''} !important;
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }
             card_mod:
               style: |
                 ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-right: 1px solid grey !important;
-                  border-radius: 0px !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  text-align: center !important;
+                  padding-right: 10px;
+                  border-right: 1px solid grey !important; 
+                  border-left: none !important; 
+                  border-top: none !important; 
+                  border-bottom: none !important;
                 }
-          - type: custom:mushroom-entity-card
-            entity: sensor.starkvind_luftreiniger_mutti_pm2_5
-            primary_info: none
-            fill_container: false
-            icon_color: |
-              {% if is_state('sensor.luftquality_color', 'green') %}
-                green
-              {% elif is_state('sensor.luftquality_color', 'yellow') %}
-                yellow
-              {% elif is_state('sensor.luftquality_color', 'orange') %}
-                orange
-              {% else %}
-                red
-              {% endif %}
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.wohnzimmer_treppe_mutti_leuchte
+            icon: mdi:lightbulb
+            name: Treppe
+            show_state: false
+            max_value: 100
+            min_value: 0
+            step: 5
+            light_transition: true
+            tap_to_slide: true
+            light_transition_time: "60"
+            button_action:
+              tap_action:
+                action: toggle
+            card_layout: normal
+            allow_light_slider_to_0: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+                --bubble-icon-color: white !important;
+                --bubble-button-border-radius: 3px;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }    
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+                height: 1px;
+                border-bottom: 1px;
+                background-color: grey !important;
+                margin: 10px 20px 10px 20px;
+            }  
+      - type: horizontal-stack
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: switch
+            entity: fan.starkvind_luftreiniger_mutti_ventilator
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: false
+            scrolling_effect: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            button_action: {}
+            icon: mdi:fan
+            name: Luftreiniger
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+                --bubble-icon-color: white !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state === 'on' ? 'steelblue' : ''} !important;
+                opacity: 0.7 !important;
+                border-radius: 10px;
+              }
             card_mod:
               style: |
                 ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                  display: flex !important;
-                  align-items: center !important;
-                  justify-content: center !important;
-                  text-align: center !important;
-                  --primary-text-color:
-                    {% if is_state('sensor.luftquality_color', 'green') %}
-                      green;
-                    {% elif is_state('sensor.luftquality_color', 'yellow') %}
-                      yellow;
-                    {% elif is_state('sensor.luftquality_color', 'orange') %}
-                      orange;
-                    {% else %}
-                      red;
-                    {% endif %}
-                }    
+                  padding-right: 10px;
+                  margin-bottom: 10px;
+                  border-right: 1px solid grey !important; 
+                  border-left: none !important; 
+                  border-top: none !important; 
+                  border-bottom: none !important;
+                }
+          - type: custom:bubble-card
+            card_type: button
+            sub_button: []
+            button_type: state
+            entity: sensor.starkvind_luftreiniger_mutti_pm2_5
+            card_layout: normal
+            show_icon: true
+            show_name: true
+            show_state: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            button_action: {}
+            icon: m3of:air
+            name: PPM
+            styles: |
+              * {  
+                font-size: 12px !important;
+              }
+              ha-card {
+                --bubble-icon-background-color: rgba(55,55,55,0.2) !important;
+                --bubble-icon-color: gray !important;
+              }
+              .bubble-button-card-container {
+                background: rgba(22,22,22,0) !important;
+                border-radius: 10px;
+              }
+              .bubble-button-background {
+                background-color: ${state > '55' ? 'red' : ''} !important;
+                opacity: 0.2 !important;
+                border-radius: 10px;
+              }
+            scrolling_effect: true

@@ -5,98 +5,70 @@ card_mod:
       border: none;   
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
                   13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
-      margin-bottom: -10px !important;
+      padding-top: 10px !important;
     }
 cards:
-  - type: entity
-    entity: sensor.pooltemperatur_temperatur
-    state_color: false
-    name: " "
-    theme: Temps
-    card_mod:
-      style: |
-        ha-card {
-          border: none !important;
-          text-align: center;
-          --primary-text-color:
-              {% if is_state('sensor.pooltemperature_color', 'steelblue') %}
-                steelblue
-              {% elif is_state('sensor.pooltemperature_color', 'green') %}
-                green
-              {% elif is_state('sensor.pooltemperature_color', 'orange') %}
-                orange
-              {% else %}
-                red
-              {% endif %};
-        }
-        .value {
-        font-size: 45px !important; /* Ändere die Schriftgröße */
-        }
-        .info {
-        line-height: 35px !important;
-        } 
-  - type: custom:mod-card
-    card_mod:
-      style: |
-        ha-card {
-            height: 1px;
-            border-bottom: 1px;
-            background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-    card:
-      type: custom:mushroom-template-card
   - type: horizontal-stack
     cards:
-      - type: entities
-        entities:
-          - entity: sensor.pooltemp_statistik_max
-            icon: mdi:temperature-celsius
-            name: Max
-          - entity: sensor.pooltemp_statistik_min
-            icon: mdi:temperature-celsius
-            name: Min
-        theme: grey-icon
+      - type: entity
+        entity: sensor.pooltemperatur_temperatur
+        state_color: false
+        name: " "
+        theme: Temps
         card_mod:
           style: |
             ha-card {
-              background: none !important;
-              box-shadow: none !important;
+              width: 75%;
+              margin-bottom: -10px !important;
               border: none !important;
               border-right: 1px solid grey !important;
-              border-radius: 0px !important;
+              text-align: center;
+              --primary-text-color:
+                  {% if is_state('sensor.pooltemperature_color', 'steelblue') %}
+                    steelblue
+                  {% elif is_state('sensor.pooltemperature_color', 'green') %}
+                    green
+                  {% elif is_state('sensor.pooltemperature_color', 'orange') %}
+                    orange
+                  {% else %}
+                    red
+                  {% endif %};
             }
-      - type: vertical-stack
+            .value {
+            font-size: 40px !important; /* Ändere die Schriftgröße */
+            }
+            .info {
+            line-height: 35px !important;
+            } 
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background: none; 
+              border: none !important;
+              border-radius: 0px !important;
+              margin-left: -20px !important;
+              margin-right: 30px !important;
+            }
         cards:
-          - type: markdown
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                  margin-top: 10px;
-                  margin-left: 20px;
-                }   
-            content: >
-              Datum: {{ (states('sensor.pooltemp_statistik_max_date') |
-              as_datetime).strftime('%d.%m.%Y') }}
-          - type: markdown
-            card_mod:
-              style: |
-                ha-card {
-                  background: none !important;
-                  box-shadow: none !important;
-                  border: none !important;
-                  border-radius: 0px !important;
-                  margin-top: -12px;
-                  margin-left: 20px;
-                }   
-            content: >
-              Datum: {{ (states('sensor.pooltemp_statistik_min_date') |
-              as_datetime).strftime('%d.%m.%Y') }}          
+          - entity: sensor.pooltemp_statistik_max
+            type: custom:multiple-entity-row
+            name: Max
+            icon: mdi:temperature-celsius
+            state_color: true
+            hide_unavailable: true
+            styles:
+              color: var(--primary-text-color)
+              font-size: 16px
+          - entity: sensor.pooltemp_statistik_min
+            type: custom:multiple-entity-row
+            name: Min
+            icon: mdi:temperature-celsius
+            state_color: true
+            hide_unavailable: true
+            styles:
+              color: var(--primary-text-color)
+              font-size: 16px
   - type: custom:mod-card
     card_mod:
       style: |
@@ -104,8 +76,8 @@ cards:
             height: 1px;
             border-bottom: 1px;
             background-color: grey !important;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin-left: 0px;
+            margin-right: 0px;
         }
     card:
       type: custom:mushroom-template-card
@@ -114,10 +86,10 @@ cards:
     entities:
       - entity: sensor.pooltemperatur_temperatur
         name: " "
-    hours_to_show: 96
-    refresh_interval: 10
-    points_per_hour: 0.25
-    height: 50
+    hours_to_show: 120
+    refresh_interval: 360
+    points_per_hour: 0.5
+    height: 120
     show:
       labels: true
       name: true
@@ -126,10 +98,10 @@ cards:
     color_thresholds:
       - value: 0
         color: grey
-      - value: 2
+      - value: 5
         color: steelblue
-      - value: 10
-        color: amber
+      - value: 13
+        color: yellow
       - value: 15
         color: green
       - value: 23

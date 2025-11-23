@@ -26,7 +26,7 @@ tabs:
                     box-shadow: none !important;
                     border: none !important;
                     border-radius: 0px !important;
-                    width: 315px;
+                    width: 308px;
                   }
               title: " "
               content: >
@@ -38,37 +38,52 @@ tabs:
                   {{ text[start:end].strip() if end else text[start:].strip() }}
                 {% else %}
                   Keine Wetterdaten verfügbar.
-                {% endif %}
-            - type: custom:compass-card
-              card_mod:
-                style: |
-                  ha-card {
-                    background: none !important;
-                    box-shadow: none !important;
-                    border: none !important;
-                    border-radius: 0px !important;
-                    zoom: 75%;
-                    max-width: 160px;
-                    margin-left: 120px;
-                    margin-top: 20px;
-                  }
-              indicator_sensors:
-                - sensor: sensor.fuerstenwalde_spree_windrichtung
-                  indicator:
-                    type: arrow_inward
-              value_sensors:
-                - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
-              compass:
-                east:
-                  show: true
-                west:
-                  show: true
-                south:
-                  show: true
-                north:
-                  show: true
-                  offset: 150
-              language: de
+                {% endif %}            
+            - type: vertical-stack
+              cards:
+                - type: custom:compass-card
+                  indicator_sensors:
+                    - sensor: sensor.fuerstenwalde_spree_windrichtung
+                      indicator:
+                        image: arrow_inward
+                  value_sensors:
+                    - sensor: sensor.fuerstenwalde_spree_windgeschwindigkeit
+                  compass:
+                    east:
+                      show: true
+                    west:
+                      show: true
+                    south:
+                      show: true
+                    north:
+                      show: true
+                      offset: 150
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-radius: 0px !important;
+                        zoom: 65%;
+                        max-width: 160px;
+                        margin-left: 145px;
+                        margin-top: 20px;
+                      }
+                  language: de
+                - type: markdown
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: none !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        border-radius: 0px !important;
+                        zoom: 75%;
+                        max-width: 160px;
+                        margin-left: 120px;
+                      } 
+                  content: "![Sonnenstand]({{ states('sensor.sun_position_bild') }})"
     attributes:
       label: Wetterbericht
       icon: mdi:weather-cloudy-clock

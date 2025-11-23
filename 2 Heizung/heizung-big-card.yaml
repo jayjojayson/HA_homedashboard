@@ -1,12 +1,4 @@
 type: custom:vertical-stack-in-card
-card_mod:
-  style: |
-    ha-card {
-      background-color: transparent !important;   
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
-      border: none !important;
-    }
 cards:
   - type: custom:stack-in-card
     cards:
@@ -87,8 +79,18 @@ cards:
           padding-left: 20px !important;          
           padding-right: 20px !important;
         }
-        /* Direktes Ansprechen des Shadow-DOMs */
-        :host ::part(secondary) {
+        :host {
+          --state-climate-auto-color: #bfaa6c !important;
+          --primary-text-color: grey !important;
+          /*--icon-primary-color: red !important;*/
+        }
+        :host .secondary {
+          display: none !important;
+        }
+        .label {
+          display: none !important;
+        }
+        .secondary {
           display: none !important;
         }
         hui-thermostat-card .label.secondary {
@@ -331,3 +333,11 @@ cards:
                 } 
                 mushroom-shape-icon {
                   --shape-color: {% if state_attr('climate.thermostat_schlafzimmer', 'hvac_action') == 'heating' %} rgba(214, 136, 49, 0.3) {% else %} rgba(158, 158, 158, 0.1) {% endif %} !important;
+card_mod:
+  style: |
+    ha-card {
+      background-color: transparent !important;   
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none !important;
+    }

@@ -8,22 +8,25 @@ cards:
     shadow_opacity: 0
     width_desktop: 650px
     margin_top_desktop: 0vh
+  - type: custom:stack-in-card
     card_mod:
       style: |
         ha-card {
-          background-color: transparent !important;
+          background: none !important;
           border: none !important;
           border-radius: 0px !important;
-          --line-color: {{ states('sensor.solar_line_color') }};
         }
-        .bubble-pop-up-container {
-          padding: 0px 0px calc(140px + var(--custom-height-offset-desktop)) 0px !important;
-        }
-  - type: custom:vertical-stack-in-card
     cards:
       - type: custom:mini-graph-card
         entities:
-          - sensor.homestation_solar_total_energie_heute
+          - entity: sensor.growatt_todaygenerateenergy
+            name: Ertrag
+            show_state: false
+          - entity: sensor.energy_production_today_3
+            name: Vorhersage
+            show_state: false
+            color: rgba(122,122,122,0.3)
+            y_axis: secondary
         name: Ertrag Heute
         hours_to_show: 72
         points_per_hour: 0.25
@@ -41,24 +44,24 @@ cards:
           - value: 3
             color: yellow
           - value: 5
-            color: blue
-          - value: 10
             color: green
-        line_color: var(--line-color)
+          - value: 10
+            color: blue
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
+              margin-top: 1px;
               border: none !important;
               border-radius: 0px !important;
               --line-color: {{ states('sensor.solar_line_color') }};
             }
       - type: custom:button-card
         tap_action:
-          action: none
+          action: navigate
+          navigation_path: /49686a9f_evcc
         styles:
           card:
-            - background-color: rgba(22,22,22, 0.1)
+            - background-color: rgba(22,22,22, 0.4)
             - text-align: center
             - border: none
             - border-radius: 0px
@@ -73,45 +76,63 @@ cards:
                 ]]]
         name: |
           [[[
-            const solarTotal = states['sensor.homestation_solar_total_energie_heute'].state;
+            const solarTotal = states['sensor.growatt_todaygenerateenergy'].state;
             return `Solarertrag heute: ${solarTotal} kWh`;
           ]]]
       - type: entities
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
+              background: none !important;
               border: none !important;
               border-radius: 0px !important;
             }
         entities:
-          - entity: sensor.homestation_solar_total_gesamtbetrag_heute
+          - entity: sensor.growatt_todaygenerateenergy_euro
+            type: custom:multiple-entity-row
             name: Ertrag Heute €
+            state_color: true
+            hide_unavailable: true
+            entities:
+              - entity: sensor.solcast_pv_forecast_prognose_heute
+                name: " "
+                styles:
+                  margin-top: 2px
+                  margin-right: 20px
+                  text-align: right
+                  color: "#676767"
+                  font-size: 13px
+              - entity: sensor.solcast_pv_forecast_prognose_morgen
+                name: " "
+                styles:
+                  margin-top: 2px
+                  margin-right: 20px
+                  text-align: right
+                  color: "#676767"
+                  font-size: 13px
+          - entity: sensor.growatt_totalgenerateenergy
+            name: Ertrag Gesamt kWh
+          - entity: sensor.growatt_totalgenerateenergy_euro
+            name: Ertrag Gesamt €
             unit_of_measurement: €
-          - entity: sensor.solar_netzeinspeisung_kwh_taglich
-            name: Netzeinspeisung Heute
-          - entity: sensor.stromverbrauch_taglich
-            name: Stromverbrauch Heute
+            icon: mdi:counter
+          - entity: sensor.solar_netzeinspeisung_kwh
+            name: Solar Netzeinspeisung Gesamt
           - entity: sensor.stromverbrauch_gesamt_kwh
             name: Stromverbrauch Gesamt
         theme: grey-icon
-    card_mod:
-      style: |
-        ha-card {
-          background-color: transparent !important;
-          border: none !important;
-          border-radius: 0px !important;
-          --line-color: {{ states('sensor.solar_line_color') }};
-        }
-  - type: vertical-stack
-    cards:
       - type: custom:bar-card
         card_mod:
           style: |
             ha-card {
-              background-color: transparent !important;
               border: none !important;
               border-radius: 0px !important;
+            }               
+            bar-card-backgroundbar { 
+              border-radius: 3px !important;  
+            }
+            bar-card-currentbar {
+              border-radius: 3px !important;  
             }
         name: Aktueller Strombedarf
         positions:
@@ -121,7 +142,7 @@ cards:
           icon: "off"
         unit_of_measurement: W
         max: 2500
-        height: 30px
+        height: 25px
         severity:
           - color: "#7bc13c"
             from: 0
@@ -140,15 +161,109 @@ cards:
             to: 50000
         entities:
           - entity: sensor.total_power_nur_verbrauch
+      - type: custom:stack-in-card
+        card_mod:
+          style: |
+            ha-card {
+              background: none !important;
+              border: none !important;
+              border-radius: 0px !important;
+            }
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:bar-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      border-radius: 0px !important;
+                      --primary-color: #7bc13c !important;          
+                    }
+                    #states {
+                      padding: 0 16px 0 16px !important;
+                    } 
+                    bar-card-currentbar {
+                      border-radius: 3px !important; 
+                        
+                      {% if states['switch.acpowervonbatterie'].state == 'on' %}
+                      background: linear-gradient(270deg, red, orange, green);
+                      background-size: 300% 100%;
+                      animation: gradientShiftNormal 3s linear infinite;
+                      clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+
+                      {% elif states['switch.acpowerzubatterie'].state == 'on' %}
+                      background: linear-gradient(270deg, red, orange, green);
+                      background-size: 300% 100%;
+                      animation: gradientShiftReverse 3s linear infinite;
+                      clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+
+                      {% else %}
+                      background: linear-gradient(to right, darkorange 15%, orange 25%, yellow 50%, green 100%);
+                      clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+                      {% endif %}
+                    }                  
+                    bar-card-backgroundbar { 
+                      border-radius: 3px !important; 
+                      background: linear-gradient(to right, darkorange 15%, orange 25%, yellow 50%, green 100%);
+                      clip-path: inset(0 calc(100% - var(--bar-percent)) 0 0);
+                    }
+                    @keyframes gradientShiftNormal {
+                      0% { background-position: 0% 50%; }
+                      100% { background-position: 100% 50%; }
+                    }
+                    @keyframes gradientShiftReverse {
+                      100% { background-position: 0% 50%; }
+                      0% { background-position: 100% 50%; }
+                    }
+                name: Hausspeicher
+                positions:
+                  name: inside
+                  value: inside
+                  indicator: "off"
+                  icon: "off"
+                unit_of_measurement: "%"
+                max: 100
+                height: 20px
+                severity:
+                  - color: "#ff0000"
+                    from: 0
+                    to: 25
+                  - color: darkorange
+                    from: 25
+                    to: 50
+                  - color: orange
+                    from: 50
+                    to: 75
+                  - color: "#7bc13c"
+                    from: 75
+                    to: 100
+                entities:
+                  - entity: sensor.batterie_ladezustand
+                tap_action:
+                  action: navigate
+                  navigation_path: "#batterie"
       - type: custom:auto-entities
+        card_mod:
+          style: |
+            ha-card {
+              background-color: transparent !important;
+              border: none !important;
+              border-radius: 0px !important;
+            }
         card:
           type: custom:bar-card
           card_mod:
             style: |
               ha-card {
-                background-color: transparent !important;
                 border: none !important;
                 border-radius: 0px !important;
+              }               
+              bar-card-backgroundbar { 
+                border-radius: 3px !important;  
+              }
+              bar-card-currentbar {
+                border-radius: 3px !important;  
               }
           positions:
             name: inside
@@ -169,11 +284,11 @@ cards:
               to: 500
             - color: darkorange
               from: 500
-              to: 1000
+              to: 1400
             - color: "#ff0000"
-              from: 1000
+              from: 1400
               to: 50000
-          height: 30px
+          height: 20px
           decimals: 2
           style: |
             #states { padding: 0 } 

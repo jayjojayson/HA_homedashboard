@@ -1,7 +1,7 @@
 type: custom:vertical-stack-in-card
 cards:
   - type: custom:mushroom-media-player-card
-    entity: media_player.wohnzimmer
+    entity: media_player.echo_show
     media_controls:
       - play_pause_stop
       - next
@@ -14,13 +14,6 @@ cards:
     collapsible_controls: false
     use_media_info: true
     icon: mdi:cast-audio
-    card_mod:
-      style: |
-        :host {
-          background: none !important;
-          box-shadow: none;
-          z-index: 1 !important; /* Über dem Hintergrund */
-        }
   - type: custom:mushroom-chips-card
     card_mod:
       style: |
@@ -57,12 +50,12 @@ cards:
 card_mod:
   style: |
     ha-card {
-      border: none !important;
       position: relative;
-      overflow: hidden;  
+      overflow: hidden;
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px
-                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important; 
-    } 
+                  13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      border: none;
+    }
     ha-card::before {
       content: '';
       position: absolute;
@@ -70,10 +63,10 @@ card_mod:
       left: 0;
       right: 0;
       bottom: 0;
-      background: url({{ state_attr('media_player.wohnzimmer', 'entity_picture') }}) no-repeat center center;
+      background: url({{ state_attr('media_player.jan_s_echo', 'entity_picture') }}) no-repeat center center;
       background-size: cover;
       filter: blur(30px);
       z-index: 0;
-      opacity: {% if is_state('media_player.wohnzimmer', 'playing') %} 1 {% else %} 0 {% endif %};
-      transition: opacity 0.5s ease;
+      opacity: {% if is_state('media_player.jan_s_echo', 'playing') or is_state('media_player.jan_s_echo', 'paused') %} 1 {% else %} 0 {% endif %};
+      transition: opacity 0.3s ease;
     }

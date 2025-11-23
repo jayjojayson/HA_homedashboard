@@ -30,7 +30,7 @@ auto_order: false
 5_link: /dashboard-test/wetter
 5_icon: mdi:weather-partly-cloudy
 6_link: /dashboard-test/solar
-6_icon: m3of:solar-power
+6_icon: mdi:home-lightning-bolt-outline
 card_mod:
   style: |
     ha-card {
