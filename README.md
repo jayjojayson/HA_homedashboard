@@ -5,7 +5,7 @@
 # ✨ HA_homedashboard ✨ 
 Homedashboard Cards and Layout Code for Home Assistant
 
-### [NEU - Dokuseite zum Dashboard](https://jayjojayson.github.io/HA_homedashboard/)
+### [NEU - Wiki zum Dashboard](https://jayjojayson.github.io/HA_homedashboard/)
 
 Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitstellen. Das Dashboard basiert auf dem neuen Kacheldesign in HA. Inzwischen ist die Struktur des Dashboards sehr gewachsen, wechselhalb eine Übersicht auch für mich gut ist, um den Überblick zu behalten.
 Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Daher wird gerade die Startseite mit vielen dynamischen Einblendungen, PopUp- und Conditional-Cards gestaltet. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen. 
@@ -134,13 +134,13 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 #### Installation über HACS
 - Gehe zu Hacs und füge das Respository dort ein. oder benutze diesen Link.
 - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=integration)
-- Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
+- Nach dem Import könnt ihr über HACS das Dashboard installieren. Das Dashboard und Theme wird unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
 
 Link für HACS
 ```yaml
 https://github.com/jayjojayson/HA_homedashboard
 ```
-configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
+Für das Theme: configuration.yaml mit folgendem ergänzen (Beispiellink, muss angepasst werden)
 ```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
