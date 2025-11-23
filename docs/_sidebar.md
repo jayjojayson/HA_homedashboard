@@ -29,4 +29,5 @@
   - [🧩 Pool-Flow-Card](z-Pool-Flow-Card.md) 
   - [🧩 SolarModul-Card](z-Solar-Paneel-Modul-Card.md) 
   - [🧩 Sonnenstand-Card](z-Sonnenstand-Card.md) 
+  - [🧩 Emoji-Liste](z-Emoji-List.md) 
 
