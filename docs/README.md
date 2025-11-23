@@ -1,5 +1,6 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/jayjojayson/HA_homedashboard?include_prereleases=&sort=semver&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases/)
+[![README English](https://img.shields.io/badge/README-English-orange)](https://github.com/jayjojayson/HA_homedashboard/blob/main/docs/z-English-ReadMe/readME-Eng.md)
 
 # ℹ️ Einführung
 Homedashboard Cards and Layout Code for Home Assistant
@@ -8,8 +9,6 @@ Hier möchte ich euch mein Dashboard vorstellen und im Detail für euch bereitst
 Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit nicht gescrollt werden müssen, aber an manchen Stellen lässt es sich einfach nicht vermeiden. Daher wird gerade die Startseite mit vielen dynamischen Einblendungen, PopUp- und Conditional-Cards gestaltet. Zudem werden die größeren Cards auf dem Handy im Layout gebrochen und daher ebenfalls ganz gut dargestellt. Die Entwicklung geht weiter und ich werde hier versuchen den aktullen Stand vom Dashboard zu pflegen. Aktuelle Updates Infos findet ihr in den jeweiligen Releases.
 
 **Wenn euch das Dashboard gefällt, gebt ihm bitte einen Stern ⭐ auf GitHub, danke. 🤗**
-
-**Read in english - [English-ReadMe](https://github.com/jayjojayson/HA_homedashboard/blob/main/z-English-ReadMe/readME-Eng.md)**
 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
