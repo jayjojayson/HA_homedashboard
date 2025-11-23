@@ -83,8 +83,8 @@ config:
   defaults:
     hover_action: hover-info
     tap_action: more-info
-  image: /local/pool-card/pool-card.svg
-  stylesheet: /local/pool-card/pool-card.css
+  image: /local/community/HA_homedashboard/ool-Flow-Card/pool-card/pool-card.svg
+  stylesheet: /local/community/HA_homedashboard/ool-Flow-Card/pool-card/pool-card.css
   rules:
     - element: wasserlauf
       entity: switch.wasserlauf_steckdose_1

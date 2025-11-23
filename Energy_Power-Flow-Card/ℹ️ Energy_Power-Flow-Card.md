@@ -33,9 +33,9 @@ config:
   console_log_level: info
   defaults:
     hover_action: hover-info
-    tap_action: more-info
-  image: /local/energy-flow-card/energy-flow-card-small.svg
-  stylesheet: /local/energy-flow-card/energy-flow-card.css
+    tap_action: more-info  
+  image: /local/community/HA_homedashboard/Energy_Power-Flow-Card/energy-flow-card-small.svg
+  stylesheet: /local/community/HA_homedashboard/Energy_Power-Flow-Card/energy-flow-card.css
   rules:
     - element: soc
       entity: sensor.batterie_ladezustand
