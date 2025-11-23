@@ -1,5 +1,6 @@
 ![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/6%20Strom/stromseite_ubersicht.jpg)
 
+---
 
 # Strom Aktuell Verbrauch Solar Card
 
@@ -1969,3 +1970,4 @@ card_mod:
       bottom: 0;
     }
 ```
+
