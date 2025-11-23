@@ -1,5 +1,5 @@
 
-![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/4%20Garten/gartenseite_ubersicht.jpg)
+![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht_opened.jpg)
 
 # Feiertage
 
@@ -2658,4 +2658,5 @@ cards:
               margin-top: -65px !important;
             }
 ```
+
 
