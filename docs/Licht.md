@@ -1,6 +1,4 @@
-
-![img](https://github.com/jayjojayson/HA_homedashboard/blob/main/3%20Licht/lichtseite_ubersicht.jpg)
-
+![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/3%20Licht/lichtseite_ubersicht.jpg)
 
 # Wohnzimmer Licht Card
 
@@ -1912,3 +1910,4 @@ card_mod:
       bottom: 0;
     }
 ```
+
