@@ -31,7 +31,7 @@ kiosk_mode:
 
 ## 💬 particles background
 
-Wenn Ihr das Dashobard über Hacs installiert habt, findet die eine fertig und gebrauchsfähige Kopie der Card im Ordner `www/community/HA_homedashboard/`.
+Wenn Ihr das Dashobard über Hacs installiert habt, findet die eine fertig und gebrauchsfähige Kopie der Card im Ordner `www/community/HA_homedashboard/`.  Der zweite Schritt entfällt somit.
 
 Für den Particles Background sind zwei Dinge notwendig. Zuerst müsst ihr unter Geräte & Dienste einen Helfer mit dem Typ Schalter und dem Namen Button Background Dashboard angelegen, dann könnt ihr den 
 nachfolgenden Code wie folgt einfügen. Somit könnt ihr im Anschluß bequem per Schalter den partikel Hintergrund ein- oder ausblenden. Ich habe den Schalter in der Unterseite Einstellungen hinterlegt.
@@ -39,7 +39,7 @@ nachfolgenden Code wie folgt einfügen. Somit könnt ihr im Anschluß bequem per
 Das zweite ist das Anlegen der Dateien, kopiert dazu einfach alle Dateien aus folgendem github aus dem Ordner "z-particles background" und fügt sie bei euch unter www/particles/ ein. Den Ordner "particles" müsst ihr vorab erstellen.
 
 Je nachdem auf welcher Seite ihr den Hintergrund letztlich nutzten wollt, muss eine conditional card eingefügt werden. Der Code dazu sieht wie folgt aus. Die Card bleibt erstmal leer und durch Card Mod wird sie an die richtige Stelle gesetzt. 
-Die Positionierung der Card innerhalb des Dashboards sollte am Ende erfolgen. Die Farben können in der css und in der app.js bearbeitet werden (Cache danach löschen nicht vergessen). Hier im Beispiel wird ein Helper Button genutzt umd den animierten Background ein- und ausschalten zu können.
+Die Positionierung der Card innerhalb des Dashboards sollte am Ende erfolgen. Die Farben können in der css und in der app.js bearbeitet werden (Cache danach löschen nicht vergessen). 
 
 ```yaml
 type: conditional
@@ -652,6 +652,7 @@ Für die Funktion müssen zwei Sensoren in der configuration.yaml erstellt werde
 Die Enttitäten der Tanken müssen entsprechend angepasst werden. Ich nutze dafür die Integration Tankerkoenig. Ein kostenloser API Schlüssel kann auf der Seite von Tankerkoenig beantragt werden.
 Nach Konfiguration, kann die Card in auf der Startseite verwendet werden. Die passenden Sensoren findet auf der Seite Dashboard Sensoren im Wiki.
     
+
 
 
 
