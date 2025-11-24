@@ -13,7 +13,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
   
-  ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg)  
+  ![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht_opened.jpg)
 </details>
 
 [![HA_homedashboard](https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
