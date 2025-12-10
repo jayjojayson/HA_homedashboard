@@ -1,6 +1,8 @@
+![Home Assistant](https://img.shields.io/badge/home%20assistant-41BDF5?logo=home-assistant&logoColor=white)
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/jayjojayson/HA_homedashboard?include_prereleases=&sort=semver&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases/)
 [![README English](https://img.shields.io/badge/README-English-orange)](https://github.com/jayjojayson/HA_homedashboard/blob/main/docs/z-English-ReadMe/readME-Eng.md)
+![stars](https://img.shields.io/github/stars/jayjojayson/HA_homedashboard)
 
 # ✨ HA_homedashboard ✨ 
 Homedashboard Cards and Layout Code for Home Assistant
