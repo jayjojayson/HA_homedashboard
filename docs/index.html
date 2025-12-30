@@ -7,11 +7,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>HA_homedashboard</title>  
     <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/themes/dark.css"
-    />
-  </head>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/dark.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+	</head>
+	
+	<style>
+	  /* --- SCHRIFTART (GLOBAL) --- */
+	  body, 
+	  .markdown-section, 
+	  .sidebar-nav, 
+	  .app-name {
+	      /* Hier 'Inter' eintragen (oder den Namen deiner gewählten Schrift) */
+	      font-family: 'Inter', sans-serif !important; 
+	  }
+	  /* Code-Blöcke bekommen oft eine eigene "Monospace" Schrift */
+	  code, pre {
+	      font-family: 'Roboto Mono', 'Monaco', monospace !important;
+	  }
+	  /* Optional: Falls dir die Seitenleiste (Links) zu klein ist, 
+	     kannst du sie hiermit separat vergrößern */
+	  .sidebar-nav {
+	      font-size: 18px !important; 
+	  }  
+	  /* Optional: Die Überschrift in der Sidebar größer machen */
+	  .app-name {
+	      font-size: 22px !important;
+	  }
+	  /* Der normale Fließtext */
+	  .markdown-section p, 
+	  .markdown-section ul, 
+	  .markdown-section ol {
+	      font-size: 20px !important; /* Hier die Wunschgröße eintragen (Standard ist oft 16px) */
+	      line-height: 1.6;           /* Zeilenabstand etwas erhöhen für bessere Lesbarkeit */
+	  }
+	  /* Code-Blöcke (die schwarzen Kästen) */
+	  .markdown-section pre > code {
+	      font-size: 16px !important; /* Code sollte oft etwas kleiner sein als Text */
+	  }
+	</style>  
+	
   <body>
     <div id="app"></div>
     <script>
