@@ -12,12 +12,12 @@ Temps:
 orange-theme:
 card-mod-theme: orange-theme
 
-  # 1. Die "Mutter-Variable" -> SOLID / BLICKDICHT
+  # "Mutter-Variable" -> SOLID / BLICKDICHT
   card-background-color: "#181e2a"
   mdc-theme-surface: "#181e2a"
   md-sys-color-surface-container: "#181e2a"
   
-  # 2. Die "Karten-Variable" -> TRANSPARENT
+  # "Karten-Variable" -> TRANSPARENT
   ha-card-background: "rgba(22,22,22, 0.3)"
   ha-card-background-color: "rgba(22,22,22, 0.3)"
 
