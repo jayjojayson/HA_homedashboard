@@ -10,15 +10,38 @@ Temps:
   ha-card-background-color: "rgba(22,22,22, 0.3)"   #cardmod 3.4.4
 
 orange-theme:
-  md-sys-color-surface-container: "var(--card-background-color, #181e2a)"
+card-mod-theme: orange-theme
+
+  # 1. Die "Mutter-Variable" -> SOLID / BLICKDICHT
+  card-background-color: "#181e2a"
+  mdc-theme-surface: "#181e2a"
+  md-sys-color-surface-container: "#181e2a"
+  
+  # 2. Die "Karten-Variable" -> TRANSPARENT
+  ha-card-background: "rgba(22,22,22, 0.3)"
+  ha-card-background-color: "rgba(22,22,22, 0.3)"
+
   modes:
     dark:
       primary-color: "#ffe084"
       accent-color: "steelblue"
       primary-text-color: "#e1e1e1"
       secondary-text-color: "#7a7a7a"
-      primary-background-color: "#20293a"                #"radial-gradient(circle, rgba(68,77,96,1) 0%, rgba(24,30,42,1) 100%)"
-      data-table-background-color: "#20293a"
+      primary-background-color: "#20293a"
+      
+      # Automationen Tabelle (Blau)
+      data-table-background-color: "#283245"
+      
+      # Variablen-Trennung für den Dark Mode wiederholen/bestätigen
+      card-background-color: "#181e2a"
+      ha-card-background: "rgba(22,22,22, 0.3)" # Karten = Transparent
+      
+      # Menü Variablen sicherstellen
+      mdc-theme-surface: "#181e2a"
+      md-menu-container-color: "#181e2a"
+      mdc-menu-surface-fill-color: "#181e2a"
+      
+      # Restliche Farben
       text-primary-color: "#767676"
       text-accent-color: "#ffffff"
       header-text-color: "#919398"
@@ -30,15 +53,20 @@ orange-theme:
       ha-heading-card-title-font-size: "18px"
       ha-heading-card-title-letter-spacing: ".5px"
       ha-card-border-radius: "8px 8px 45px 8px"
-      ha-card-background-color: "rgba(22,22,22, 0.3)"   #cardmod 3.4.4
       sidebar-menu-button-background-color: "#181e2a"
       sidebar-background-color: "#181e2a"
       md-dialog-container-color: "#181e2a"
       md-sys-color-surface: "#181e2a"
       md-list-container-color: "#20293a"
-      card-background-color: "rgba(22,22,22, 0.3)"       # menuoverlay "#181e2a" rgba(22,22,22, 0.3) setzen, dann sind alle Menüs nicht mehr transparent
-      mdc-theme-surface: "#181e2a"
       name-font-size: "1.1rem"
       ha-control-select-color: "#ffe084"
       state-climate-auto-color: "#ffe084"
       material-background-color: "#181e2a"
+
+      # --- CARD MOD NUR NOCH FÜR AUTOMATIONEN ---
+      card-mod-root: |
+        :host {
+          --data-table-background-color: #283245 !important;
+          --mdc-data-table-row-fill-color: #283245 !important;
+          --mdc-data-table-row-hover-fill-color: #303d52 !important;
+        }
