@@ -1,5 +1,13 @@
 # ☀️ Sonnenstand Custom Card
 
+Ich habe inzwischen sogar einen Sun-Position Card erstellt die ein vielzahl an Möglichkeiten zur Gestalung der Sonnenstand Card geben. Ihr findet nachfolgend das repo dazu. Die Card ist aber auch direkt in HACS zu finden.
+
+https://github.com/jayjojayson/Sun-Position-Card  
+
+<img width="80%" height="auto" alt="image" src="https://github.com/user-attachments/assets/1a84fcb6-6703-463f-86f2-a42e4bf98a42" />
+
+#### Ansonsten könnt ihr aber auch gerne hier die Card nachbauen
+
 ![Beispiel-Bild](https://github.com/user-attachments/assets/38152fe6-310c-4739-93ad-97fd67fa4f10)
 
 Ich weiß, es gibt auch diese Zenit-Card, aber wer es kompakt und im gleichen Stil mag ist mit den Sonnestand-Card gut beraten. Die Card ist eine Kombination aus einer custom-stack-in-card und einer grid-layout-card.
