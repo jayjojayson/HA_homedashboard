@@ -4,10 +4,24 @@ Homedashboard Cards and Layout Code for Home Assistant
 
 Here I would like to introduce you my dashboard and provide you with a detailed overview. The dashboard is based on the new tile design in HA. The structure of the dashboard has grown a lot since then and an overview is good for me, too. The dashboard is adapted for tablet view. If possible, you shouldn't have to scroll, but in some places it just can't be avoided. In addition, the larger cards are broken up in the layout on the mobile phone and are therefore also displayed quite well. Development is continuing and I will try to maintain the current status of the dashboard at github. I will record current updates [here](https://github.com/jayjojayson/HA_homedashboard#%EF%B8%8F-updates).
 
+[![Wiki](https://img.shields.io/badge/📖_Doku-Wiki-blue?style=for-the-badge)](https://jayjojayson.github.io/HA_homedashboard/)
+
 If you like the Dashboard, I would appreciate a Star rating ⭐ from you. 🤗 
 
-![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 
+<img width="85%" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/docs/images/HA_homedashboard_dashboard.png" />
+
+---
+
+<details>
+  <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
+  
+  ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
+</details>
+
+----
+
+![start](https://github.com/user-attachments/assets/5ab05e5a-79a1-45b5-8700-a83049f8a74b)
 
 ## 📂 Folder Structure
 
