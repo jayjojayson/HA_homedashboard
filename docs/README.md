@@ -68,7 +68,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild Startseite</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg") /> 
+	<img width="60%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg") /> 
   </details>
 
 **für Staubsauger und Müll Card notwendig**
@@ -78,7 +78,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg") />
+	<img width="60%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg") />
   </details>
 
 **für Wetter Card notwendig**
@@ -88,7 +88,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg") />
+	<img width="60%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg") />
   </details>
 
 **für Stromübersicht Card notwendig**
@@ -98,7 +98,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg") />
+	<img width="60%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg") />
   </details>
 
 **für Paketeüberischt Card notwendig**
@@ -109,7 +109,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg") />
+	<img width="60%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg") />
   </details>
 
 (optional - Topmenu verstecken)
