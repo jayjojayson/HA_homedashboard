@@ -12,7 +12,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 
 **Wenn euch das Dashboard gefällt, gebt ihm bitte einen Stern ⭐ auf GitHub, danke. 🤗**
 
-<img width="90%" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/docs/images/HA_homedashboard_dashboard.png" />
+<img width="85%" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/docs/images/HA_homedashboard_dashboard.png" />
 
 ---
 
@@ -32,8 +32,8 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
 Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
 
-#
-# 📖 Features
+
+## 📖 Features
 
 - **📣 HA-Topmenü/Header ein-/ausblenden (Button-Action)  [(optional)](https://jayjojayson.github.io/HA_homedashboard/#/Custom_Cards)**
 - **📣 particles Background ein-/ausblenden (Button-Action)  [(optional)](https://jayjojayson.github.io/HA_homedashboard/#/Custom_Cards)**
@@ -52,8 +52,8 @@ Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an un
 
 ...coming soon
 
-#
-# ✔️ Voraussetzungen
+
+## ✔️ Voraussetzungen
 
 Folgende Cards müssen über HACS installiert sein, dass im Anschluss euer kopierter Code funktioniert.
 Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils erstellten Cards.
@@ -125,8 +125,6 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
 Es müssen ein paar Sensoren in der configuration.yaml angelegt werden. Das ist notwendig, um Temperatur-, Luft-, und Solarwerte nach Zustand einzufärben.
 Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor herauskopieren, bei euch in die config.yaml eintragen und HA (schnell) neu laden.
 
-#
-# 📥 Installation
 
 ## ➡️ Installation über HACS
 - Gehe zu Hacs und füge das Respository dort ein. 
