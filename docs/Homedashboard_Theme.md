@@ -3,7 +3,7 @@
 Wenn Ihr das Dashobard über Hacs installiert habt, findet die Hintgrund Datei im Ordner `www/community/HA_homedashboard/`. Einfach Codebeispiel in der configruation.yaml oben hinzufügen und ihr
 könnt im Anschluss unter Einstellungen (Person) das Theme ganz normal auswählen.
 
-<img width="90%" height="auto" alt="HA_homedashboard_theme" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/docs/images/HA_homedashboard_dashboard_theme.png")/>
+<img width="90%" height="auto" alt="HA_homedashboard_theme" src="docs/images/HA_homedashboard_dashboard_theme.png")/>
 
 
 Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu sehen, könnt ihr HACS für die Installation nutzen oder könnt euch die HA_Homedashboard Theme Yaml in euer HA 
