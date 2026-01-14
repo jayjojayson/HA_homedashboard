@@ -33,8 +33,8 @@ config:
   defaults:
     hover_action: hover-info
     tap_action: more-info
-  image: /local/energy-flow-card/energy-flow-card-small.svg
-  stylesheet: /local/energy-flow-card/energy-flow-card.css
+  image: /local/community/HA_homedashboard/Energy_Power-Flow-Card/energy-flow-card/energy-flow-card-small.svg
+  stylesheet: /local/community/HA_homedashboard/Energy_Power-Flow-Card/energy-flow-card/energy-flow-card.css
   rules:
     - element: soc
       entity: sensor.batterie_ladezustand
@@ -366,13 +366,6 @@ config:
         - service: floorplan.class_set
           service_data:
             class: static-value
-card_mod:
-  style: |
-    ha-card {
-      background: none !important;   
-      box-shadow: none !important;
-      border: none;
-    }
 ```
 
 ---

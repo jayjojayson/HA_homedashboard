@@ -4,7 +4,7 @@ Ich habe inzwischen sogar einen Sun-Position Card erstellt die ein vielzahl an M
 
 https://github.com/jayjojayson/Sun-Position-Card  
 
-<img width="60%" height="auto" alt="image" src="https://github.com/user-attachments/assets/1a84fcb6-6703-463f-86f2-a42e4bf98a42" />
+<img width="50%" height="auto" alt="image" src="https://github.com/user-attachments/assets/1a84fcb6-6703-463f-86f2-a42e4bf98a42" />
 
 #### Ansonsten könnt ihr aber auch gerne hier die Card nachbauen
 
@@ -55,22 +55,22 @@ Ich weiß, es gibt auch diese Zenit-Card, aber wer es kompakt und im gleichen St
             {% set azimuth = state_attr('sun.sun', 'azimuth') | float(default=0) %}
             {% set elevation = state_attr('sun.sun', 'elevation') | float(default=0) %}
             {% if elevation < 0 %}
-              /local/sonne/unterHorizont.png
+              /local/community/HA_homedashboard/Sonnestand-Card/unterHorizont.png
             {% elif elevation < 10 %}
-              /local/sonne/dammerung.png
+              /local/community/HA_homedashboard/Sonnestand-Card/dammerung.png
             {% elif azimuth < 150 %}
-              /local/sonne/morgen.png
+              /local/community/HA_homedashboard/Sonnestand-Card/morgen.png
             {% elif azimuth < 200 %}
-              /local/sonne/mittag.png
+              /local/community/HA_homedashboard/Sonnestand-Card/mittag.png
             {% elif azimuth < 255 %}
-              /local/sonne/morgen.png
+              /local/community/HA_homedashboard/Sonnestand-Card/morgen.png
             {% else %}
-              /local/sonne/abend.png
+              /local/community/HA_homedashboard/Sonnestand-Card/abend.png
             {% endif %}
           {% else %}
-            /local/sonne/unterHorizont.png
+            /local/community/HA_homedashboard/Sonnestand-Card/unterHorizont.png
           {% endif %}
-```
+```	  
 Ich denke die meisten haben schon Sensoren für die Uhrzeit zum Sonneauf-/untergang. Wenn nicht, müsst ihr dafür auch zwei Sensoren anlegen.
 
 :pushpin: **Sonnenaufgang**

@@ -13,7 +13,7 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 **Wenn euch das Dashboard gefällt, gebt ihm bitte einen Stern ⭐ auf GitHub, danke. 🤗**
 
 
-<img width="90%" height="auto" alt="HA_homedashboard" src="images/HA_homedashboard_dashboard.png") />
+<img width="90%" height="auto" alt="HA_homedashboard" src="https://github.com/jayjojayson/HA_homedashboard/blob/main/docs/images/HA_homedashboard_dashboard.png") />
 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
@@ -78,7 +78,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg") />
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg") />
   </details>
 
 **für Wetter Card notwendig**
@@ -109,7 +109,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg") />
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/7%20Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg") />
   </details>
 
 (optional - Topmenu verstecken)

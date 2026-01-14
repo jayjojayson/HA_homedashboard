@@ -15,7 +15,7 @@ frontend:
   themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
 ```
 
-<img width="90%" height="auto" alt="HA_homedashboard_theme" src="images/HA_homedashboard_dashboard_theme.png") />
+<img width="90%" height="auto" alt="HA_homedashboard_theme" src="https://github.com/jayjojayson/HA_homedashboard/blob/main/docs/images/HA_homedashboard_theme.png") />
 
 Nachdem einfügen des Themes könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert. 
 Wenn ihr auch das Hintergrundfoto nutzen möchtet, findet ihr es im Ordner images oder wird über Hacs mit installiert und liegt im Ordner `www/community/HA_homedashboard/`.
