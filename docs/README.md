@@ -13,12 +13,12 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 **Wenn euch das Dashboard gefällt, gebt ihm bitte einen Stern ⭐ auf GitHub, danke. 🤗**
 
 
-<img width="90%" height="auto" alt="HA_homedashboard" src="docs/images/HA_homedashboard_dashboard.png") />
+<img width="90%" alt="HA_homedashboard" src="docs/images/HA_homedashboard_dashboard.png") />
 
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
   
-  ![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht_opened.jpg)
+  <img width="90%" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht_opened.jpg") />
 </details>
 
 <a href="https://www.youtube.com/watch?v=AK_P7a_ynUY">
