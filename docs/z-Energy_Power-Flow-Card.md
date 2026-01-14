@@ -6,9 +6,9 @@ Dieses Projekt zeigt, wie man mit einer SVG-Grafik und der `floorplan-card` Ener
 
 Für ausführliche Erklärungen, wie man die SVG erstellt und verknüpft schaut euch bitte die Pool-Flow-Card an. Dort habe ich alles genau erklärt.
 
-<img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/09229cec-0606-4b4d-8465-c369b5a508e0") /> <img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/a6c1436b-34d6-4209-959b-38cd0eca0c66") />
+<img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/09229cec-0606-4b4d-8465-c369b5a508e0" /> <img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/a6c1436b-34d6-4209-959b-38cd0eca0c66" />
 
-<img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/a8033160-32fd-49a1-8ed4-d1380a388d57") /> <img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/dc7ec224-3f8f-470c-a12f-0eb7dc276670") />
+<img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/a8033160-32fd-49a1-8ed4-d1380a388d57" /> <img width="48%" height="auto" alt="flow-card" src="https://github.com/user-attachments/assets/dc7ec224-3f8f-470c-a12f-0eb7dc276670" />
 
 
 ### 🔧 Voraussetzungen
