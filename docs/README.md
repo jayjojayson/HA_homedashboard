@@ -12,15 +12,18 @@ Das Dashboard ist für die Tabletansicht angepasst. Es sollte nach Möglichkeit 
 
 **Wenn euch das Dashboard gefällt, gebt ihm bitte einen Stern ⭐ auf GitHub, danke. 🤗**
 
+
+<img width="90%" height="auto" alt="HA_homedashboard" src="images/HA_homedashboard_dashboard.png") />
+
 <details>
   <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
   
   ![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht_opened.jpg)
 </details>
 
-[![HA_homedashboard](https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
-
-
+<a href="https://www.youtube.com/watch?v=AK_P7a_ynUY">
+  <img src="https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d" width="70%">
+</a>
 
 **📂 Ordnerstruktur**
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
@@ -65,7 +68,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild Startseite</b></summary>  
     
-    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg)  
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/1%20Startseite/startseite_ubersicht.jpg") /> 
   </details>
 
 **für Staubsauger und Müll Card notwendig**
@@ -75,7 +78,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg)  
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/2%20Roboter/roboterseite_ubersicht.jpg") />
   </details>
 
 **für Wetter Card notwendig**
@@ -85,7 +88,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg)  
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/5%20Wetter/wetterseite_ubersicht.jpg") />
   </details>
 
 **für Stromübersicht Card notwendig**
@@ -95,7 +98,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg)  
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/6%20Strom/stromseite_ubersicht.jpg") />
   </details>
 
 **für Paketeüberischt Card notwendig**
@@ -106,7 +109,7 @@ Welche HACS card ihr letztendlich benötigt, seht ihr auch in meinen jeweils ers
   <details>
     <summary> <b>Beispielbild</b></summary>  
     
-    ![start](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg)  
+	<img width="50%" height="auto" alt="HA_homedashboard" src="https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/main/Unterseiten/1%20Einstellungen/einstellungenseite_ubersicht.jpg") />
   </details>
 
 (optional - Topmenu verstecken)
@@ -123,30 +126,46 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 # 📥 Installation
 
 ## ➡️ Installation über HACS
-- Gehe zu Hacs und füge das Respository dort ein. oder benutze diesen Link.
+- Gehe zu Hacs und füge das Respository dort ein. 
+Link für HACS
+```yaml
+https://github.com/jayjojayson/HA_homedashboard
+```
+
+- oder besser nutze diesen Link.
 - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=plugin)
 - Nach dem Import könnt ihr über HACS das Dashboard installieren. Alle Dateien werden unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
 
 Installiert wird:
 
-- HA_Dashboard.yaml (muss manuell in neues Dahsboard kopiert werden)
+- HA_Dashboard.yaml
 - HA_Dashboard_Theme.yaml
 - Background-Image
 - Particles Background
 - Pool-Flow-Card
 - Energy-Flow-Card
 
-Link für HACS
+
+Für das Dashboard: configuration.yaml mit folgendem ergänzen (Beispiellink)
 ```yaml
-https://github.com/jayjojayson/HA_homedashboard
-```
+lovelace:
+  mode: yaml
+  dashboards:
+    ha_homedashboard:
+      mode: yaml
+      title: Home Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true			 # oder false wenn es nicht in der Seitenleiste sichtbar sein soll
+      filename: www/community/HA_homedashboard/HA_homedashboard.yaml
+  ```
+
 Für das Theme: configuration.yaml mit folgendem ergänzen (Beispiellink)
 ```yaml
   frontend:
     themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
   ```
 
-## ➡️ Manuelle Installation
+## ➡️ Manuell Installation/Kopieren
 1. Wähle den YAML-Code aus einer Vorlage aus den Ordnern aus und kopiere den Code.
 2. Gehe zu deinem Dashboard und füge den kopierten Code in eine neue Card oder direkt in eine neue Seite ein.
 3. Passe die Entitäten an deine an, ersetze dazu IDs und Sensoren durch die aus deinem Setup.

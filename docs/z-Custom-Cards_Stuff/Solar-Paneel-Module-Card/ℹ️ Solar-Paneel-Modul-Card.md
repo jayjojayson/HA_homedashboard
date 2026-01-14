@@ -65,7 +65,7 @@ elements:
         below: 5
     elements:
       - type: image
-        image: /local/sonne/solaroff1.png
+        image: /local/community/HA_homedashboard/Solar-Paneel-Module-Card/solaroff1.png
         state_image: {}
         style:
           left: 13%
@@ -115,7 +115,7 @@ elements:
         below: 5
     elements:
       - type: image
-        image: /local/sonne/solaroff1.png
+        image: /local/community/HA_homedashboard/Solar-Paneel-Module-Card/solaroff1.png
         state_image: {}
         style:
           left: 38%
@@ -221,6 +221,6 @@ elements:
           left: 88%
           top: 50%
           width: 25%
-image: /local/sonne/solaron2.png
+image: /local/community/HA_homedashboard/Solar-Paneel-Module-Card/solaron2.png
 
 ```

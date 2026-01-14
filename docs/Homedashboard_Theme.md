@@ -7,11 +7,7 @@ Wenn Ihr genau die Farbgestaltung haben möchtet, wie auf den Vorschaubildern zu
 impotieren. Dazu ladet ihr euch die Datei herunter und geht anschließend in den FileEditor bei Home Assistant. Dort fügt ihr die Datei in den config Ordner oder in den lokal Ordner.
 Der Speicherort spielt eigentlich keine Rolle. Die Theme-Datei wird von HA automatisch erkannt. 
 
-Das Theme ist in drei Stück aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
-
-Nachdem einfügen des Themes könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert. 
-Wenn ihr auch das Hintergrundfoto nutzen möchtet, findet ihr es im Ordner images oder wird über Hacs mit installiert und liegt im Ordner `www/community/HA_homedashboard/`.
-Das müsst ihr dann händisch auf jeder Seite als Hintergrund hinterlegen/hochladen oder Link zum Pfadordner hinterlegen.
+Das Theme ist in drei Stücke aufgeteilt, das Haupttheme, grey-icon und temps. Grey-icon nutze ich manchmal um die Icon auf grau zu setzen und Temps um Standardtemeperaturwerte einzufärben.
 
 Damit das Theme funktioniert müsst ihr in der configuration.yaml gleich am Anfang folgendes hinzufügen (Beispiel)
 ```yaml
@@ -19,4 +15,8 @@ frontend:
   themes: !include www/community/HA_homedashboard/HA_homedashboard_theme.yaml
 ```
 
-![image](https://raw.githubusercontent.com/jayjojayson/HA_homedashboard/refs/heads/main/1%20Startseite/startseite_ubersicht.jpg)
+<img width="90%" height="auto" alt="HA_homedashboard_theme" src="images/HA_homedashboard_dashboard_theme.png") />
+
+Nachdem einfügen des Themes könnt ihr, wie gewohnt, unter Benutzereinstellungen das Theme auswählen. Es wird dann autormatisch übernommen und gespeichert. 
+Wenn ihr auch das Hintergrundfoto nutzen möchtet, findet ihr es im Ordner images oder wird über Hacs mit installiert und liegt im Ordner `www/community/HA_homedashboard/`.
+Das müsst ihr dann händisch auf jeder Seite als Hintergrund hinterlegen/hochladen oder Link zum Pfadordner hinterlegen.

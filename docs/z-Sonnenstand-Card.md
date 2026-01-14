@@ -4,7 +4,7 @@ Ich habe inzwischen sogar einen Sun-Position Card erstellt die ein vielzahl an M
 
 https://github.com/jayjojayson/Sun-Position-Card  
 
-<img width="80%" height="auto" alt="image" src="https://github.com/user-attachments/assets/1a84fcb6-6703-463f-86f2-a42e4bf98a42" />
+<img width="60%" height="auto" alt="image" src="https://github.com/user-attachments/assets/1a84fcb6-6703-463f-86f2-a42e4bf98a42" />
 
 #### Ansonsten könnt ihr aber auch gerne hier die Card nachbauen
 
