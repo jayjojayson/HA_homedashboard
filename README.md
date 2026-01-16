@@ -31,7 +31,6 @@ Aktuelle Updates halte ich [hier](#%EF%B8%8F-updates) fest und das neue Wiki zum
 [![HA_homedashboard](https://github.com/user-attachments/assets/c545ab17-c052-4b84-871a-43b32e56e61d)](https://www.youtube.com/watch?v=AK_P7a_ynUY "HA_homedashboard")
 
 
-
 ## 📂 Ordnerstruktur
 Alles übersichtlich strukturiert, so dass ihr die gewünschten Elemente einfach kopieren könnt. Es sind alle YAML-Dateien pro Karte aufgeführt und den entsprechenden Seiten oder Unterseiten zugeordnet. 
 Schaut am besten den jeweiligen Screenshot der Seite im Ordner/Unterordner an und ihr könnt schnell die enstprechende Card zuordnen bzw. in der Ordnerstruktur finden. Ihr findet dort auch die yaml der kompletten Seiten.
