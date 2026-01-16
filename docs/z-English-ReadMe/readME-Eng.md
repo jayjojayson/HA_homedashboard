@@ -4,7 +4,7 @@ Homedashboard Cards and Layout Code for Home Assistant
 
 Here I would like to introduce you my dashboard and provide you with a detailed overview. The dashboard is based on the new tile design in HA. The structure of the dashboard has grown a lot since then and an overview is good for me, too. The dashboard is adapted for tablet view. If possible, you shouldn't have to scroll, but in some places it just can't be avoided. In addition, the larger cards are broken up in the layout on the mobile phone and are therefore also displayed quite well. Development is continuing and I will try to maintain the current status of the dashboard at github. I will record current updates [here](https://github.com/jayjojayson/HA_homedashboard#%EF%B8%8F-updates).
 
-[![Wiki](https://img.shields.io/badge/📖_Doku-Wiki-blue?style=for-the-badge)](https://jayjojayson.github.io/HA_homedashboard/)
+[![Wiki](https://img.shields.io/badge/📖_Doku-Wiki-blue?style=for-the-badge)](https://jayjojayson.github.io/HA_homedashboard/) (translation for english is possible)
 
 If you like the Dashboard, I would appreciate a Star rating ⭐ from you. 🤗 
 
@@ -14,7 +14,7 @@ If you like the Dashboard, I would appreciate a Star rating ⭐ from you. 🤗
 ---
 
 <details>
-  <summary> <b>Beispielbild Startseite (aufgeklappt)</b></summary>  
+  <summary> <b>Example image Startpage (opened)</b></summary>  
   
   ![start](https://github.com/jayjojayson/HA_homedashboard/blob/main/1%20Startseite/startseite_ubersicht.jpg)  
 </details>
@@ -127,13 +127,26 @@ You can find the sensors at sensors.yaml. Copy the corresponding sensor there, e
 
 #### Installation via HACS
 - Go to Hacs and add the repository there. To do this, or use this Link.
+  Link for HACS
+  ```yaml
+  https://github.com/jayjojayson/HA_homedashboard
+  ```
 - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=plugin)
 - After importing, you can install the dashboard via HACS. The dashboard and theme is stored at `www/community/HA_homedashboard/`. You can navigate there using the file manager in the menu. Copy the content and go to Settings > Dashboard > create new dashboard and then click on the three dots in the top right, select raw configuration editor and paste the copied code there. You can then open the dashboard and add your entities and design it as you wish.
 
-Link for HACS
+For the Dashboard: add this configuration.yaml to get the Dashboard in Sidebar
 ```yaml
-https://github.com/jayjojayson/HA_homedashboard
-```
+lovelace:
+  mode: yaml
+  dashboards:
+    ha_homedashboard:
+      mode: yaml
+      title: Home Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true			 # oder false wenn es nicht in der Seitenleiste sichtbar sein soll
+      filename: www/community/HA_homedashboard/HA_homedashboard.yaml
+  ```
+
 For the Theme: add this to configuration.yaml for the theme (examplelink, must be adjusted)
 ```yaml
   frontend:
