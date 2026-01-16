@@ -140,6 +140,10 @@ Ihr findet die Sensoren unter sensoren.yaml. Dort den entsprechenden Sensor hera
 
 #### Installation über HACS
 - Gehe zu Hacs und füge das Respository dort ein. oder benutze diesen Link.
+  Link für HACS
+  ```yaml
+  https://github.com/jayjojayson/HA_homedashboard
+  ```
 - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=jayjojayson&repository=HA_homedashboard&category=plugin)
 - Nach dem Import könnt ihr über HACS das Dashboard installieren. Alle Dateien werden unter `www/community/HA_homedashboard/` abgelegt. Über den Filemanger im Seintemenü könnt ihr dorthin navigieren. Kopiert den Inhalt und geht zu Einstellungen > Dashboard > neues Dashboard anlegen und anschließend oben rechts auf die drei Punkte klicken, Raw-Konfigurationseditor auswählen und den kopierten Code dort einfügen. Danach könnt ihr das Dashboard öffnen und mit euren Enitäten füttern und nach belieben gestalten.
 
@@ -152,10 +156,19 @@ Installiert wird:
 - Pool-Flow-Card
 - Energy-Flow-Card
 
-Link für HACS
+Für das Dashboard: configuration.yaml mit folgendem ergänzen (Beispiellink)
 ```yaml
-https://github.com/jayjojayson/HA_homedashboard
-```
+lovelace:
+  mode: yaml
+  dashboards:
+    ha_homedashboard:
+      mode: yaml
+      title: Home Dashboard
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true			 # oder false wenn es nicht in der Seitenleiste sichtbar sein soll
+      filename: www/community/HA_homedashboard/HA_homedashboard.yaml
+  ```
+
 Für das Theme: configuration.yaml mit folgendem ergänzen (Beispiellink)
 ```yaml
   frontend:
@@ -868,6 +881,10 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 #
 ## ‼️ Updates
 
+#### update 14 Jan 26 -- v.1.0.6
+- fixed Hacs Installation
+- update Theme
+
 #### update 23 Nov 25 -- v.1.0.5
 - komplette Überarbeitung des Dashboard
 - Anpassung auf aktuellen HA Stand
@@ -876,7 +893,7 @@ Nach Konfiguration, kann die Card in auf der Startseite verwendet werden.
 - neue Custom Cards: Pool-Flow-Card, Energy-Flow-Card, Sonnenstand-Card
 - neue Custom Unterseite Victron
 - Theme zum Dashboard wird über Hacs mitinstalliert
-  
+
 #### update 25 Jan 25-- v.1.0.4
 - Sticky sidebar Menu mit Schalter-Option hinzugefügt
 - Box-Shadow für alle Cards erstellt
