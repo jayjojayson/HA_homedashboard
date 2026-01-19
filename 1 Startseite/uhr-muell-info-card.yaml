@@ -52,22 +52,22 @@ cards:
                 color: green
                 type: organic
                 pattern: Biotonne
-                image: /local/bilder/gruen.jpg
+                picture: /local/bilder/gruen.jpg
               - icon: mdi:newspaper
                 color: blue
                 type: paper
                 pattern: Papiertonne
-                image: /local/bilder/blau.png
+                picture: /local/bilder/blau.png
               - icon: mdi:recycle-variant
                 color: amber
                 type: recycle
                 pattern: Gelber Sack
-                image: /local/bilder/gelb.png
+                picture: /local/bilder/gelb.png
               - icon: mdi:trash-can-outline
                 color: grey
                 type: waste
                 pattern: Restabfall
-                image: /local/bilder/schwarz.png
+                picture: /local/bilder/schwarz.png
               - icon: mdi:dump-truck
                 color: purple
                 type: others
@@ -268,3 +268,4 @@ cards:
               border: none !important; 
               margin-top: -10px !important; margin-bottom: -3px; 
             }
+
