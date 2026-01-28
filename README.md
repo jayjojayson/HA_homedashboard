@@ -2,6 +2,7 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/jayjojayson/HA_homedashboard?include_prereleases=&sort=semver&color=blue)](https://github.com/jayjojayson/HA_homedashboard/releases/)
 [![README English](https://img.shields.io/badge/README-English-orange)](https://github.com/jayjojayson/HA_homedashboard/blob/main/docs/z-English-ReadMe/readME-Eng.md)
+[![Support](https://img.shields.io/badge/%20-Support%20Me-steelblue?style=flat&logo=paypal&logoColor=white)](https://www.paypal.me/quadFlyerFW)
 ![stars](https://img.shields.io/github/stars/jayjojayson/HA_homedashboard)
 
 # ✨ HA_homedashboard ✨ 
